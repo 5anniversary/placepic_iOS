@@ -7,15 +7,6 @@
 //
 import UIKit
 
-enum AssetsColor {
-    // Button Color
-    case black60
-    case mainColor
-    case orangeColor
-    case signUpAndInColor
-    case soptColor
-}
-
 extension UIColor {
 
   @nonobjc class var mainBlue: UIColor {
