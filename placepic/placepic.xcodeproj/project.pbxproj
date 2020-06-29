@@ -11,6 +11,10 @@
 		3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50527A24A9BCDC00140BCA /* APIServices.swift */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
 		3D62560524AA33260047AD70 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D62560424AA33260047AD70 /* Home.storyboard */; };
+		3D62560724AA47130047AD70 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D62560624AA47130047AD70 /* Tabbar.storyboard */; };
+		3D62560924AA49C30047AD70 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D62560824AA49C30047AD70 /* Search.storyboard */; };
+		3D62560B24AA49D90047AD70 /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D62560A24AA49D90047AD70 /* Write.storyboard */; };
+		3D62560D24AA4A050047AD70 /* Rank.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D62560C24AA4A050047AD70 /* Rank.storyboard */; };
 		3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB77324A9274100D54DBF /* AppDelegate.swift */; };
 		3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB77724A9274100D54DBF /* LoginVC.swift */; };
 		3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DECB77924A9274100D54DBF /* Login.storyboard */; };
@@ -19,7 +23,7 @@
 		3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB79F24A92B6C00D54DBF /* MypageVC.swift */; };
 		3DECB7A624A92B8A00D54DBF /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7A524A92B8A00D54DBF /* RankVC.swift */; };
 		3DECB7AB24A92BF700D54DBF /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7AA24A92BF700D54DBF /* SearchVC.swift */; };
-		3DECB7AD24A92C0400D54DBF /* WriterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7AC24A92C0400D54DBF /* WriterVC.swift */; };
+		3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7AC24A92C0400D54DBF /* WriteVC.swift */; };
 		3DECB7B224A92C2F00D54DBF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7B124A92C2F00D54DBF /* HomeVC.swift */; };
 		3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7B324A92C8300D54DBF /* TabbarController.swift */; };
 		3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7BA24A9311100D54DBF /* Enums+Fonts.swift */; };
@@ -37,6 +41,10 @@
 		3D50527A24A9BCDC00140BCA /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		3D62560424AA33260047AD70 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		3D62560624AA47130047AD70 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
+		3D62560824AA49C30047AD70 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		3D62560A24AA49D90047AD70 /* Write.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
+		3D62560C24AA4A050047AD70 /* Rank.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rank.storyboard; sourceTree = "<group>"; };
 		3DECB77024A9274100D54DBF /* placepic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = placepic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DECB77324A9274100D54DBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DECB77724A9274100D54DBF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -47,7 +55,7 @@
 		3DECB79F24A92B6C00D54DBF /* MypageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageVC.swift; sourceTree = "<group>"; };
 		3DECB7A524A92B8A00D54DBF /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
 		3DECB7AA24A92BF700D54DBF /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		3DECB7AC24A92C0400D54DBF /* WriterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterVC.swift; sourceTree = "<group>"; };
+		3DECB7AC24A92C0400D54DBF /* WriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteVC.swift; sourceTree = "<group>"; };
 		3DECB7B124A92C2F00D54DBF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		3DECB7B324A92C8300D54DBF /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		3DECB7BA24A9311100D54DBF /* Enums+Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enums+Fonts.swift"; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 		3DECB79024A928B100D54DBF /* TabbarScene */ = {
 			isa = PBXGroup;
 			children = (
+				3D62560624AA47130047AD70 /* Tabbar.storyboard */,
 				3DECB79124A928B100D54DBF /* VC */,
 			);
 			path = TabbarScene;
@@ -193,6 +202,7 @@
 		3DECB79524A92AF600D54DBF /* SearchScene */ = {
 			isa = PBXGroup;
 			children = (
+				3D62560824AA49C30047AD70 /* Search.storyboard */,
 				3DECB79624A92AF600D54DBF /* Model */,
 				3DECB7A924A92BBC00D54DBF /* View */,
 			);
@@ -209,6 +219,7 @@
 		3DECB79724A92B0400D54DBF /* WriteScene */ = {
 			isa = PBXGroup;
 			children = (
+				3D62560A24AA49D90047AD70 /* Write.storyboard */,
 				3DECB79824A92B0400D54DBF /* Model */,
 				3DECB7A724A92B9600D54DBF /* View */,
 			);
@@ -225,6 +236,7 @@
 		3DECB79924A92B1100D54DBF /* RankScene */ = {
 			isa = PBXGroup;
 			children = (
+				3D62560C24AA4A050047AD70 /* Rank.storyboard */,
 				3DECB79A24A92B1100D54DBF /* Model */,
 				3DECB7A124A92B7800D54DBF /* View */,
 			);
@@ -299,7 +311,7 @@
 		3DECB7A824A92BA100D54DBF /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				3DECB7AC24A92C0400D54DBF /* WriterVC.swift */,
+				3DECB7AC24A92C0400D54DBF /* WriteVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -439,9 +451,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D62560724AA47130047AD70 /* Tabbar.storyboard in Resources */,
 				3DECB78024A9274200D54DBF /* LaunchScreen.storyboard in Resources */,
+				3D62560B24AA49D90047AD70 /* Write.storyboard in Resources */,
 				3D62560524AA33260047AD70 /* Home.storyboard in Resources */,
 				3DECB77D24A9274200D54DBF /* Assets.xcassets in Resources */,
+				3D62560924AA49C30047AD70 /* Search.storyboard in Resources */,
+				3D62560D24AA4A050047AD70 /* Rank.storyboard in Resources */,
 				3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */,
 				3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */,
 			);
@@ -504,7 +520,7 @@
 				3DECB7C224A9311200D54DBF /* Extensions+UIFont.swift in Sources */,
 				3DECB7C424A9311200D54DBF /* Extensions+Date.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
-				3DECB7AD24A92C0400D54DBF /* WriterVC.swift in Sources */,
+				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
 				3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */,
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,

@@ -12,6 +12,7 @@ target 'placepic' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Core'
   pod 'NMapsMap'
+  pod 'XLPagerTabStrip', '~> 9.0'
 
   # Pods for placepic
 
