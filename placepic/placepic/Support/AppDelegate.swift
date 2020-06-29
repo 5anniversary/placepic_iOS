@@ -13,9 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    override init() {
-        super.init()
-        UIFont.overrideInitialize()
-    }
+//    override init() {
+//        super.init()
+//        UIFont.overrideInitialize()
+//    }
 }
 
