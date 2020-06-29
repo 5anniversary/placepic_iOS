@@ -7,20 +7,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MypageVC-->
-        <scene sceneID="CzR-Td-oyO">
+        <!--RankVC-->
+        <scene sceneID="cjz-nl-Okc">
             <objects>
-                <viewController storyboardIdentifier="MypageVC" id="VY4-2U-2ki" customClass="MypageVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YsZ-pE-Bhl">
+                <viewController storyboardIdentifier="RankVC" id="KWR-yg-K4p" customClass="RankVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I3w-hf-8aR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="BFr-75-E2o"/>
+                        <viewLayoutGuide key="safeArea" id="KD4-cJ-whj"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lpy-nq-R2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xX1-W7-Wwg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="267" y="226"/>
+            <point key="canvasLocation" x="22" y="188"/>
         </scene>
     </scenes>
 </document>
