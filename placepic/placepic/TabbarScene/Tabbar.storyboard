@@ -29,7 +29,7 @@
         <!--SearchVC-->
         <scene sceneID="6i5-SV-v27">
             <objects>
-                <viewControllerPlaceholder storyboardName="Search" referencedIdentifier="SearchVC" id="LWY-JF-3h2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="SearchVC" storyboardName="Search" referencedIdentifier="SearchVC" id="LWY-JF-3h2" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="eQ7-Sc-GoS"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ng-3X-jXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -62,6 +62,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TvZ-eJ-phw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5FV-Ja-a5P">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
