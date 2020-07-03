@@ -71,6 +71,7 @@ PODS:
   - NMapsMap (3.8.0)
   - PromisesObjC (1.2.9)
   - TLPhotoPicker (2.0.11)
+  - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
@@ -80,6 +81,7 @@ DEPENDENCIES:
   - lottie-ios
   - NMapsMap
   - TLPhotoPicker
+  - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   trunk:
@@ -99,6 +101,7 @@ SPEC REPOS:
     - NMapsMap
     - PromisesObjC
     - TLPhotoPicker
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -117,7 +120,8 @@ SPEC CHECKSUMS:
   NMapsMap: b3633ad688483a318be9293aeddd323a714fb08b
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   TLPhotoPicker: a5c339732b8326bb16cbb4e00ed01a86f2bfbbb3
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 504873e309f33829498369ffc62a21c170b92b02
+PODFILE CHECKSUM: 502c3f8ed95f043be4a347f33e9f61b336a6d10d
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

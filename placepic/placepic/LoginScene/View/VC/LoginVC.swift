@@ -14,4 +14,13 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
      
     }
+    
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "SendVC") as? SendVC
+            else {
+                return 
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
