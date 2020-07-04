@@ -18,7 +18,7 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         configureButtonBar()
         super.viewDidLoad()
         setNavigationBar()
-        
+        setNavi()
 //        text1.text = "aaa"
 //        text1.frame.size.width = 15
 //        text1.
@@ -79,7 +79,23 @@ class SearchVC: ButtonBarPagerTabStripViewController {
             newCell?.label.textColor = .black
         }
     }
-    
+    func setNavi(){
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        let longTitleLabel = UILabel()
+        longTitleLabel.text = "플레이스"
+        longTitleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        longTitleLabel.sizeToFit()
+
+        let leftItem = UIBarButtonItem(customView: longTitleLabel)
+        navigationItem.leftBarButtonItem = leftItem
+        
+//        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector())
+
+        let search = UIBarButtonItem()
+        let alarm = UIBarButtonItem()
+        navigationItem.rightBarButtonItems = [search, alarm]
+    }
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let child1 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
