@@ -45,9 +45,6 @@
                                 <rect key="frame" x="145" y="318" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="pickerButtonAction:" destination="Dsg-gp-BnB" eventType="touchUpInside" id="oAc-nb-Zul"/>
-                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="g99-0i-j8L">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -81,9 +78,6 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="128" height="128"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="7nn-3W-ou3" id="5xG-Je-7Yx"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -96,13 +90,72 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bxy-Mi-ByH"/>
                     </view>
-                    <connections>
-                        <outlet property="imageCV" destination="g99-0i-j8L" id="Zvm-fD-4qS"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb2-CL-8Qu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="649" y="142"/>
+        </scene>
+        <!--NearstationVC-->
+        <scene sceneID="yc2-P4-TXK">
+            <objects>
+                <viewController storyboardIdentifier="NearstationVC" id="J1J-xd-NTT" customClass="NearstationVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fGT-rf-CMH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-Ah-ukb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GSq-dL-5LU">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Eni-d1-Hme">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NearstationCVCIdentifier" id="65j-5A-CmP">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bXn-Re-God">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="53"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="150" height="53"/>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xno-1U-t95">
+                                        <rect key="frame" x="0.0" y="53" width="375" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GSq-dL-5LU" firstAttribute="height" secondItem="xno-1U-t95" secondAttribute="height" id="XWh-uu-Td0"/>
+                                    <constraint firstAttribute="height" constant="106" id="tsd-gz-BuO"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aEf-Ah-ukb" firstAttribute="leading" secondItem="znC-t5-6sE" secondAttribute="leading" id="Azy-uX-9ho"/>
+                            <constraint firstItem="znC-t5-6sE" firstAttribute="trailing" secondItem="aEf-Ah-ukb" secondAttribute="trailing" id="MpH-EZ-NjX"/>
+                            <constraint firstItem="aEf-Ah-ukb" firstAttribute="top" secondItem="znC-t5-6sE" secondAttribute="top" id="qjp-my-Mtr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="znC-t5-6sE"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="GSq-dL-5LU" id="nlf-Sj-GtU"/>
+                        <outlet property="searchTextField" destination="xno-1U-t95" id="kps-32-Tpf"/>
+                        <outlet property="stackviewHeight" destination="tsd-gz-BuO" id="7uz-n4-IeJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3b6-xH-uNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1281" y="142"/>
         </scene>
     </scenes>
 </document>

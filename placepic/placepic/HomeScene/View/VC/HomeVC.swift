@@ -37,15 +37,14 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func keywordModalButton(_ sender: Any) {
-        settingsLauncher.showSettings()
+        settingsLauncher.showSettings("키워드")
     }
 }
 
 // MARK: - 
 extension HomeVC {
     
-    private func setCollectionView() {
-    }
+    private func setCollectionView() { }
     
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
@@ -73,7 +72,6 @@ class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
         // Constants
         let leftPadding: CGFloat = 10
         let interItemSpacing = minimumInteritemSpacing
-//        print("interItemSpacing: \(interItemSpacing)")
         
         // Tracking values
         var leftMargin: CGFloat = leftPadding // Modified to determine origin.x for each item
@@ -98,7 +96,6 @@ class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
                     currentRow += 1
                 }
             }
-            
             layoutAttribute.frame.origin.x = leftMargin
             
             leftMargin += layoutAttribute.frame.width + interItemSpacing
