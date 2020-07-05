@@ -70,8 +70,13 @@ PODS:
   - nanopb/encode (1.30905.0)
   - NMapsMap (3.8.0)
   - PromisesObjC (1.2.9)
-  - TLPhotoPicker (2.0.11)
+  - PryntTrimmerView (4.0.0)
+  - SteviaLayout (4.7.3)
+  - SwiftKeychainWrapper (3.4.0)
   - XLPagerTabStrip (9.0.0)
+  - YPImagePicker (4.2.1):
+    - PryntTrimmerView (~> 4.0.0)
+    - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
@@ -80,8 +85,9 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - lottie-ios
   - NMapsMap
-  - TLPhotoPicker
+  - SwiftKeychainWrapper
   - XLPagerTabStrip (~> 9.0)
+  - YPImagePicker
 
 SPEC REPOS:
   trunk:
@@ -100,8 +106,11 @@ SPEC REPOS:
     - nanopb
     - NMapsMap
     - PromisesObjC
-    - TLPhotoPicker
+    - PryntTrimmerView
+    - SteviaLayout
+    - SwiftKeychainWrapper
     - XLPagerTabStrip
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -119,9 +128,12 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   NMapsMap: b3633ad688483a318be9293aeddd323a714fb08b
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
-  TLPhotoPicker: a5c339732b8326bb16cbb4e00ed01a86f2bfbbb3
+  PryntTrimmerView: 67e67573ffd4c073f1308effa66aefd0cfa667a0
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
+  YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 502c3f8ed95f043be4a347f33e9f61b336a6d10d
+PODFILE CHECKSUM: 93793605c5b3bae5e3d023b3f4e53a3200cefa11
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.8.4
