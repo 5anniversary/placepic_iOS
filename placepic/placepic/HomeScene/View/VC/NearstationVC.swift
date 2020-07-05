@@ -24,7 +24,6 @@ class NearstationVC: UIViewController {
     }
 }
 
-
 extension NearstationVC {
     
     private func setCollectionView() {
@@ -37,10 +36,16 @@ extension NearstationVC: UICollectionViewDelegateFlowLayout { }
 extension NearstationVC: UICollectionViewDataSource {
  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return stationModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NearstationCVCIdentifier", for: indexPath) as? NearstationCVC else {
+            return UICollectionViewCell()
+        }
+        return cell
     }
+    
+    
 }

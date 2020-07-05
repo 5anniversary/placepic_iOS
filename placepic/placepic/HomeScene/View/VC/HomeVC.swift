@@ -33,7 +33,6 @@ class HomeVC: UIViewController {
         
         setNavigationBar()
         setCollectionView()
-        
     }
     
     @IBAction func keywordModalButton(_ sender: Any) {
