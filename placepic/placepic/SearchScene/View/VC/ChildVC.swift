@@ -16,7 +16,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
 
         placeListTV.delegate = self
         placeListTV.dataSource = self
-        setNavi()
+        setNavigationBar()
         setData()
 //        sizeHeaderToFit(tableView: placeListTV)
 //        let headerViewHeight: CGFloat = 30.0
@@ -37,18 +37,23 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         sender.invalidateIntrinsicContentSize()
     }
     
-    func setNavi(){
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+    private func setNavigationBar() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
         
-        let longTitleLabel = UILabel()
-        longTitleLabel.text = "플레이스픽"
-        longTitleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        longTitleLabel.sizeToFit()
-
-        let leftItem = UIBarButtonItem(customView: longTitleLabel)
-        navigationItem.leftBarButtonItem = leftItem
-       
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(dismissVC))
+        navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    @objc private func dismissVC() {
+        navigationController?.popViewController(animated: true)
     }
     func setData(){
         sumNum.text = "총 \(sum)개 결과"
