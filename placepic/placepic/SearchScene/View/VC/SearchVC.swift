@@ -70,12 +70,9 @@ class SearchVC: ButtonBarPagerTabStripViewController {
                                                              style: .plain,
                                                              target: self,
                                                              action: #selector(showSideMenuBar))
-        
-        var space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
-         space.width = 1
-        
-        let buttons = [leftButton,space,leftButton2]
-//        leftButton2.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+     
+        leftButton2.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0.1)
+        let buttons = [leftButton,leftButton2]
         navigationItem.setRightBarButtonItems(buttons, animated: true)
         
         ///
