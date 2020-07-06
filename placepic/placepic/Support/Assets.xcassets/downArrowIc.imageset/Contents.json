@@ -1,9 +1,9 @@
 {
   "images" : [
     {
+      "filename" : "downArrowIc.png",
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "downArrowIc.png"
+      "scale" : "1x"
     },
     {
       "filename" : "downArrowIc@2x.png",
@@ -12,12 +12,15 @@
     },
     {
       "filename" : "downArrowIc@3x.png",
-      "scale" : "3x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }
