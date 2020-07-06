@@ -10,16 +10,14 @@ import XLPagerTabStrip
 
 class SearchVC: ButtonBarPagerTabStripViewController {
     
-    @IBOutlet var butSubway: UIButton!
-    @IBOutlet var buy1: UIButton!
-    
+    @IBOutlet var buttons: [UIButton]!
     
     override func viewDidLoad() {
         configureButtonBar()
         super.viewDidLoad()
         setNavigationBar()
-        setNavi()
-//        text1.text = "aaa"
+        setButtons()
+        //        text1.text = "aaa"
 //        text1.frame.size.width = 15
 //        text1.
 //        navigationController?.navigationBar.isHidden = true
@@ -41,11 +39,13 @@ class SearchVC: ButtonBarPagerTabStripViewController {
 //    }
 //
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - Configuration
+    
+    func setButtons(){
+        for i in 0..<3{
+            buttons[i].layer.cornerRadius = 4
+        }
+    }
     func getWidth(text: String) -> CGFloat {
         let txtField = UITextField(frame: .zero)
         txtField.text = text
@@ -54,9 +54,40 @@ class SearchVC: ButtonBarPagerTabStripViewController {
     }
     
     private func setNavigationBar() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
         
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(showSideMenuBar))
+   
+        let leftButton2: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                             style: .plain,
+                                                             target: self,
+                                                             action: #selector(showSideMenuBar))
+        
+        var space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+         space.width = 1
+        
+        let buttons = [leftButton,space,leftButton2]
+//        leftButton2.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        navigationItem.setRightBarButtonItems(buttons, animated: true)
+        
+        ///
         
     }
+    
+    @objc private func showSideMenuBar() {
+        
+    }
+    
+    
+    
     func configureButtonBar() {
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
@@ -79,23 +110,7 @@ class SearchVC: ButtonBarPagerTabStripViewController {
             newCell?.label.textColor = .black
         }
     }
-    func setNavi(){
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        let longTitleLabel = UILabel()
-        longTitleLabel.text = "플레이스"
-        longTitleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        longTitleLabel.sizeToFit()
-
-        let leftItem = UIBarButtonItem(customView: longTitleLabel)
-        navigationItem.leftBarButtonItem = leftItem
-        
-//        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector())
-
-        let search = UIBarButtonItem()
-        let alarm = UIBarButtonItem()
-        navigationItem.rightBarButtonItems = [search, alarm]
-    }
+    
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let child1 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
@@ -129,4 +144,12 @@ extension UIButton {
         contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
 }
+
+//extension SearchVC: HomeVC {
+//    lazy var settingsLauncher: KeywordLauncher = {
+//          let launcher = KeywordLauncher()
+//          launcher.homeController = self
+//          return launcher
+//    }()
+    
 

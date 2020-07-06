@@ -43,7 +43,7 @@
                                             <constraint firstAttribute="width" constant="72" id="x3T-sV-Sar"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <state key="normal" title="키워드" image="chevron.down" catalog="system">
+                                        <state key="normal" title="키워드" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -54,7 +54,7 @@
                                             <constraint firstAttribute="width" constant="87" id="4XZ-gV-gi5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <state key="normal" title="장소 정보" image="chevron.down" catalog="system">
+                                        <state key="normal" title="장소 정보" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -65,7 +65,7 @@
                                             <constraint firstAttribute="width" constant="72" id="Y3x-pQ-22K"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <state key="normal" title="주변역" image="chevron.compact.down" catalog="system">
+                                        <state key="normal" title="주변역" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -99,10 +99,11 @@
                     <navigationItem key="navigationItem" id="0uZ-6G-Day"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="butSubway" destination="NUP-8y-SUO" id="YRX-St-hgn"/>
                         <outlet property="buttonBarView" destination="bQ3-wl-Ogo" id="Gzh-hk-9B7"/>
-                        <outlet property="buy1" destination="NUP-8y-SUO" id="IfY-bA-h8h"/>
                         <outlet property="containerView" destination="Pp5-pX-4At" id="Lua-bc-m48"/>
+                        <outletCollection property="buttons" destination="NUP-8y-SUO" collectionClass="NSMutableArray" id="Wle-qL-DgE"/>
+                        <outletCollection property="buttons" destination="J55-OK-BJ0" collectionClass="NSMutableArray" id="TJd-dr-4q7"/>
+                        <outletCollection property="buttons" destination="yFN-f1-eiB" collectionClass="NSMutableArray" id="qyI-MX-XJT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZyO-xi-Xid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -334,7 +335,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.compact.down" catalog="system" width="128" height="43"/>
-        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="downArrowIc" width="16" height="16"/>
     </resources>
 </document>

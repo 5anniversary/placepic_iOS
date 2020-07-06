@@ -8,7 +8,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     var sum:Int = 12
     @IBOutlet var sumNum: UILabel!
     
-   
+    
     var palceTag1: [String] = ["공부하기좋은","분위기좋은","분위기좋은"]
     
     override func viewDidLoad() {
