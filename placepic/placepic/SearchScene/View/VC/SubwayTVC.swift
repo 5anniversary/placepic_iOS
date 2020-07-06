@@ -1,15 +1,18 @@
 //
-//  showStationTVC.swift
+//  SubwayTVC.swift
 //  placepic
 //
-//  Created by elesahich on 2020/07/06.
+//  Created by 이유진 on 2020/07/04.
 //  Copyright © 2020 elesahich. All rights reserved.
 //
 
 import UIKit
 
-class ShowStationTVC: UITableViewCell {
+class SubwayTVC: UITableViewCell {
 
+    static let identifier: String = "SubwayTVC"
+    
+    @IBOutlet var subwayName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +23,5 @@ class ShowStationTVC: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

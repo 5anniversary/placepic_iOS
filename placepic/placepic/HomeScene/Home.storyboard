@@ -116,7 +116,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NearstationCVCIdentifier" id="65j-5A-CmP" customClass="NearstationCVC" customModule="placepic" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NearstationCVCIdentifier" id="65j-5A-CmP">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="53"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bXn-Re-God">
@@ -127,54 +127,35 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ye-9t-6Zc">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xno-1U-t95">
                                         <rect key="frame" x="0.0" y="53" width="375" height="53"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="GSq-dL-5LU" firstAttribute="height" secondItem="8Ye-9t-6Zc" secondAttribute="height" id="msS-Ly-Itn"/>
+                                    <constraint firstItem="GSq-dL-5LU" firstAttribute="height" secondItem="xno-1U-t95" secondAttribute="height" id="XWh-uu-Td0"/>
                                     <constraint firstAttribute="height" constant="106" id="tsd-gz-BuO"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C4m-sR-aF4">
-                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X3h-ft-V5y">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X3h-ft-V5y" id="IWr-81-Wek">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="znC-t5-6sE" firstAttribute="bottom" secondItem="C4m-sR-aF4" secondAttribute="bottom" id="64u-Sk-Wbl"/>
                             <constraint firstItem="aEf-Ah-ukb" firstAttribute="leading" secondItem="znC-t5-6sE" secondAttribute="leading" id="Azy-uX-9ho"/>
                             <constraint firstItem="znC-t5-6sE" firstAttribute="trailing" secondItem="aEf-Ah-ukb" secondAttribute="trailing" id="MpH-EZ-NjX"/>
-                            <constraint firstItem="znC-t5-6sE" firstAttribute="trailing" secondItem="C4m-sR-aF4" secondAttribute="trailing" id="SP7-ct-XHA"/>
-                            <constraint firstItem="C4m-sR-aF4" firstAttribute="leading" secondItem="znC-t5-6sE" secondAttribute="leading" id="bsp-B2-shN"/>
-                            <constraint firstItem="C4m-sR-aF4" firstAttribute="top" secondItem="aEf-Ah-ukb" secondAttribute="bottom" id="oHY-EV-hoe"/>
                             <constraint firstItem="aEf-Ah-ukb" firstAttribute="top" secondItem="znC-t5-6sE" secondAttribute="top" id="qjp-my-Mtr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="znC-t5-6sE"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="GSq-dL-5LU" id="nlf-Sj-GtU"/>
-                        <outlet property="searchTextField" destination="8Ye-9t-6Zc" id="kqB-fI-LWC"/>
+                        <outlet property="searchTextField" destination="xno-1U-t95" id="kps-32-Tpf"/>
                         <outlet property="stackviewHeight" destination="tsd-gz-BuO" id="7uz-n4-IeJ"/>
-                        <outlet property="tableView" destination="C4m-sR-aF4" id="xb6-qF-Bto"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b6-xH-uNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280.8" y="141.67916041979012"/>
+            <point key="canvasLocation" x="1281" y="142"/>
         </scene>
     </scenes>
 </document>
