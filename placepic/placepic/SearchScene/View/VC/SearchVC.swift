@@ -11,13 +11,16 @@ import XLPagerTabStrip
 class SearchVC: ButtonBarPagerTabStripViewController {
     
     @IBOutlet var buttons: [UIButton]!
-    
+    var frame: CGRect!
     override func viewDidLoad() {
         configureButtonBar()
         super.viewDidLoad()
         setNavigationBar()
         setButtons()
-        
+    
+        for i in 1..<3 {
+            buttons[i].alpha = 0
+        }
         //        text1.text = "aaa"
 //        text1.frame.size.width = 15
 //        text1.
@@ -42,6 +45,18 @@ class SearchVC: ButtonBarPagerTabStripViewController {
     
     // MARK: - Configuration
     
+    
+    private func hideTabBar() {
+        frame = self.tabBarController?.tabBar.frame
+        let height = frame.size.height
+        frame?.origin.y = self.view.frame.size.height + (height)
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.tabBarController?.tabBar.frame = self.frame!
+        })
+    }
+    
+    
     func setButtons(){
         for i in 0..<3{
             buttons[i].layer.cornerRadius = 4
@@ -54,19 +69,19 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         return txtField.frame.size.width
     }
     
-    private func setNavigationBar() {
-        guard let navigationBar = self.navigationController?.navigationBar else { return }
-        
-        navigationBar.isTranslucent = true
-        navigationBar.backgroundColor = UIColor.clear
-        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationBar.shadowImage = UIImage()
-        
-        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-                                                          style: .plain,
-                                                          target: self,
-                                                          action: #selector(showSideMenuBar))
-   
+        private func setNavigationBar() {
+            guard let navigationBar = self.navigationController?.navigationBar else { return }
+            
+            navigationBar.isTranslucent = true
+            navigationBar.backgroundColor = UIColor.clear
+            navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            navigationBar.shadowImage = UIImage()
+            
+            let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                              style: .plain,
+                                                              target: self,
+                                                              action: #selector(showSideMenuBar))
+       
 //        leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let leftButton2: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
                                                              style: .plain,
@@ -106,6 +121,12 @@ class SearchVC: ButtonBarPagerTabStripViewController {
             newCell?.label.textColor = .black
         }
     }
+    
+//    override func updateIndicator(for viewController: PagerTabStripViewController, fromIndex: Int, toIndex: Int, withProgressPercentage progressPercentage: CGFloat, indexWasChanged: Bool) {
+//
+//        print(fromIndex, toIndex)
+//    }
+//
     
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {

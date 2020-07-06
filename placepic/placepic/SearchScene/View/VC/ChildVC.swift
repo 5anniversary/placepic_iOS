@@ -9,6 +9,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     @IBOutlet var sumNum: UILabel!
     
     
+    
     var palceTag1: [String] = ["공부하기좋은","분위기좋은","분위기좋은"]
     
     override func viewDidLoad() {
@@ -18,6 +19,10 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         placeListTV.dataSource = self
         setNavigationBar()
         setData()
+        
+        
+        
+        
 //        sizeHeaderToFit(tableView: placeListTV)
 //        let headerViewHeight: CGFloat = 30.0
 //        let headerView = HeaderView(frame: CGRect(x: textView.bounds.origin.x, y: textView.bounds.origin.y - headerViewHeight, width: textView.bounds.size.width, height: headerViewHeight))
