@@ -2,8 +2,8 @@
   "images" : [
     {
       "scale" : "1x",
-      "filename" : "notificationsNoticeIc.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "notificationsNoticeIc.png"
     },
     {
       "idiom" : "universal",
@@ -12,12 +12,15 @@
     },
     {
       "filename" : "notificationsNoticeIc@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

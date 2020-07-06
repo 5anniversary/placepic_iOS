@@ -2,13 +2,13 @@
   "images" : [
     {
       "scale" : "1x",
-      "filename" : "smallCloseIc.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "smallCloseIc.png"
     },
     {
+      "filename" : "smallCloseIc@2x.png",
       "scale" : "2x",
-      "idiom" : "universal",
-      "filename" : "smallCloseIc@2x.png"
+      "idiom" : "universal"
     },
     {
       "filename" : "smallCloseIc@3x.png",
@@ -19,5 +19,8 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }
