@@ -66,12 +66,14 @@ class SigninVC: UIViewController {
         emailValidateLabel.text = nil
         
         setLabelLooksLike()
-        setButtonsLooksLike() 
+        setButtonsLooksLike()
+        setButtonSuc()
    
 
     }
     
-    @objc func textFieldDidChage(_ textField: UITextField) {
+    @objc func textFieldDidChage(_
+        : UITextField) {
         emailValidateLabel.alpha = txtFields[0].text?.validateEmail() == false ? 1 : 0
         
     }
@@ -101,6 +103,16 @@ class SigninVC: UIViewController {
     private func setButtonsLooksLike() {
             for i in 0..<txtFields.count {
                 
+                emailValidateLabel.alpha = 0
+                emailTextbox.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+                emailTextbox.addTarget(self, action: #selector(textFieldTapped(_:)), for: .editingDidBegin)
+                emailTextbox.addTarget(self, action: #selector(textFieldEnd(_:)), for: .editingDidEnd)
+                
+                
+                passwordTextbox.addTarget(self, action: #selector(textFieldTapped2(_:)), for: .editingDidBegin)
+                passwordTextbox.addTarget(self, action: #selector(textFieldEnd2(_:)), for: .editingDidEnd)
+                          
+                
                 txtFields[0].addTarget(self, action: #selector(textFieldDidChage(_:)), for: .editingChanged)//
                 txtFields[i].layer.cornerRadius = 8
                 txtFields[i].layer.borderWidth = 1
@@ -128,7 +140,89 @@ class SigninVC: UIViewController {
             loginButton.layer.backgroundColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
             loginButton.setTitleColor(UIColor(red: 0.808, green: 0.835, blue: 0.855, alpha: 1), for: .normal)
 //                logintapButton.frame = CGRect(x: 0, y: 0, width: 347, height: 50)
+    }
+    
+    private func setButtonSuc(){
+        if ( emailTextbox.text?.validateEmail() == true && passwordTextbox.text != nil)
+        {
+            loginButton.layer.cornerRadius = 8
+            loginButton.layer.borderWidth = 1
+            loginButton.layer.borderColor = UIColor.white.cgColor
+            loginButton.clipsToBounds = true
+            loginButton.setTitle("로그인", for: .normal)
+            loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            loginButton.setTitleColor(.white, for: .normal)
+            loginButton.backgroundColor = .white
+            loginButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
+            loginButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            
+            
         }
+        else {
+            loginButton.layer.cornerRadius = 8
+            loginButton.layer.borderWidth = 1
+            loginButton.layer.borderColor = UIColor.white.cgColor
+            loginButton.clipsToBounds = true
+            loginButton.setTitle("로그인", for: .normal)
+            loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            loginButton.setTitleColor(.white, for: .normal)
+            loginButton.backgroundColor = .white
+            loginButton.layer.backgroundColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
+            loginButton.setTitleColor(UIColor(red: 0.808, green: 0.835, blue: 0.855, alpha: 1), for: .normal)
+        }
+        
+        
+        
+    }
+    
+    @objc private func textFieldTapped(_ signupTxtFields: UITextField) {
+           
+           
+           emailTextbox.backgroundColor = UIColor.white
+           emailTextbox.layer.borderColor = UIColor.black.cgColor
+           emailTextbox.layer.borderWidth = 1
+           
+       }
+       
+       @objc private func textFieldDidChange(_ signupTxtFields: UITextField) {
+              
+              emailValidateLabel.alpha = emailTextbox.text?.validateEmail() == false ? 1 : 0
+              
+              
+              
+              //        signupPwcheckValLabel.alpha = signupTxtFields[2].text?.validatePasswd() == false ? 1 : 0
+          }
+
+       
+         @objc private func textFieldEnd(_ signupTxtFields: UITextField) {
+             
+             
+             emailTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+             emailTextbox.layer.borderColor = UIColor.white.cgColor
+             emailTextbox.layer.borderWidth = 1
+             
+             
+         }
+    
+    @objc private func textFieldTapped2(_ signupTxtFields: UITextField) {
+           
+           
+           passwordTextbox.backgroundColor = UIColor.white
+           passwordTextbox.layer.borderColor = UIColor.black.cgColor
+           passwordTextbox.layer.borderWidth = 1
+        
+           
+       }
+       
+         @objc private func textFieldEnd2(_ signupTxtFields: UITextField) {
+             
+             
+             passwordTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+             passwordTextbox.layer.borderColor = UIColor.white.cgColor
+             passwordTextbox.layer.borderWidth = 1
+             setButtonSuc()
+                
+         }
     }
 
 

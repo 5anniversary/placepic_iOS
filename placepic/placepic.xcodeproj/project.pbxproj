@@ -12,6 +12,7 @@
 		1302CA8224AC70A00013CACC /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA8124AC70A00013CACC /* SigninVC.swift */; };
 		1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA8324ACCC540013CACC /* SignupVC.swift */; };
 		1302CA9024AF34350013CACC /* SignUp2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA8F24AF34350013CACC /* SignUp2VC.swift */; };
+		1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA9324B2DF870013CACC /* GroupListTVC.swift */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
 		3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50527A24A9BCDC00140BCA /* APIServices.swift */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
@@ -56,6 +57,7 @@
 		1302CA8124AC70A00013CACC /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
 		1302CA8324ACCC540013CACC /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		1302CA8F24AF34350013CACC /* SignUp2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp2VC.swift; path = ../../../../../../../.Trash/SignUp2VC.swift; sourceTree = "<group>"; };
+		1302CA9324B2DF870013CACC /* GroupListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListTVC.swift; sourceTree = "<group>"; };
 		3D50527824A9BCA800140BCA /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		3D50527A24A9BCDC00140BCA /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		1302CA9524B2DF910013CACC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1302CA9324B2DF870013CACC /* GroupListTVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3DECB76724A9274100D54DBF = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +200,7 @@
 		3DECB78A24A9274D00D54DBF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1302CA9524B2DF910013CACC /* Cell */,
 				3DECB78B24A9274D00D54DBF /* VC */,
 			);
 			path = View;
@@ -592,6 +603,7 @@
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
 				3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */,
+				1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */,
 				3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */,
 				1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
