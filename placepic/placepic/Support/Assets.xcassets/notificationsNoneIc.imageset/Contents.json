@@ -1,18 +1,18 @@
 {
   "images" : [
     {
+      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "notificationsNoneIc.png",
-      "scale" : "1x"
+      "filename" : "notificationsNoneIc.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "notificationsNoneIc@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "notificationsNoneIc@2x.png"
     },
     {
-      "idiom" : "universal",
       "filename" : "notificationsNoneIc@3x.png",
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],

@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "userSelectedIc.png",
+      "scale" : "1x",
       "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "userSelectedIc.png"
     },
     {
-      "filename" : "userSelectedIc@2x.png",
       "idiom" : "universal",
+      "filename" : "userSelectedIc@2x.png",
       "scale" : "2x"
     },
     {
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "userSelectedIc@3x.png"
+      "filename" : "userSelectedIc@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

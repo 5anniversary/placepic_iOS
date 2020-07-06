@@ -1,9 +1,9 @@
 {
   "images" : [
     {
+      "filename" : "placepicBlackIc.png",
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "placepicBlackIc.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
@@ -11,8 +11,8 @@
       "filename" : "placepicBlackIc@2x.png"
     },
     {
-      "idiom" : "universal",
       "filename" : "placepicBlackIc@3x.png",
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],

@@ -1,9 +1,9 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "doneIc.png",
-      "idiom" : "universal"
+      "filename" : "doneIc.png"
     },
     {
       "scale" : "2x",

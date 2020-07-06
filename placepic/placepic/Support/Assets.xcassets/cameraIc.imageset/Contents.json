@@ -6,14 +6,14 @@
       "filename" : "cameraIc.png"
     },
     {
-      "filename" : "cameraIc@2x.png",
       "scale" : "2x",
+      "filename" : "cameraIc@2x.png",
       "idiom" : "universal"
     },
     {
       "scale" : "3x",
-      "filename" : "cameraIc@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "cameraIc@3x.png"
     }
   ],
   "info" : {

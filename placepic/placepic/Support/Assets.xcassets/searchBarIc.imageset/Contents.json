@@ -2,13 +2,13 @@
   "images" : [
     {
       "scale" : "1x",
-      "filename" : "searchBarIc.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "searchBarIc.png"
     },
     {
-      "filename" : "searchBarIc@2x.png",
       "scale" : "2x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "searchBarIc@2x.png"
     },
     {
       "scale" : "3x",
