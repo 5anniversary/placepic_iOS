@@ -19,7 +19,7 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         setButtons()
     
         for i in 1..<3 {
-            buttons[i].alpha = 0
+            buttons[i].alpha = 1
         }
         //        text1.text = "aaa"
 //        text1.frame.size.width = 15
