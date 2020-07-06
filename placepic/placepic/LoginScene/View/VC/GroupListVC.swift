@@ -35,6 +35,7 @@ extension GroupListVC{
         GroupWaitingButton.backgroundColor = .white
         GroupWaitingButton.layer.backgroundColor = UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1).cgColor
         GroupWaitingButton.layer.cornerRadius = 8
+       
     }
     
     private func setNavigationBar() {

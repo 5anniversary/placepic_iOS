@@ -21,6 +21,7 @@ class GroupListTVC: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        labelStyle()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,5 +43,28 @@ class GroupListTVC: UITableViewCell {
 
 extension GroupListTVC{
     
+    private func labelStyle(){
+        
+        GLNameLabel.textColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1)
+        GLNameLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
+        
+        GLnumofPLabel.textColor = UIColor(red: 0.678, green: 0.714, blue: 0.741, alpha: 1)
+        GLnumofPLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)
+        
+        GLnomLabel1.textColor = UIColor(red: 0.678, green: 0.714, blue: 0.741, alpha: 1)
+        GLnomLabel1.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)
+        
+        GLnumofPostLabel.textColor = UIColor(red: 0.678, green: 0.714, blue: 0.741, alpha: 1)
+        GLnumofPostLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)
+        
+        GLnomLabel2.textColor = UIColor(red: 0.678, green: 0.714, blue: 0.741, alpha: 1)
+        GLnomLabel2.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)
+        
+        
+        
+        
+        
+        
+    }
     
 }
