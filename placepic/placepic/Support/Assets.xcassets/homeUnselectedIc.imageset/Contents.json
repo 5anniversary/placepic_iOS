@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "scale" : "1x",
       "filename" : "homeUnselectedIc.png",
       "idiom" : "universal",
       "scale" : "1x"
