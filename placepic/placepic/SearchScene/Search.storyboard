@@ -341,7 +341,7 @@
             </objects>
             <point key="canvasLocation" x="-4870" y="-45"/>
         </scene>
-        <!--AdminVC-->
+        <!--Title-->
         <scene sceneID="Jcx-Kf-9q1">
             <objects>
                 <viewController id="SoB-lv-GQI" customClass="AdminVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
@@ -382,7 +382,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="kw4-Bk-SD5" kind="show" id="xtl-LM-SFd"/>
+                                            <segue destination="kw4-Bk-SD5" kind="show" identifier="toDetailView" id="xtl-LM-SFd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -397,14 +397,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S5a-n7-KBE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qVA-7B-QJL"/>
+                    <navigationItem key="navigationItem" title="Title" id="uyT-Qg-Hak"/>
                     <connections>
                         <outlet property="PeopleList" destination="iKo-dX-Lv9" id="soB-jY-cFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDC-UH-41c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3350" y="706"/>
+            <point key="canvasLocation" x="-3354" y="722"/>
         </scene>
         <!--People DetailVC-->
         <scene sceneID="Mkh-D8-5XA">
@@ -515,10 +515,17 @@
                         <viewLayoutGuide key="safeArea" id="752-2h-bnm"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ny5-WS-Eb1"/>
+                    <connections>
+                        <outlet property="labelBirth" destination="DP9-qg-ttS" id="g7r-NC-McQ"/>
+                        <outlet property="labelGender" destination="x5b-Rz-U7Z" id="RSv-pU-Qhd"/>
+                        <outlet property="labelName" destination="1ph-Rs-KO3" id="s0W-XP-hbl"/>
+                        <outlet property="labelPart" destination="wB0-nQ-BWf" id="oW1-nc-3Mc"/>
+                        <outlet property="labelPhone" destination="DaA-6p-R7X" id="oIH-j5-2Fx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NE5-rA-Su8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2650" y="706"/>
+            <point key="canvasLocation" x="-2650" y="722"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TgD-uv-65L">
@@ -536,7 +543,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiV-Bn-d3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4204" y="625"/>
+            <point key="canvasLocation" x="-4223" y="722"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

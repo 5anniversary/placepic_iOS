@@ -9,22 +9,27 @@
 import UIKit
 
 class PeopleDetailVC: UIViewController {
-
+    
+    @IBOutlet var labelName: UILabel!
+    @IBOutlet var labelPart: UILabel!
+    @IBOutlet var labelBirth: UILabel!
+    @IBOutlet var labelPhone: UILabel!
+    @IBOutlet var labelGender: UILabel!
+    
+    var selectedData: adminListModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setData()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setData(){
+        labelName.text = selectedData?.name
+        labelPart.text = selectedData?.part
+        labelBirth.text = selectedData?.birth
+        labelPhone.text = selectedData?.phone
+        labelGender.text = selectedData?.gender
     }
-    */
-
+   
 }
