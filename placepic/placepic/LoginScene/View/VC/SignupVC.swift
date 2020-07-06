@@ -19,9 +19,17 @@ class SignupVC: UIViewController {
     @IBOutlet weak var signupPwcheckTextbox: UITextField!
     @IBOutlet weak var signupPwcheckValLabel: UILabel!
     @IBOutlet var signupTxtFields: [UITextField]!
-    
     @IBOutlet weak var signup1Button: UIButton!
+    
     @IBAction func signup1acButton(_ sender: UIButton) {
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "SignUp2VC") as? SignUp2VC else {
+            return
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
     
     override func viewDidLoad() {
@@ -117,90 +125,88 @@ extension SignupVC {
             signupTxtFields[2].placeholder = "비밀번호를 다시 입력해주세요."
             signupTxtFields[1].isSecureTextEntry = true
             signupTxtFields[2].isSecureTextEntry = true
-            
         }
     }
     
     @objc private func textFieldTapped(_ signupTxtFields: UITextField) {
-        
-        
         signupEmailTextbox.backgroundColor = UIColor.white
         signupEmailTextbox.layer.borderColor = UIColor.black.cgColor
         signupEmailTextbox.layer.borderWidth = 1
-        
     }
     
     @objc private func textFieldDidChange(_ signupTxtFields: UITextField) {
-           
-           let emailtxtField = self.signupTxtFields[0]
-           signupEmailcheckValLabel.alpha = emailtxtField.text?.validateEmail() == false ? 1 : 0
-           
-           
-           
-           //        signupPwcheckValLabel.alpha = signupTxtFields[2].text?.validatePasswd() == false ? 1 : 0
-       }
-
+        
+        signupEmailcheckValLabel.alpha = signupEmailTextbox.text?.validateEmail() == false ? 1 : 0
+        print(#function)
+        signupEmailTextbox.layer.borderColor = signupEmailTextbox.text?.validateEmail() == false ? UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor : UIColor.black.cgColor
+        
+        //        if(signupEmailTextbox.text?.validateEmail() == true && signupPwTextbox.text == signupPwcheckTextbox.text && signupPwTextbox.text != nil
+        //            && signupPwcheckTextbox.text != nil){
+        //
+        //
+        //               signup1Button.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
+        //               signup1Button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        
+        //        signupPwcheckValLabel.alpha = signupTxtFields[2].text?.validatePasswd() == false ? 1 : 0
+        //           }
+        
+        
+        
+        
+        //        signupPwcheckValLabel.alpha = signupTxtFields[2].text?.validatePasswd() == false ? 1 : 0
+    }
     
-      @objc private func textFieldEnd(_ signupTxtFields: UITextField) {
-          
-          
-          signupEmailTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
-          signupEmailTextbox.layer.borderColor = UIColor.white.cgColor
-          signupEmailTextbox.layer.borderWidth = 1
-          
-      }
+    @objc private func textFieldEnd(_ signupTxtFields: UITextField) {
+        signupEmailTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+        signupEmailTextbox.layer.borderColor = UIColor.white.cgColor
+        signupEmailTextbox.layer.borderWidth = 1
+    }
     
     @objc private func textFieldTapped2(_ signupTxtFields: UITextField) {
-        
-        
         signupPwTextbox.backgroundColor = UIColor.white
         signupPwTextbox.layer.borderColor = UIColor.black.cgColor
         signupPwTextbox.layer.borderWidth = 1
         
     }
     
-      @objc private func textFieldEnd2(_ signupTxtFields: UITextField) {
-          
-          
-          signupPwTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
-          signupPwTextbox.layer.borderColor = UIColor.white.cgColor
-          signupPwTextbox.layer.borderWidth = 1
-          
-      }
+    @objc private func textFieldEnd2(_ signupTxtFields: UITextField) {
+        signupPwTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+        signupPwTextbox.layer.borderColor = UIColor.white.cgColor
+        signupPwTextbox.layer.borderWidth = 1
+    }
     
-   
-
- @objc private func textFieldTapped3(_ signupTxtFields: UITextField) {
-        
-        
+    @objc private func textFieldTapped3(_ signupTxtFields: UITextField) {
         signupPwcheckTextbox.backgroundColor = UIColor.white
         signupPwcheckTextbox.layer.borderColor = UIColor.black.cgColor
         signupPwcheckTextbox.layer.borderWidth = 1
-        
     }
     
-      @objc private func textFieldEnd3(_ signupTxtFields: UITextField) {
-          
-          
-          signupPwcheckTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
-          signupPwcheckTextbox.layer.borderColor = UIColor.white.cgColor
-          signupPwcheckTextbox.layer.borderWidth = 1
-          
-      }
+    @objc private func textFieldEnd3(_ signupTxtFields: UITextField) {
+//        signupPwcheckTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+//        signupPwcheckTextbox.layer.borderColor = UIColor.white.cgColor
+//        signupPwcheckTextbox.layer.borderWidth = 1
+        print(#function)
+    }
     
     @objc private func textFieldDidChange3(_ signupTxtFields: UITextField) {
+        print(#function)
+        if signupPwTextbox.text != signupPwcheckTextbox.text {
+         signupPwcheckValLabel.alpha = 1
+            signupPwcheckTextbox.layer.borderColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor
+        }
+           
+        else {
+            signupPwcheckValLabel.alpha = 0
+            signupPwcheckTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+            signupPwcheckTextbox.layer.borderColor = UIColor.white.cgColor
+            signupPwcheckTextbox.layer.borderWidth = 1
+        }
         
-        
-        if (signupPwTextbox.text != signupPwcheckTextbox.text)
-        { signupPwcheckValLabel.alpha = 1}
-        else {signupPwcheckValLabel.alpha = 0}
-        
-        
-        
-        //        signupPwcheckValLabel.alpha = signupTxtFields[2].text?.validatePasswd() == false ? 1 : 0
+        if signupEmailTextbox.text?.validateEmail() == true && signupPwTextbox.text == signupPwcheckTextbox.text {
+            signup1Button.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
+            signup1Button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            
+            //        signupPwcheckValLabel.alpha = signupTxtFields[2].text?.validatePasswd() == false ? 1 : 0
+        }
     }
-}
-
-extension SignupVC: UITableViewDelegate {
-    
 }

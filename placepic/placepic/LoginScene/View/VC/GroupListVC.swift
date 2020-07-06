@@ -12,6 +12,7 @@ class GroupListVC: UIViewController {
 
     @IBOutlet weak var GroupListTV: UITableView!
     @IBOutlet weak var GroupWaitingButton: UIButton!
+    var waitinggroup:Int = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +31,18 @@ class GroupListVC: UIViewController {
 
 
 extension GroupListVC{
+    
     private func GroupWaitingButtonLooksLike(){
        
         GroupWaitingButton.backgroundColor = .white
         GroupWaitingButton.layer.backgroundColor = UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1).cgColor
         GroupWaitingButton.layer.cornerRadius = 8
-       
-    }
+        GroupWaitingButton.contentHorizontalAlignment = .left
+        
+       GroupWaitingButton.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
+        GroupWaitingButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
+        GroupWaitingButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)}
+
     
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
