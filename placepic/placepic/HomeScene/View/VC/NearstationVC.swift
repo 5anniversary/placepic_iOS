@@ -11,16 +11,24 @@ import UIKit
 class NearstationVC: UIViewController {
 
     @IBOutlet weak var stackviewHeight: NSLayoutConstraint!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var searchTextField: CustomTextField!
+    @IBOutlet weak var tableView: UITableView!
+//    let textField: CustomTextField = {
+//        let txtfield = CustomTextField()
+//
+//        return txtfield
+//    }()
+//
     var stationModel: [String] = []
+    
     /// stationModel에 역 주입이 되어야 함
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setCollectionView()
         setNavigationBar()
+        setSearchbarHeight()
     }
 }
 
@@ -30,6 +38,11 @@ extension NearstationVC {
     /// reload 해줘야하고
     /// tableViewCell이 눌리는 경우마다 발생해야 함 ( default : Hide)
     private func setSearchbarHeight() {
+       
+//        searchTextField.debounce(delay: 0.3) { (text) in
+//            print(text)
+//        }
+        
         if stationModel.count == 0 {
             collectionView.isHidden = true
             stackviewHeight.constant = 53
@@ -86,5 +99,58 @@ extension NearstationVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+    }
+}
+
+extension NearstationVC: UITableViewDelegate {
+    
+}
+
+extension NearstationVC: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stationModel.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ShowStationTVCIdentifier", for: indexPath) as? ShowStationTVC else {
+            return UITableViewCell()
+        }
+        
+        return cell
+    }
+}
+
+class CustomTextField: UITextField {
+
+    deinit {
+        self.removeTarget(self, action: #selector(self.editingChanged(_:)), for: .editingChanged)
+    }
+
+    private var workItem: DispatchWorkItem?
+    private var delay: Double = 0
+    private var callback: ((String?) -> Void)? = nil
+
+    func debounce(delay: Double, callback: @escaping ((String?) -> Void)) {
+        self.delay = delay
+        self.callback = callback
+        DispatchQueue.main.async {
+            self.callback?(self.text)
+        }
+        self.addTarget(self, action: #selector(self.editingChanged(_:)), for: .editingChanged)
+    }
+
+    @objc private func editingChanged(_ sender: UITextField) {
+      self.workItem?.cancel()
+      let workItem = DispatchWorkItem(block: { [weak self] in
+          self?.callback?(sender.text)
+      })
+      self.workItem = workItem
+      DispatchQueue.main.asyncAfter(deadline: .now() + self.delay, execute: workItem)
     }
 }

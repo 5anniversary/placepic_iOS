@@ -11,6 +11,9 @@ import UIKit
 class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var homeController: HomeVC?
+    var searchVC: SearchVC?
+    var childVC: ChildVC?
+    
     let blackView = UIView()
     
     let collectionView: UICollectionView = {

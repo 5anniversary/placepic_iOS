@@ -107,7 +107,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GSq-dL-5LU">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Eni-d1-Hme">
                                             <size key="itemSize" width="128" height="128"/>
@@ -127,13 +127,14 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <searchBar contentMode="redraw" id="QO7-KG-HNZ">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ye-9t-6Zc">
+                                        <rect key="frame" x="0.0" y="53" width="375" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
+                                    </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="GSq-dL-5LU" firstAttribute="height" secondItem="8Ye-9t-6Zc" secondAttribute="height" id="msS-Ly-Itn"/>
                                     <constraint firstAttribute="height" constant="106" id="tsd-gz-BuO"/>
                                 </constraints>
                             </stackView>
@@ -166,8 +167,9 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="GSq-dL-5LU" id="nlf-Sj-GtU"/>
-                        <outlet property="searchBar" destination="QO7-KG-HNZ" id="SoM-1I-VV9"/>
+                        <outlet property="searchTextField" destination="8Ye-9t-6Zc" id="kqB-fI-LWC"/>
                         <outlet property="stackviewHeight" destination="tsd-gz-BuO" id="7uz-n4-IeJ"/>
+                        <outlet property="tableView" destination="C4m-sR-aF4" id="xb6-qF-Bto"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b6-xH-uNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
