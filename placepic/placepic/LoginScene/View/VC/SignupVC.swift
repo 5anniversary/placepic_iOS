@@ -23,13 +23,13 @@ class SignupVC: UIViewController {
     
     @IBAction func signup1acButton(_ sender: UIButton) {
         
-        guard let vc = storyboard?.instantiateViewController(identifier: "SignUp2VC") as? SignUp2VC else {
-            return
-        }
-        
-        navigationController?.pushViewController(vc, animated: true)
-        
-        
+//        guard let vc = storyboard?.instantiateViewController(identifier: "SignUp2VC") as? SignUp2VC else {
+//            return
+//        }
+//
+//        navigationController?.pushViewController(vc, animated: true)
+//
+//
     }
     
     override func viewDidLoad() {

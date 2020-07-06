@@ -11,7 +11,6 @@
 		1302CA8024AC5EBF0013CACC /* GroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA7F24AC5EBF0013CACC /* GroupListVC.swift */; };
 		1302CA8224AC70A00013CACC /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA8124AC70A00013CACC /* SigninVC.swift */; };
 		1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA8324ACCC540013CACC /* SignupVC.swift */; };
-		1302CA9024AF34350013CACC /* SignUp2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA8F24AF34350013CACC /* SignUp2VC.swift */; };
 		1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA9324B2DF870013CACC /* GroupListTVC.swift */; };
 		1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA9624B342760013CACC /* GroupReqVC.swift */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
@@ -640,7 +639,6 @@
 				AE34145824B3055F00425889 /* AdminVC.swift in Sources */,
 				3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */,
 				3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */,
-				1302CA9024AF34350013CACC /* SignUp2VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
