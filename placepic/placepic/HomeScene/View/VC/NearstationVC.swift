@@ -14,12 +14,7 @@ class NearstationVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTextField: CustomTextField!
     @IBOutlet weak var tableView: UITableView!
-//    let textField: CustomTextField = {
-//        let txtfield = CustomTextField()
-//
-//        return txtfield
-//    }()
-//
+
     var stationModel: [String] = []
     
     /// stationModel에 역 주입이 되어야 함
@@ -38,10 +33,6 @@ extension NearstationVC {
     /// reload 해줘야하고
     /// tableViewCell이 눌리는 경우마다 발생해야 함 ( default : Hide)
     private func setSearchbarHeight() {
-       
-//        searchTextField.debounce(delay: 0.3) { (text) in
-//            print(text)
-//        }
         
         if stationModel.count == 0 {
             collectionView.isHidden = true
