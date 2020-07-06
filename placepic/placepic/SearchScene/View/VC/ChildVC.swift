@@ -5,22 +5,25 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     
     @IBOutlet var placeListTV: UITableView!
     var childNumber: String = ""
+    var sum:Int = 12
+    @IBOutlet var sumNum: UILabel!
     
-    let label: UILabel = {
-        let l = UILabel()
-        
-        return l
-        
-    }()
     
-    var palceTag1: [String] = ["분위기좋은","분위기좋은","분위기좋은"]
+    
+    var palceTag1: [String] = ["공부하기좋은","분위기좋은","분위기좋은"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         placeListTV.delegate = self
         placeListTV.dataSource = self
-        sizeHeaderToFit(tableView: placeListTV)
+        setNavigationBar()
+        setData()
+        
+        
+        
+        
+//        sizeHeaderToFit(tableView: placeListTV)
 //        let headerViewHeight: CGFloat = 30.0
 //        let headerView = HeaderView(frame: CGRect(x: textView.bounds.origin.x, y: textView.bounds.origin.y - headerViewHeight, width: textView.bounds.size.width, height: headerViewHeight))
 //        textView.addSubview(headerView)
@@ -38,11 +41,33 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     func textFieldDidChange(sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
     }
+    
+    private func setNavigationBar() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(dismissVC))
+        navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    @objc private func dismissVC() {
+        navigationController?.popViewController(animated: true)
+    }
+    func setData(){
+        sumNum.text = "총 \(sum)개 결과"
+    }
 }
 
 extension ChildVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 14
     }
     
     
