@@ -74,7 +74,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="SoB-lv-GQI" kind="show" identifier="AdminSegue" id="ER2-hs-1iA"/>
+                                            <segue destination="SoB-lv-GQI" kind="show" id="2jg-gU-qVu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -593,10 +593,10 @@
             </objects>
             <point key="canvasLocation" x="-2650.4000000000001" y="721.88905547226398"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--PeopleListView-->
         <scene sceneID="TgD-uv-65L">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sdh-u6-GrL" sceneMemberID="viewController">
+                <navigationController title="PeopleListView" automaticallyAdjustsScrollViewInsets="NO" id="sdh-u6-GrL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RcF-gZ-14l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -613,7 +613,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ER2-hs-1iA"/>
+        <segue reference="2jg-gU-qVu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="downArrowIc" width="16" height="16"/>
