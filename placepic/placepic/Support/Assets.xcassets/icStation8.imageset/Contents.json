@@ -1,24 +1,24 @@
 {
   "images" : [
     {
-      "filename" : "icStation8.png",
       "idiom" : "universal",
+      "filename" : "icStation8.png",
       "scale" : "1x"
     },
     {
-      "filename" : "icStation8@2x.png",
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "icStation8@2x.png"
     },
     {
       "filename" : "icStation8@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   },
   "properties" : {
     "template-rendering-intent" : "original"

@@ -5,5 +5,9 @@
 //  Created by elesahich on 2020/07/08.
 //  Copyright © 2020 elesahich. All rights reserved.
 //
-
 import Foundation
+
+struct HomeAPI {
+    let getKeyworldURL = GeneralAPI.baseURL + ""
+    
+}
