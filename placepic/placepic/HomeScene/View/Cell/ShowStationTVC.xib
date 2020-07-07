@@ -16,48 +16,56 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="신촌역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIQ-fr-hE2">
-                        <rect key="frame" x="23" y="14" width="39" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신촌역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIQ-fr-hE2">
+                        <rect key="frame" x="23" y="16" width="36.5" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="QRG-xh-2Jv"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fm-vF-mkd">
-                        <rect key="frame" x="145" y="0.0" width="150" height="48"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5Fm-vF-mkd">
+                        <rect key="frame" x="154" y="14.5" width="142" height="20"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9tB-FX-BKC">
-                                <rect key="frame" x="0.0" y="0.0" width="37.5" height="48"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icStationEverline" translatesAutoresizingMaskIntoConstraints="NO" id="9tB-FX-BKC">
+                                <rect key="frame" x="0.0" y="0.0" width="51" height="20"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HEf-T3-8Ue">
-                                <rect key="frame" x="37.5" y="0.0" width="37.5" height="48"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icStationGyeonggang" translatesAutoresizingMaskIntoConstraints="NO" id="HEf-T3-8Ue">
+                                <rect key="frame" x="57" y="0.0" width="33" height="20"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dhk-bL-nEV">
-                                <rect key="frame" x="75" y="0.0" width="37.5" height="48"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icStation3" translatesAutoresizingMaskIntoConstraints="NO" id="Dhk-bL-nEV">
+                                <rect key="frame" x="96" y="0.0" width="20" height="20"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kvv-Kk-E4v">
-                                <rect key="frame" x="112.5" y="0.0" width="37.5" height="48"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icStation4" translatesAutoresizingMaskIntoConstraints="NO" id="Kvv-Kk-E4v">
+                                <rect key="frame" x="122" y="0.0" width="20" height="20"/>
                             </imageView>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="150" id="bvf-TQ-XFm"/>
-                            <constraint firstItem="9tB-FX-BKC" firstAttribute="width" secondItem="Dhk-bL-nEV" secondAttribute="width" id="ck6-In-7zT"/>
-                            <constraint firstItem="9tB-FX-BKC" firstAttribute="width" secondItem="Kvv-Kk-E4v" secondAttribute="width" id="glK-PG-kX7"/>
-                            <constraint firstItem="9tB-FX-BKC" firstAttribute="width" secondItem="HEf-T3-8Ue" secondAttribute="width" id="uQC-Zc-Qoy"/>
-                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="5Fm-vF-mkd" secondAttribute="bottom" id="7vz-Ug-CYC"/>
-                    <constraint firstAttribute="trailing" secondItem="5Fm-vF-mkd" secondAttribute="trailing" constant="25" id="lTo-xb-y1m"/>
-                    <constraint firstItem="5Fm-vF-mkd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vVo-ZK-G90"/>
+                    <constraint firstAttribute="trailing" secondItem="5Fm-vF-mkd" secondAttribute="trailing" constant="24" id="2yW-Ju-ytb"/>
+                    <constraint firstItem="NIQ-fr-hE2" firstAttribute="centerY" secondItem="5Fm-vF-mkd" secondAttribute="centerY" id="B76-4F-HGU"/>
+                    <constraint firstItem="5Fm-vF-mkd" firstAttribute="leading" relation="lessThanOrEqual" secondItem="NIQ-fr-hE2" secondAttribute="trailing" priority="250" constant="92" id="DP3-LL-EgC"/>
+                    <constraint firstItem="NIQ-fr-hE2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="23" id="YQZ-ah-i2Y"/>
+                    <constraint firstItem="NIQ-fr-hE2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="k4a-O8-aIX"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="stationLabel" destination="NIQ-fr-hE2" id="qMN-Ik-yYI"/>
+                <outletCollection property="subwayImage" destination="9tB-FX-BKC" collectionClass="NSMutableArray" id="5uq-8g-zfW"/>
+                <outletCollection property="subwayImage" destination="HEf-T3-8Ue" collectionClass="NSMutableArray" id="17j-Ip-MFu"/>
+                <outletCollection property="subwayImage" destination="Dhk-bL-nEV" collectionClass="NSMutableArray" id="haV-xT-xn1"/>
+                <outletCollection property="subwayImage" destination="Kvv-Kk-E4v" collectionClass="NSMutableArray" id="wZi-S4-yS8"/>
             </connections>
             <point key="canvasLocation" x="139" y="115"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icStation3" width="20" height="20"/>
+        <image name="icStation4" width="20" height="20"/>
+        <image name="icStationEverline" width="51" height="20"/>
+        <image name="icStationGyeonggang" width="33" height="20"/>
+    </resources>
 </document>

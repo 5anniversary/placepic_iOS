@@ -211,7 +211,7 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         
         let width: CGFloat = keyword[indexPath.item].width(withConstrainedHeight: 40, font: .systemFont(ofSize: 16))
         let height: CGFloat = 40
-        
+                
         return CGSize(width: width, height: height)
     }
     

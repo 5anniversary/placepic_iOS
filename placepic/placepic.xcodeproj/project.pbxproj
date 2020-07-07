@@ -30,6 +30,8 @@
 		3D6BAF9524B2D21200F6339E /* NearstationCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9424B2D21200F6339E /* NearstationCVC.xib */; };
 		3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9624B2DAD400F6339E /* ShowStationTVC.swift */; };
 		3D6BAF9924B2DAD400F6339E /* ShowStationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */; };
+		3D84896924B4116F00AE6A45 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84896824B4116F00AE6A45 /* StationModel.swift */; };
+		3D84896B24B440A600AE6A45 /* Subwaymodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84896A24B440A600AE6A45 /* Subwaymodel.swift */; };
 		3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB77324A9274100D54DBF /* AppDelegate.swift */; };
 		3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB77724A9274100D54DBF /* LoginVC.swift */; };
 		3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DECB77924A9274100D54DBF /* Login.storyboard */; };
@@ -82,6 +84,8 @@
 		3D6BAF9424B2D21200F6339E /* NearstationCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearstationCVC.xib; sourceTree = "<group>"; };
 		3D6BAF9624B2DAD400F6339E /* ShowStationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStationTVC.swift; sourceTree = "<group>"; };
 		3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowStationTVC.xib; sourceTree = "<group>"; };
+		3D84896824B4116F00AE6A45 /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
+		3D84896A24B440A600AE6A45 /* Subwaymodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subwaymodel.swift; sourceTree = "<group>"; };
 		3DECB77024A9274100D54DBF /* placepic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = placepic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DECB77324A9274100D54DBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DECB77724A9274100D54DBF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -274,7 +278,9 @@
 			isa = PBXGroup;
 			children = (
 				3D6BAF8C24B0D7B600F6339E /* KeywordModel.swift */,
+				3D84896824B4116F00AE6A45 /* StationModel.swift */,
 				3D6BAF8524AF9B1800F6339E /* SwiftFiles */,
+				3D84896A24B440A600AE6A45 /* Subwaymodel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */,
 				3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */,
 				3D6BAF8F24B108A400F6339E /* HomeTestVC.swift in Sources */,
+				3D84896B24B440A600AE6A45 /* Subwaymodel.swift in Sources */,
 				3DECB7C224A9311200D54DBF /* Extensions+UIFont.swift in Sources */,
 				3DECB7C424A9311200D54DBF /* Extensions+Date.swift in Sources */,
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
@@ -635,6 +642,7 @@
 				1302CA7E24AC55330013CACC /* SendVC.swift in Sources */,
 				3DECB7B224A92C2F00D54DBF /* HomeVC.swift in Sources */,
 				3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */,
+				3D84896924B4116F00AE6A45 /* StationModel.swift in Sources */,
 				3D6BAF8924AF9B5000F6339E /* KeywordCell.swift in Sources */,
 				AE34145824B3055F00425889 /* AdminVC.swift in Sources */,
 				3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */,
