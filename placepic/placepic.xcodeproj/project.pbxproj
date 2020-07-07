@@ -30,6 +30,7 @@
 		3D6BAF9524B2D21200F6339E /* NearstationCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9424B2D21200F6339E /* NearstationCVC.xib */; };
 		3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9624B2DAD400F6339E /* ShowStationTVC.swift */; };
 		3D6BAF9924B2DAD400F6339E /* ShowStationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */; };
+		3DDD58B324B4E93000764C8F /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD58B224B4E93000764C8F /* HomeAPI.swift */; };
 		3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB77324A9274100D54DBF /* AppDelegate.swift */; };
 		3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB77724A9274100D54DBF /* LoginVC.swift */; };
 		3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DECB77924A9274100D54DBF /* Login.storyboard */; };
@@ -47,6 +48,7 @@
 		3DECB7C524A9311200D54DBF /* Extensions+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7BE24A9311100D54DBF /* Extensions+UIKit.swift */; };
 		3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7BF24A9311200D54DBF /* Extensions+UIColor.swift */; };
 		3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7C024A9311200D54DBF /* Extensions+UITextField.swift */; };
+		3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDAC5024B4D6700069990A /* GeneralAPI.swift */; };
 		555A901CCC128ACD75D29CFE /* Pods_placepic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4DAE51304F8ADC517262E /* Pods_placepic.framework */; };
 		AE34145824B3055F00425889 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145724B3055F00425889 /* AdminVC.swift */; };
 		AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145924B33A9600425889 /* PeopleDetailVC.swift */; };
@@ -83,6 +85,7 @@
 		3D6BAF9424B2D21200F6339E /* NearstationCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearstationCVC.xib; sourceTree = "<group>"; };
 		3D6BAF9624B2DAD400F6339E /* ShowStationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStationTVC.swift; sourceTree = "<group>"; };
 		3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowStationTVC.xib; sourceTree = "<group>"; };
+		3DDD58B224B4E93000764C8F /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		3DECB77024A9274100D54DBF /* placepic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = placepic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DECB77324A9274100D54DBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DECB77724A9274100D54DBF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		3DECB7CA24A9316800D54DBF /* SpoqaHanSansRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansRegular.ttf; sourceTree = "<group>"; };
 		3DECB7CB24A9316800D54DBF /* SpoqaHanSansLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansLight.ttf; sourceTree = "<group>"; };
 		3DECB7CC24A9316900D54DBF /* SpoqaHanSansBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansBold.ttf; sourceTree = "<group>"; };
+		3DFDAC5024B4D6700069990A /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
 		5277CB7E16744F56C4AC28BE /* Pods-placepic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placepic.release.xcconfig"; path = "Target Support Files/Pods-placepic/Pods-placepic.release.xcconfig"; sourceTree = "<group>"; };
 		83ACEB602688407CABFF2AF4 /* Pods-placepic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placepic.debug.xcconfig"; path = "Target Support Files/Pods-placepic/Pods-placepic.debug.xcconfig"; sourceTree = "<group>"; };
 		AE34145724B3055F00425889 /* AdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
@@ -160,6 +164,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		3DDD58B124B4E92300764C8F /* HomeAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3DDD58B224B4E93000764C8F /* HomeAPI.swift */,
+			);
+			path = HomeAPI;
+			sourceTree = "<group>";
+		};
 		3DECB76724A9274100D54DBF = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +209,7 @@
 		3DECB78724A9274C00D54DBF /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				3DFDAC4F24B4D6560069990A /* GeneralAPIs */,
 				3DECB7C824A9312600D54DBF /* Font */,
 				3DECB77324A9274100D54DBF /* AppDelegate.swift */,
 				3DECB77C24A9274200D54DBF /* Assets.xcassets */,
@@ -276,6 +289,7 @@
 		3DECB79424A92A8300D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DDD58B124B4E92300764C8F /* HomeAPI */,
 				3D6BAF8C24B0D7B600F6339E /* KeywordModel.swift */,
 				3D6BAF8524AF9B1800F6339E /* SwiftFiles */,
 			);
@@ -468,6 +482,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		3DFDAC4F24B4D6560069990A /* GeneralAPIs */ = {
+			isa = PBXGroup;
+			children = (
+				3DFDAC5024B4D6700069990A /* GeneralAPI.swift */,
+			);
+			path = GeneralAPIs;
+			sourceTree = "<group>";
+		};
 		6FA76C8E7BD3A77079EFAB74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +648,7 @@
 				AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */,
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
+				3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */,
 				3D6BAF9324B1D21A00F6339E /* NearstationCVC.swift in Sources */,
 				3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */,
 				1302CA8024AC5EBF0013CACC /* GroupListVC.swift in Sources */,
@@ -645,6 +668,7 @@
 				AE34145824B3055F00425889 /* AdminVC.swift in Sources */,
 				3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */,
 				3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */,
+				3DDD58B324B4E93000764C8F /* HomeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
