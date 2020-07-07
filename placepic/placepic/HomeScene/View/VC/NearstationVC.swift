@@ -81,6 +81,7 @@ extension NearstationVC {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
     }
     
     private func setNavigationBar() {

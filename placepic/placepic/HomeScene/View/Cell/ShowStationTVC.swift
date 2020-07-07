@@ -23,7 +23,6 @@ class ShowStationTVC: UITableViewCell {
         super.awakeFromNib()
         
     }
-
     /// 2
     var model: StationModel? {
         /// model의 Count 따라서 분기
@@ -47,10 +46,7 @@ class ShowStationTVC: UITableViewCell {
             case 3:
                 // $0 : Index $1 : element
                 subwayImage[3].isHidden = true
-                // $0 : Index $1 : element
-
                 subwayImage.enumerated().forEach {
-                    
                     if $0 < 3 {
                         guard let lineNum = model?.lineArray[$0],
                             let lineImg = SubwayNumber(rawValue: lineNum)?.image else {
@@ -62,7 +58,6 @@ class ShowStationTVC: UITableViewCell {
             case 2:
                 subwayImage[2].isHidden = true
                 subwayImage[3].isHidden = true
-                
                 subwayImage.enumerated().forEach {
                     // $0 : Index $1 : element
                     
@@ -74,14 +69,11 @@ class ShowStationTVC: UITableViewCell {
                         $1.image = lineImg
                     }
                 }
-                    // Subway이미지(기본 4개)와 모델에서 넘어오는개수의 차이
-                    // 덕분에 Crash
             case 1:
                 
                 subwayImage[1].isHidden = true
                 subwayImage[2].isHidden = true
                 subwayImage[3].isHidden = true
-                
                 subwayImage.enumerated().forEach {
                     // $0 : Index $1 : element
                     if $0 < 1 {
@@ -97,7 +89,6 @@ class ShowStationTVC: UITableViewCell {
             default:
                 assert(false)
             }
-            
         }
     }
 }

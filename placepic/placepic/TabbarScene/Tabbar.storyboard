@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NearstationVC-->
+        <!--ArticleUploadVC-->
         <scene sceneID="TpR-Ir-Wbo">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NearstationVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ArticleUploadVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aPc-c7-oJq"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLw-9i-9UK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

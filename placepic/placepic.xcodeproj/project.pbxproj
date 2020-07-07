@@ -24,15 +24,24 @@
 		3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF8624AF9B2F00F6339E /* KeywordLauncher.swift */; };
 		3D6BAF8924AF9B5000F6339E /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF8824AF9B5000F6339E /* KeywordCell.swift */; };
 		3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF8C24B0D7B600F6339E /* KeywordModel.swift */; };
-		3D6BAF8F24B108A400F6339E /* HomeTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF8E24B108A400F6339E /* HomeTestVC.swift */; };
+		3D6BAF8F24B108A400F6339E /* ArticleUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF8E24B108A400F6339E /* ArticleUploadVC.swift */; };
 		3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9024B1CDB500F6339E /* NearstationVC.swift */; };
 		3D6BAF9324B1D21A00F6339E /* NearstationCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9224B1D21A00F6339E /* NearstationCVC.swift */; };
 		3D6BAF9524B2D21200F6339E /* NearstationCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9424B2D21200F6339E /* NearstationCVC.xib */; };
 		3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9624B2DAD400F6339E /* ShowStationTVC.swift */; };
 		3D6BAF9924B2DAD400F6339E /* ShowStationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */; };
-		3D84896924B4116F00AE6A45 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84896824B4116F00AE6A45 /* StationModel.swift */; };
-		3D84896B24B440A600AE6A45 /* Subwaymodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84896A24B440A600AE6A45 /* Subwaymodel.swift */; };
-		3DDD58B324B4E93000764C8F /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD58B224B4E93000764C8F /* HomeAPI.swift */; };
+		3D84896924B4116F00AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		3D84896B24B440A600AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		3DCE5F6B24B4EF7F00BAF927 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */; };
+		3DCE5F6D24B4EF8F00BAF927 /* Subwaymodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6C24B4EF8F00BAF927 /* Subwaymodel.swift */; };
+		3DCE5F6F24B4F16A00BAF927 /* UploadPhotoCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6E24B4F16A00BAF927 /* UploadPhotoCVC.swift */; };
+		3DCE5F7124B5114F00BAF927 /* NearstaionHeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7024B5114F00BAF927 /* NearstaionHeaderCVC.swift */; };
+		3DCE5F7324B5156E00BAF927 /* PhotoUploadCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7224B5156E00BAF927 /* PhotoUploadCVC.swift */; };
+		3DCE5F7524B5198200BAF927 /* FindNearstationCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7424B5198200BAF927 /* FindNearstationCVC.swift */; };
+		3DCE5F7724B5199600BAF927 /* HomeKeywordCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7624B5199600BAF927 /* HomeKeywordCVC.swift */; };
+		3DCE5F7924B519D600BAF927 /* UsefulInformationCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7824B519D600BAF927 /* UsefulInformationCVC.swift */; };
+		3DCE5F7B24B51B1D00BAF927 /* HomeReviewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7A24B51B1D00BAF927 /* HomeReviewCVC.swift */; };
+		3DDD58B324B4E93000764C8F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB77324A9274100D54DBF /* AppDelegate.swift */; };
 		3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB77724A9274100D54DBF /* LoginVC.swift */; };
 		3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DECB77924A9274100D54DBF /* Login.storyboard */; };
@@ -80,12 +89,21 @@
 		3D6BAF8624AF9B2F00F6339E /* KeywordLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordLauncher.swift; sourceTree = "<group>"; };
 		3D6BAF8824AF9B5000F6339E /* KeywordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
 		3D6BAF8C24B0D7B600F6339E /* KeywordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordModel.swift; sourceTree = "<group>"; };
-		3D6BAF8E24B108A400F6339E /* HomeTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTestVC.swift; sourceTree = "<group>"; };
+		3D6BAF8E24B108A400F6339E /* ArticleUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleUploadVC.swift; sourceTree = "<group>"; };
 		3D6BAF9024B1CDB500F6339E /* NearstationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearstationVC.swift; sourceTree = "<group>"; };
 		3D6BAF9224B1D21A00F6339E /* NearstationCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearstationCVC.swift; sourceTree = "<group>"; };
 		3D6BAF9424B2D21200F6339E /* NearstationCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearstationCVC.xib; sourceTree = "<group>"; };
 		3D6BAF9624B2DAD400F6339E /* ShowStationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStationTVC.swift; sourceTree = "<group>"; };
 		3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowStationTVC.xib; sourceTree = "<group>"; };
+		3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
+		3DCE5F6C24B4EF8F00BAF927 /* Subwaymodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subwaymodel.swift; sourceTree = "<group>"; };
+		3DCE5F6E24B4F16A00BAF927 /* UploadPhotoCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoCVC.swift; sourceTree = "<group>"; };
+		3DCE5F7024B5114F00BAF927 /* NearstaionHeaderCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearstaionHeaderCVC.swift; sourceTree = "<group>"; };
+		3DCE5F7224B5156E00BAF927 /* PhotoUploadCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadCVC.swift; sourceTree = "<group>"; };
+		3DCE5F7424B5198200BAF927 /* FindNearstationCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNearstationCVC.swift; sourceTree = "<group>"; };
+		3DCE5F7624B5199600BAF927 /* HomeKeywordCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKeywordCVC.swift; sourceTree = "<group>"; };
+		3DCE5F7824B519D600BAF927 /* UsefulInformationCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInformationCVC.swift; sourceTree = "<group>"; };
+		3DCE5F7A24B51B1D00BAF927 /* HomeReviewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReviewCVC.swift; sourceTree = "<group>"; };
 		3DECB77024A9274100D54DBF /* placepic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = placepic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DECB77324A9274100D54DBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DECB77724A9274100D54DBF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -158,6 +176,13 @@
 				3D6BAF9424B2D21200F6339E /* NearstationCVC.xib */,
 				3D6BAF9624B2DAD400F6339E /* ShowStationTVC.swift */,
 				3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */,
+				3DCE5F6E24B4F16A00BAF927 /* UploadPhotoCVC.swift */,
+				3DCE5F7024B5114F00BAF927 /* NearstaionHeaderCVC.swift */,
+				3DCE5F7224B5156E00BAF927 /* PhotoUploadCVC.swift */,
+				3DCE5F7424B5198200BAF927 /* FindNearstationCVC.swift */,
+				3DCE5F7624B5199600BAF927 /* HomeKeywordCVC.swift */,
+				3DCE5F7824B519D600BAF927 /* UsefulInformationCVC.swift */,
+				3DCE5F7A24B51B1D00BAF927 /* HomeReviewCVC.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -165,7 +190,6 @@
 		3DDD58B124B4E92300764C8F /* HomeAPI */ = {
 			isa = PBXGroup;
 			children = (
-				3DDD58B224B4E93000764C8F /* HomeAPI.swift */,
 			);
 			path = HomeAPI;
 			sourceTree = "<group>";
@@ -288,10 +312,10 @@
 			isa = PBXGroup;
 			children = (
 				3DDD58B124B4E92300764C8F /* HomeAPI */,
+				3DCE5F6C24B4EF8F00BAF927 /* Subwaymodel.swift */,
+				3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */,
 				3D6BAF8C24B0D7B600F6339E /* KeywordModel.swift */,
-				3D84896824B4116F00AE6A45 /* StationModel.swift */,
 				3D6BAF8524AF9B1800F6339E /* SwiftFiles */,
-				3D84896A24B440A600AE6A45 /* Subwaymodel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -448,7 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				3DECB7B124A92C2F00D54DBF /* HomeVC.swift */,
-				3D6BAF8E24B108A400F6339E /* HomeTestVC.swift */,
+				3D6BAF8E24B108A400F6339E /* ArticleUploadVC.swift */,
 				3D6BAF9024B1CDB500F6339E /* NearstationVC.swift */,
 			);
 			path = VC;
@@ -632,15 +656,17 @@
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
 				1302CA8224AC70A00013CACC /* SigninVC.swift in Sources */,
 				3DECB7C524A9311200D54DBF /* Extensions+UIKit.swift in Sources */,
+				3DCE5F7524B5198200BAF927 /* FindNearstationCVC.swift in Sources */,
 				3DECB7A624A92B8A00D54DBF /* RankVC.swift in Sources */,
 				AE34145C24B3578000425889 /* adminListModel.swift in Sources */,
 				AEEEE27D24ADF08300891C6E /* placeListInfo.swift in Sources */,
 				AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */,
 				3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */,
-				3D6BAF8F24B108A400F6339E /* HomeTestVC.swift in Sources */,
-				3D84896B24B440A600AE6A45 /* Subwaymodel.swift in Sources */,
+				3D6BAF8F24B108A400F6339E /* ArticleUploadVC.swift in Sources */,
+				3D84896B24B440A600AE6A45 /* (null) in Sources */,
 				3DECB7C224A9311200D54DBF /* Extensions+UIFont.swift in Sources */,
 				3DECB7C424A9311200D54DBF /* Extensions+Date.swift in Sources */,
+				3DCE5F6F24B4F16A00BAF927 /* UploadPhotoCVC.swift in Sources */,
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
 				1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
@@ -653,21 +679,28 @@
 				1302CA8024AC5EBF0013CACC /* GroupListVC.swift in Sources */,
 				3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */,
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
+				3DCE5F7924B519D600BAF927 /* UsefulInformationCVC.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
 				3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */,
 				1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */,
 				3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */,
+				3DCE5F6B24B4EF7F00BAF927 /* StationModel.swift in Sources */,
 				1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
+				3DCE5F7B24B51B1D00BAF927 /* HomeReviewCVC.swift in Sources */,
+				3DCE5F7124B5114F00BAF927 /* NearstaionHeaderCVC.swift in Sources */,
+				3DCE5F7324B5156E00BAF927 /* PhotoUploadCVC.swift in Sources */,
 				1302CA7E24AC55330013CACC /* SendVC.swift in Sources */,
 				3DECB7B224A92C2F00D54DBF /* HomeVC.swift in Sources */,
+				3DCE5F6D24B4EF8F00BAF927 /* Subwaymodel.swift in Sources */,
 				3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */,
-				3D84896924B4116F00AE6A45 /* StationModel.swift in Sources */,
+				3D84896924B4116F00AE6A45 /* (null) in Sources */,
+				3DCE5F7724B5199600BAF927 /* HomeKeywordCVC.swift in Sources */,
 				3D6BAF8924AF9B5000F6339E /* KeywordCell.swift in Sources */,
 				AE34145824B3055F00425889 /* AdminVC.swift in Sources */,
 				3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */,
 				3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */,
-				3DDD58B324B4E93000764C8F /* HomeAPI.swift in Sources */,
+				3DDD58B324B4E93000764C8F /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
