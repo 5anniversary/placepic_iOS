@@ -52,7 +52,7 @@
 
 - `//MARK:` 를 사용해서 연관된 코드를 구분짓습니다.
 
-
+<code>
 └── placepic
     ├── Pods
     │   ├── Alamofire
@@ -422,7 +422,7 @@
 
 366 directories
 	
-	
+</code>
 		
 				
 					
