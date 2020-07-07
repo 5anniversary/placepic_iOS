@@ -20,9 +20,46 @@ class GroupListVC: UIViewController {
         GroupListTV.delegate = self
         GroupListTV.dataSource = self
         GroupWaitingButtonLooksLike()
-        setNavigationBar()
+//        setNavigationBar()
+        setNavi()
+        
         // Do any additional setup after loading the view.
     }
+    
+    private func setNavi() { //타이틀이 가운데에 있는 네비
+           guard let navigationBar = self.navigationController?.navigationBar else { return }
+           
+           navigationBar.isTranslucent = true
+           navigationBar.backgroundColor = UIColor.clear
+           navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+           navigationBar.shadowImage = UIImage()
+           
+           let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                             style: .plain,
+                                                             target: self,
+                                                             action: #selector(dismissVC))
+           
+           navigationItem.leftBarButtonItem = leftButton
+           navigationItem.title = "그룹신청"
+       }
+       
+       @objc func dismissVC() {
+           navigationController?.popViewController(animated: true)
+           
+           let transform = CGAffineTransform(translationX: 0, y: 100)
+           self.tabBarController?.tabBar.isHidden = false
+           tabBarController?.tabBar.transform = transform
+                   
+           UIView.animate(withDuration: 0.5,
+                          delay: 0,
+                          usingSpringWithDamping: 1,
+                          initialSpringVelocity: 1,
+                          options: .curveEaseOut,
+                          animations: {
+                           self.tabBarController?.tabBar.transform = .identity
+                           
+           }, completion: nil)
+       }
     
 
   
@@ -44,20 +81,21 @@ extension GroupListVC{
         GroupWaitingButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)}
 
     
-    private func setNavigationBar() {
-        guard let navigationBar = self.navigationController?.navigationBar else { return }
-        
-        navigationBar.isTranslucent = true
-        navigationBar.backgroundColor = UIColor.white
-        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationBar.shadowImage = UIImage()
-        
+//    private func setNavigationBar() {
+//        guard let navigationBar = self.navigationController?.navigationBar else { return }
+//
+//        navigationBar.isTranslucent = true
+//        navigationBar.backgroundColor = UIColor.white
+//        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        navigationBar.shadowImage = UIImage()
+//
 //        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icMenuHamburg"),
 //                                                          style: .plain,
 //                                                          target: self,
 //                                                          action: #selector(showSideMenuBar))
 //        navigationItem.leftBarButtonItem = leftButton
-    }
+//    }
+
 }
 
 
@@ -131,17 +169,17 @@ extension GroupListVC: UITableViewDataSource {
 //            TableViewCell.setDataInformation(profileImageName: myProfile[0].photo, name: myProfile[0].name, status: myProfile[0].status)
 
         
-//            TableViewCell.profileImage.layer.cornerRadius = TableViewCell.profileImage.frame.height/2
+            TableViewCell.GLProfileImageview.layer.cornerRadius = TableViewCell.GLProfileImageview.frame.height/2
 //            TableViewCell.GLProfileImageview.layer.cornerRadius = 50/2
-//            TableViewCell.GLProfileImageview.topAnchor.constraint(equalTo: TableViewCell.topAnchor, constant: 13).isActive = true
-//            TableViewCell.GLProfileImageview.leadingAnchor.constraint(equalTo: TableViewCell.leadingAnchor, constant: 16).isActive = true
-//            TableViewCell.GLProfileImageview.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//            TableViewCell.GLProfileImageview.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            TableViewCell.GLProfileImageview.topAnchor.constraint(equalTo: TableViewCell.topAnchor, constant: 13).isActive = true
+            TableViewCell.GLProfileImageview.leadingAnchor.constraint(equalTo: TableViewCell.leadingAnchor, constant: 16).isActive = true
+            TableViewCell.GLProfileImageview.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            TableViewCell.GLProfileImageview.widthAnchor.constraint(equalToConstant: 50).isActive = true
 
-//            TableViewCell.profileImage.contentMode = .scaleAspectFill
-//            TableViewCell.profileImage.layer.cornerRadius = 20 //half of your width or height
+            TableViewCell.GLProfileImageview.contentMode = .scaleAspectFill
+            TableViewCell.GLProfileImageview.layer.cornerRadius = 20 //half of your width or height
 
-//
+
             return TableViewCell
     
         

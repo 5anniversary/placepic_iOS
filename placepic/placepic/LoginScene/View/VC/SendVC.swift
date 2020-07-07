@@ -9,22 +9,53 @@
 import UIKit
 
 class SendVC: UIViewController {
-
+    @IBOutlet weak var groupImageview: UIImageView!
+    @IBOutlet weak var alertLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setalertlabel()
 
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+}
+extension SendVC{
+    
+    
+    private func setalertlabel(){
+        
+        
+//        alertLabel.frame = CGRect(x: 0, y: 0, width: 139, height: 44)
+        
+        alertLabel.backgroundColor = .white
+        
+        
+        alertLabel.textColor = UIColor(red: 0.31, green: 0.31, blue: 0.31, alpha: 1)
+        
+        alertLabel.font = UIFont(name: "SpoqaHanSans-Bold", size: 18)
+        
+        alertLabel.numberOfLines = 0
+        
+        alertLabel.lineBreakMode = .byWordWrapping
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        
+        paragraphStyle.lineHeightMultiple = 0.81
+        
+        
+        // Line height: 22 pt
+        
+        
+        alertLabel.textAlignment = .center
+        
+        alertLabel.attributedText = NSMutableAttributedString(string: "SOPT 가입 신청이\n승인되었습니다 :)", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        
+        
+     
+        
     }
-    */
-
 }

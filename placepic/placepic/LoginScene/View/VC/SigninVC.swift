@@ -18,56 +18,58 @@ class SigninVC: UIViewController {
     @IBOutlet weak var emailValidateLabel: UILabel!
     @IBAction func logintapButton(_ sender: UIButton) {
         
-        //        guard let inputID = txtFields[0].text else { return }
-        //        guard let inputPWD = txtFields[1].text else { return }
-        //
-        //        txtFields[0].text = nil
-        //        txtFields[1].text = nil
-        //
-        //        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
-        //            switch networkResult {
-        //
-        //            case .success(let token):
-        //                guard let token = token as? String else { return }
-        //                print("1312321");
-        //
-        //                UserDefaults.standard.set(token, forKey: "token")
-        //                print("token : \(token)")
-        //                if self.autoLoginButton.on {
-        //                    UserDefaults.standard.set(inputID, forKey: "id")
-        //                    UserDefaults.standard.set(inputPWD, forKey: "pwd")
-        //                }
-        //
-        //                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-        //                    "TabbarController") as? UITabBarController else { return }
-        //
-        //                tabbarController.modalPresentationStyle = .fullScreen
-        //                self.present(tabbarController, animated: true, completion: nil)
-        //
-        //            case .requestErr(let message):
-        //
-        //                guard let message = message as? String else { return }
-        //                let alertViewController = UIAlertController(title: "로그인 실패", message: message,
-        //                                                            preferredStyle: .alert)
-        //                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-        //                alertViewController.addAction(action)
-        //                print("err")
-        //                self.present(alertViewController, animated: true, completion: nil)
-        //            case .pathErr: print("path")
-        //            case .serverErr: print("serverErr")
-        //            case .networkFail: print("networkFail")
-        //            }
-        //        }
-        
+//        guard let inputID = txtFields[0].text else { return }
+//        guard let inputPWD = txtFields[1].text else { return }
+//
+//        txtFields[0].text = nil
+//        txtFields[1].text = nil
+//        
+//        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+//            switch networkResult {
+//                
+//            case .success(let token):
+//                guard let token = token as? String else { return }
+//                print("1312321");
+//                
+//                UserDefaults.standard.set(token, forKey: "token")
+//                print("token : \(token)")
+//                if self.autoLoginButton.on {
+//                    UserDefaults.standard.set(inputID, forKey: "id")
+//                    UserDefaults.standard.set(inputPWD, forKey: "pwd")
+//                }
+//                
+//                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+//                    "TabbarController") as? UITabBarController else { return }
+//                
+//                tabbarController.modalPresentationStyle = .fullScreen
+//                self.present(tabbarController, animated: true, completion: nil)
+//                
+//            case .requestErr(let message):
+//                
+//                guard let message = message as? String else { return }
+//                let alertViewController = UIAlertController(title: "로그인 실패", message: message,
+//                                                            preferredStyle: .alert)
+//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                alertViewController.addAction(action)
+//                print("err")
+//                self.present(alertViewController, animated: true, completion: nil)
+//            case .pathErr: print("path")
+//            case .serverErr: print("serverErr")
+//            case .networkFail: print("networkFail")
+//            }
+//        }
+//        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailValidateLabel.text = nil
-        
         setLabelLooksLike()
         setButtonsLooksLike()
+        setButtonSuc()
+        setNavigationBar()
+        setNavi()
         setButtonSuc()
         
         
@@ -99,6 +101,21 @@ class SigninVC: UIViewController {
         passwordLabel.textColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1)
         passwordLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
         
+    }
+    
+    private func setNavigationBar() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.white
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        //        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icMenuHamburg"),
+        //                                                          style: .plain,
+        //                                                          target: self,
+        //                                                          action: #selector(showSideMenuBar))
+        //        navigationItem.leftBarButtonItem = leftButton
     }
     
     
@@ -144,6 +161,44 @@ class SigninVC: UIViewController {
         loginButton.setTitleColor(UIColor(red: 0.808, green: 0.835, blue: 0.855, alpha: 1), for: .normal)
         //                logintapButton.frame = CGRect(x: 0, y: 0, width: 347, height: 50)
     }
+    
+    private func setNavi() { //타이틀이 가운데에 있는 네비
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(dismissVC))
+        
+        navigationItem.leftBarButtonItem = leftButton
+        navigationItem.title = "회원가입"
+    }
+    
+    
+    
+    @objc func dismissVC() {
+        navigationController?.popViewController(animated: true)
+        
+        let transform = CGAffineTransform(translationX: 0, y: 100)
+        self.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.transform = transform
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.tabBarController?.tabBar.transform = .identity
+                        
+        }, completion: nil)
+    }
+    
     
     private func setButtonSuc(){
         if ( emailTextbox.text?.validateEmail() == true && passwordTextbox.text != nil)
@@ -236,6 +291,8 @@ class SigninVC: UIViewController {
             loginButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         }
     }
+    
+    
     
     
     

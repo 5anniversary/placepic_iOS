@@ -13,6 +13,13 @@
 		1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA8324ACCC540013CACC /* SignupVC.swift */; };
 		1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA9324B2DF870013CACC /* GroupListTVC.swift */; };
 		1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA9624B342760013CACC /* GroupReqVC.swift */; };
+		134649D124B417FE0018F141 /* Signup3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649D024B417FE0018F141 /* Signup3VC.swift */; };
+		134649D324B47DD90018F141 /* GroupPartiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649D224B47DD90018F141 /* GroupPartiVC.swift */; };
+		134649D624B4AD7A0018F141 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649D524B4AD7A0018F141 /* LoginService.swift */; };
+		134649D824B4AF240018F141 /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649D724B4AF240018F141 /* SignupService.swift */; };
+		134649DA24B4AF5E0018F141 /* LoginInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649D924B4AF5E0018F141 /* LoginInfomodel.swift */; };
+		134649DC24B4AFD50018F141 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649DB24B4AFD50018F141 /* APIConstants.swift */; };
+		134649DE24B4F0250018F141 /* GroupUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649DD24B4F0250018F141 /* GroupUpVC.swift */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
 		3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50527A24A9BCDC00140BCA /* APIServices.swift */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
@@ -62,9 +69,15 @@
 		1302CA7F24AC5EBF0013CACC /* GroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListVC.swift; sourceTree = "<group>"; };
 		1302CA8124AC70A00013CACC /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
 		1302CA8324ACCC540013CACC /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
-		1302CA8F24AF34350013CACC /* SignUp2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp2VC.swift; path = ../../../../../../../.Trash/SignUp2VC.swift; sourceTree = "<group>"; };
 		1302CA9324B2DF870013CACC /* GroupListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListTVC.swift; sourceTree = "<group>"; };
 		1302CA9624B342760013CACC /* GroupReqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReqVC.swift; sourceTree = "<group>"; };
+		134649D024B417FE0018F141 /* Signup3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup3VC.swift; sourceTree = "<group>"; };
+		134649D224B47DD90018F141 /* GroupPartiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPartiVC.swift; sourceTree = "<group>"; };
+		134649D524B4AD7A0018F141 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		134649D724B4AF240018F141 /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
+		134649D924B4AF5E0018F141 /* LoginInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginInfomodel.swift; path = placepic/LoginScene/LoginInfomodel.swift; sourceTree = SOURCE_ROOT; };
+		134649DB24B4AFD50018F141 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		134649DD24B4F0250018F141 /* GroupUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUpVC.swift; sourceTree = "<group>"; };
 		3D50527824A9BCA800140BCA /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		3D50527A24A9BCDC00140BCA /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -137,6 +150,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		134649D424B4AD5A0018F141 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				134649D724B4AF240018F141 /* SignupService.swift */,
+				134649D524B4AD7A0018F141 /* LoginService.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
 		3D6BAF8524AF9B1800F6339E /* SwiftFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +221,7 @@
 				3DECB77C24A9274200D54DBF /* Assets.xcassets */,
 				3DECB78124A9274200D54DBF /* Info.plist */,
 				3DECB77E24A9274200D54DBF /* LaunchScreen.storyboard */,
+				134649DB24B4AFD50018F141 /* APIConstants.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -207,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				3DECB77924A9274100D54DBF /* Login.storyboard */,
+				134649D424B4AD5A0018F141 /* Server */,
 				3DECB78F24A927FF00D54DBF /* Model */,
 				3DECB78A24A9274D00D54DBF /* View */,
 			);
@@ -225,13 +249,15 @@
 		3DECB78B24A9274D00D54DBF /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				134649DD24B4F0250018F141 /* GroupUpVC.swift */,
 				1302CA9624B342760013CACC /* GroupReqVC.swift */,
 				1302CA7D24AC55330013CACC /* SendVC.swift */,
+				134649D224B47DD90018F141 /* GroupPartiVC.swift */,
 				3DECB77724A9274100D54DBF /* LoginVC.swift */,
-				1302CA8F24AF34350013CACC /* SignUp2VC.swift */,
 				1302CA7F24AC5EBF0013CACC /* GroupListVC.swift */,
 				1302CA8124AC70A00013CACC /* SigninVC.swift */,
 				1302CA8324ACCC540013CACC /* SignupVC.swift */,
+				134649D024B417FE0018F141 /* Signup3VC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -239,6 +265,7 @@
 		3DECB78F24A927FF00D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				134649D924B4AF5E0018F141 /* LoginInfomodel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -611,10 +638,13 @@
 				AE34145C24B3578000425889 /* adminListModel.swift in Sources */,
 				AEEEE27D24ADF08300891C6E /* placeListInfo.swift in Sources */,
 				AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */,
+				134649DC24B4AFD50018F141 /* APIConstants.swift in Sources */,
 				3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */,
 				3D6BAF8F24B108A400F6339E /* HomeTestVC.swift in Sources */,
 				3DECB7C224A9311200D54DBF /* Extensions+UIFont.swift in Sources */,
+				134649D324B47DD90018F141 /* GroupPartiVC.swift in Sources */,
 				3DECB7C424A9311200D54DBF /* Extensions+Date.swift in Sources */,
+				134649D824B4AF240018F141 /* SignupService.swift in Sources */,
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
 				1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
@@ -628,8 +658,12 @@
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
 				3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */,
+				134649DE24B4F0250018F141 /* GroupUpVC.swift in Sources */,
+				134649D624B4AD7A0018F141 /* LoginService.swift in Sources */,
 				1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */,
+				134649D124B417FE0018F141 /* Signup3VC.swift in Sources */,
 				3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */,
+				134649DA24B4AF5E0018F141 /* LoginInfomodel.swift in Sources */,
 				1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
 				1302CA7E24AC55330013CACC /* SendVC.swift in Sources */,
