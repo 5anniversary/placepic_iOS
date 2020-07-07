@@ -69,27 +69,35 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         return txtField.frame.size.width
     }
     
-        private func setNavigationBar() {
-            guard let navigationBar = self.navigationController?.navigationBar else { return }
-            
-            navigationBar.isTranslucent = true
-            navigationBar.backgroundColor = UIColor.clear
-            navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            navigationBar.shadowImage = UIImage()
-            
-            let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-                                                              style: .plain,
-                                                              target: self,
-                                                              action: #selector(showSideMenuBar))
-       
-//        leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        let leftButton2: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-                                                             style: .plain,
-                                                             target: self,
-                                                             action: #selector(showSideMenuBar))
-     
-//        leftButton2.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0.1)
+    private func setNavigationBar() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "플레이스"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        titleLabel.sizeToFit()
+        
+        let leftItem = UIBarButtonItem(customView: titleLabel)
+        navigationItem.leftBarButtonItem = leftItem
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "searchSelectedIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(showSideMenuBar))
+        
+        leftButton.imageInsets = UIEdgeInsets(top: 0.0, left: 1.0, bottom: 0.0, right: 0.0)
+        let leftButton2: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "notificationsNoneIc"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(showSideMenuBar))
         let buttons = [leftButton,leftButton2]
+        
+        
         navigationItem.setRightBarButtonItems(buttons, animated: true)
         
     }
