@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
       "filename" : "groupIc.png",
       "idiom" : "universal",
       "scale" : "1x"

@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "filename" : "searchBarIc.png",
+      "scale" : "1x",
       "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "searchBarIc.png"
     },
     {
       "filename" : "searchBarIc@2x.png",

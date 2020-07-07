@@ -53,11 +53,16 @@ extension HomeVC {
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
         
-        //          let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icMenuHamburg"),
-        //                                                            style: .plain,
-        //                                                            target: self,
-        //                                                            action: #selector(showSideMenuBar))
-        //          navigationItem.leftBarButtonItem = leftButton
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(dismissVC))
+        navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    @objc private func dismissVC() {
+        navigationController?.popViewController(animated: true)
+        
     }
 }
 

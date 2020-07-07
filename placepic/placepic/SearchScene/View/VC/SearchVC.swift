@@ -10,16 +10,18 @@ import XLPagerTabStrip
 
 class SearchVC: ButtonBarPagerTabStripViewController {
     
-    @IBOutlet var butSubway: UIButton!
-    @IBOutlet var buy1: UIButton!
-    
-    
+    @IBOutlet var buttons: [UIButton]!
+    var frame: CGRect!
     override func viewDidLoad() {
         configureButtonBar()
         super.viewDidLoad()
         setNavigationBar()
-        
-//        text1.text = "aaa"
+        setButtons()
+    
+        for i in 1..<3 {
+            buttons[i].alpha = 0
+        }
+        //        text1.text = "aaa"
 //        text1.frame.size.width = 15
 //        text1.
 //        navigationController?.navigationBar.isHidden = true
@@ -41,11 +43,25 @@ class SearchVC: ButtonBarPagerTabStripViewController {
 //    }
 //
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    // MARK: - Configuration
+    
+    
+    private func hideTabBar() {
+        frame = self.tabBarController?.tabBar.frame
+        let height = frame.size.height
+        frame?.origin.y = self.view.frame.size.height + (height)
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.tabBarController?.tabBar.frame = self.frame!
+        })
     }
     
-    // MARK: - Configuration
+    
+    func setButtons(){
+        for i in 0..<3{
+            buttons[i].layer.cornerRadius = 4
+        }
+    }
     func getWidth(text: String) -> CGFloat {
         let txtField = UITextField(frame: .zero)
         txtField.text = text
@@ -53,10 +69,36 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         return txtField.frame.size.width
     }
     
-    private func setNavigationBar() {
-        
+        private func setNavigationBar() {
+            guard let navigationBar = self.navigationController?.navigationBar else { return }
+            
+            navigationBar.isTranslucent = true
+            navigationBar.backgroundColor = UIColor.clear
+            navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            navigationBar.shadowImage = UIImage()
+            
+            let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                              style: .plain,
+                                                              target: self,
+                                                              action: #selector(showSideMenuBar))
+       
+//        leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let leftButton2: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                             style: .plain,
+                                                             target: self,
+                                                             action: #selector(showSideMenuBar))
+     
+//        leftButton2.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0.1)
+        let buttons = [leftButton,leftButton2]
+        navigationItem.setRightBarButtonItems(buttons, animated: true)
         
     }
+    
+    @objc private func showSideMenuBar() {
+        
+    }
+    
+    
     func configureButtonBar() {
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
@@ -80,29 +122,36 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         }
     }
     
+//    override func updateIndicator(for viewController: PagerTabStripViewController, fromIndex: Int, toIndex: Int, withProgressPercentage progressPercentage: CGFloat, indexWasChanged: Bool) {
+//
+//        print(fromIndex, toIndex)
+//    }
+//
+    
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        
         let child1 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child1.childNumber = "전체"
         
         let child2 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child2.childNumber = "맛집"
-        
+
         let child3 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child3.childNumber = "술집"
-        
+
         let child4 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child4.childNumber = "카페"
-        
+
         let child5 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child5.childNumber = "스터디"
-        
+
         let child6 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child6.childNumber = "기타"
-        
+
         return [child1, child2, child3, child4, child5, child6]
     }
-
+ 
 }
 
 extension UIButton {
@@ -113,4 +162,12 @@ extension UIButton {
         contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
 }
+
+//extension SearchVC: HomeVC {
+//    lazy var settingsLauncher: KeywordLauncher = {
+//          let launcher = KeywordLauncher()
+//          launcher.homeController = self
+//          return launcher
+//    }()
+    
 

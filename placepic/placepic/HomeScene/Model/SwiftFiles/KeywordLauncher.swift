@@ -11,6 +11,9 @@ import UIKit
 class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var homeController: HomeVC?
+    var searchVC: SearchVC?
+    var childVC: ChildVC?
+    
     let blackView = UIView()
     
     let collectionView: UICollectionView = {
@@ -84,8 +87,8 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         
         keyword.forEach {
             heightTemp += $0.width(withConstrainedHeight: 40, font: .systemFont(ofSize: 16)) + itemspacing + 2 + 20
-            print("heightTemp: \(heightTemp)")
-            print("floor: \(floor)")
+//            print("heightTemp: \(heightTemp)")
+//            print("floor: \(floor)")
             
             if width < heightTemp {
                 print("heightTemp : \(heightTemp)")

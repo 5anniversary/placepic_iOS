@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "filename" : "notificationsNoneIc.png",
+      "scale" : "1x",
       "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "notificationsNoneIc.png"
     },
     {
       "filename" : "notificationsNoneIc@2x.png",
