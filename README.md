@@ -1,7 +1,7 @@
 # placepic_iOS
 
 ###  CODE CONVENTION 🐷
-
+</br>
 ## 💡 네이밍 
 
 - **함수**
@@ -18,7 +18,7 @@
 
   -> 상수 이름에는 lowerCamelCase를 사용한다
 
-
+</br>
 
 
 ## 💡 약어
@@ -29,7 +29,7 @@
 - TableViewController => **TV**
 - TableViewCell => **TVC**
 
-
+</br>
 
 
 ## 💡 기타 규칙
