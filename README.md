@@ -3,8 +3,12 @@
 
 <img style="border: 1px solid black !important; border-radius:20px;" src="https://avatars2.githubusercontent.com/u/67547341?s=200&v=4" width="200px" />
 
-![node_badge](https://img.shields.io/badge/node-%3E%3D%208.0.0-green)
+![placepic_badge](https://img.shields.io/badge/placepic-Sprint1-%23ff7adc)
 ![pod_bedge](https://img.shields.io/badge/pod-v1.9.1-blue)
+
+![Swift_badge](https://img.shields.io/badge/Swift-5.0-orange.svg)
+
+
 
 * <b> SOPT 26th APPJAM </b>
 

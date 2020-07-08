@@ -73,9 +73,6 @@
                                         <rect key="frame" x="314" y="9" width="38" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="SoB-lv-GQI" kind="show" id="2jg-gU-qVu"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -609,9 +606,6 @@
             <point key="canvasLocation" x="-4223" y="722"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="2jg-gU-qVu"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="downArrowIc" width="16" height="16"/>
         <image name="nextArrowIc" width="24" height="24"/>
