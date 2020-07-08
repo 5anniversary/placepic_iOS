@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - placeListModel
 struct placeListModel: Codable {
     let status: Int
     let success: Bool
@@ -32,7 +32,7 @@ struct placeListModel: Codable {
     
 }
 
-// MARK: - Datum
+// MARK: - placeData
 struct placeData: Codable {
     var placeIdx: Int
     var placeName, placeAddress, placeRoadAddress: String
