@@ -4,9 +4,7 @@
 <img style="border: 1px solid black !important; border-radius:20px;" src="https://avatars2.githubusercontent.com/u/67547341?s=200&v=4" width="200px" />
 
 ![placepic_badge](https://img.shields.io/badge/placepic-Sprint1-%23ff7adc)
-![pod_bedge](https://img.shields.io/badge/pod-v1.9.1-blue)
-
-![Swift_badge](https://img.shields.io/badge/Swift-5.0-orange.svg)
+![pod_bedge](https://img.shields.io/badge/pod-v1.9.1-blue) ![Swift_badge](https://img.shields.io/badge/Swift-5.0-orange.svg)
 
 
 
@@ -57,17 +55,17 @@
 
 - **함수**
 
-  -> 함수 이름은 lowerCamelCase를 사용한다
+  함수 이름은 lowerCamelCase를 사용한다
 
-  -> 함수이름은 동사로 시작한다 ex) `setNavigationBar()`
+  함수이름은 동사로 시작한다 ex) `setNavigationBar()`
 
 - **변수**
 
-  -> 변수 이름은 lowerCamelCase를 사용한다
+  변수 이름은 lowerCamelCase를 사용한다
 
 - **상수**
 
-  -> 상수 이름에는 lowerCamelCase를 사용한다
+  상수 이름에는 lowerCamelCase를 사용한다
 
 <br />
 <br />
@@ -160,5 +158,4 @@ placepic
     └── Write.storyboard
 
 22 directories, 17 files
-
 ```
