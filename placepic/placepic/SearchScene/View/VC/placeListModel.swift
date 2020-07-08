@@ -49,8 +49,6 @@ struct placeData: Codable {
         case placeIdx, placeName, placeAddress, placeRoadAddress, placeMapX, placeMapY, placeCreatedAt, placeUpdatedAt, placeReview, category, groupIdx, placeViews, tag, subway, user
         case imageURL = "imageUrl"
     }
-    
-    
 }
 
 // MARK: - Category
