@@ -9,10 +9,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     var sum:Int = 12
     @IBOutlet var sumNum: UILabel!
     var placeList: [placeData] = []
-    
-//    
-//    var palceTag1: [String] = ["공부하기좋은","분위기좋은","분위기좋은"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,11 +35,9 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
             placeService.shared.getPlaces() { networkResult in
                 switch networkResult {
                 case .success(let products):
-                    print("~!@@#!@#")
                     guard let places = products as? [placeData] else { return }
                     for i in 0..<places.count{
                         self.placeList.append(places[i])
-//                        print(self.placeList[i])
                     }
                     self.placeListTV.reloadData()
                     self.sumNum.text = "총 \(self.placeList.count)개 결과"

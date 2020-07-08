@@ -10,6 +10,7 @@
         <!--Title-->
         <scene sceneID="l6P-vS-39i">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqY-qT-K5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="8pL-YV-JGG" customClass="AdminVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I5E-cS-1nG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -68,28 +69,13 @@
                         <outlet property="PeopleList" destination="HuE-Yo-p3N" id="x31-zJ-iyb"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wqY-qT-K5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2503" y="-681"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="8X8-D9-xdE">
-            <objects>
-                <viewController id="Tks-sO-WSg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gul-7c-S5g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6qG-WL-VEq"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kyy-3y-L4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2492" y="1"/>
         </scene>
         <!--People DetailVC-->
         <scene sceneID="OfG-3X-ZDN">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15c-zB-S8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="tGr-9w-xmv" customClass="PeopleDetailVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Prs-uP-Ftk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -255,14 +241,14 @@
                         <outletCollection property="butAdmin" destination="KVh-Rk-ZSZ" collectionClass="NSMutableArray" id="IUv-ch-Abj"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="15c-zB-S8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1799" y="-681"/>
         </scene>
         <!--PeopleListView-->
         <scene sceneID="lLM-EZ-O1P">
             <objects>
-                <navigationController title="PeopleListView" automaticallyAdjustsScrollViewInsets="NO" id="QsB-uX-bw5" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7P-dF-tOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="navi" title="PeopleListView" automaticallyAdjustsScrollViewInsets="NO" id="QsB-uX-bw5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c5k-rD-5oy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -273,7 +259,6 @@
                         <segue destination="8pL-YV-JGG" kind="relationship" relationship="rootViewController" id="rQf-Rh-dUh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I7P-dF-tOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3372" y="-681"/>
         </scene>
