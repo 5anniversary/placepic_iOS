@@ -107,29 +107,47 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let placeListCell = tableView.dequeueReusableCell(withIdentifier: PlaceListTVC.identifier, for: indexPath) as? PlaceListTVC else { return UITableViewCell() }
-        print("##")
-//        print(placeList[indexPath.row].tag.count)
-        print(indexPath.row)
-//        print(placeList.count)
+        
+        var dataInfo: String = ""
+        for i in 0..<placeList[indexPath.row].subway.count{
+            if i == (placeList[indexPath.row].subway.count-1){
+                dataInfo = dataInfo + placeList[indexPath.row].subway[i].subwayName + "역"
+            }
+            else {
+                 dataInfo = dataInfo + placeList[indexPath.row].subway[i].subwayName + "/"
+            }
+        }
+        
+        let date:Date = Date(timeIntervalSince1970: TimeInterval(placeList[indexPath.row].placeCreatedAt))
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        
+        if placeList[indexPath.row].tag.count == 0{
+            dataInfo = dataInfo + " · " + dateFormatter.string(from: date)
+        }
+        else{
+            dataInfo = dataInfo + dateFormatter.string(from: date)
+        }
+        print(dataInfo)
         
         if placeList[indexPath.row].tag.count == 0 {
-            print("*****")
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: "", pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")
             placeListCell.placeTag[0].isHidden = true
             placeListCell.placeTag[1].isHidden = true
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeList[indexPath.row].tag.count == 1 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: "", pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
             placeListCell.placeTag[1].isHidden = true
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeList[indexPath.row].tag.count == 2 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: "", pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeList[indexPath.row].tag.count >= 3 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: "", pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "...")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "...")
         }
         return placeListCell
     }
