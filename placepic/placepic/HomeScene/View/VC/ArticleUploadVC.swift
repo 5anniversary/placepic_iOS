@@ -12,9 +12,8 @@ import YPImagePicker
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var titleLabel: UILabel!
+    var photoArray: [UIImage] = []
     
-    var photoArray: [UIImage]! = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,41 +23,7 @@ class ArticleUploadVC: UIViewController {
     }
     
     @IBAction func testButtonAction(_ sender: Any) {
-        var config = YPImagePickerConfiguration()
-        config.showsCrop = .rectangle(ratio: (16/9))
-        config.showsCrop = .rectangle(ratio: (1/1))
-        config.showsPhotoFilters = false
-        config.startOnScreen = .library
-        config.screens = [.library]
-        config.library.defaultMultipleSelection = true
-        config.library.maxNumberOfItems = 10
         
-        let picker = YPImagePicker(configuration: config)
-        picker.didFinishPicking { [unowned picker] items, cancelled in
-            self.photoArray = []
-            
-            if cancelled {
-                picker.dismiss(animated: true, completion: nil)
-                return
-            }
-            
-            // 여러 이미지를 넣어주기 위해 하나씩 넣어주는 반복문
-            for item in items {
-                switch item {
-                // 이미지만 받기때문에 photo case만 처리
-                case .photo(let p):
-                    // 이미지를 해당하는 이미지 배열에 넣어주는 code
-                    self.photoArray.append(p.image)
-                default:
-                    print("")
-                }
-            }
-            picker.dismiss(animated: true) {
-                // picker뷰 dismiss 할 때 이미지가 들어가 있는 collectionView reloadData()
-                self.collectionView.reloadData()
-            }
-        }
-        present(picker, animated: true, completion: nil)
     }
 }
 
@@ -107,11 +72,23 @@ extension ArticleUploadVC: UICollectionViewDataSource {
         return 5
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-   
+        
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderReusableView", for: indexPath) as? NearstaionHeaderCVC
+            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NearstaionHeaderCVC", for: indexPath) as? NearstaionHeaderCVC
                 else {
                     return UICollectionReusableView()
             }
@@ -129,20 +106,74 @@ extension ArticleUploadVC: UICollectionViewDataSource {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoArray.count
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.frame.width
+
+        switch indexPath.section {
+        case 0:
+            return CGSize(width: width, height: 98)
+        case 1:
+            return CGSize(width: width, height: 90)
+        /// 60에서 90으로 Reload
+        case 2:
+            return CGSize(width: width, height: 90)
+        case 3:
+            return CGSize(width: width, height: 90)
+        case 4:
+            return CGSize(width: width, height: 452)
+        default:
+            assert(false)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UploadPhotoCVC", for: indexPath) as? UploadPhotoCVC else {
-            return UICollectionViewCell()
-        }
         
-//        cell.uploadImageView.image = photoArray[indexPath.item]
-        return cell
+        // Notification 받아서 그냥 다 Reload 때리자
+        // reload 방식은
+        switch indexPath.section {
+        case 0:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OutterUploadPhotoCVC", for: indexPath) as? OutterUploadPhotoCVC else {
+                return UICollectionViewCell()
+            }
+            return cell
+            
+        case 1:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FindNearstationCVC", for: indexPath) as? FindNearstationCVC else {
+                return UICollectionViewCell()
+            }
+            return cell
+            
+        case 2:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeKeywordCVC", for: indexPath) as? HomeKeywordCVC else {
+                return UICollectionViewCell()
+            }
+            return cell
+            
+        case 3:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsefulInformationCVC", for: indexPath) as? UsefulInformationCVC else {
+                return UICollectionViewCell()
+            }
+            return cell
+            
+        case 4:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeReviewCVC", for: indexPath) as? HomeReviewCVC else {
+                return UICollectionViewCell()
+            }
+            return cell
+            
+        default:
+            assert(false)
+        }
+        //        cell.uploadImageView.image = photoArray[indexPath.item]
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.section)
+    }
+    
 }

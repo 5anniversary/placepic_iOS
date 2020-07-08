@@ -8,10 +8,9 @@
 
 import UIKit
 
-class UploadPhotoCVC: UICollectionViewCell {
+class InnerUploadPhotoCVC: UICollectionViewCell {
         
-    @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var imageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -104,9 +104,7 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
         
     /// 호출할때 여기다가 매개변수로 넘겨주는게 조을거같아욤
-    func showSettings(_ titleLabel: String) {
-        print(#function)
-        
+    func showSettings(_ titleLabel: String) {        
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
             
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
