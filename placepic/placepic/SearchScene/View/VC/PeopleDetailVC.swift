@@ -18,7 +18,7 @@ class PeopleDetailVC: UIViewController {
     
     @IBOutlet var butAdmin: [UIButton]!
     
-    var selectedData: adminListModel?
+    var selectedData: WaitUserModel?
     
     @IBAction func butAccept(_ sender: Any) {
 //               guard let inputID = idTextField.text else { return }
@@ -125,14 +125,18 @@ class PeopleDetailVC: UIViewController {
     }
     
     func setData(){
-        
-        labelName.text = selectedData?.name
+        labelName.text = selectedData?.userName
         labelPart.text = selectedData?.part
-        labelBirth.text = selectedData?.birth
-        labelPhone.text = selectedData?.phone
-        labelGender.text = selectedData?.gender
+        labelBirth.text = selectedData?.userBirth
+        labelPhone.text = selectedData?.phoneNumber
+        if selectedData?.gender == 0 {
+            labelGender.text = "남"
+        }
+        else{
+            labelGender.text = "여"
+        }
     }
-    
+
     func setButton(){
         for i in 0..<2{
             butAdmin[i].layer.cornerRadius = 8

@@ -34,10 +34,10 @@ class AdminVC: UIViewController {
             switch networkResult {
             case .success(let products):
                 guard let users = products as? [WaitUserModel] else { return }
+                print(users.count)
                 for i in 0..<users.count{
                     self.adminList.append(users[i])
                 }
-                print(self.adminList)
                 self.PeopleList.reloadData()
             case .requestErr(let message):
                 guard let message = message as? String else { return }
@@ -103,7 +103,7 @@ class AdminVC: UIViewController {
             if let destination = segue.destination as? PeopleDetailVC {
                 if let selectedIndex = self.PeopleList.indexPathsForSelectedRows?.first?.row {
                     let data = adminList[selectedIndex]
-//                    destination.selectedData = data
+                    destination.selectedData = data
                 }
             }
         }
@@ -117,7 +117,7 @@ extension AdminVC: UITableViewDelegate,UITableViewDataSource{
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let peopleListCell = tableView.dequeueReusableCell(withIdentifier: "PeopleListCell", for: indexPath)
-//        peopleListCell.textLabel?.text = adminList[indexPath.row].name
+        peopleListCell.textLabel?.text = adminList[indexPath.row].userName
         peopleListCell.detailTextLabel?.text = adminList[indexPath.row].part
             
         return peopleListCell

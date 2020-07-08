@@ -5,7 +5,6 @@
 //  Created by 이유진 on 2020/07/09.
 //  Copyright © 2020 elesahich. All rights reserved.
 //
-
 import Foundation
 
 // MARK: - Welcome
@@ -16,12 +15,7 @@ struct adminUserModel: Codable {
     let data: [WaitUserModel]
 }
 
-// MARK: - DataClass
-struct DataClass: Codable {
-    let waitUserList: [WaitUserModel]
-}
-
-// MARK: - WaitUserList
+// MARK: - Datum
 struct WaitUserModel: Codable {
     let userIdx, groupUserIdx, groupIdx, state: Int
     let part, phoneNumber, email, password: String
@@ -29,8 +23,9 @@ struct WaitUserModel: Codable {
     let profileImageURL: String
     let userName: String
     let gender: Int
-    let profileThumbNailImageURL: String
-    let userCreatedAt, userBirth: String
+    let profileThumbNailImageURL: String?
+    let userCreatedAt: Int
+    let userBirth: String
 
     enum CodingKeys: String, CodingKey {
         case userIdx, groupUserIdx, groupIdx, state, part, phoneNumber, email, password, salt

@@ -382,6 +382,7 @@
 		3DECB79D24A92B5900D54DBF /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				AE34145724B3055F00425889 /* AdminVC.swift */,
 				3DECB79F24A92B6C00D54DBF /* MypageVC.swift */,
 			);
 			path = VC;
@@ -444,7 +445,6 @@
 				AEEEE27424AC2E3500891C6E /* SearchVC.swift */,
 				AEEEE27824AC59A200891C6E /* ChildVC.swift */,
 				AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */,
-				AE34145724B3055F00425889 /* AdminVC.swift */,
 				AE34145924B33A9600425889 /* PeopleDetailVC.swift */,
 			);
 			path = VC;
