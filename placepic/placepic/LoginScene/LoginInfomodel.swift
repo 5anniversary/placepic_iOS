@@ -10,14 +10,30 @@
 import Foundation
 
 // MARK: - Welcome
-struct LoginInfomodel: Codable {
-    let success: Bool
-    let message: String
-    let data: DataClass
-}
 
+struct LoginInfomodel: Codable {
+    var success: Bool
+    var message: String
+    var data: TokenData?
+ 
+    
+     enum CodingKeys:String, CodingKey {
+            case message = "message"
+            case success = "success"
+            case data = "data"
+            
+            }
+            
+     //
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        success = (try? values.decode(Bool.self, forKey: .success)) ?? false
+        message = (try? values.decode(String.self, forKey: .message)) ?? ""
+        data = (try? values.decode(TokenData.self, forKey: .data)) ?? nil
+    }
+}
 // MARK: - DataClass
-struct DataClass: Codable {
-    let accessToken: String
+struct TokenData: Codable {
+    var accessToken: String
 }
 

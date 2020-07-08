@@ -46,13 +46,14 @@ struct SignupService {
     
     private func isSignup(by data:Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(SignupData.self, from: data) else {return .pathErr}
+        guard let decodedData = try? decoder.decode(SignupInfomodel.self, from: data) else {return .pathErr}
+        
         if decodedData.success
-            {   print("dflkajdslakfj;jg;")
+            {
                 return .success(data)}
         else
             {
-                print("dflkajg;")
+           
                 return .requestErr(decodedData.message)}
     }
     

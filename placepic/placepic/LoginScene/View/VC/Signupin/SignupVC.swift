@@ -31,7 +31,36 @@ class SignupVC: UIViewController {
         }
             vc.signupemail = signupEmailTextbox.text
             vc.signuppw = signupPwTextbox.text
-        navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
+        
+        
+        guard let signupEmail = signupEmailTextbox.text else{return}
+        
+        
+        EmailService.shared.emailcheck(email:  signupEmail) { networkResult in
+            switch networkResult {
+                
+            case .success(let token):
+                print("제발.")
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+                    "nextNavi") as? UITabBarController else { return }
+                tabbarController.modalPresentationStyle = .fullScreen
+                self.present(tabbarController, animated: true, completion: nil)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
+                                                            preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
         
         //A VC의 Button Action
         ///B VC
@@ -68,10 +97,8 @@ class SignupVC: UIViewController {
         
 //        let emailSU = signupEmailTextbox.text
 //        let pwSU = signupPwTextbox.text
-//        
+   
 
-        
-        
     }
     
 //        let vc = SignupVC()

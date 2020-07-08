@@ -24,6 +24,8 @@
 		134649E224B520E30018F141 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E124B520E30018F141 /* NetworkResult.swift */; };
 		134649E424B521440018F141 /* SigninData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E324B521440018F141 /* SigninData.swift */; };
 		134649E624B523480018F141 /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E524B523480018F141 /* SignupData.swift */; };
+		134649EB24B649F60018F141 /* Emailmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649EA24B649F60018F141 /* Emailmodel.swift */; };
+		134649ED24B64A640018F141 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649EC24B64A640018F141 /* EmailService.swift */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
 		3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50527A24A9BCDC00140BCA /* APIServices.swift */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
@@ -88,6 +90,8 @@
 		134649E124B520E30018F141 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		134649E324B521440018F141 /* SigninData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninData.swift; sourceTree = "<group>"; };
 		134649E524B523480018F141 /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
+		134649EA24B649F60018F141 /* Emailmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Emailmodel.swift; path = placepic/LoginScene/Server/Emailmodel.swift; sourceTree = SOURCE_ROOT; };
+		134649EC24B64A640018F141 /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
 		3D50527824A9BCA800140BCA /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		3D50527A24A9BCDC00140BCA /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				134649D524B4AD7A0018F141 /* LoginService.swift */,
+				134649EC24B64A640018F141 /* EmailService.swift */,
 				134649E524B523480018F141 /* SignupData.swift */,
 				134649E324B521440018F141 /* SigninData.swift */,
 				134649D724B4AF240018F141 /* SignupService.swift */,
@@ -307,6 +312,7 @@
 			children = (
 				134649D924B4AF5E0018F141 /* LoginInfomodel.swift */,
 				134649DF24B5159B0018F141 /* SignupInfomodel.swift */,
+				134649EA24B649F60018F141 /* Emailmodel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 				AEEEE27D24ADF08300891C6E /* placeListInfo.swift in Sources */,
 				AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */,
 				134649DC24B4AFD50018F141 /* APIConstants.swift in Sources */,
+				134649ED24B64A640018F141 /* EmailService.swift in Sources */,
 				3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */,
 				3D6BAF8F24B108A400F6339E /* HomeTestVC.swift in Sources */,
 				3DECB7C224A9311200D54DBF /* Extensions+UIFont.swift in Sources */,
@@ -696,6 +703,7 @@
 				3DECB7C424A9311200D54DBF /* Extensions+Date.swift in Sources */,
 				134649D824B4AF240018F141 /* SignupService.swift in Sources */,
 				134649E624B523480018F141 /* SignupData.swift in Sources */,
+				134649EB24B649F60018F141 /* Emailmodel.swift in Sources */,
 				134649E024B5159B0018F141 /* SignupInfomodel.swift in Sources */,
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
 				1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */,
