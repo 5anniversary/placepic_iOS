@@ -10,6 +10,9 @@ import XLPagerTabStrip
 
 class SearchVC: ButtonBarPagerTabStripViewController {
     
+    
+    var placeList: [placeData] = []
+    var dataset: placeData?
     @IBOutlet var buttons: [UIButton]!
     var frame: CGRect!
     
@@ -24,6 +27,9 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         super.viewDidLoad()
         setNavigationBar()
         setButtons()
+        getData()
+        
+        print(self.placeList)
         
         for i in 1..<3 {
             buttons[i].alpha = 1
@@ -109,6 +115,29 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         
     }
     
+    func getData(){
+        placeService.shared.getPlaces() { networkResult in
+            switch networkResult {
+            case .success(let products):
+                print("~!@@#!@#")
+                guard let places = products as? [placeData] else { return }
+                for i in 0..<places.count{
+                    self.placeList.append(places[i])
+//                    print(self.placeList[i])
+                }
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+                
+            }
+        }
+    }
     
     func configureButtonBar() {
         settings.style.buttonBarBackgroundColor = .white

@@ -54,6 +54,9 @@
 		AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145924B33A9600425889 /* PeopleDetailVC.swift */; };
 		AE34145C24B3578000425889 /* adminListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145B24B3578000425889 /* adminListModel.swift */; };
 		AE34146024B4DB6700425889 /* placeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145F24B4DB6700425889 /* placeListModel.swift */; };
+		AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146224B4EFD100425889 /* placeListAPI.swift */; };
+		AE34146524B4F51700425889 /* placeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146424B4F51700425889 /* placeService.swift */; };
+		AE34146724B4F66900425889 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146624B4F66900425889 /* NetworkResult.swift */; };
 		AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27424AC2E3500891C6E /* SearchVC.swift */; };
 		AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27824AC59A200891C6E /* ChildVC.swift */; };
 		AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */; };
@@ -117,6 +120,9 @@
 		AE34145B24B3578000425889 /* adminListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = adminListModel.swift; path = placepic/SearchScene/View/VC/adminListModel.swift; sourceTree = SOURCE_ROOT; };
 		AE34145D24B4B1C200425889 /* placeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = placeModel.swift; path = placepic/SearchScene/View/VC/placeModel.swift; sourceTree = SOURCE_ROOT; };
 		AE34145F24B4DB6700425889 /* placeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = placeListModel.swift; path = placepic/SearchScene/View/VC/placeListModel.swift; sourceTree = SOURCE_ROOT; };
+		AE34146224B4EFD100425889 /* placeListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeListAPI.swift; sourceTree = "<group>"; };
+		AE34146424B4F51700425889 /* placeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeService.swift; sourceTree = "<group>"; };
+		AE34146624B4F66900425889 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		AEEEE27424AC2E3500891C6E /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AEEEE27824AC59A200891C6E /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
 		AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListTVC.swift; sourceTree = "<group>"; };
@@ -309,6 +315,7 @@
 		3DECB79624A92AF600D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AE34146124B4EF3600425889 /* SearchAPI */,
 				AEEEE27C24ADF08300891C6E /* placeListInfo.swift */,
 				AE34145B24B3578000425889 /* adminListModel.swift */,
 				AE34145D24B4B1C200425889 /* placeModel.swift */,
@@ -507,6 +514,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AE34146124B4EF3600425889 /* SearchAPI */ = {
+			isa = PBXGroup;
+			children = (
+				AE34146224B4EFD100425889 /* placeListAPI.swift */,
+				AE34146424B4F51700425889 /* placeService.swift */,
+				AE34146624B4F66900425889 /* NetworkResult.swift */,
+			);
+			path = SearchAPI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -646,6 +663,8 @@
 				1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
 				AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */,
+				AE34146524B4F51700425889 /* placeService.swift in Sources */,
+				AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */,
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
 				3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */,
@@ -655,6 +674,7 @@
 				3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */,
 				AE34146024B4DB6700425889 /* placeListModel.swift in Sources */,
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
+				AE34146724B4F66900425889 /* NetworkResult.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
 				3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */,
 				1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */,
