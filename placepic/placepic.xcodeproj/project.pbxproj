@@ -20,6 +20,10 @@
 		134649DA24B4AF5E0018F141 /* LoginInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649D924B4AF5E0018F141 /* LoginInfomodel.swift */; };
 		134649DC24B4AFD50018F141 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649DB24B4AFD50018F141 /* APIConstants.swift */; };
 		134649DE24B4F0250018F141 /* GroupUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649DD24B4F0250018F141 /* GroupUpVC.swift */; };
+		134649E024B5159B0018F141 /* SignupInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649DF24B5159B0018F141 /* SignupInfomodel.swift */; };
+		134649E224B520E30018F141 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E124B520E30018F141 /* NetworkResult.swift */; };
+		134649E424B521440018F141 /* SigninData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E324B521440018F141 /* SigninData.swift */; };
+		134649E624B523480018F141 /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E524B523480018F141 /* SignupData.swift */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
 		3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50527A24A9BCDC00140BCA /* APIServices.swift */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
@@ -80,6 +84,10 @@
 		134649D924B4AF5E0018F141 /* LoginInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginInfomodel.swift; path = placepic/LoginScene/LoginInfomodel.swift; sourceTree = SOURCE_ROOT; };
 		134649DB24B4AFD50018F141 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		134649DD24B4F0250018F141 /* GroupUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUpVC.swift; sourceTree = "<group>"; };
+		134649DF24B5159B0018F141 /* SignupInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignupInfomodel.swift; path = placepic/LoginScene/View/SignupInfomodel.swift; sourceTree = SOURCE_ROOT; };
+		134649E124B520E30018F141 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		134649E324B521440018F141 /* SigninData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninData.swift; sourceTree = "<group>"; };
+		134649E524B523480018F141 /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
 		3D50527824A9BCA800140BCA /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		3D50527A24A9BCDC00140BCA /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -157,10 +165,36 @@
 		134649D424B4AD5A0018F141 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				134649D724B4AF240018F141 /* SignupService.swift */,
 				134649D524B4AD7A0018F141 /* LoginService.swift */,
+				134649E524B523480018F141 /* SignupData.swift */,
+				134649E324B521440018F141 /* SigninData.swift */,
+				134649D724B4AF240018F141 /* SignupService.swift */,
+				134649E124B520E30018F141 /* NetworkResult.swift */,
 			);
 			path = Server;
+			sourceTree = "<group>";
+		};
+		134649E724B5BD2C0018F141 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				134649DD24B4F0250018F141 /* GroupUpVC.swift */,
+				1302CA9624B342760013CACC /* GroupReqVC.swift */,
+				1302CA7D24AC55330013CACC /* SendVC.swift */,
+				134649D224B47DD90018F141 /* GroupPartiVC.swift */,
+				1302CA7F24AC5EBF0013CACC /* GroupListVC.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		134649E824B5BD470018F141 /* Signupin */ = {
+			isa = PBXGroup;
+			children = (
+				3DECB77724A9274100D54DBF /* LoginVC.swift */,
+				1302CA8124AC70A00013CACC /* SigninVC.swift */,
+				1302CA8324ACCC540013CACC /* SignupVC.swift */,
+				134649D024B417FE0018F141 /* Signup3VC.swift */,
+			);
+			path = Signupin;
 			sourceTree = "<group>";
 		};
 		3D6BAF8524AF9B1800F6339E /* SwiftFiles */ = {
@@ -262,15 +296,8 @@
 		3DECB78B24A9274D00D54DBF /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				134649DD24B4F0250018F141 /* GroupUpVC.swift */,
-				1302CA9624B342760013CACC /* GroupReqVC.swift */,
-				1302CA7D24AC55330013CACC /* SendVC.swift */,
-				134649D224B47DD90018F141 /* GroupPartiVC.swift */,
-				3DECB77724A9274100D54DBF /* LoginVC.swift */,
-				1302CA7F24AC5EBF0013CACC /* GroupListVC.swift */,
-				1302CA8124AC70A00013CACC /* SigninVC.swift */,
-				1302CA8324ACCC540013CACC /* SignupVC.swift */,
-				134649D024B417FE0018F141 /* Signup3VC.swift */,
+				134649E824B5BD470018F141 /* Signupin */,
+				134649E724B5BD2C0018F141 /* Group */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -279,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				134649D924B4AF5E0018F141 /* LoginInfomodel.swift */,
+				134649DF24B5159B0018F141 /* SignupInfomodel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -667,6 +695,8 @@
 				134649D324B47DD90018F141 /* GroupPartiVC.swift in Sources */,
 				3DECB7C424A9311200D54DBF /* Extensions+Date.swift in Sources */,
 				134649D824B4AF240018F141 /* SignupService.swift in Sources */,
+				134649E624B523480018F141 /* SignupData.swift in Sources */,
+				134649E024B5159B0018F141 /* SignupInfomodel.swift in Sources */,
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
 				1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
@@ -680,6 +710,7 @@
 				3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */,
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
+				134649E424B521440018F141 /* SigninData.swift in Sources */,
 				3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */,
 				134649DE24B4F0250018F141 /* GroupUpVC.swift in Sources */,
 				134649D624B4AD7A0018F141 /* LoginService.swift in Sources */,
@@ -695,6 +726,7 @@
 				3D6BAF8924AF9B5000F6339E /* KeywordCell.swift in Sources */,
 				AE34145824B3055F00425889 /* AdminVC.swift in Sources */,
 				3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */,
+				134649E224B520E30018F141 /* NetworkResult.swift in Sources */,
 				3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */,
 				3DDD58B324B4E93000764C8F /* HomeAPI.swift in Sources */,
 			);

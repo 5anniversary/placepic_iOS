@@ -18,47 +18,33 @@ class SigninVC: UIViewController {
     @IBOutlet weak var emailValidateLabel: UILabel!
     @IBAction func logintapButton(_ sender: UIButton) {
         
-//        guard let inputID = txtFields[0].text else { return }
-//        guard let inputPWD = txtFields[1].text else { return }
-//
-//        txtFields[0].text = nil
-//        txtFields[1].text = nil
-//        
-//        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
-//            switch networkResult {
-//                
-//            case .success(let token):
-//                guard let token = token as? String else { return }
-//                print("1312321");
-//                
-//                UserDefaults.standard.set(token, forKey: "token")
-//                print("token : \(token)")
-//                if self.autoLoginButton.on {
-//                    UserDefaults.standard.set(inputID, forKey: "id")
-//                    UserDefaults.standard.set(inputPWD, forKey: "pwd")
-//                }
-//                
-//                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-//                    "TabbarController") as? UITabBarController else { return }
-//                
-//                tabbarController.modalPresentationStyle = .fullScreen
-//                self.present(tabbarController, animated: true, completion: nil)
-//                
-//            case .requestErr(let message):
-//                
-//                guard let message = message as? String else { return }
-//                let alertViewController = UIAlertController(title: "로그인 실패", message: message,
-//                                                            preferredStyle: .alert)
-//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-//                alertViewController.addAction(action)
-//                print("err")
-//                self.present(alertViewController, animated: true, completion: nil)
-//            case .pathErr: print("path")
-//            case .serverErr: print("serverErr")
-//            case .networkFail: print("networkFail")
-//            }
-//        }
-//        
+        guard let inputID = emailTextbox.text else { return }
+        guard let inputPWD = passwordTextbox.text else { return }
+        
+        LoginService.shared.login(email: inputID, password: inputPWD) { networkResult in
+            switch networkResult {
+                
+            case .success(let token):
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+                    "customTabbarController") as? UITabBarController else { return }
+                tabbarController.modalPresentationStyle = .fullScreen
+                self.present(tabbarController, animated: true, completion: nil)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "로그인 실패", message: message,
+                                                            preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        //
     }
     
     

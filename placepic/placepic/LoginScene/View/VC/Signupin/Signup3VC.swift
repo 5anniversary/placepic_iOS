@@ -9,6 +9,12 @@
 import UIKit
 
 class Signup3VC: UIViewController {
+    
+    var signupemail : String!
+    var signuppw : String!
+    var gender : [Int] = [0,0,0]
+    
+    
     @IBOutlet weak var signupNameLabel: UILabel!
     @IBOutlet weak var signupNameTextfield: UITextField!
     @IBOutlet weak var signupDOBLabel: UILabel!
@@ -21,8 +27,39 @@ class Signup3VC: UIViewController {
     @IBOutlet weak var signupQgenderButton: UIButton!
     @IBOutlet weak var signup2sendButton: UIButton!
     @IBAction func sendButtonaction(_ sender: Any) {
-      
+        
+        
+        guard let signupname = signupNameTextfield.text else{return}
+        guard let signupDOB = signupDOBTextfield.text else{return}
+        let signupGender = genderreturn()
+        
+        
+        SignupService.shared.signup(email:  signupemail, password: signuppw, userName: signupname , userBirth: signupDOB , gender: signupGender ) { networkResult in
+            switch networkResult {
+                
+            case .success(let token):
+                print("제발.")
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+                    "nextNavi") as? UITabBarController else { return }
+                tabbarController.modalPresentationStyle = .fullScreen
+                self.present(tabbarController, animated: true, completion: nil)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
+                                                            preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
     }
+    
     @IBAction func buttonaction1(_ sender: Any) {
         
         signupMaleButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
@@ -37,12 +74,20 @@ class Signup3VC: UIViewController {
         signupQgenderButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         signupQgenderButton.setTitleColor(UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1), for: .normal)
         
+        gender[0] = 1
+        gender[1] = 0
+        gender[2] = 0
+        
         if(signupNameTextfield != nil && signupDOBTextfield != nil ){
             
             
             signup2sendButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
             signup2sendButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         }
+        
+        
+        
+        
         
     }
     @IBAction func buttonaction2(_ sender: Any) {
@@ -58,14 +103,19 @@ class Signup3VC: UIViewController {
         signupQgenderButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         signupQgenderButton.setTitleColor(UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1), for: .normal)
         
+        gender[0] = 0
+        gender[1] = 1
+        gender[2] = 0
+        
         if(signupNameTextfield != nil && signupDOBTextfield != nil ){
-                   
-                   
-                   signup2sendButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
-                   signup2sendButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-               }
+            
+            
+            signup2sendButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
+            signup2sendButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        }
         
     }
+    
     @IBAction func buttonaction3(_ sender: Any) {
         signupQgenderButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
         signupQgenderButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -79,14 +129,22 @@ class Signup3VC: UIViewController {
         signupFemaleButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         signupFemaleButton.setTitleColor(UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1), for: .normal)
         
+        
+        gender[0] = 0
+        gender[1] = 0
+        gender[2] = 1
+        
         if(signupNameTextfield != nil && signupDOBTextfield != nil ){
-                   
-                   
-                   signup2sendButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
-                   signup2sendButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-               }
+            
+            
+            signup2sendButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
+            signup2sendButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        }
+        
         
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,27 +153,28 @@ class Signup3VC: UIViewController {
         setButtons()
         self.signupDOBTextfield.setInputViewDatePicker(target: self, selector: #selector(tapDone)) //1
         setNavi()
-      
-       
+        
+        
         
         
         
         // Do any additional setup after loading the view.
     }
+    
     private func setNavi() { //타이틀이 가운데에 있는 네비
-    guard let navigationBar = self.navigationController?.navigationBar else { return }
-    
-    navigationBar.isTranslucent = true
-    navigationBar.backgroundColor = UIColor.clear
-    navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-    navigationBar.shadowImage = UIImage()
-    
-    let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-                                                      style: .plain,
-                                                      target: self,
-                                                      action: #selector(dismissVC))
-    
-    navigationItem.leftBarButtonItem = leftButton
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(dismissVC))
+        
+        navigationItem.leftBarButtonItem = leftButton
         navigationItem.title = "회원가입"}
     
     @objc func dismissVC() {
@@ -124,7 +183,7 @@ class Signup3VC: UIViewController {
         let transform = CGAffineTransform(translationX: 0, y: 100)
         self.tabBarController?.tabBar.isHidden = false
         tabBarController?.tabBar.transform = transform
-                
+        
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 1,
@@ -137,20 +196,20 @@ class Signup3VC: UIViewController {
     }
     
     
-     private func setNavigationBar() {
-            guard let navigationBar = self.navigationController?.navigationBar else { return }
-            
-            navigationBar.isTranslucent = true
-            navigationBar.backgroundColor = UIColor.white
-            navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            navigationBar.shadowImage = UIImage()
-            
-    //        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icMenuHamburg"),
-    //                                                          style: .plain,
-    //                                                          target: self,
-    //                                                          action: #selector(showSideMenuBar))
-    //        navigationItem.leftBarButtonItem = leftButton
-        }
+    private func setNavigationBar() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.white
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        //        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icMenuHamburg"),
+        //                                                          style: .plain,
+        //                                                          target: self,
+        //                                                          action: #selector(showSideMenuBar))
+        //        navigationItem.leftBarButtonItem = leftButton
+    }
     
     @objc func tapDone() {
         if let datePicker = self.signupDOBTextfield.inputView as? UIDatePicker { // 2-1
@@ -281,12 +340,23 @@ class Signup3VC: UIViewController {
     }
 }
 
-
+extension Signup3VC {
+    private func genderreturn()-> Int {
+        
+        if (gender[0]==1)
+        { return 0 }
+        else if (gender[1]==1)
+        { return 1 }
+        else if (gender[2]==1)
+        { return 2 }
+            
+        else { return 3 }
+        
+        
+    }
+}
 
 extension UITextField {
-    
-   
-       
     
     
     

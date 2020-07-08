@@ -11,6 +11,7 @@ import UIKit
 class SignupVC: UIViewController {
     
     @IBOutlet weak var signupEmailLabel: UILabel!
+    
     @IBOutlet weak var signupEmailTextbox: UITextField!
     @IBOutlet weak var signupEmailcheckValLabel: UILabel!
     @IBOutlet weak var signupPwLabel: UILabel!
@@ -21,13 +22,25 @@ class SignupVC: UIViewController {
     @IBOutlet var signupTxtFields: [UITextField]!
     @IBOutlet weak var signup1Button: UIButton!
     
+        
     @IBAction func signup1acButton(_ sender: UIButton) {
     
-            guard let vc = storyboard?.instantiateViewController(identifier: "Signup3VC") as? Signup3VC
-                else {
-                    return
-            }
-            navigationController?.pushViewController(vc, animated: true)
+        guard let vc = storyboard?.instantiateViewController(identifier: "Signup3VC") as? Signup3VC
+            else {
+                return
+        }
+            vc.signupemail = signupEmailTextbox.text
+            vc.signuppw = signupPwTextbox.text
+        navigationController?.pushViewController(vc, animated: true)
+        
+        //A VC의 Button Action
+        ///B VC
+        //        guard let vc = storyboard?.instantiateViewController(identifier: "Signup3VC") as? Signup3VC else {
+        //          return
+        //        }
+        /// A VC에 있는데 B VC에 정보를 넘겨주는건 가능하지
+        /// 가져오는건 불가
+        //        vc.signupemail = signupEmailTextbox.text
         
         
 //        guard let vc = storyboard?.instantiateViewController(identifier: "SignUp2VC") as? SignUp2VC else {
@@ -40,6 +53,10 @@ class SignupVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+
+//        var text:String = ""
+    
         super.viewDidLoad()
         
         setLabelLooksLike()
@@ -48,10 +65,21 @@ class SignupVC: UIViewController {
         setNavigationBar()
        
         setNavi()
-     
+        
+//        let emailSU = signupEmailTextbox.text
+//        let pwSU = signupPwTextbox.text
+//        
+
         
         
     }
+    
+//        let vc = SignupVC()
+//        vc.text = signupEmailTextbox.text
+    
+    
+    
+    
     
     private func setNavi() { //타이틀이 가운데에 있는 네비
         guard let navigationBar = self.navigationController?.navigationBar else { return }
