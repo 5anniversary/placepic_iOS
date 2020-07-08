@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PlaceListTVC: UITableViewCell {
     static let identifier: String = "PlaceListTVC"
@@ -34,8 +35,8 @@ class PlaceListTVC: UITableViewCell {
     func setPlaceInfo(pName: String, pSubway:String, pPhoto:String, pWriter: String, wName:String, pTag1:String, pTag2:String, pTag3:String) {
         placeName.text = pName
         placeSubway.text = pSubway
-//        placePhoto.image = UIImage(named: pPhoto)
-//        placeWriter.image = UIImage(named: pWriter)
+        placePhoto.kf.setImage(with: URL(string: pPhoto))
+        placeWriter.kf.setImage(with: URL(string: pWriter))
         writerName.text = wName
         placeTag[0].text = pTag1
         placeTag[1].text = pTag2

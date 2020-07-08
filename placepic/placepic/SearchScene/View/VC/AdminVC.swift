@@ -44,6 +44,7 @@ class AdminVC: UIViewController {
                                                           action: #selector(dismissVC))
         
         navigationItem.leftBarButtonItem = leftButton
+        navigationItem.title = "승인대기"
     }
     
     @objc func dismissVC() {
