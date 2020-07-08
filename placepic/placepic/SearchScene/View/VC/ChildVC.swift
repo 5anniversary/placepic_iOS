@@ -19,14 +19,8 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         placeListTV.delegate = self
         placeListTV.dataSource = self
         setNavigationBar()
-        setData()
         getData()
         
-//        sizeHeaderToFit(tableView: placeListTV)
-//        let headerViewHeight: CGFloat = 30.0
-//        let headerView = HeaderView(frame: CGRect(x: textView.bounds.origin.x, y: textView.bounds.origin.y - headerViewHeight, width: textView.bounds.size.width, height: headerViewHeight))
-//        textView.addSubview(headerView)
-//        textView.contentInset.top = headerViewHeight
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,9 +77,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     @objc private func dismissVC() {
         navigationController?.popViewController(animated: true)
     }
-    func setData(){
-//        sumNum.text = "총 \(placeList.count)개 결과"
-    }
+    
 }
 
 extension ChildVC: UITableViewDelegate,UITableViewDataSource{
@@ -139,16 +131,16 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeList[indexPath.row].tag.count == 1 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
             placeListCell.placeTag[1].isHidden = true
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeList[indexPath.row].tag.count == 2 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeList[indexPath.row].tag.count >= 3 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "...")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "...")
         }
         return placeListCell
     }
