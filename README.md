@@ -111,18 +111,17 @@
     |-- feature/Home
     |-- feature/PlaceList
     |-- feature/MyPage
-```
-  
-* git commit message role
-  
   ```
-  [Feat] 기능 추가
-  [Fix] 버그 수정
-  [Refactor] 리팩토링
-  [Chore] 간단한 수정
-  [Delete] 기능 삭제
-  [Docs] 문서
-  [Merge] 머지
+-  git branch
+
+  ```
+   [Feat] 기능 추가
+   [Fix] 버그 수정
+   [Refactor] 리팩토링
+   [Chore] 간단한 수정
+   [Delete] 기능 삭제
+   [Docs] 문서
+   [Merge] 머지
   ```
 
 
@@ -161,4 +160,5 @@ placepic
     └── Write.storyboard
 
 22 directories, 17 files
+
 ```
