@@ -45,7 +45,7 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         button.titleLabel?.font = .systemFont(ofSize: 14)
         button.frame = CGRect.init(x: 110, y: 273, width: 120, height: 45)
         button.layer.cornerRadius = 8
-        button.backgroundColor = UIColor.black20
+        button.backgroundColor = UIColor.blueGray20
         return button
     }()
     

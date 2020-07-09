@@ -24,11 +24,10 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
     private func registerCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
     }
 
-    private func getImageArray() {
-        /// 이거 모르겠다 어쨌든 VC에서 띄워야하는거고 Present는
-        
+    private func getImageArray() {        
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
             var config = YPImagePickerConfiguration()
             config.showsCrop = .rectangle(ratio: (1/1))
@@ -74,7 +73,7 @@ extension OutterUploadPhotoCVC: UICollectionViewDataSource {
             return 1
         }
         else {
-            return photoArray.count + 1
+            return photoArray.count
         }
     }
     
@@ -89,20 +88,6 @@ extension OutterUploadPhotoCVC: UICollectionViewDataSource {
             cell.imageView.image = photoArray[indexPath.item]
             return cell
         }
-        
-        /// Index가 한개씩 밀렸으면 좋겠다
-        /// 1 << 0
-        /// 2 << 1
-
-//        print(photoArray.count)
-//        if photoArray.count == 0 || indexPath.item == 0 {
-//            return cell
-//        } else if indexPath.item > 0 {
-//            cell.imageView.image = photoArray[indexPath.item]
-//            return cell
-//        }
-//        return cell
-
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

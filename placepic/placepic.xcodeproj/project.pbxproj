@@ -32,6 +32,8 @@
 		3D6BAF9924B2DAD400F6339E /* ShowStationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */; };
 		3D84896924B4116F00AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3D84896B24B440A600AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		3DAC651A24B6EFE400FBA399 /* adminAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146824B6220000425889 /* adminAPI.swift */; };
+		3DAC651B24B6EFF800FBA399 /* Subwaymodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6C24B4EF8F00BAF927 /* Subwaymodel.swift */; };
 		3DCE5F6B24B4EF7F00BAF927 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */; };
 		3DCE5F6F24B4F16A00BAF927 /* innerUploadPhotoCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6E24B4F16A00BAF927 /* innerUploadPhotoCVC.swift */; };
 		3DCE5F7124B5114F00BAF927 /* NearstaionHeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7024B5114F00BAF927 /* NearstaionHeaderCVC.swift */; };
@@ -704,6 +706,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAC651B24B6EFF800FBA399 /* Subwaymodel.swift in Sources */,
+				3DAC651A24B6EFE400FBA399 /* adminAPI.swift in Sources */,
 				AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */,
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
 				AE34147224B6D90000425889 /* adminAPI.swift in Sources */,
