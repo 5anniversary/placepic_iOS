@@ -13,6 +13,7 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     var homeController: HomeVC?
     var searchVC: SearchVC?
     var childVC: ChildVC?
+    var uploadVC: ArticleUploadVC?
     
     let blackView = UIView()
     

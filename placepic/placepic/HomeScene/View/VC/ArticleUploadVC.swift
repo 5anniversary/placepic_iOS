@@ -12,12 +12,15 @@ import YPImagePicker
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var photoArray: [UIImage] = []
-    
+              
+    lazy var keywordModal: KeywordLauncher = {
+        let launcher = KeywordLauncher()
+        launcher.uploadVC = self
+        return launcher
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setCollectionView()
         setNavigationBar()
     }
@@ -52,6 +55,7 @@ extension ArticleUploadVC {
         
         let rightnavigationButton = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = rightnavigationButton
+        
     }
     
     @objc private func dismissVC() {
@@ -108,7 +112,7 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-
+        
         switch indexPath.section {
         case 0:
             return CGSize(width: width, height: 98)
@@ -165,15 +169,24 @@ extension ArticleUploadVC: UICollectionViewDataSource {
         default:
             assert(false)
         }
-        //        cell.uploadImageView.image = photoArray[indexPath.item]
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.section)
+        if indexPath.section == 1 {
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "NearstationVC") as? NearstationVC else {
+                return
+            }
+            navigationController?.pushViewController(vc, animated: true)
+            
+        } else if indexPath.section == 2 {
+            keywordModal.showSettings("어어어")
+        } else if indexPath.section == 3 {
+            keywordModal.showSettings("어어어")
+        }
     }
-    
 }
