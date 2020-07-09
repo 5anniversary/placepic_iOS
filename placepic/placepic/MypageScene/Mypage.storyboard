@@ -103,6 +103,9 @@
                                 <state key="normal" title="거절">
                                     <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="butDelete:" destination="tGr-9w-xmv" eventType="touchUpInside" id="yhw-1a-ERJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVh-Rk-ZSZ">
                                 <rect key="frame" x="192" y="585" width="169" height="42"/>

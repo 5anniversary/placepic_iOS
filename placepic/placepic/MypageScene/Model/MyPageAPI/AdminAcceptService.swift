@@ -16,6 +16,23 @@ struct AdminAcceptService {
         return ["userIdx": userIdx]
         }
 
+    func delete(userIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+            let header: HTTPHeaders = ["Content-Type": "application/json"]
+        let dataRequest = Alamofire.request(adminAPI.deletadminURL, method: .delete, parameters: makeParameter(userIdx), encoding:
+    JSONEncoding.default, headers: header)
+
+            dataRequest.responseData { dataResponse in
+                switch dataResponse.result {
+                case .success:
+                    guard let statusCode = dataResponse.response?.statusCode else { return }
+                    guard let value = dataResponse.result.value else { return }
+                    let networkResult = self.judge(by: statusCode, value)
+                    completion(networkResult)
+                case .failure: completion(.networkFail)
+                }
+            }
+        }
+    
     func accept(userIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
             let header: HTTPHeaders = ["Content-Type": "application/json"]
         let dataRequest = Alamofire.request(adminAPI.acceptadminURL, method: .put, parameters: makeParameter(userIdx), encoding:

@@ -20,6 +20,28 @@ class PeopleDetailVC: UIViewController {
     
     var selectedData: WaitUserModel?
     
+    @IBAction func butDelete(_ sender: Any) {
+        AdminAcceptService.shared.delete(userIdx: selectedData!.userIdx) { networkResult in
+                    switch networkResult {
+                    case .success:
+                        print(self.selectedData?.userIdx)
+                        guard let adminList = self.storyboard?.instantiateViewController(identifier: "adminListView") as? UIViewController else { return }
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        self.navigationController?.pushViewController(adminList, animated: true)
+                        
+                    case .requestErr(let message):
+                        guard let message = message as? String else { return }
+                        let alertViewController = UIAlertController(title: "실패", message: message, preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
+                    case .pathErr: print("path")
+                    case .serverErr: print("serverErr")
+                    case .networkFail: print("networkFail")
+                    }
+        }
+    }
     @IBAction func butAccept(_ sender: Any) {
         AdminAcceptService.shared.accept(userIdx: selectedData!.userIdx) { networkResult in
             switch networkResult {
@@ -35,7 +57,7 @@ class PeopleDetailVC: UIViewController {
                 
             case .requestErr(let message):
                 guard let message = message as? String else { return }
-                let alertViewController = UIAlertController(title: "회원가입 실패", message: message, preferredStyle: .alert)
+                let alertViewController = UIAlertController(title: "실패", message: message, preferredStyle: .alert)
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
