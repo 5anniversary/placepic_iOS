@@ -24,11 +24,10 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
     private func registerCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
     }
 
-    private func getImageArray() {
-        /// 이거 모르겠다 어쨌든 VC에서 띄워야하는거고 Present는
-        
+    private func getImageArray() {        
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
             var config = YPImagePickerConfiguration()
             config.showsCrop = .rectangle(ratio: (1/1))

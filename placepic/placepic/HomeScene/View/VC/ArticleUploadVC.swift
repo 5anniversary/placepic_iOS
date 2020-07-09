@@ -9,15 +9,26 @@
 import UIKit
 import YPImagePicker
 
+extension NSNotification.Name {
+    static let nearSubwayStation = NSNotification.Name("nearsubwaystation")
+    static let denyDoneButton = NSNotification.Name("denyDone")
+
+}
+
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-              
+    
+    let nearStationModel: [String] = []
+    let keywordModel: [String] = []
+    let usefulKeywordModel: [String] = []
+    
     lazy var keywordModal: KeywordLauncher = {
         let launcher = KeywordLauncher()
         launcher.uploadVC = self
         return launcher
     }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +62,7 @@ extension ArticleUploadVC {
         let rightButton = UIButton()
         rightButton.setTitle("등록", for: .normal)
         rightButton.isEnabled = false
-        rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)    
+        rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         rightButton.setTitleColor(.blueGray80, for: .normal)
         
         let rightnavigationButton = UIBarButtonItem(customView: rightButton)
@@ -67,6 +78,15 @@ extension ArticleUploadVC {
     private func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    func returnDynamicHeight() -> CGSize {
+        let width = view.frame.width
+        if nearStationModel.count == 0 {
+            return CGSize(width: width, height: 60)
+        } else {
+            return CGSize(width: width, height: 90)
+        }
     }
 }
 
@@ -118,12 +138,11 @@ extension ArticleUploadVC: UICollectionViewDataSource {
         case 0:
             return CGSize(width: width, height: 98)
         case 1:
-            return CGSize(width: width, height: 90)
-        /// 60에서 90으로 Reload
+            return returnDynamicHeight()
         case 2:
-            return CGSize(width: width, height: 90)
+            return returnDynamicHeight()
         case 3:
-            return CGSize(width: width, height: 90)
+            return returnDynamicHeight()
         case 4:
             return CGSize(width: width, height: 452)
         default:
@@ -186,7 +205,7 @@ extension ArticleUploadVC: UICollectionViewDataSource {
         } else if indexPath.section == 2 {
             keywordModal.showSettings("어어어")
         } else if indexPath.section == 3 {
-            keywordModal.showSettings("어어어")
+            keywordModal.showSettings("우와아아")
         }
     }
 }
