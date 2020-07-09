@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct adminAPI {
+    static let getadminURL = GeneralAPI.baseURL+"/auth/groups/myInfo/3"
+    
+}
