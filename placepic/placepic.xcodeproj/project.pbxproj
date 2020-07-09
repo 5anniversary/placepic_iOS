@@ -32,8 +32,9 @@
 		3D6BAF9924B2DAD400F6339E /* ShowStationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */; };
 		3D84896924B4116F00AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3D84896B24B440A600AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		3DAC651A24B6EFE400FBA399 /* adminAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146824B6220000425889 /* adminAPI.swift */; };
+		3DAC651B24B6EFF800FBA399 /* Subwaymodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6C24B4EF8F00BAF927 /* Subwaymodel.swift */; };
 		3DCE5F6B24B4EF7F00BAF927 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */; };
-		3DCE5F6D24B4EF8F00BAF927 /* Subwaymodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6C24B4EF8F00BAF927 /* Subwaymodel.swift */; };
 		3DCE5F6F24B4F16A00BAF927 /* innerUploadPhotoCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6E24B4F16A00BAF927 /* innerUploadPhotoCVC.swift */; };
 		3DCE5F7124B5114F00BAF927 /* NearstaionHeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7024B5114F00BAF927 /* NearstaionHeaderCVC.swift */; };
 		3DCE5F7524B5198200BAF927 /* FindNearstationCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7424B5198200BAF927 /* FindNearstationCVC.swift */; };
@@ -68,7 +69,6 @@
 		AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146224B4EFD100425889 /* placeListAPI.swift */; };
 		AE34146524B4F51700425889 /* placeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146424B4F51700425889 /* placeService.swift */; };
 		AE34146724B4F66900425889 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146624B4F66900425889 /* NetworkResult.swift */; };
-		AE34146924B6220000425889 /* adminAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146824B6220000425889 /* adminAPI.swift */; };
 		AE34146B24B6224E00425889 /* adminService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146A24B6224E00425889 /* adminService.swift */; };
 		AE34146E24B6251C00425889 /* adminUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146D24B6251C00425889 /* adminUserModel.swift */; };
 		AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27424AC2E3500891C6E /* SearchVC.swift */; };
@@ -705,6 +705,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAC651B24B6EFF800FBA399 /* Subwaymodel.swift in Sources */,
+				3DAC651A24B6EFE400FBA399 /* adminAPI.swift in Sources */,
 				AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */,
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
 				1302CA8224AC70A00013CACC /* SigninVC.swift in Sources */,
