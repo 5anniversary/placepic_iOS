@@ -10,7 +10,6 @@
         <!--Title-->
         <scene sceneID="l6P-vS-39i">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wqY-qT-K5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="8pL-YV-JGG" customClass="AdminVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I5E-cS-1nG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -69,13 +68,13 @@
                         <outlet property="PeopleList" destination="HuE-Yo-p3N" id="x31-zJ-iyb"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqY-qT-K5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2503" y="-681"/>
         </scene>
         <!--People DetailVC-->
         <scene sceneID="OfG-3X-ZDN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="15c-zB-S8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="tGr-9w-xmv" customClass="PeopleDetailVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Prs-uP-Ftk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -241,6 +240,7 @@
                         <outletCollection property="butAdmin" destination="KVh-Rk-ZSZ" collectionClass="NSMutableArray" id="IUv-ch-Abj"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15c-zB-S8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1799" y="-681"/>
         </scene>
