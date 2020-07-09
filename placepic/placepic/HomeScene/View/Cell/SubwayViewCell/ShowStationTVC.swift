@@ -23,6 +23,15 @@ class ShowStationTVC: UITableViewCell {
         super.awakeFromNib()
         
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        subwayImage.forEach({
+            $0.isHidden = false
+        })
+    }
+    
     /// 2
     var model: StationModel? {
         /// model의 Count 따라서 분기

@@ -13,7 +13,7 @@ class HomeVC: UIViewController {
     let blackView: UIView = {
         let view = UIView()
         view.frame = CGRect.zero
-        view.backgroundColor = UIColor.black80
+        view.backgroundColor = UIColor.blueGray80
         view.alpha = 0.7
         return view
     }()
