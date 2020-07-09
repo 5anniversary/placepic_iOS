@@ -9,64 +9,80 @@ import UIKit
 
 extension UIColor {
 
-  @nonobjc class var mainBlue: UIColor {
-    return UIColor(red: 76.0 / 255.0, green: 154.0 / 255.0, blue: 1.0, alpha: 1.0)
+  @nonobjc class var white: UIColor {
+    return UIColor(white: 1.0, alpha: 1.0)
   }
 
-  @nonobjc class var subBlue: UIColor {
-    return UIColor(red: 179.0 / 255.0, green: 212.0 / 255.0, blue: 1.0, alpha: 1.0)
+  @nonobjc class var gray10: UIColor {
+    return UIColor(white: 248.0 / 255.0, alpha: 1.0)
   }
 
-  @nonobjc class var lightBlue: UIColor {
-    return UIColor(red: 236.0 / 255.0, green: 244.0 / 255.0, blue: 1.0, alpha: 1.0)
-  }
-
-  @nonobjc class var black100: UIColor {
-    return UIColor(white: 42.0 / 255.0, alpha: 1.0)
-  }
-
-  @nonobjc class var black80: UIColor {
-    return UIColor(white: 67.0 / 255.0, alpha: 1.0)
-  }
-
-  @nonobjc class var black60: UIColor {
-    return UIColor(white: 134.0 / 255.0, alpha: 1.0)
-  }
-
-  @nonobjc class var black40: UIColor {
-    return UIColor(red: 197.0 / 255.0, green: 199.0 / 255.0, blue: 202.0 / 255.0, alpha: 1.0)
-  }
-
-  @nonobjc class var black20: UIColor {
-    return UIColor(white: 219.0 / 255.0, alpha: 1.0)
-  }
-
-  @nonobjc class var lightGray: UIColor {
+  @nonobjc class var gray20: UIColor {
     return UIColor(white: 243.0 / 255.0, alpha: 1.0)
   }
 
-//  @nonobjc class var white: UIColor {
-//    return UIColor(white: 1.0, alpha: 1.0)
-//  }
-
-  @nonobjc class var redBackground: UIColor {
-    return UIColor(red: 1.0, green: 241.0 / 255.0, blue: 241.0 / 255.0, alpha: 1.0)
+  @nonobjc class var gray30: UIColor {
+    return UIColor(white: 241.0 / 255.0, alpha: 1.0)
   }
 
-  @nonobjc class var lightMint: UIColor {
-    return UIColor(red: 231.0 / 255.0, green: 1.0, blue: 251.0 / 255.0, alpha: 1.0)
+  @nonobjc class var gray60: UIColor {
+    return UIColor(white: 99.0 / 255.0, alpha: 1.0)
   }
 
-  @nonobjc class var skyblue: UIColor {
-    return UIColor(red: 182.0 / 255.0, green: 248.0 / 255.0, blue: 252.0 / 255.0, alpha: 1.0)
+  @nonobjc class var gray50: UIColor {
+    return UIColor(white: 189.0 / 255.0, alpha: 1.0)
   }
 
-  @nonobjc class var deepSky: UIColor {
-    return UIColor(red: 145.0 / 255.0, green: 237.0 / 255.0, blue: 243.0 / 255.0, alpha: 1.0)
+  @nonobjc class var gray40: UIColor {
+    return UIColor(white: 205.0 / 255.0, alpha: 1.0)
   }
 
-  @nonobjc class var red: UIColor {
-    return UIColor(red: 1.0, green: 61.0 / 255.0, blue: 61.0 / 255.0, alpha: 1.0)
+  @nonobjc class var gray70: UIColor {
+    return UIColor(white: 79.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var gray80: UIColor {
+    return UIColor(white: 64.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var gray90: UIColor {
+    return UIColor(white: 54.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var blueGray10: UIColor {
+    return UIColor(red: 241.0 / 255.0, green: 244.0 / 255.0, blue: 245.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var blueGray20: UIColor {
+    return UIColor(red: 238.0 / 255.0, green: 239.0 / 255.0, blue: 240.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var blueGray30: UIColor {
+    return UIColor(red: 206.0 / 255.0, green: 212.0 / 255.0, blue: 218.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var blueGray40: UIColor {
+    return UIColor(red: 173.0 / 255.0, green: 182.0 / 255.0, blue: 189.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var blueGray50: UIColor {
+    return UIColor(red: 163.0 / 255.0, green: 171.0 / 255.0, blue: 176.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var blueGray60: UIColor {
+    return UIColor(red: 160.0 / 255.0, green: 166.0 / 255.0, blue: 170.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var blueGray70: UIColor {
+    return UIColor(red: 134.0 / 255.0, green: 143.0 / 255.0, blue: 150.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var blueGray80: UIColor {
+    return UIColor(red: 131.0 / 255.0, green: 135.0 / 255.0, blue: 136.0 / 255.0, alpha: 1.0)
+  }
+
+  @nonobjc class var warmPink: UIColor {
+    return UIColor(red: 246.0 / 255.0, green: 92.0 / 255.0, blue: 108.0 / 255.0, alpha: 1.0)
   }
 
 }

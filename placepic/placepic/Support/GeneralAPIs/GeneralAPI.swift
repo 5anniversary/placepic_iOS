@@ -9,9 +9,7 @@
 import Foundation
 
 struct GeneralAPI {
-    
     static let baseURL = "http://3.34.209.95:3000"
-
 }
 
 
