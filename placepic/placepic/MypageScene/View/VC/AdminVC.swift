@@ -11,7 +11,7 @@ import UIKit
 class AdminVC: UIViewController {
 
     @IBOutlet var PeopleList: UITableView!
-    var adminLists:[adminListModel] = []
+    var adminList:[WaitUserModel] = []
     var frame: CGRect!
     
     override func viewDidLoad() {
@@ -19,7 +19,7 @@ class AdminVC: UIViewController {
         setNavi()
         PeopleList.delegate = self
         PeopleList.dataSource = self
-        setPeople()
+        getData()
         
         self.tabBarController?.tabBar.isHidden = true
 
@@ -27,7 +27,30 @@ class AdminVC: UIViewController {
         
         //dismiss될때
         // tabBarController?.tabBar.isHidden = false
-
+    }
+    
+    func getData(){
+        adminService.shared.getAdminUser() { networkResult in
+            switch networkResult {
+            case .success(let products):
+                guard let users = products as? [WaitUserModel] else { return }
+                print(users.count)
+                for i in 0..<users.count{
+                    self.adminList.append(users[i])
+                }
+                self.PeopleList.reloadData()
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+                
+            }
+        }
     }
     
     private func setNavi() {
@@ -66,11 +89,11 @@ class AdminVC: UIViewController {
     }
       
     
-    func setPeople(){
-        let person = adminListModel(name: "배민주", birth: "1997.10.04", part: "디자인", phone: "010-0000-0000", gender: "여")
-        
-        adminLists = [person]
-    }
+//    func setPeople(){
+//        let person = adminListModel(name: "배민주", birth: "1997.10.04", part: "디자인", phone: "010-0000-0000", gender: "여")
+//
+//        adminLists = [person]
+//    }
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,7 +102,7 @@ class AdminVC: UIViewController {
         if segue.identifier == "toDetailView" {
             if let destination = segue.destination as? PeopleDetailVC {
                 if let selectedIndex = self.PeopleList.indexPathsForSelectedRows?.first?.row {
-                    let data = adminLists[selectedIndex]
+                    let data = adminList[selectedIndex]
                     destination.selectedData = data
                 }
             }
@@ -89,13 +112,13 @@ class AdminVC: UIViewController {
 
 extension AdminVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return adminLists.count
+        return adminList.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let peopleListCell = tableView.dequeueReusableCell(withIdentifier: "PeopleListCell", for: indexPath)
-        peopleListCell.textLabel?.text = adminLists[indexPath.row].name
-        peopleListCell.detailTextLabel?.text = adminLists[indexPath.row].part
+        peopleListCell.textLabel?.text = adminList[indexPath.row].userName
+        peopleListCell.detailTextLabel?.text = adminList[indexPath.row].part
             
         return peopleListCell
     }

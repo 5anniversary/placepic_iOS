@@ -72,21 +72,6 @@
             </objects>
             <point key="canvasLocation" x="-2503" y="-681"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="8X8-D9-xdE">
-            <objects>
-                <viewController id="Tks-sO-WSg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gul-7c-S5g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6qG-WL-VEq"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kyy-3y-L4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2492" y="1"/>
-        </scene>
         <!--People DetailVC-->
         <scene sceneID="OfG-3X-ZDN">
             <objects>
@@ -262,7 +247,8 @@
         <!--PeopleListView-->
         <scene sceneID="lLM-EZ-O1P">
             <objects>
-                <navigationController title="PeopleListView" automaticallyAdjustsScrollViewInsets="NO" id="QsB-uX-bw5" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7P-dF-tOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="navi" title="PeopleListView" automaticallyAdjustsScrollViewInsets="NO" id="QsB-uX-bw5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c5k-rD-5oy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -273,7 +259,6 @@
                         <segue destination="8pL-YV-JGG" kind="relationship" relationship="rootViewController" id="rQf-Rh-dUh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I7P-dF-tOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3372" y="-681"/>
         </scene>
