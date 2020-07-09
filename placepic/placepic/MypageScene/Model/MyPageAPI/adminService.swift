@@ -44,9 +44,11 @@ struct adminService {
         }
 
         private func isuser(by data: Data) -> NetworkResult<Any> {
+            print("%%")
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(adminUserModel.self, from: data) else { return .pathErr }
             guard let WaitUserModel: [WaitUserModel] = decodedData.data else { return .requestErr(decodedData.message) }
+            print(WaitUserModel)
             return .success(WaitUserModel)
         }
 }

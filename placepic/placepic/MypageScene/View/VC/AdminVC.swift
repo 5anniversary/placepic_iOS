@@ -38,6 +38,8 @@ class AdminVC: UIViewController {
                 for i in 0..<users.count{
                     self.adminList.append(users[i])
                 }
+                print("$$$$$$$$")
+                print(self.adminList)
                 self.PeopleList.reloadData()
             case .requestErr(let message):
                 guard let message = message as? String else { return }
@@ -116,6 +118,7 @@ extension AdminVC: UITableViewDelegate,UITableViewDataSource{
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(adminList)
         let peopleListCell = tableView.dequeueReusableCell(withIdentifier: "PeopleListCell", for: indexPath)
         peopleListCell.textLabel?.text = adminList[indexPath.row].userName
         peopleListCell.detailTextLabel?.text = adminList[indexPath.row].part

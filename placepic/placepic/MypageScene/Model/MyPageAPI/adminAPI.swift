@@ -9,5 +9,6 @@
 import Foundation
 
 struct adminAPI {
-    static let getadminURL = GeneralAPI.baseURL+"/auth/groups/myInfo/3"
+    static let getadminURL = GeneralAPI.baseURL+"/auth/groups/myInfo/10"
+    static let acceptadminURL = GeneralAPI.baseURL+"/auth/groups/edit/10"
 }

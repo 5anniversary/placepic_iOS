@@ -10,7 +10,7 @@
         <!--Title-->
         <scene sceneID="l6P-vS-39i">
             <objects>
-                <viewController id="8pL-YV-JGG" customClass="AdminVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="adminListView" id="8pL-YV-JGG" customClass="AdminVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I5E-cS-1nG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,7 +262,6 @@
         <!--PeopleListView-->
         <scene sceneID="lLM-EZ-O1P">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I7P-dF-tOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="navi" title="PeopleListView" automaticallyAdjustsScrollViewInsets="NO" id="QsB-uX-bw5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c5k-rD-5oy">
@@ -274,6 +273,7 @@
                         <segue destination="8pL-YV-JGG" kind="relationship" relationship="rootViewController" id="rQf-Rh-dUh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7P-dF-tOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3372" y="-681"/>
         </scene>
