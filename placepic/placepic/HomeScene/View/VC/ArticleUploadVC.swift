@@ -21,6 +21,7 @@ class ArticleUploadVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setCollectionView()
         setNavigationBar()
     }
@@ -50,8 +51,8 @@ extension ArticleUploadVC {
         let rightButton = UIButton()
         rightButton.setTitle("등록", for: .normal)
         rightButton.isEnabled = false
-        rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        rightButton.setTitleColor(.black60, for: .normal)
+        rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)    
+        rightButton.setTitleColor(.blueGray80, for: .normal)
         
         let rightnavigationButton = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = rightnavigationButton
@@ -134,7 +135,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // Notification 받아서 그냥 다 Reload 때리자
-        // reload 방식은
         switch indexPath.section {
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OutterUploadPhotoCVC", for: indexPath) as? OutterUploadPhotoCVC else {

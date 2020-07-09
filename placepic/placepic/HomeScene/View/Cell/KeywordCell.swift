@@ -31,7 +31,7 @@ class KeywordCell: UICollectionViewCell {
     private func setupViews() {
         contentView.backgroundColor = UIColor.white
         contentView.layer.cornerRadius = 5
-        contentView.layer.borderColor = UIColor.black80.cgColor
+        contentView.layer.borderColor = UIColor.blueGray80.cgColor
         contentView.layer.borderWidth = 1
         
         addSubview(nameLabel)
