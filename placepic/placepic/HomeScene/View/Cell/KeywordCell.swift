@@ -22,6 +22,24 @@ class KeywordCell: UICollectionViewCell {
         
     }
     
+    override var isSelected: Bool {
+        didSet {
+            contentView.layer.borderColor = isSelected ? UIColor.warmPink.cgColor : UIColor.blueGray30.cgColor
+            contentView.layer.borderWidth = 2
+            nameLabel.textColor = isSelected ? UIColor.warmPink : UIColor.blueGray80
+
+        }
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            contentView.layer.borderColor = isHighlighted ? UIColor.warmPink.cgColor : UIColor.blueGray30.cgColor
+            contentView.layer.borderWidth = 2
+            nameLabel.textColor = isHighlighted ? UIColor.warmPink : UIColor.blueGray80
+
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -31,10 +49,12 @@ class KeywordCell: UICollectionViewCell {
     private func setupViews() {
         contentView.backgroundColor = UIColor.white
         contentView.layer.cornerRadius = 5
-        contentView.layer.borderColor = UIColor.blueGray80.cgColor
-        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.blueGray30.cgColor
+        contentView.layer.borderWidth = 2
         
         addSubview(nameLabel)
+        nameLabel.textColor = UIColor.blueGray80
+        nameLabel.font = .boldSystemFont(ofSize: 14)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [

@@ -159,12 +159,12 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="BXc-9y-KEp" firstAttribute="leading" secondItem="xpf-V5-wML" secondAttribute="trailing" constant="228.5" id="0qs-J8-uHU"/>
                                                 <constraint firstItem="1Sg-3Y-Ohy" firstAttribute="leading" secondItem="j0a-aq-Kv7" secondAttribute="leading" constant="14" id="RYv-a3-RQ7"/>
                                                 <constraint firstItem="xpf-V5-wML" firstAttribute="top" secondItem="j0a-aq-Kv7" secondAttribute="top" constant="21" id="Sg0-WS-2qj"/>
                                                 <constraint firstItem="xpf-V5-wML" firstAttribute="centerY" secondItem="BXc-9y-KEp" secondAttribute="centerY" id="mfi-OJ-2xY"/>
                                                 <constraint firstItem="1Sg-3Y-Ohy" firstAttribute="top" secondItem="xpf-V5-wML" secondAttribute="bottom" constant="11" id="oLD-LV-Q8g"/>
                                                 <constraint firstItem="xpf-V5-wML" firstAttribute="leading" secondItem="j0a-aq-Kv7" secondAttribute="leading" constant="14" id="qXP-G7-kvd"/>
-                                                <constraint firstAttribute="trailing" secondItem="BXc-9y-KEp" secondAttribute="trailing" constant="14" id="wN1-VI-mbI"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="90"/>
@@ -207,8 +207,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="TfH-uf-xt1" secondAttribute="trailing" constant="14" id="5bl-He-4uj"/>
                                                 <constraint firstItem="6R9-cU-0Q1" firstAttribute="leading" secondItem="4cj-pl-aFT" secondAttribute="leading" constant="14" id="DHG-oW-C75"/>
+                                                <constraint firstItem="TfH-uf-xt1" firstAttribute="leading" secondItem="RiT-U1-kM8" secondAttribute="trailing" constant="152.5" id="H25-AK-fzZ"/>
                                                 <constraint firstItem="RiT-U1-kM8" firstAttribute="centerY" secondItem="TfH-uf-xt1" secondAttribute="centerY" id="P3A-sd-PIu"/>
                                                 <constraint firstItem="RiT-U1-kM8" firstAttribute="leading" secondItem="4cj-pl-aFT" secondAttribute="leading" constant="14" id="YaT-eS-Q3G"/>
                                                 <constraint firstItem="RiT-U1-kM8" firstAttribute="top" secondItem="4cj-pl-aFT" secondAttribute="top" constant="21" id="bK4-Zv-n4G"/>
@@ -236,16 +236,13 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-tE-pow">
                                                     <rect key="frame" x="337" y="19.5" width="24" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="baB-7C-KG0"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="S6q-ZI-SEg" firstAttribute="centerY" secondItem="cXe-tE-pow" secondAttribute="centerY" id="Gqs-3y-rIi"/>
                                                 <constraint firstItem="S6q-ZI-SEg" firstAttribute="top" secondItem="aHh-MF-JcB" secondAttribute="top" constant="21" id="Uav-RM-xi5"/>
                                                 <constraint firstItem="S6q-ZI-SEg" firstAttribute="leading" secondItem="aHh-MF-JcB" secondAttribute="leading" constant="14" id="Vcg-Ma-pVK"/>
-                                                <constraint firstAttribute="trailing" secondItem="cXe-tE-pow" secondAttribute="trailing" constant="14" id="Zbg-dx-739"/>
+                                                <constraint firstItem="cXe-tE-pow" firstAttribute="leading" secondItem="S6q-ZI-SEg" secondAttribute="trailing" constant="224.5" id="s0k-hR-KDf"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="90"/>
@@ -272,7 +269,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="402" id="e0Z-Wc-7Ue"/>
                                                     </constraints>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -288,6 +284,9 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="452"/>
+                                        <connections>
+                                            <outlet property="reviewTextfield" destination="Fmp-nL-Agq" id="xPI-by-LRn"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NearstaionHeaderCVC" id="qc3-eg-JaM" customClass="NearstaionHeaderCVC" customModule="placepic" customModuleProvider="target">

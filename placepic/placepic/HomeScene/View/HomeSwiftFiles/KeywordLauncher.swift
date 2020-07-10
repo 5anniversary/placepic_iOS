@@ -69,7 +69,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         "abbcdabcd",
         "abcdabcdababcdabcdabcd",
         "abbcdabcd",
-
     ]
     
     let cellId = "cellId"
@@ -103,7 +102,21 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         
         /// 설명 : 마지막 층  + 1, 버튼 만들어놓을 친구들 층  + 1 + 키워드 라벨 층 ( 높이 지정 필요해욤 )
     }
+    
+
+    
+    
+    private func configureButton() {
+        doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+    }
+            
+    @objc private func doneButtonTapped() {
+        /// cell이 눌리는 status나
+        /// Button이 Tapped되는 상태
         
+    }
+    
     /// 호출할때 여기다가 매개변수로 넘겨주는게 조을거같아욤
     func showSettings(_ titleLabel: String) {        
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
@@ -186,14 +199,27 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
                                               width: self.modalView.frame.width,
                                               height: self.modalView.frame.height)
             }
-        }, completion: nil
-        )
+        }, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
-        //        handleDismiss()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        
+        cell.backgroundColor = cell.isSelected ? UIColor.red : UIColor.white
+        print(cell)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        if let selectedItems = collectionView.indexPathsForSelectedItems {
+            if selectedItems.contains(indexPath) {
+                collectionView.deselectItem(at: indexPath, animated: true)
+                return false
+            }
+        }
+        return true
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return keyword.count
@@ -201,14 +227,21 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! KeywordCell
+        
+        
         cell.nameLabel.text = keyword[indexPath.item]
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+       
+        let width: CGFloat = keyword[indexPath.item].width(withConstrainedHeight: 40, font:.boldSystemFont(ofSize: 14)) + 20
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! KeywordCell
+//        let width = cell.nameLabel.intrinsicContentSize
+//        var rect: CGRect = cell.nameLabel.frame //get frame of label
         
-        let width: CGFloat = keyword[indexPath.item].width(withConstrainedHeight: 40, font: .systemFont(ofSize: 16))
         let height: CGFloat = 40
                 
         return CGSize(width: width, height: height)
@@ -224,6 +257,8 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     override init() {
         super.init()
         
+        configureButton()
+        collectionView.allowsMultipleSelection = true
         collectionView.collectionViewLayout = CenterAlignedCollectionViewFlowLayout()
         
         collectionView.dataSource = self

@@ -10,4 +10,15 @@ import UIKit
 
 class HomeReviewCVC: UICollectionViewCell {
     
+    @IBOutlet weak var reviewTextfield: UITextView!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setReviewTextField()
+    }
+    
+    private func setReviewTextField() {
+        reviewTextfield.layer.cornerRadius = 5
+        reviewTextfield.backgroundColor = UIColor.gray10
+    }
 }

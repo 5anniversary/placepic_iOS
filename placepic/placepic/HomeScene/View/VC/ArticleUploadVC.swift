@@ -29,7 +29,7 @@ class ArticleUploadVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        collectionView.reloadData()
+        //        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -105,7 +105,7 @@ extension ArticleUploadVC {
         print(injectedModel.count)
         nearStationModel = injectedModel
         
-
+        
         collectionView.reloadData()
     }
     
@@ -173,7 +173,7 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-
+        
         switch indexPath.section {
         case 0:
             return CGSize(width: width, height: 98)
@@ -189,7 +189,7 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
             assert(false)
         }
     }
-        
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
@@ -245,7 +245,7 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
             assert(false)
         }
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
@@ -265,6 +265,7 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
         }
     }
 }
+
 extension ArticleUploadVC: UICollectionViewDataSource {
     
     
