@@ -1,5 +1,5 @@
 //
-//  HomeTestVC.swift
+//  ArticleUploadVC.swift
 //  placepic
 //
 //  Created by elesahich on 2020/07/05.
@@ -8,20 +8,24 @@
 
 import UIKit
 import YPImagePicker
+import Alamofire
 
-extension NSNotification.Name {
-    static let nearSubwayStation = NSNotification.Name("nearsubwaystation")
-    static let denyDoneButton = NSNotification.Name("denyDone")
-
+protocol sendDataProtocol {
+    func sendData(model: StationModel)
 }
 
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    let nearStationModel: [String] = []
+
+    var nearStationModel: [StationModel] = []
     let keywordModel: [String] = []
     let usefulKeywordModel: [String] = []
+
+    var delegate: sendDataProtocol?
+    var frame: CGRect!
+        
+    lazy var paramStationModel: [StationModel] = []
     
     lazy var keywordModal: KeywordLauncher = {
         let launcher = KeywordLauncher()
@@ -29,20 +33,29 @@ class ArticleUploadVC: UIViewController {
         return launcher
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print(#function)
+        
+        nearStationModel = paramStationModel
+        collectionView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setCollectionView()
         setNavigationBar()
-    }
-    
-    @IBAction func testButtonAction(_ sender: Any) {
-        
+        addObserver()
+        setDefaultRequest()
     }
 }
 
 extension ArticleUploadVC {
+    
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeDefaultCellHeight), name: .homeDismissNoti, object: nil)
+    }
     
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
@@ -67,30 +80,66 @@ extension ArticleUploadVC {
         
         let rightnavigationButton = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = rightnavigationButton
-        
     }
     
     @objc private func dismissVC() {
         navigationController?.popViewController(animated: true)
-        
     }
     
     private func setCollectionView() {
+        let nearstation = self.nearStationModel
+        print("nearstationModel: \(nearstation)")
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
+    // 나중에 숨겨주시고요
+    private func hideTabBar() {
+        frame = self.tabBarController?.tabBar.frame
+        let height = frame.size.height
+        frame?.origin.y = self.view.frame.size.height + (height)
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.tabBarController?.tabBar.frame = self.frame!
+        })
+    }
+        
+    @objc private func changeDefaultCellHeight() {
+        /// Cell 에서 StackView 데이터가 있으면
+        /// Hidden을 숨기고 해야함다
+        /// `StackView + Textfield`
+        print("Noti가 되고 있어욤")
+        setCollectionView()
+        print("after Noti: \(nearStationModel)")
+        collectionView.reloadData()
+    }
+
     func returnDynamicHeight() -> CGSize {
         let width = view.frame.width
+        /// cell에 접근해서 처리하고자 함
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: <#T##IndexPath#>)
+        
+        print(#function)
         if nearStationModel.count == 0 {
             return CGSize(width: width, height: 60)
         } else {
             return CGSize(width: width, height: 90)
         }
     }
+    
+    func setDefaultRequest() {
+        print(#function)
+        
+        KeywordServices.keywordServices.getKeywordRequest { data in
+            if let metaData = data {
+                print(#function)
+                print(metaData)
+            }
+        }
+    }
 }
 
-extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {}
+extension ArticleUploadVC: UICollectionViewDelegateFlowLayout { }
 extension ArticleUploadVC: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -110,7 +159,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NearstaionHeaderCVC", for: indexPath) as? NearstaionHeaderCVC
@@ -133,7 +181,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        
         switch indexPath.section {
         case 0:
             return CGSize(width: width, height: 98)
@@ -152,8 +199,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        // Notification 받아서 그냥 다 Reload 때리자
         switch indexPath.section {
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OutterUploadPhotoCVC", for: indexPath) as? OutterUploadPhotoCVC else {
@@ -165,8 +210,19 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FindNearstationCVC", for: indexPath) as? FindNearstationCVC else {
                 return UICollectionViewCell()
             }
-            return cell
+            /// 데이터 주입은 빨라야하고 데이터 주입이 된 다음에 reload가 되어야 합니다
+
+            if nearStationModel.count == 0 {
+                return cell
+            } else {
+                cell.model = nearStationModel[indexPath.item]
+            }
+            /// Model에 주입될 때 애초에 개수를 알려주면 좋지 않겠니?
+            /// 이전 VC에서 Dismiss될 때 주입을 해주고요( nearStationModel에 )
+            /// index 에러가 나면 hidden을 시켜야 하구,,, >> Hidden 시키는 방식 : ShowStationTVC
             
+            return cell
+
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeKeywordCVC", for: indexPath) as? HomeKeywordCVC else {
                 return UICollectionViewCell()

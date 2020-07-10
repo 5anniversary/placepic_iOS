@@ -9,6 +9,15 @@
 import UIKit
 
 class HomeKeywordCVC: UICollectionViewCell {
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }
+
+//MARK:- 통신
+extension HomeKeywordCVC {
+
+}
+
+    
 

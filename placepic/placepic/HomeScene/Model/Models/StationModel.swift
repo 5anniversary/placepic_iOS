@@ -12,3 +12,4 @@ struct StationModel: Hashable {
     let station: String!
     let lineArray: [Int]!
 }
+    

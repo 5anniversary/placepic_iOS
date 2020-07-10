@@ -13,16 +13,36 @@ class FindNearstationCVC: UICollectionViewCell {
     @IBOutlet weak var topConstraints: NSLayoutConstraint!
     @IBOutlet weak var rightArrowImage: UIImageView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet var contents: [UIView]!
+    @IBOutlet var textFieldArray: [UITextField]!
     
+    var model: StationModel? {
+        didSet {
+            for i in 0..<textFieldArray.count {
+                textFieldArray[i].text = model?.station
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        configureTextfield()
+        stackView.isHidden = true
     }
     
-    func configureContents() {
-        
-        
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        textFieldArray.forEach({
+            $0.isHidden = false
+        })
+    }
+    
+    private func configureTextfield() {
+        textFieldArray.forEach({
+            $0.layer.cornerRadius = 5
+            $0.layer.borderColor = UIColor.white.cgColor
+            $0.layer.borderWidth = 1
+            $0.isUserInteractionEnabled = false
+            $0.backgroundColor = UIColor.gray10
+        })
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class NearstationVC: UIViewController {
     
@@ -15,16 +16,28 @@ class NearstationVC: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    /// 서버에서 역이 Static으로 주입되는 모델
+    /// `@서버에서 역이 Static으로 주입되는 모델`
     var stationModel: [StationModel] = [
         StationModel(station: "오이도역", lineArray: [4]),
         StationModel(station: "사당역", lineArray: [2, 4]),
         StationModel(station: "동대문문화역사공원역", lineArray: [2, 4, 5])
     ]
+    var receiveDelegate: sendDataProtocol?
+    
+    /// 1 .CollectionView Model이 주입이 되어야 함
+    /// 2. Reload 되어야 함 - 되면서 Hidden이 풀려야 함 그럴거면 진짜 TVC 로직을 따는게 좋아보임
+    ///
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if isBeingDismissed {
+            print("user is dismissing the vc")
+        }
+    }
     
     /// `TableView에 나오는 Model`
     var searchTemporaryModel: [StationModel] = []
-    /// `CollectionView에 나오는 모델`
+    /// `CollectionView에 나오는 모델` >> `UploadVC에 주입될 모델`
     var collectionViewModel: [StationModel] = []
     
     override func viewDidLoad() {
@@ -63,10 +76,8 @@ extension NearstationVC {
                 if stationModel[i].station.contains(searchText) {
                     let model = stationModel[i]
                     searchTemporaryModel.append(model)
-//                    print("before searchTemporaryModel: \(searchTemporaryModel[i])\n")
                     let set = Set(searchTemporaryModel)
                     searchTemporaryModel = Array(set)
-//                    print("after searchTemporaryModel: \(searchTemporaryModel[i])\n")
                 }
             }
         }
@@ -76,7 +87,6 @@ extension NearstationVC {
     }
     
     /// Model에 데이터가 없으면 0 있으면 1
-    /// reload 해줘야하고
     /// tableViewCell이 눌리는 경우마다 발생해야 함 ( default : Hide)
     private func setSearchbarHeight() {
         if collectionViewModel.count == 0 {
@@ -123,7 +133,18 @@ extension NearstationVC {
     }
     
     @objc private func dismissVC() {
+    
+        /// 데이터 주입은 빨라야하고 데이터 주입이 된 다음에 reload가 되어야 합니다
+        print(#function)
         navigationController?.popViewController(animated: true)
+        
+//        guard let vc = storyboard?.instantiateViewController(identifier: "ArticleUploadVC") as? ArticleUploadVC
+//            else { return }
+//
+//        print("collectionviewmodel: \(collectionViewModel) \n")
+//        vc.tempNearstationModel = collectionViewModel
+//        NotificationCenter.default.post(name: .homeDismissNoti, object: self)
+//        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -166,7 +187,7 @@ extension NearstationVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /// 같은 model을 참조하면 index로 해도 됩니다
         
-        print("selectTempModel: \(searchTemporaryModel[indexPath.row])")
+//        print("selectTempModel: \(searchTemporaryModel[indexPath.row])")
         
         collectionViewModel.append(searchTemporaryModel[indexPath.row])
         let set = Set(collectionViewModel)
@@ -201,7 +222,7 @@ extension NearstationVC: UITableViewDataSource {
             return cell
         } else {
             cell.model = searchTemporaryModel[indexPath.row]
-            print("searchTemModel: \(searchTemporaryModel[indexPath.row])")
+//            print("searchTemModel: \(searchTemporaryModel[indexPath.row])")
             return cell
         }
     }
