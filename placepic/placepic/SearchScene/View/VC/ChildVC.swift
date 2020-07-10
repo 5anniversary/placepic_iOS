@@ -2,6 +2,12 @@ import UIKit
 import Kingfisher
 import XLPagerTabStrip
 
+extension Notification.Name {
+    ///Delegate Closure Notification
+    
+    static let changeChildViewVC = Notification.Name("changechildviewVC")
+}
+
 class ChildVC: UIViewController, IndicatorInfoProvider {
     
     @IBOutlet var placeListTV: UITableView!
@@ -9,17 +15,24 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     var sum:Int = 12
     @IBOutlet var sumNum: UILabel!
     var placeList: [placeData] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         placeListTV.delegate = self
         placeListTV.dataSource = self
         setNavigationBar()
         getData()
         
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.post(name: .changeChildViewVC, object: nil, userInfo: ["childNumber": childNumber])
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -27,33 +40,36 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "\(childNumber)")
     }
-
+    
     func textFieldDidChange(sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
     }
     func getData(){
-            placeService.shared.getPlaces() { networkResult in
-                switch networkResult {
-                case .success(let products):
-                    guard let places = products as? [placeData] else { return }
-                    for i in 0..<places.count{
-                        self.placeList.append(places[i])
-                    }
-                    self.placeListTV.reloadData()
-                    self.sumNum.text = "총 \(self.placeList.count)개 결과"
-                case .requestErr(let message):
-                    guard let message = message as? String else { return }
-                    let alertViewController = UIAlertController(title: "조회  실패", message: message, preferredStyle: .alert)
-                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                    alertViewController.addAction(action)
-                    self.present(alertViewController, animated: true, completion: nil)
-                case .pathErr: print("path")
-                case .serverErr: print("serverErr")
-                case .networkFail: print("networkFail")
-                    
+        print(#function)
+        placeService.shared.getPlaces() { networkResult in
+            switch networkResult {
+            case .success(let products):
+                
+                guard let places = products as? [placeData] else { return }
+                for i in 0..<places.count{
+                    self.placeList.append(places[i])
                 }
+                //placeList
+                self.placeListTV.reloadData() //***!!!
+                self.sumNum.text = "총 \(self.placeList.count)개 결과"
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("pa")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+                
             }
         }
+    }
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         
@@ -99,23 +115,23 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         var dataInfo: String = ""
         for i in 0..<placeList[indexPath.row].subway.count{
             if i == (placeList[indexPath.row].subway.count-1){
-                dataInfo = dataInfo + placeList[indexPath.row].subway[i].subwayName + "역"
+                dataInfo = dataInfo + placeList[indexPath.row].subway[i].subwayName
             }
             else {
-                 dataInfo = dataInfo + placeList[indexPath.row].subway[i].subwayName + "/"
+                dataInfo = dataInfo + placeList[indexPath.row].subway[i].subwayName + "/"
             }
         }
         
         let date:Date = Date(timeIntervalSince1970: TimeInterval(placeList[indexPath.row].placeCreatedAt))
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
         
-        if placeList[indexPath.row].tag.count == 0{
-            dataInfo = dataInfo + " · " + dateFormatter.string(from: date)
+        if placeList[indexPath.row].tag.count == 0 {
+            dataInfo = dataInfo + dateFormatter.string(from: date)
         }
         else{
-            dataInfo = dataInfo + dateFormatter.string(from: date)
+            dataInfo = dataInfo + " · " + dateFormatter.string(from: date)
         }
         print(dataInfo)
         
@@ -145,4 +161,6 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         return 125
     }
 }
+
+
 

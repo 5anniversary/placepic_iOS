@@ -75,6 +75,9 @@
 		AE34146724B4F66900425889 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146624B4F66900425889 /* NetworkResult.swift */; };
 		AE34146B24B6224E00425889 /* adminService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146A24B6224E00425889 /* adminService.swift */; };
 		AE34146E24B6251C00425889 /* adminUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146D24B6251C00425889 /* adminUserModel.swift */; };
+		AE34147224B6D90000425889 /* adminAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34147124B6D90000425889 /* adminAPI.swift */; };
+		AE34147424B7057700425889 /* AdminAcceptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34147324B7057700425889 /* AdminAcceptService.swift */; };
+		AE34147624B7076B00425889 /* AdminData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34147524B7076B00425889 /* AdminData.swift */; };
 		AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27424AC2E3500891C6E /* SearchVC.swift */; };
 		AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27824AC59A200891C6E /* ChildVC.swift */; };
 		AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */; };
@@ -152,9 +155,11 @@
 		AE34146224B4EFD100425889 /* placeListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeListAPI.swift; sourceTree = "<group>"; };
 		AE34146424B4F51700425889 /* placeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeService.swift; sourceTree = "<group>"; };
 		AE34146624B4F66900425889 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
-		AE34146824B6220000425889 /* adminAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminAPI.swift; sourceTree = "<group>"; };
 		AE34146A24B6224E00425889 /* adminService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminService.swift; sourceTree = "<group>"; };
 		AE34146D24B6251C00425889 /* adminUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminUserModel.swift; sourceTree = "<group>"; };
+		AE34147124B6D90000425889 /* adminAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminAPI.swift; sourceTree = "<group>"; };
+		AE34147324B7057700425889 /* AdminAcceptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAcceptService.swift; sourceTree = "<group>"; };
+		AE34147524B7076B00425889 /* AdminData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminData.swift; sourceTree = "<group>"; };
 		AEEEE27424AC2E3500891C6E /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AEEEE27824AC59A200891C6E /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
 		AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListTVC.swift; sourceTree = "<group>"; };
@@ -597,7 +602,9 @@
 			isa = PBXGroup;
 			children = (
 				AE34146A24B6224E00425889 /* adminService.swift */,
-				AE34146824B6220000425889 /* adminAPI.swift */,
+				AE34147124B6D90000425889 /* adminAPI.swift */,
+				AE34147324B7057700425889 /* AdminAcceptService.swift */,
+				AE34147524B7076B00425889 /* AdminData.swift */,
 			);
 			path = MyPageAPI;
 			sourceTree = "<group>";
@@ -725,11 +732,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DAC651B24B6EFF800FBA399 /* SubwayModel.swift in Sources */,
-				3D6C163924B877AD0050979C /* HomeAPIs.swift in Sources */,
+				3DAC651B24B6EFF800FBA399 /* Subwaymodel.swift in Sources */,
 				3DAC651A24B6EFE400FBA399 /* adminAPI.swift in Sources */,
 				AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */,
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
+				AE34147224B6D90000425889 /* adminAPI.swift in Sources */,
 				1302CA8224AC70A00013CACC /* SigninVC.swift in Sources */,
 				3DECB7C524A9311200D54DBF /* Extensions+UIKit.swift in Sources */,
 				3DCE5F7524B5198200BAF927 /* FindNearstationCVC.swift in Sources */,
@@ -745,6 +752,7 @@
 				3DCE5F6F24B4F16A00BAF927 /* innerUploadPhotoCVC.swift in Sources */,
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
 				1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */,
+				AE34147624B7076B00425889 /* AdminData.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
 				AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */,
 				AE34146524B4F51700425889 /* placeService.swift in Sources */,
@@ -755,6 +763,7 @@
 				3D6BAF9324B1D21A00F6339E /* NearstationCVC.swift in Sources */,
 				3D6C163724B877790050979C /* KeywordServies.swift in Sources */,
 				3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */,
+				AE34147424B7057700425889 /* AdminAcceptService.swift in Sources */,
 				1302CA8024AC5EBF0013CACC /* GroupListVC.swift in Sources */,
 				3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */,
 				AE34146024B4DB6700425889 /* placeListModel.swift in Sources */,

@@ -19,8 +19,9 @@ struct adminService {
             "Content-Type": "application/json"
         ]
         
-        let dataRequest = Alamofire.request(adminAPI.getadminURL, method: .get, encoding:JSONEncoding.default, headers: header)
-        dataRequest.responseData { dataResponse in
+        
+        let detaRequest = Alamofire.request(adminAPI.getadminURL, method: .get, encoding: JSONEncoding.default, headers: header)
+        detaRequest.responseData { dataResponse in
                 switch dataResponse.result {
                 case .success:
                     guard let statusCode = dataResponse.response?.statusCode else { return }
@@ -43,9 +44,11 @@ struct adminService {
         }
 
         private func isuser(by data: Data) -> NetworkResult<Any> {
+            print("%%")
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(adminUserModel.self, from: data) else { return .pathErr }
             guard let WaitUserModel: [WaitUserModel] = decodedData.data else { return .requestErr(decodedData.message) }
+            print(WaitUserModel)
             return .success(WaitUserModel)
         }
 }
