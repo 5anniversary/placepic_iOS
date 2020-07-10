@@ -17,9 +17,9 @@ class FindNearstationCVC: UICollectionViewCell {
     
     var model: StationModel? {
         didSet {
-            for i in 0..<textFieldArray.count {
-                textFieldArray[i].text = model?.station
-            }
+            textFieldArray.forEach({
+                $0.text = model?.station
+            })
         }
     }
     
@@ -32,6 +32,7 @@ class FindNearstationCVC: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         textFieldArray.forEach({
+//            $0.text = ""
             $0.isHidden = false
         })
     }

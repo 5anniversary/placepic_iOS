@@ -13,13 +13,11 @@ import Alamofire
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
-    var nearStationModel: [StationModel] = []
+    
     let keywordModel: [String] = []
     let usefulKeywordModel: [String] = []
-
+    var nearStationModel: [StationModel] = []
     var frame: CGRect!
-        
     lazy var paramStationModel: [StationModel] = []
     
     lazy var keywordModal: KeywordLauncher = {
@@ -31,10 +29,7 @@ class ArticleUploadVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(#function)
-        
-        nearStationModel = paramStationModel
-        collectionView.reloadData()
+//        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -49,7 +44,7 @@ class ArticleUploadVC: UIViewController {
 extension ArticleUploadVC {
     
     private func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(changeDefaultCellHeight), name: .homeDismissNoti, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeDefaultCellHeight), name: .homeSendmodelNotification, object: nil)
     }
     
     private func setNavigationBar() {
@@ -98,23 +93,26 @@ extension ArticleUploadVC {
             self.tabBarController?.tabBar.frame = self.frame!
         })
     }
+    
+    @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
         
-    @objc private func changeDefaultCellHeight() {
-        /// Cell 에서 StackView 데이터가 있으면
-        /// Hidden을 숨기고 해야함다
-        /// `StackView + Textfield`
-        print("Noti가 되고 있어욤")
-        setCollectionView()
-        print("after Noti: \(nearStationModel)")
+        guard let injectedModel = notification.userInfo?["model"] as? [StationModel] else { return }
+        print("injectedModel: \(injectedModel)")
+        
+        /// 문제 : injected된 친구들의 개수를 세어야 합니다
+        /// 개수를 세어서 cell에서 죽여야 됨
+        
+        print(injectedModel.count)
+        nearStationModel = injectedModel
+        
+
         collectionView.reloadData()
     }
-
+    
     func returnDynamicHeight() -> CGSize {
         let width = view.frame.width
         /// cell에 접근해서 처리하고자 함
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: <#T##IndexPath#>)
         
-        print(#function)
         if nearStationModel.count == 0 {
             return CGSize(width: width, height: 60)
         } else {
@@ -134,8 +132,7 @@ extension ArticleUploadVC {
     }
 }
 
-extension ArticleUploadVC: UICollectionViewDelegateFlowLayout { }
-extension ArticleUploadVC: UICollectionViewDataSource {
+extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 5
@@ -176,6 +173,7 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
+
         switch indexPath.section {
         case 0:
             return CGSize(width: width, height: 98)
@@ -190,9 +188,8 @@ extension ArticleUploadVC: UICollectionViewDataSource {
         default:
             assert(false)
         }
-        
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
@@ -205,19 +202,27 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FindNearstationCVC", for: indexPath) as? FindNearstationCVC else {
                 return UICollectionViewCell()
             }
-            /// 데이터 주입은 빨라야하고 데이터 주입이 된 다음에 reload가 되어야 합니다
-
+            
             if nearStationModel.count == 0 {
                 return cell
+            } else if nearStationModel.count == 1 {
+                cell.stackView.isHidden = false
+                cell.textFieldArray[1].isHidden = true
+                cell.textFieldArray[2].isHidden = true
+                //                cell.model = nearStationModel[indexPath.item]
+            } else if nearStationModel.count == 2 {
+                cell.stackView.isHidden = false
+                cell.textFieldArray[1].isHidden = true
+                //                cell.model = nearStationModel[indexPath.item]
             } else {
-                cell.model = nearStationModel[indexPath.item]
+                cell.stackView.isHidden = false
             }
-            /// Model에 주입될 때 애초에 개수를 알려주면 좋지 않겠니?
-            /// 이전 VC에서 Dismiss될 때 주입을 해주고요( nearStationModel에 )
-            /// index 에러가 나면 hidden을 시켜야 하구,,, >> Hidden 시키는 방식 : ShowStationTVC
+            
+            for i in 0..<nearStationModel.count {
+                cell.textFieldArray[i].text = nearStationModel[i].station
+            }
             
             return cell
-
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeKeywordCVC", for: indexPath) as? HomeKeywordCVC else {
                 return UICollectionViewCell()
@@ -240,7 +245,7 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             assert(false)
         }
     }
-    
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
@@ -259,4 +264,8 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             keywordModal.showSettings("우와아아")
         }
     }
+}
+extension ArticleUploadVC: UICollectionViewDataSource {
+    
+    
 }

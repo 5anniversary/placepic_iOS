@@ -132,18 +132,10 @@ extension NearstationVC {
     }
     
     @objc private func dismissVC() {
-    
-        /// 데이터 주입은 빨라야하고 데이터 주입이 된 다음에 reload가 되어야 합니다
-        print(#function)
+        NotificationCenter.default.post(name: .homeSendmodelNotification, object: nil, userInfo: ["model": collectionViewModel])
+        
         navigationController?.popViewController(animated: true)
         
-//        guard let vc = storyboard?.instantiateViewController(identifier: "ArticleUploadVC") as? ArticleUploadVC
-//            else { return }
-//
-//        print("collectionviewmodel: \(collectionViewModel) \n")
-//        vc.tempNearstationModel = collectionViewModel
-//        NotificationCenter.default.post(name: .homeDismissNoti, object: self)
-//        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -186,8 +178,6 @@ extension NearstationVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /// 같은 model을 참조하면 index로 해도 됩니다
         
-//        print("selectTempModel: \(searchTemporaryModel[indexPath.row])")
-        
         collectionViewModel.append(searchTemporaryModel[indexPath.row])
         let set = Set(collectionViewModel)
         collectionViewModel = Array(set)
@@ -221,7 +211,6 @@ extension NearstationVC: UITableViewDataSource {
             return cell
         } else {
             cell.model = searchTemporaryModel[indexPath.row]
-//            print("searchTemModel: \(searchTemporaryModel[indexPath.row])")
             return cell
         }
     }

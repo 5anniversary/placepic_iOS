@@ -8,6 +8,6 @@
 
 import Foundation
 
-extension NSNotification.Name {
-    static let homeDismissNoti = NSNotification.Name("homedismissnoti")
+extension Notification.Name {
+    static let homeSendmodelNotification = Notification.Name("sendmodelnotification")
 }
