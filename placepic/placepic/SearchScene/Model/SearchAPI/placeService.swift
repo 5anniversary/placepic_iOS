@@ -29,7 +29,6 @@ struct placeService {
                     completion(networkResult)
                 case .failure:
                     completion(.networkFail)
-                    
                 }
             }
         }
