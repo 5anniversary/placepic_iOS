@@ -10,10 +10,6 @@ import UIKit
 import YPImagePicker
 import Alamofire
 
-protocol sendDataProtocol {
-    func sendData(model: StationModel)
-}
-
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,7 +18,6 @@ class ArticleUploadVC: UIViewController {
     let keywordModel: [String] = []
     let usefulKeywordModel: [String] = []
 
-    var delegate: sendDataProtocol?
     var frame: CGRect!
         
     lazy var paramStationModel: [StationModel] = []

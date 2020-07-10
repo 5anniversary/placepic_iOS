@@ -22,7 +22,6 @@ class NearstationVC: UIViewController {
         StationModel(station: "사당역", lineArray: [2, 4]),
         StationModel(station: "동대문문화역사공원역", lineArray: [2, 4, 5])
     ]
-    var receiveDelegate: sendDataProtocol?
     
     /// 1 .CollectionView Model이 주입이 되어야 함
     /// 2. Reload 되어야 함 - 되면서 Hidden이 풀려야 함 그럴거면 진짜 TVC 로직을 따는게 좋아보임

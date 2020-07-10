@@ -43,7 +43,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                     self.sumNum.text = "총 \(self.placeList.count)개 결과"
                 case .requestErr(let message):
                     guard let message = message as? String else { return }
-                    let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+                    let alertViewController = UIAlertController(title: "조회  실패", message: message, preferredStyle: .alert)
                     let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                     alertViewController.addAction(action)
                     self.present(alertViewController, animated: true, completion: nil)
@@ -134,7 +134,7 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
             placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
             placeListCell.placeTag[2].isHidden = true
         }
-        else if placeList[indexPath.row].tag.count >= 3 {
+        else if placeList[indexPath.row].tag.count >= 3 {1
             placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "...")
         }
         return placeListCell
