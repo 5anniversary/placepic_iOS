@@ -16,8 +16,9 @@ class GroupListTVC: UITableViewCell {
     @IBOutlet weak var GLnomLabel2: UILabel!
     @IBOutlet weak var GLtoImageview: UIImageView!
     
+    
     static let identifier: String = "GroupListTVC"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,12 +31,12 @@ class GroupListTVC: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setDataInformation(profileImageName: String, name: String, numofPeople:String, numofPost:String){
+    func setDataInformation(profileImageName: String, name: String, numofPeople:Int, numofPost:Int){
         
             GLProfileImageview.image = UIImage(named: profileImageName)
             GLNameLabel.text = name
-            GLnumofPLabel.text = numofPeople
-            GLnumofPostLabel.text = numofPost
+            GLnumofPLabel.text = String(numofPeople)
+            GLnumofPostLabel.text = String (numofPost)
             
 
     }

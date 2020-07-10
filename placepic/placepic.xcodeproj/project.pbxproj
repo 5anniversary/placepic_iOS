@@ -26,6 +26,9 @@
 		134649E624B523480018F141 /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E524B523480018F141 /* SignupData.swift */; };
 		134649EB24B649F60018F141 /* Emailmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649EA24B649F60018F141 /* Emailmodel.swift */; };
 		134649ED24B64A640018F141 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649EC24B64A640018F141 /* EmailService.swift */; };
+		134649EF24B83CA10018F141 /* GroupListmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649EE24B83CA10018F141 /* GroupListmodel.swift */; };
+		134649F124B843FB0018F141 /* GroupListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649F024B843FB0018F141 /* GroupListService.swift */; };
+		134649F324B886D10018F141 /* groupListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649F224B886D10018F141 /* groupListData.swift */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
 		3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50527A24A9BCDC00140BCA /* APIServices.swift */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
@@ -92,6 +95,9 @@
 		134649E524B523480018F141 /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
 		134649EA24B649F60018F141 /* Emailmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Emailmodel.swift; path = placepic/LoginScene/Server/Emailmodel.swift; sourceTree = SOURCE_ROOT; };
 		134649EC24B64A640018F141 /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
+		134649EE24B83CA10018F141 /* GroupListmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListmodel.swift; sourceTree = "<group>"; };
+		134649F024B843FB0018F141 /* GroupListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListService.swift; sourceTree = "<group>"; };
+		134649F224B886D10018F141 /* groupListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupListData.swift; sourceTree = "<group>"; };
 		3D50527824A9BCA800140BCA /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		3D50527A24A9BCDC00140BCA /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 				134649E324B521440018F141 /* SigninData.swift */,
 				134649D724B4AF240018F141 /* SignupService.swift */,
 				134649E124B520E30018F141 /* NetworkResult.swift */,
+				134649F024B843FB0018F141 /* GroupListService.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -310,6 +317,8 @@
 		3DECB78F24A927FF00D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				134649EE24B83CA10018F141 /* GroupListmodel.swift */,
+				134649F224B886D10018F141 /* groupListData.swift */,
 				134649D924B4AF5E0018F141 /* LoginInfomodel.swift */,
 				134649DF24B5159B0018F141 /* SignupInfomodel.swift */,
 				134649EA24B649F60018F141 /* Emailmodel.swift */,
@@ -687,6 +696,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */,
+				134649EF24B83CA10018F141 /* GroupListmodel.swift in Sources */,
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
 				1302CA8224AC70A00013CACC /* SigninVC.swift in Sources */,
 				3DECB7C524A9311200D54DBF /* Extensions+UIKit.swift in Sources */,
@@ -712,6 +722,7 @@
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
 				3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */,
+				134649F124B843FB0018F141 /* GroupListService.swift in Sources */,
 				3D6BAF9324B1D21A00F6339E /* NearstationCVC.swift in Sources */,
 				3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */,
 				1302CA8024AC5EBF0013CACC /* GroupListVC.swift in Sources */,
@@ -719,6 +730,7 @@
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
 				134649E424B521440018F141 /* SigninData.swift in Sources */,
+				134649F324B886D10018F141 /* groupListData.swift in Sources */,
 				3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */,
 				134649DE24B4F0250018F141 /* GroupUpVC.swift in Sources */,
 				134649D624B4AD7A0018F141 /* LoginService.swift in Sources */,
