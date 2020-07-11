@@ -32,14 +32,15 @@ class FindNearstationCVC: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         textFieldArray.forEach({
-//            $0.text = ""
             $0.isHidden = false
         })
     }
     
     private func configureTextfield() {
         textFieldArray.forEach({
+            $0.font = .systemFont(ofSize: 13)
             $0.layer.cornerRadius = 5
+            $0.clipsToBounds = true
             $0.layer.borderColor = UIColor.white.cgColor
             $0.layer.borderWidth = 1
             $0.isUserInteractionEnabled = false

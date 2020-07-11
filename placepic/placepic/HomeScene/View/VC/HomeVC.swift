@@ -36,7 +36,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func keywordModalButton(_ sender: Any) {
-        settingsLauncher.showSettings("키워드")
+//        settingsLauncher.showSettings("키워드", keywor)
     }
 }
 

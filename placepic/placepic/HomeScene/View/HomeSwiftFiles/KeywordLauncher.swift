@@ -102,10 +102,7 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         
         /// 설명 : 마지막 층  + 1, 버튼 만들어놓을 친구들 층  + 1 + 키워드 라벨 층 ( 높이 지정 필요해욤 )
     }
-    
 
-    
-    
     private func configureButton() {
         doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
@@ -115,17 +112,21 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         /// cell이 눌리는 status나
         /// Button이 Tapped되는 상태
         
+        print(collectionView.indexPathsForSelectedItems ?? 0)
+        collectionView.reloadData()
+        handleDismiss()
+        
     }
     
     /// 호출할때 여기다가 매개변수로 넘겨주는게 조을거같아욤
-    func showSettings(_ titleLabel: String) {        
+    func showSettings(_ titleLabel: String) {
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
             
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
         
             modalView.clipsToBounds = true
-            modalView.layer.cornerRadius = 10
+            modalView.layer.cornerRadius = 15
             modalView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
             mainLabel.text = titleLabel
 
@@ -204,10 +205,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        
-        cell.backgroundColor = cell.isSelected ? UIColor.red : UIColor.white
-        print(cell)
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
@@ -237,11 +234,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
        
         let width: CGFloat = keyword[indexPath.item].width(withConstrainedHeight: 40, font:.boldSystemFont(ofSize: 14)) + 20
-
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! KeywordCell
-//        let width = cell.nameLabel.intrinsicContentSize
-//        var rect: CGRect = cell.nameLabel.frame //get frame of label
-        
         let height: CGFloat = 40
                 
         return CGSize(width: width, height: height)

@@ -36,7 +36,6 @@ class KeywordCell: UICollectionViewCell {
             contentView.layer.borderColor = isHighlighted ? UIColor.warmPink.cgColor : UIColor.blueGray30.cgColor
             contentView.layer.borderWidth = 2
             nameLabel.textColor = isHighlighted ? UIColor.warmPink : UIColor.blueGray80
-
         }
     }
     
@@ -54,7 +53,7 @@ class KeywordCell: UICollectionViewCell {
         
         addSubview(nameLabel)
         nameLabel.textColor = UIColor.blueGray80
-        nameLabel.font = .boldSystemFont(ofSize: 14)
+        nameLabel.font = .systemFont(ofSize: 14)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [

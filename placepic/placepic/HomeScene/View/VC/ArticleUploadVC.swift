@@ -17,8 +17,12 @@ class ArticleUploadVC: UIViewController {
     let keywordModel: [String] = []
     let usefulKeywordModel: [String] = []
     var nearStationModel: [StationModel] = []
+    
     var frame: CGRect!
     lazy var paramStationModel: [StationModel] = []
+    lazy var keywordData: [KeywordData] = []
+//    lazy var usefulData: [KeywordData] = []
+
     
     lazy var keywordModal: KeywordLauncher = {
         let launcher = KeywordLauncher()
@@ -202,26 +206,21 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FindNearstationCVC", for: indexPath) as? FindNearstationCVC else {
                 return UICollectionViewCell()
             }
-            
             if nearStationModel.count == 0 {
                 return cell
             } else if nearStationModel.count == 1 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
                 cell.textFieldArray[2].isHidden = true
-                //                cell.model = nearStationModel[indexPath.item]
             } else if nearStationModel.count == 2 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
-                //                cell.model = nearStationModel[indexPath.item]
             } else {
                 cell.stackView.isHidden = false
             }
-            
             for i in 0..<nearStationModel.count {
                 cell.textFieldArray[i].text = nearStationModel[i].station
             }
-            
             return cell
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeKeywordCVC", for: indexPath) as? HomeKeywordCVC else {
