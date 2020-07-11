@@ -17,11 +17,7 @@ class NearstationVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     /// `@서버에서 역이 Static으로 주입되는 모델`
-    var stationModel: [StationModel] = [
-        StationModel(station: "오이도역", lineArray: [4]),
-        StationModel(station: "사당역", lineArray: [2, 4]),
-        StationModel(station: "동대문문화역사공원역", lineArray: [2, 4, 5])
-    ]
+    var stationModel: [SubwayData] = []
     
     /// 1 .CollectionView Model이 주입이 되어야 함
     /// 2. Reload 되어야 함 - 되면서 Hidden이 풀려야 함 그럴거면 진짜 TVC 로직을 따는게 좋아보임
@@ -35,9 +31,9 @@ class NearstationVC: UIViewController {
     }
     
     /// `TableView에 나오는 Model`
-    var searchTemporaryModel: [StationModel] = []
+    var searchTemporaryModel: [SubwayData] = []
     /// `CollectionView에 나오는 모델` >> `UploadVC에 주입될 모델`
-    var collectionViewModel: [StationModel] = []
+    var collectionViewModel: [SubwayData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +43,7 @@ class NearstationVC: UIViewController {
         setTextfield()
         setSearchbarHeight()
         setTableView()
+        setDefaultRequest()
     }
 }
 
@@ -72,9 +69,10 @@ extension NearstationVC {
         
         func filterContentForSearchText(searchText: String) {
             for i in 0..<stationModel.count {
-                if stationModel[i].station.contains(searchText) {
+                if (stationModel[i].subwayName?.contains(searchText))! {
                     let model = stationModel[i]
                     searchTemporaryModel.append(model)
+                    
                     let set = Set(searchTemporaryModel)
                     searchTemporaryModel = Array(set)
                 }
@@ -139,6 +137,22 @@ extension NearstationVC {
     }
 }
 
+
+//MARK: - 통신
+extension NearstationVC {
+    
+    func setDefaultRequest() {
+        SubwayServeices.subwayServices.getKeywordRequest { data in
+            if let metaData = data {
+                self.stationModel.append(contentsOf: metaData)
+                print(self.stationModel)
+                self.tableView.reloadData()
+            }
+        }
+    }
+}
+
+
 extension NearstationVC: UICollectionViewDelegateFlowLayout { }
 extension NearstationVC: UICollectionViewDataSource {
     
@@ -151,7 +165,7 @@ extension NearstationVC: UICollectionViewDataSource {
         
         /// `@ sizethatFits라는 메소드 있으니 사용해봅시다 @`
         let widthexceptlabel: CGFloat = 38
-        let cellwidth: CGFloat = collectionViewModel[indexPath.item].station.width(withConstrainedHeight: 30, font: .systemFont(ofSize: 13)) + widthexceptlabel
+        let cellwidth: CGFloat = (collectionViewModel[indexPath.item].subwayName?.width(withConstrainedHeight: 30, font: .systemFont(ofSize: 13)))! + widthexceptlabel
         let height: CGFloat = 30
         
         return CGSize(width: cellwidth, height: height)
@@ -181,7 +195,6 @@ extension NearstationVC: UITableViewDataSource {
         collectionViewModel.append(searchTemporaryModel[indexPath.row])
         let set = Set(collectionViewModel)
         collectionViewModel = Array(set)
-        
         collectionView.reloadData()
     }
     

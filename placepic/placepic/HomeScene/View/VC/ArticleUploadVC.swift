@@ -16,10 +16,10 @@ class ArticleUploadVC: UIViewController {
     
     let keywordModel: [String] = []
     let usefulKeywordModel: [String] = []
-    var nearStationModel: [StationModel] = []
+    var nearStationModel: [SubwayData] = []
     
     var frame: CGRect!
-    lazy var paramStationModel: [StationModel] = []
+    lazy var paramStationModel: [SubwayData] = []
     lazy var keywordData: [KeywordData] = []
 //    lazy var usefulData: [KeywordData] = []
 
@@ -100,7 +100,7 @@ extension ArticleUploadVC {
     
     @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
         
-        guard let injectedModel = notification.userInfo?["model"] as? [StationModel] else { return }
+        guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
         print("injectedModel: \(injectedModel)")
         
         /// 문제 : injected된 친구들의 개수를 세어야 합니다
@@ -126,10 +126,8 @@ extension ArticleUploadVC {
     
     func setDefaultRequest() {
         print(#function)
-        
         KeywordServices.keywordServices.getKeywordRequest { data in
             if let metaData = data {
-                print(#function)
                 print(metaData)
             }
         }
@@ -219,7 +217,7 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
                 cell.stackView.isHidden = false
             }
             for i in 0..<nearStationModel.count {
-                cell.textFieldArray[i].text = nearStationModel[i].station
+                cell.textFieldArray[i].text = nearStationModel[i].subwayName
             }
             return cell
         case 2:

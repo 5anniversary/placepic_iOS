@@ -15,10 +15,10 @@ class FindNearstationCVC: UICollectionViewCell {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet var textFieldArray: [UITextField]!
     
-    var model: StationModel? {
+    var model: SubwayData? {
         didSet {
             textFieldArray.forEach({
-                $0.text = model?.station
+                $0.text = model?.subwayName
             })
         }
     }

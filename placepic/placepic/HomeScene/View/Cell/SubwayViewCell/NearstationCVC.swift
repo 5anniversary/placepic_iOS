@@ -11,9 +11,9 @@ import UIKit
 class NearstationCVC: UICollectionViewCell {
     @IBOutlet weak var stationTextField: UITextField!
 
-    var model: StationModel? {
+    var model: SubwayData? {
         didSet {
-            stationTextField.text = model?.station
+            stationTextField.text = model?.subwayName
         }
     }
     

@@ -33,20 +33,19 @@ class ShowStationTVC: UITableViewCell {
     }
     
     /// 2
-    var model: StationModel? {
+    var model: SubwayData? {
         /// model의 Count 따라서 분기
         didSet {
-            guard let count = model?.lineArray.count else {
+            guard let count = model?.subwayLine?.count else {
                 return
             }
-            stationLabel.text = model?.station
+            stationLabel.text = model?.subwayName
             
             switch count {
             case 4:
                 // $0 : Index $1 : element
                 subwayImage.enumerated().forEach {
-                    
-                    guard let lineNum = model?.lineArray[$0],
+                    guard let lineNum = model?.subwayLine?[$0],
                         let lineImg = SubwayNumber(rawValue: lineNum)?.image else {
                             return
                     }
@@ -57,7 +56,7 @@ class ShowStationTVC: UITableViewCell {
                 subwayImage[3].isHidden = true
                 subwayImage.enumerated().forEach {
                     if $0 < 3 {
-                        guard let lineNum = model?.lineArray[$0],
+                        guard let lineNum = model?.subwayLine?[$0],
                             let lineImg = SubwayNumber(rawValue: lineNum)?.image else {
                                 return
                         }
@@ -71,7 +70,7 @@ class ShowStationTVC: UITableViewCell {
                     // $0 : Index $1 : element
                     
                     if $0 < 2 {
-                        guard let lineNum = model?.lineArray[$0],
+                        guard let lineNum = model?.subwayLine?[$0],
                             let lineImg = SubwayNumber(rawValue: lineNum)?.image else {
                                 return
                         }
@@ -86,7 +85,7 @@ class ShowStationTVC: UITableViewCell {
                 subwayImage.enumerated().forEach {
                     // $0 : Index $1 : element
                     if $0 < 1 {
-                        guard let lineNum = model?.lineArray[$0],
+                        guard let lineNum = model?.subwayLine?[$0],
                             let lineImg = SubwayNumber(rawValue: lineNum)?.image else {
                                 return
                         }

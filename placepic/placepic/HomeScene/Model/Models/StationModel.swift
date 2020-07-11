@@ -6,10 +6,19 @@
 //  Copyright © 2020 elesahich. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-struct StationModel: Hashable {
-    let station: String!
-    let lineArray: [Int]!
+// MARK: - SubwayModel
+struct SubwayModel: Codable {
+    let status: Int?
+    let success: Bool?
+    let message: String?
+    let data: [SubwayData]?
 }
-    
+
+// MARK: - Datum
+struct SubwayData: Codable, Hashable {
+    let subwayIdx: Int?
+    let subwayName: String?
+    let subwayLine: [Int]?
+}
