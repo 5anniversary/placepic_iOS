@@ -12,7 +12,6 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     
     @IBOutlet var placeListTV: UITableView!
     var childNumber: String = ""
-    var sum:Int = 12
     @IBOutlet var sumNum: UILabel!
     var placeList: [placeData] = []
     
@@ -49,7 +48,6 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         placeService.shared.getPlaces() { networkResult in
             switch networkResult {
             case .success(let products):
-                
                 guard let places = products as? [placeData] else { return }
                 for i in 0..<places.count{
                     self.placeList.append(places[i])
@@ -63,7 +61,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-            case .pathErr: print("pa")
+            case .pathErr: print("pathErr")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
                 
@@ -109,16 +107,29 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         }
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let placeListCell = tableView.dequeueReusableCell(withIdentifier: PlaceListTVC.identifier, for: indexPath) as? PlaceListTVC else { return UITableViewCell() }
-        
         var dataInfo: String = ""
+        var subwayInfo: String = ""
+        
+        switch childNumber {
+        case "전체":
+        case "맛집":
+        case "술집":
+        case "카페":
+        case "스터디":
+        case "기타":
+        default:
+            <#code#>
+        }
+        
         for i in 0..<placeList[indexPath.row].subway.count{
             if i == (placeList[indexPath.row].subway.count-1){
-                dataInfo = dataInfo + placeList[indexPath.row].subway[i].subwayName
+                subwayInfo = subwayInfo + placeList[indexPath.row].subway[i].subwayName
             }
             else {
-                dataInfo = dataInfo + placeList[indexPath.row].subway[i].subwayName + "/"
+                subwayInfo = subwayInfo + placeList[indexPath.row].subway[i].subwayName + "/"
             }
         }
         
@@ -133,25 +144,25 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         else{
             dataInfo = dataInfo + " · " + dateFormatter.string(from: date)
         }
-        print(dataInfo)
+        
         
         if placeList[indexPath.row].tag.count == 0 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: "", pWriter: "", wName: placeList[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")
             placeListCell.placeTag[0].isHidden = true
             placeListCell.placeTag[1].isHidden = true
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeList[indexPath.row].tag.count == 1 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: subwayInfo, pDate: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
             placeListCell.placeTag[1].isHidden = true
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeList[indexPath.row].tag.count == 2 {
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "")
             placeListCell.placeTag[2].isHidden = true
         }
-        else if placeList[indexPath.row].tag.count >= 3 {1
-            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "...")
+        else if placeList[indexPath.row].tag.count >= 3 {
+            placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "...")
         }
         return placeListCell
     }
