@@ -37,6 +37,8 @@
 		3D84896B24B440A600AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3DAC651A24B6EFE400FBA399 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3DAC651B24B6EFF800FBA399 /* SubwayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6C24B4EF8F00BAF927 /* SubwayModel.swift */; };
+		3DCD865C24BAD336006783D2 /* UsefulImformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCD865B24BAD336006783D2 /* UsefulImformModel.swift */; };
+		3DCD865E24BAD356006783D2 /* UsefulInformServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCD865D24BAD356006783D2 /* UsefulInformServices.swift */; };
 		3DCE5F6B24B4EF7F00BAF927 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */; };
 		3DCE5F6F24B4F16A00BAF927 /* innerUploadPhotoCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F6E24B4F16A00BAF927 /* innerUploadPhotoCVC.swift */; };
 		3DCE5F7124B5114F00BAF927 /* NearstaionHeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE5F7024B5114F00BAF927 /* NearstaionHeaderCVC.swift */; };
@@ -115,6 +117,8 @@
 		3D6C163624B877790050979C /* KeywordServies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordServies.swift; sourceTree = "<group>"; };
 		3D6C163824B877AD0050979C /* HomeAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIs.swift; sourceTree = "<group>"; };
 		3D6C163A24B87E830050979C /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
+		3DCD865B24BAD336006783D2 /* UsefulImformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulImformModel.swift; sourceTree = "<group>"; };
+		3DCD865D24BAD356006783D2 /* UsefulInformServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInformServices.swift; sourceTree = "<group>"; };
 		3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
 		3DCE5F6C24B4EF8F00BAF927 /* SubwayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubwayModel.swift; sourceTree = "<group>"; };
 		3DCE5F6E24B4F16A00BAF927 /* innerUploadPhotoCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = innerUploadPhotoCVC.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				3DCE5F6C24B4EF8F00BAF927 /* SubwayModel.swift */,
 				3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */,
 				3D6BAF8C24B0D7B600F6339E /* KeywordModel.swift */,
+				3DCD865B24BAD336006783D2 /* UsefulImformModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,9 +254,10 @@
 		3DDD58B124B4E92300764C8F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D6C163A24B87E830050979C /* ResponseResult.swift */,
 				3D6C163624B877790050979C /* KeywordServies.swift */,
 				3DDABA3024B969A20061A6C7 /* SubwayServices.swift */,
-				3D6C163A24B87E830050979C /* ResponseResult.swift */,
+				3DCD865D24BAD356006783D2 /* UsefulInformServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -774,6 +780,7 @@
 				3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */,
 				AE34147424B7057700425889 /* AdminAcceptService.swift in Sources */,
 				1302CA8024AC5EBF0013CACC /* GroupListVC.swift in Sources */,
+				3DCD865E24BAD356006783D2 /* UsefulInformServices.swift in Sources */,
 				3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */,
 				AE34146024B4DB6700425889 /* placeListModel.swift in Sources */,
 				3D6C163B24B87E830050979C /* ResponseResult.swift in Sources */,
@@ -793,6 +800,7 @@
 				1302CA7E24AC55330013CACC /* SendVC.swift in Sources */,
 				3DECB7B224A92C2F00D54DBF /* HomeVC.swift in Sources */,
 				3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */,
+				3DCD865C24BAD336006783D2 /* UsefulImformModel.swift in Sources */,
 				3DCE5F7F24B577D300BAF927 /* OutterUploadCVC.swift in Sources */,
 				3D84896924B4116F00AE6A45 /* (null) in Sources */,
 				3DCE5F7724B5199600BAF927 /* HomeKeywordCVC.swift in Sources */,

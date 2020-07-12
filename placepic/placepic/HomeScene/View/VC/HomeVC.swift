@@ -83,7 +83,11 @@ class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
         var rowSizes: [[CGFloat]] = [] // Tracks the starting and ending x-values for the first and last item in the row
         var currentRow: Int = 0 // Tracks the current row
         attributes.forEach { layoutAttribute in
-                
+            print("layoutAttribute: \(layoutAttribute)")
+               
+            let tempwidth = layoutAttribute.frame.origin.x + layoutAttribute.frame.width
+            print("tempwidth: \(tempwidth)")
+            
             // Each layoutAttribute represents its own item
             if layoutAttribute.frame.origin.y >= maxY {
                 
@@ -98,6 +102,7 @@ class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
                     // Append a new row
                     rowSizes.append([leftMargin, 0])
                     currentRow += 1
+//                    print("currentRow: \(currentRow)")
                 }
             }
             layoutAttribute.frame.origin.x = leftMargin

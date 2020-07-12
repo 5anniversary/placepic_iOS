@@ -22,6 +22,12 @@ class KeywordCell: UICollectionViewCell {
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nameLabel.text = ""
+    }
+    
     override var isSelected: Bool {
         didSet {
             contentView.layer.borderColor = isSelected ? UIColor.warmPink.cgColor : UIColor.blueGray30.cgColor

@@ -61,70 +61,87 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }()
     
     var keyword: [KeywordData] = []
+    var useful: [UsefulInformData] = []
     
     let cellId = "cellId"
     let cellHeight: CGFloat = 50
     
     private func calculateHeight() -> CGFloat {
-        /// 2 + (셀 넓이가 좀 문제야 로직을 잘 모르겟음 padding 양쪽 10씩 20 + Itemspacing (10)
-        /// 아 이거 모르겠넹 애좀 먹겠다 싶움
-
-        let width = UIScreen.main.bounds.width - 22
+        
+        let width = UIScreen.main.bounds.width - 20
         let height: CGFloat = 50
         let itemspacing: CGFloat = 10
         
         var floor: CGFloat = 1
         var heightTemp: CGFloat = 0
         
-        keyword.forEach {
-            guard let nameWidth = $0.tagName?.width(withConstrainedHeight: 40, font: .systemFont(ofSize: 16)) else { return }
-            
-            heightTemp += nameWidth + itemspacing + 20
-            
-//            print("heightTemp: \(heightTemp)")
-//            print("floor: \(floor)")
-            
-            if width < heightTemp {
-//                print("heightTemp : \(heightTemp)")
-                floor += 1
-                heightTemp = 0
+        if keyword.count != 0 {
+            keyword.forEach {
+                guard let nameWidth = $0.tagName?.width(withConstrainedHeight: 50, font: .boldSystemFont(ofSize: 14)) else { return }
+                heightTemp += nameWidth + itemspacing + 20
+                
+                //            print("heightTemp: \(heightTemp)")
+                //            print("floor: \(floor)")
+                
+                if width < heightTemp {
+                    //                print("heightTemp : \(heightTemp)")
+                    floor += 1
+                    heightTemp = 0
+                }
             }
+            //        print("view Height : \(height*floor)")
+            return height * (floor+2)
+        } else {
+            useful.forEach {
+                guard let nameWidth = $0.tagName?.width(withConstrainedHeight: 50, font: .systemFont(ofSize: 14)) else { return }
+                heightTemp += nameWidth + itemspacing + 20
+                // 계산을 잘 해서 381 잘 떴는데
+                // 얘를 옆으로 넘기는 로직이 실패네
+                
+                print("heightTemp: \(heightTemp)")
+                print("floor: \(floor)")
+                
+                if width < heightTemp {
+                    //                print("heightTemp : \(heightTemp)")
+                    floor += 1
+                    heightTemp = 0
+                }
+            }
+            //        print("view Height : \(height*floor)")
+            return height * (floor+2)
         }
-        
-//        print("view Height : \(height*floor)")
-        return height * (floor+2)
-        
         /// 설명 : 마지막 층  + 1, 버튼 만들어놓을 친구들 층  + 1 + 키워드 라벨 층 ( 높이 지정 필요해욤 )
     }
-
+    
     private func configureButton() {
         doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
     }
-            
+    
     @objc private func doneButtonTapped() {
-        /// cell이 눌리는 status나
-        /// Button이 Tapped되는 상태
-        
         print(collectionView.indexPathsForSelectedItems ?? 0)
         collectionView.reloadData()
         handleDismiss()
-        
     }
     
     /// 호출할때 여기다가 매개변수로 넘겨주는게 조을거같아욤
-    func showSettings(_ titleLabel: String, _ subwayModel: [KeywordData]) {
-        keyword = subwayModel
+    func showSettings(_ titleLabel: String, _ model: [Any]) {
+        if titleLabel == "키워드" {
+            keyword = model as? [KeywordData] ?? []
+        } else if titleLabel == "장소 정보" {
+            useful = model as? [UsefulInformData] ?? []
+        }
+        
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
             
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-        
+            
             modalView.clipsToBounds = true
             modalView.layer.cornerRadius = 15
             modalView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
             mainLabel.text = titleLabel
-
+            
             mainLabel.translatesAutoresizingMaskIntoConstraints = false
             doneButton.translatesAutoresizingMaskIntoConstraints = false
             cancelButton.translatesAutoresizingMaskIntoConstraints = false
@@ -154,15 +171,15 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
             
             let height: CGFloat = calculateHeight()
             let modalViewHeight = height + 79
-
-//            let y = window.frame.height - height
+            
+            //            let y = window.frame.height - height
             let modalY = window.frame.height - modalViewHeight
             
             /// y : collectionView가 그려지는 시작 위치
             modalView.frame = CGRect.init(x: 0, y: window.frame.height, width: window.frame.width, height: modalViewHeight)
             collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
             blackView.frame = window.frame
-
+            
             blackView.alpha = 0
             modalView.backgroundColor = UIColor.white
             
@@ -194,8 +211,13 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
                                               y: window.frame.height,
                                               width: self.modalView.frame.width,
                                               height: self.modalView.frame.height)
+                self.keyword = []
+                self.useful = []
             }
-        }, completion: nil)
+        }, completion: { (_) in
+            self.modalView.removeFromSuperview()
+            self.collectionView.reloadData()
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -211,29 +233,46 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         }
         return true
     }
-
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return keyword.count
+        
+        if keyword.count != 0 {
+            return keyword.count
+        } else {
+            return useful.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! KeywordCell
-        cell.nameLabel.text = keyword[indexPath.item].tagName
         
+        if keyword.count != 0 {
+            cell.nameLabel.text = keyword[indexPath.item].tagName
+        } else {
+            cell.nameLabel.text = useful[indexPath.item].tagName
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-       
-        guard let wid = keyword[indexPath.item].tagName?.width(withConstrainedHeight: 40, font: .boldSystemFont(ofSize: 14)) else {
-            return CGSize()
-        }
         
-        let width: CGFloat = wid + 20
-        let height: CGFloat = 40
-                
-        return CGSize(width: width, height: height)
+        if keyword.count != 0 {
+            guard let wid = keyword[indexPath.item].tagName?.width(withConstrainedHeight: 40, font: .boldSystemFont(ofSize: 14)) else {
+                return CGSize()
+            }
+            let width: CGFloat = wid + 20 // 20: 좌우 inset
+            let height: CGFloat = 40
+            
+            return CGSize(width: width, height: height)
+        } else {
+            guard let wid = useful[indexPath.item].tagName?.width(withConstrainedHeight: 40, font: .boldSystemFont(ofSize: 14)) else {
+                return CGSize()
+            }
+            let width: CGFloat = wid + 20 // 20: 좌우 inset
+            let height: CGFloat = 40
+            
+            return CGSize(width: width, height: height)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -255,7 +294,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         
         collectionView.register(KeywordCell.self, forCellWithReuseIdentifier: cellId)
     }
-    
 }
 
 

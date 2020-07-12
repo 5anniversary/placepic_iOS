@@ -78,7 +78,6 @@ extension OutterUploadPhotoCVC: UICollectionViewDelegateFlowLayout {
 }
 extension OutterUploadPhotoCVC: UICollectionViewDataSource {
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if photoArray.count == 0 {
             return 1
