@@ -30,7 +30,7 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
     private func getImageArray() {        
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
             var config = YPImagePickerConfiguration()
-            config.showsCrop = .rectangle(ratio: (1/1))
+            config.showsCrop = .rectangle(ratio: (9/16))
             config.showsPhotoFilters = false
             config.startOnScreen = .library
             config.screens = [.library]
@@ -68,7 +68,7 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
 extension OutterUploadPhotoCVC: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

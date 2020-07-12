@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeVC.swift
 //  placepic
 //
 //  Created by elesahich on 2020/06/29.
@@ -9,41 +9,26 @@
 import UIKit
 
 class HomeVC: UIViewController {
-        
-    let blackView: UIView = {
-        let view = UIView()
-        view.frame = CGRect.zero
-        view.backgroundColor = UIColor.blueGray80
-        view.alpha = 0.7
-        return view
-    }()
     
-    let keywordLabel: [String] = [
-
-    ]
-    
-    lazy var settingsLauncher: KeywordLauncher = {
-          let launcher = KeywordLauncher()
-          launcher.homeController = self
-          return launcher
-    }()
+    @IBOutlet weak var tableView: UITableView!
+    var placeSearchData: [PlaceSearchData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setNavigationBar()
-        setCollectionView()
-    }
-    
-    @IBAction func keywordModalButton(_ sender: Any) {
-//        settingsLauncher.showSettings("키워드", keywor)
+        configureTableView()
+        setDefaultRequest()
     }
 }
 
-// MARK: - 
+// MARK: -
 extension HomeVC {
     
-    private func setCollectionView() { }
+    private func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
     
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
@@ -62,57 +47,54 @@ extension HomeVC {
     
     @objc private func dismissVC() {
         navigationController?.popViewController(animated: true)
-        
     }
 }
 
-class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
+//MARK: - 통신
+extension HomeVC {
     
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        guard let superAttributes = super.layoutAttributesForElements(in: rect) else { return nil }
-        // Copy each item to prevent "UICollectionViewFlowLayout has cached frame mismatch" warning
-        guard let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes] else { return nil }
-        
-        // Constants
-        let leftPadding: CGFloat = 10
-        let interItemSpacing = minimumInteritemSpacing
-        
-        // Tracking values
-        var leftMargin: CGFloat = leftPadding // Modified to determine origin.x for each item
-        var maxY: CGFloat = -1.0 // Modified to determine origin.y for each item
-        var rowSizes: [[CGFloat]] = [] // Tracks the starting and ending x-values for the first and last item in the row
-        var currentRow: Int = 0 // Tracks the current row
-        attributes.forEach { layoutAttribute in
-            print("layoutAttribute: \(layoutAttribute)")
-               
-            let tempwidth = layoutAttribute.frame.origin.x + layoutAttribute.frame.width
-            print("tempwidth: \(tempwidth)")
-            
-            // Each layoutAttribute represents its own item
-            if layoutAttribute.frame.origin.y >= maxY {
-                
-                // This layoutAttribute represents the left-most item in the row
-                leftMargin = leftPadding
-                
-                // Register its origin.x in rowSizes for use later
-                if rowSizes.count == 0 {
-                    // Add to first row
-                    rowSizes = [[leftMargin, 0]]
-                } else {
-                    // Append a new row
-                    rowSizes.append([leftMargin, 0])
-                    currentRow += 1
-//                    print("currentRow: \(currentRow)")
-                }
+    private func setDefaultRequest() {
+
+        //쿼리스트링
+        PlaceSearchServices.placeSearchServices.getplaceSearchList("String") { data in
+            if let metaData = data {
+                self.placeSearchData = metaData
+                print(metaData)
             }
-            layoutAttribute.frame.origin.x = leftMargin
-            
-            leftMargin += layoutAttribute.frame.width + interItemSpacing
-            maxY = max(layoutAttribute.frame.maxY, maxY)
-            
-            // Add right-most x value for last item in the row
-            rowSizes[currentRow][1] = leftMargin - interItemSpacing
         }
-        return attributes
     }
 }
+
+
+extension HomeVC: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return placeSearchData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FindfavoritePlaceTVC") as? FindfavoritePlaceTVC else {
+            return UITableViewCell()
+        }
+        
+        cell.model = placeSearchData[indexPath.row]
+        return cell
+    }
+}
+
+extension HomeVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let rowHeight: CGFloat = 71
+        return rowHeight
+    }
+}
+
+
+
+

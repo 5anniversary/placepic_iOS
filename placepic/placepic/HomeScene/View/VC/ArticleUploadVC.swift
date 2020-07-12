@@ -27,11 +27,6 @@ class ArticleUploadVC: UIViewController {
         return launcher
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
@@ -111,8 +106,6 @@ extension ArticleUploadVC {
             return CGSize(width: width, height: 90)
         }
     }
-    
-    
 }
 
 //MARK:- 통신
@@ -125,8 +118,7 @@ extension ArticleUploadVC {
             }
         }
         
-        UsefulInformServices.usefulInformServices.getKeywordRequest {
-            data in
+        UsefulInformServices.usefulInformServices.getKeywordRequest { data in
             if let metaData = data {
                 self.usefulKeywordData = metaData
             }
