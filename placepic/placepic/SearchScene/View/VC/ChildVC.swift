@@ -1,6 +1,7 @@
 import UIKit
 import Kingfisher
 import XLPagerTabStrip
+import Alamofire
 
 extension Notification.Name {
     ///Delegate Closure Notification
@@ -25,6 +26,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -44,8 +46,24 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         sender.invalidateIntrinsicContentSize()
     }
     func getData(){
-        print(#function)
-        placeService.shared.getPlaces() { networkResult in
+        var urlString: String = ""
+        if childNumber == "맛집" {
+            urlString = "?categoryIdx=1"
+        }
+        else if childNumber == "술집" {
+            urlString = "?categoryIdx=2"
+        }
+        else if childNumber == "카페" {
+            urlString = "?categoryIdx=3"
+        }
+        else if childNumber == "스터디" {
+            urlString = "?categoryIdx=4"
+        }
+        else if childNumber == "기타" {
+            urlString = "?categoryIdx=5"
+        }
+        
+        placeService.shared.getPlaces(urlString){ networkResult in
             switch networkResult {
             case .success(let products):
                 guard let places = products as? [placeData] else { return }
@@ -113,17 +131,6 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         var dataInfo: String = ""
         var subwayInfo: String = ""
         
-        switch childNumber {
-        case "전체":
-        case "맛집":
-        case "술집":
-        case "카페":
-        case "스터디":
-        case "기타":
-        default:
-            <#code#>
-        }
-        
         for i in 0..<placeList[indexPath.row].subway.count{
             if i == (placeList[indexPath.row].subway.count-1){
                 subwayInfo = subwayInfo + placeList[indexPath.row].subway[i].subwayName
@@ -164,6 +171,7 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         else if placeList[indexPath.row].tag.count >= 3 {
             placeListCell.setPlaceInfo(pName: placeList[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeList[indexPath.row].imageURL[0], pWriter: placeList[indexPath.row].user.profileURL, wName: placeList[indexPath.row].user.userName, pTag1: placeList[indexPath.row].tag[0].tagName, pTag2: placeList[indexPath.row].tag[1].tagName, pTag3: "...")
         }
+        
         return placeListCell
     }
     

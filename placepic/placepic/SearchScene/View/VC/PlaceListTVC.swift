@@ -39,6 +39,7 @@ class PlaceListTVC: UITableViewCell {
         placeDate.text = pDate
         placePhoto.kf.setImage(with: URL(string: pPhoto))
         placeWriter.kf.setImage(with: URL(string: pWriter))
+        placeWriter.layer.cornerRadius = 5
         writerName.text = wName
         placeTag[0].text = pTag1
         placeTag[1].text = pTag2
