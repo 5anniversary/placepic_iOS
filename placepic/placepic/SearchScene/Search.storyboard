@@ -264,6 +264,7 @@
                                             <outletCollection property="placeTag" destination="BHg-hY-AaM" collectionClass="NSMutableArray" id="DE6-iG-kbT"/>
                                             <outletCollection property="placeTag" destination="h9P-4b-uT1" collectionClass="NSMutableArray" id="jWb-iF-hgq"/>
                                             <outletCollection property="placeTag" destination="BHg-hY-AaM" collectionClass="NSMutableArray" id="wXy-dJ-z9f"/>
+                                            <segue destination="F5B-vE-VBo" kind="presentation" modalPresentationStyle="overFullScreen" id="PRw-WP-csb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -286,6 +287,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5b1-xa-e6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3623.1999999999998" y="-45.42728635682159"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="inn-Q8-f8H">
+            <objects>
+                <viewController id="F5B-vE-VBo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U3X-V5-E7B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="diw-g6-eeh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xO6-Nj-Fhi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="upC-lM-eCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2969" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cpw-UU-KFW">
