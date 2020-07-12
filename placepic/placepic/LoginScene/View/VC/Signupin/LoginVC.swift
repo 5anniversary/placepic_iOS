@@ -48,7 +48,7 @@ class LoginVC: UIViewController {
                        initialSpringVelocity: 1,
                        options: .curveEaseOut,
                        animations: {
-                        self.tabBarController?.tabBar.transform = .identity
+                       self.tabBarController?.tabBar.transform = .identity
                         
         }, completion: nil)
     }

@@ -24,11 +24,15 @@
 		134649E224B520E30018F141 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E124B520E30018F141 /* NetworkResult.swift */; };
 		134649E424B521440018F141 /* SigninData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E324B521440018F141 /* SigninData.swift */; };
 		134649E624B523480018F141 /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649E524B523480018F141 /* SignupData.swift */; };
-		134649EB24B649F60018F141 /* Emailmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649EA24B649F60018F141 /* Emailmodel.swift */; };
 		134649ED24B64A640018F141 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649EC24B64A640018F141 /* EmailService.swift */; };
 		134649EF24B83CA10018F141 /* GroupListmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649EE24B83CA10018F141 /* GroupListmodel.swift */; };
 		134649F124B843FB0018F141 /* GroupListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649F024B843FB0018F141 /* GroupListService.swift */; };
 		134649F324B886D10018F141 /* groupListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134649F224B886D10018F141 /* groupListData.swift */; };
+		13BC82F124B92F9E00A932F8 /* GroupPartiTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC82F024B92F9E00A932F8 /* GroupPartiTVC.swift */; };
+		13BC82F324B936FD00A932F8 /* GroupPartiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC82F224B936FD00A932F8 /* GroupPartiService.swift */; };
+		13BC82F524B966E000A932F8 /* GroupUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC82F424B966E000A932F8 /* GroupUpService.swift */; };
+		13BC82F724BB4E8700A932F8 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 13BC82F624BB4E8600A932F8 /* Model */; };
+		13BC82F924BB4EAA00A932F8 /* Emailmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC82F824BB4EAA00A932F8 /* Emailmodel.swift */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
 		3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50527A24A9BCDC00140BCA /* APIServices.swift */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
@@ -98,6 +102,11 @@
 		134649EE24B83CA10018F141 /* GroupListmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListmodel.swift; sourceTree = "<group>"; };
 		134649F024B843FB0018F141 /* GroupListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListService.swift; sourceTree = "<group>"; };
 		134649F224B886D10018F141 /* groupListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupListData.swift; sourceTree = "<group>"; };
+		13BC82F024B92F9E00A932F8 /* GroupPartiTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPartiTVC.swift; sourceTree = "<group>"; };
+		13BC82F224B936FD00A932F8 /* GroupPartiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPartiService.swift; sourceTree = "<group>"; };
+		13BC82F424B966E000A932F8 /* GroupUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUpService.swift; sourceTree = "<group>"; };
+		13BC82F624BB4E8600A932F8 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = placepic/LoginScene/Model; sourceTree = "<group>"; };
+		13BC82F824BB4EAA00A932F8 /* Emailmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emailmodel.swift; sourceTree = "<group>"; };
 		3D50527824A9BCA800140BCA /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		3D50527A24A9BCDC00140BCA /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -168,11 +177,12 @@
 			isa = PBXGroup;
 			children = (
 				1302CA9324B2DF870013CACC /* GroupListTVC.swift */,
+				13BC82F024B92F9E00A932F8 /* GroupPartiTVC.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		134649D424B4AD5A0018F141 /* Server */ = {
+		134649D424B4AD5A0018F141 /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
 				134649D524B4AD7A0018F141 /* LoginService.swift */,
@@ -182,8 +192,11 @@
 				134649D724B4AF240018F141 /* SignupService.swift */,
 				134649E124B520E30018F141 /* NetworkResult.swift */,
 				134649F024B843FB0018F141 /* GroupListService.swift */,
+				13BC82F824BB4EAA00A932F8 /* Emailmodel.swift */,
+				13BC82F224B936FD00A932F8 /* GroupPartiService.swift */,
+				13BC82F424B966E000A932F8 /* GroupUpService.swift */,
 			);
-			path = Server;
+			path = APIServices;
 			sourceTree = "<group>";
 		};
 		134649E724B5BD2C0018F141 /* Group */ = {
@@ -240,6 +253,7 @@
 		3DECB76724A9274100D54DBF = {
 			isa = PBXGroup;
 			children = (
+				13BC82F624BB4E8600A932F8 /* Model */,
 				3DECB77224A9274100D54DBF /* placepic */,
 				3DECB77124A9274100D54DBF /* Products */,
 				A8F160BA8789A8A35E3C82E6 /* Pods */,
@@ -280,7 +294,6 @@
 				3DECB77C24A9274200D54DBF /* Assets.xcassets */,
 				3DECB78124A9274200D54DBF /* Info.plist */,
 				3DECB77E24A9274200D54DBF /* LaunchScreen.storyboard */,
-				134649DB24B4AFD50018F141 /* APIConstants.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -289,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				3DECB77924A9274100D54DBF /* Login.storyboard */,
-				134649D424B4AD5A0018F141 /* Server */,
 				3DECB78F24A927FF00D54DBF /* Model */,
 				3DECB78A24A9274D00D54DBF /* View */,
 			);
@@ -317,6 +329,8 @@
 		3DECB78F24A927FF00D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				134649DB24B4AFD50018F141 /* APIConstants.swift */,
+				134649D424B4AD5A0018F141 /* APIServices */,
 				134649EE24B83CA10018F141 /* GroupListmodel.swift */,
 				134649F224B886D10018F141 /* groupListData.swift */,
 				134649D924B4AF5E0018F141 /* LoginInfomodel.swift */,
@@ -638,6 +652,7 @@
 				3D62560524AA33260047AD70 /* Home.storyboard in Resources */,
 				3DECB77D24A9274200D54DBF /* Assets.xcassets in Resources */,
 				3D62560924AA49C30047AD70 /* Search.storyboard in Resources */,
+				13BC82F724BB4E8700A932F8 /* Model in Resources */,
 				3D62560D24AA4A050047AD70 /* Rank.storyboard in Resources */,
 				3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */,
 				3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */,
@@ -698,6 +713,7 @@
 				AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */,
 				134649EF24B83CA10018F141 /* GroupListmodel.swift in Sources */,
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
+				13BC82F124B92F9E00A932F8 /* GroupPartiTVC.swift in Sources */,
 				1302CA8224AC70A00013CACC /* SigninVC.swift in Sources */,
 				3DECB7C524A9311200D54DBF /* Extensions+UIKit.swift in Sources */,
 				3DECB7A624A92B8A00D54DBF /* RankVC.swift in Sources */,
@@ -713,14 +729,15 @@
 				3DECB7C424A9311200D54DBF /* Extensions+Date.swift in Sources */,
 				134649D824B4AF240018F141 /* SignupService.swift in Sources */,
 				134649E624B523480018F141 /* SignupData.swift in Sources */,
-				134649EB24B649F60018F141 /* Emailmodel.swift in Sources */,
 				134649E024B5159B0018F141 /* SignupInfomodel.swift in Sources */,
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
 				1302CA9724B342760013CACC /* GroupReqVC.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
+				13BC82F924BB4EAA00A932F8 /* Emailmodel.swift in Sources */,
 				AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */,
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
+				13BC82F324B936FD00A932F8 /* GroupPartiService.swift in Sources */,
 				3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */,
 				134649F124B843FB0018F141 /* GroupListService.swift in Sources */,
 				3D6BAF9324B1D21A00F6339E /* NearstationCVC.swift in Sources */,
@@ -739,6 +756,7 @@
 				3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */,
 				134649DA24B4AF5E0018F141 /* LoginInfomodel.swift in Sources */,
 				1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */,
+				13BC82F524B966E000A932F8 /* GroupUpService.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
 				1302CA7E24AC55330013CACC /* SendVC.swift in Sources */,
 				3DECB7B224A92C2F00D54DBF /* HomeVC.swift in Sources */,

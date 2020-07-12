@@ -10,16 +10,19 @@ import Foundation
 
 struct groupListData {
   
+    var groupImage: String
     var groupname: String
     var userCount: Int
     var postCount: Int
-    var groupImage: String
+   
     
-    init(name: String, usercount: Int, postcount: Int, groupimage: String) {
+    init(groupimage: String,name: String, usercount: Int, postcount: Int) {
+        
+        self.groupImage = groupimage
         self.groupname = name
         self.userCount = usercount
         self.postCount = postcount
-        self.groupImage = groupimage
+        
         
     }
 }

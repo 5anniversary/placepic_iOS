@@ -16,7 +16,7 @@ struct GroupListService {
     
         let header: HTTPHeaders = ["Content-Type": "application/json", "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjMsIm5hbWUiOiLstZzsmIHtm4giLCJpYXQiOjE1OTM2OTkxODMsImV4cCI6MTU5NjI5MTE4MywiaXNzIjoicGxhY2VwaWMifQ.rmFbeBfviyEzbMlMM4b3bMMiRcNDDbiX8bQtwL_cuN0"] //Request Header 생성
         
-        let detaRequest = Alamofire.request(APIConstants.applygrouplistURL, method: .get, encoding: JSONEncoding.default, headers: header)
+        let detaRequest = Alamofire.request(APIConstants.mygrouplistURL, method: .get, encoding: JSONEncoding.default, headers: header)
         detaRequest.responseData { dataResponse in
             switch dataResponse.result {
             case .success:

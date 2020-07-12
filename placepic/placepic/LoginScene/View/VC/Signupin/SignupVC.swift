@@ -169,6 +169,7 @@ extension SignupVC {
         signupEmailLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
         
         
+        
         signupEmailcheckValLabel.textColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1)
         signupEmailcheckValLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 10)
         signupEmailcheckValLabel.text = "알맞은 이메일 형식이 아닙니다!"

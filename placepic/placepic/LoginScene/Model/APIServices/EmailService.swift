@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import Alamofire
 
 struct EmailService {
@@ -41,12 +40,9 @@ struct EmailService {
     private func isEmail(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(Emailmodel.self, from: data) else { return .pathErr }
-        if decodedData.success
-            {
-                return .success(data)}
-        else
-            {
-            
-                return .requestErr(decodedData.message)}
+        if decodedData.success {
+            return .success(data)}
+        else {
+            return .requestErr(decodedData.message)}
     }
 }

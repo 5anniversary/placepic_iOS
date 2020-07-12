@@ -113,8 +113,6 @@ extension GroupListVC: UITableViewDelegate {
 
 
 
-
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 76
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TwT-HD-DPV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hDz-w9-zkl">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -828,15 +828,6 @@
                                                 <constraint firstItem="5qt-CX-mZG" firstAttribute="leading" secondItem="E1e-Bf-zXU" secondAttribute="trailing" constant="15" id="w4H-cR-USk"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="GLNameLabel" destination="5qt-CX-mZG" id="bo6-fs-zIC"/>
-                                            <outlet property="GLProfileImageview" destination="E1e-Bf-zXU" id="flF-GQ-DOq"/>
-                                            <outlet property="GLnomLabel1" destination="JcX-Mc-VHq" id="PER-lh-SZZ"/>
-                                            <outlet property="GLnomLabel2" destination="gOO-rY-hAZ" id="byb-n2-DxS"/>
-                                            <outlet property="GLnumofPLabel" destination="pPt-HH-vRc" id="cr9-Ak-OXF"/>
-                                            <outlet property="GLnumofPostLabel" destination="NIU-oz-fPC" id="Utp-1Q-ddJ"/>
-                                            <outlet property="GLtoImageview" destination="N3Q-Ft-LA7" id="UN3-gj-Adg"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -914,7 +905,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupListTVC" rowHeight="74" id="YF0-4A-nQ5" customClass="GroupListTVC" customModule="placepic" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GroupPartiTVC" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupListTVC" rowHeight="74" id="YF0-4A-nQ5" customClass="GroupPartiTVC" customModule="placepic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="93" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YF0-4A-nQ5" id="8va-uM-Ydv">
@@ -985,13 +976,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="GLNameLabel" destination="CSu-kp-OhQ" id="PK2-lI-ZDd"/>
-                                            <outlet property="GLProfileImageview" destination="pgF-C9-0sK" id="aHa-zy-w8o"/>
-                                            <outlet property="GLnomLabel1" destination="Pxn-sX-WXZ" id="TY8-x9-Eeg"/>
-                                            <outlet property="GLnomLabel2" destination="8yt-Aq-1MN" id="93L-lw-5zb"/>
-                                            <outlet property="GLnumofPLabel" destination="3bT-cw-Xw3" id="Du0-Px-d2v"/>
-                                            <outlet property="GLnumofPostLabel" destination="CsR-0U-duj" id="2Uj-K4-a2B"/>
-                                            <outlet property="GLtoImageview" destination="mm8-aI-rmx" id="EOd-Ut-YM3"/>
+                                            <outlet property="image1" destination="pgF-C9-0sK" id="EmE-4K-z7e"/>
+                                            <outlet property="label1" destination="CSu-kp-OhQ" id="iAi-nj-J5o"/>
+                                            <outlet property="label2" destination="3bT-cw-Xw3" id="qmE-XR-SPn"/>
+                                            <outlet property="label3" destination="Pxn-sX-WXZ" id="tLZ-oK-ksJ"/>
+                                            <outlet property="label4" destination="CsR-0U-duj" id="S5Z-jc-G3z"/>
+                                            <outlet property="label5" destination="8yt-Aq-1MN" id="5bM-EQ-vkG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1009,6 +999,7 @@
                     <navigationItem key="navigationItem" id="KJB-18-g1G"/>
                     <connections>
                         <outlet property="button1" destination="Ale-Ot-vG6" id="vDP-kR-e4p"/>
+                        <outlet property="grouppartiTV" destination="ruq-09-a6C" id="3ym-A2-3cL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cau-5w-x97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
