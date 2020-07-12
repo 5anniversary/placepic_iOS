@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "nextArrowIc.png",
       "scale" : "1x",
-      "idiom" : "universal"
-    },
-    {
-      "scale" : "2x",
       "idiom" : "universal",
-      "filename" : "nextArrowIc@2x.png"
+      "filename" : "nextArrowIc.png"
     },
     {
-      "filename" : "nextArrowIc@3x.png",
-      "scale" : "3x",
+      "filename" : "nextArrowIc@2x.png",
+      "scale" : "2x",
       "idiom" : "universal"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "nextArrowIc@3x.png"
     }
   ],
   "info" : {

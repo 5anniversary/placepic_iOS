@@ -1,13 +1,13 @@
 {
   "images" : [
     {
-      "filename" : "icStationSuin.png",
       "scale" : "1x",
+      "filename" : "icStationSuin.png",
       "idiom" : "universal"
     },
     {
-      "filename" : "icStationSuin@2x.png",
       "idiom" : "universal",
+      "filename" : "icStationSuin@2x.png",
       "scale" : "2x"
     },
     {

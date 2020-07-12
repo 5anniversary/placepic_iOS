@@ -1,24 +1,24 @@
 {
   "images" : [
     {
-      "filename" : "whiteSmallCloseIc.png",
+      "scale" : "1x",
       "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "whiteSmallCloseIc.png"
     },
     {
+      "scale" : "2x",
       "filename" : "whiteSmallCloseIc@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
+      "idiom" : "universal"
     },
     {
       "filename" : "whiteSmallCloseIc@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   },
   "properties" : {
     "template-rendering-intent" : "original"

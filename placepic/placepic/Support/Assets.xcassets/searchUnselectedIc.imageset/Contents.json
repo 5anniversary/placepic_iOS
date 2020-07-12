@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "filename" : "searchUnselectedIc.png",
       "scale" : "1x",
+      "filename" : "searchUnselectedIc.png",
       "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
+      "filename" : "searchUnselectedIc@2x.png",
       "scale" : "2x",
-      "filename" : "searchUnselectedIc@2x.png"
+      "idiom" : "universal"
     },
     {
       "filename" : "searchUnselectedIc@3x.png",

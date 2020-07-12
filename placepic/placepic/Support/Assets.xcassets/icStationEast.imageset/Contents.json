@@ -1,14 +1,14 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
       "filename" : "icStationEast.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "scale" : "1x"
     },
     {
-      "scale" : "2x",
+      "filename" : "icStationEast@2x.png",
       "idiom" : "universal",
-      "filename" : "icStationEast@2x.png"
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",

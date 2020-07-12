@@ -1,8 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "icStationAirport.png",
       "idiom" : "universal",
+      "filename" : "icStationAirport.png",
       "scale" : "1x"
     },
     {
@@ -11,8 +11,8 @@
       "scale" : "2x"
     },
     {
-      "filename" : "icStationAirport@3x.png",
       "scale" : "3x",
+      "filename" : "icStationAirport@3x.png",
       "idiom" : "universal"
     }
   ],

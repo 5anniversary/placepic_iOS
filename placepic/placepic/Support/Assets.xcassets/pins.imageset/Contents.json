@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "pins.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "pins.png"
     },
     {
-      "scale" : "2x",
-      "filename" : "pins@2x.png",
-      "idiom" : "universal"
-    },
-    {
-      "filename" : "pins@3x.png",
       "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "pins@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "pins@3x.png"
     }
   ],
   "info" : {

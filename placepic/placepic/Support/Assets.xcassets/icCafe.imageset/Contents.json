@@ -1,18 +1,18 @@
 {
   "images" : [
     {
+      "filename" : "icCafe.png",
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "icCafe.png"
+      "idiom" : "universal"
     },
     {
-      "filename" : "icCafe@2x.png",
       "idiom" : "universal",
+      "filename" : "icCafe@2x.png",
       "scale" : "2x"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
+      "scale" : "3x",
       "filename" : "icCafe@3x.png"
     }
   ],

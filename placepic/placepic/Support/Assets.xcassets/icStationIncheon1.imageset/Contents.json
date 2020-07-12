@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "icStationIncheon1.png",
       "idiom" : "universal",
+      "filename" : "icStationIncheon1.png",
       "scale" : "1x"
     },
     {
-      "scale" : "2x",
       "idiom" : "universal",
+      "scale" : "2x",
       "filename" : "icStationIncheon1@2x.png"
     },
     {
-      "filename" : "icStationIncheon1@3x.png",
       "idiom" : "universal",
+      "filename" : "icStationIncheon1@3x.png",
       "scale" : "3x"
     }
   ],

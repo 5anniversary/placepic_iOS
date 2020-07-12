@@ -2,12 +2,12 @@
   "images" : [
     {
       "scale" : "1x",
-      "filename" : "rankingSelectedIc.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "rankingSelectedIc.png"
     },
     {
-      "filename" : "rankingSelectedIc@2x.png",
       "idiom" : "universal",
+      "filename" : "rankingSelectedIc@2x.png",
       "scale" : "2x"
     },
     {
