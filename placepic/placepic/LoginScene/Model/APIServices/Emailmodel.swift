@@ -20,20 +20,18 @@ struct Emailmodel: Codable {
         case status = "status"
         case success = "success"
         case data = "data"
-        
-            
-            }
-            
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         status = (try? values.decode(Int.self, forKey: .status)) ?? -1
         success = (try? values.decode(Bool.self, forKey: .success)) ?? false
         data = (try? values.decode(Emailver.self, forKey: .data)) ?? nil
         message = (try? values.decode(String.self, forKey: . message)) ?? ""
-}
-
-// MARK: - DataClass
-struct Emailver: Codable {
-    let email: String
-}
+    }
+    
+    // MARK: - DataClass
+    struct Emailver: Codable {
+        let email: String
+    }
 }
