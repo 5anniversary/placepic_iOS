@@ -1,8 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
       "scale" : "1x",
+      "idiom" : "universal",
       "filename" : "pins.png"
     },
     {
@@ -11,9 +11,9 @@
       "scale" : "2x"
     },
     {
+      "filename" : "pins@3x.png",
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "pins@3x.png"
+      "scale" : "3x"
     }
   ],
   "info" : {

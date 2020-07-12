@@ -1,14 +1,14 @@
 {
   "images" : [
     {
+      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "whiteRankingSelectedIc.png",
-      "scale" : "1x"
+      "filename" : "whiteRankingSelectedIc.png"
     },
     {
+      "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "whiteRankingSelectedIc@2x.png",
-      "idiom" : "universal"
+      "filename" : "whiteRankingSelectedIc@2x.png"
     },
     {
       "idiom" : "universal",

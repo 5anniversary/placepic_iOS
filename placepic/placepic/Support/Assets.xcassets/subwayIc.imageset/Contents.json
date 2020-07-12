@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "subwayIc.png"
+      "filename" : "subwayIc.png",
+      "scale" : "1x"
     },
     {
       "filename" : "subwayIc@2x.png",

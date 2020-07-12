@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
       "filename" : "cameraIc.png",
+      "idiom" : "universal",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "cameraIc@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "cameraIc@2x.png"
     },
     {
-      "filename" : "cameraIc@3x.png",
+      "idiom" : "universal",
       "scale" : "3x",
-      "idiom" : "universal"
+      "filename" : "cameraIc@3x.png"
     }
   ],
   "info" : {

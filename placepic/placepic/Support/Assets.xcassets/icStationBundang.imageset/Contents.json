@@ -11,9 +11,9 @@
       "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "icStationBundang@3x.png"
+      "filename" : "icStationBundang@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

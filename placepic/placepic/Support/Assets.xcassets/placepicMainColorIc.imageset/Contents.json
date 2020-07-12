@@ -2,13 +2,13 @@
   "images" : [
     {
       "filename" : "placepicMainColorIc.png",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "idiom" : "universal"
     },
     {
-      "scale" : "2x",
       "filename" : "placepicMainColorIc@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",

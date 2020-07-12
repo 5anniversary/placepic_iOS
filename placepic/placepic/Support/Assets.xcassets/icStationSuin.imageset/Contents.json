@@ -1,8 +1,8 @@
 {
   "images" : [
     {
-      "scale" : "1x",
       "filename" : "icStationSuin.png",
+      "scale" : "1x",
       "idiom" : "universal"
     },
     {
@@ -11,9 +11,9 @@
       "scale" : "2x"
     },
     {
+      "filename" : "icStationSuin@3x.png",
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "icStationSuin@3x.png"
+      "idiom" : "universal"
     }
   ],
   "info" : {

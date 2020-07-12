@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "filename" : "whitePlacepicIc.png",
       "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "whitePlacepicIc.png"
     },
     {
       "idiom" : "universal",
@@ -11,9 +11,9 @@
       "scale" : "2x"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "whitePlacepicIc@3x.png"
+      "filename" : "whitePlacepicIc@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

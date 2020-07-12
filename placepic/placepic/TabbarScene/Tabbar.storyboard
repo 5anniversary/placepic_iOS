@@ -9,12 +9,12 @@
         <!--ArticleUploadVC-->
         <scene sceneID="TpR-Ir-Wbo">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLw-9i-9UK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ArticleUploadVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aPc-c7-oJq"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NLw-9i-9UK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="907" y="342"/>
+            <point key="canvasLocation" x="1894" y="306"/>
         </scene>
         <!--WriteVC-->
         <scene sceneID="ZZy-L0-DO7">
@@ -34,7 +34,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ng-3X-jXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1895" y="307"/>
+            <point key="canvasLocation" x="910" y="306"/>
         </scene>
         <!--RankVC-->
         <scene sceneID="yvk-b5-M0o">
@@ -65,24 +65,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="yMJ-RF-4Vx" kind="relationship" relationship="viewControllers" id="b4e-uX-2xg"/>
                         <segue destination="NJD-1x-113" kind="relationship" relationship="viewControllers" id="Dp6-Jx-d9P"/>
+                        <segue destination="yMJ-RF-4Vx" kind="relationship" relationship="viewControllers" id="b4e-uX-2xg"/>
                         <segue destination="kQT-Wd-MZ7" kind="relationship" relationship="viewControllers" id="iwG-iK-lis"/>
-                        <segue destination="mHG-xC-qxM" kind="relationship" relationship="viewControllers" id="QkL-RR-koY"/>
                         <segue destination="Rq1-ws-pTh" kind="relationship" relationship="viewControllers" id="Tl4-AR-eI2"/>
+                        <segue destination="mHG-xC-qxM" kind="relationship" relationship="viewControllers" id="QkL-RR-koY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz7-0h-6Y8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2945" y="-1343"/>
         </scene>
-        <!--Item-->
+        <!--장소-->
         <scene sceneID="wY2-cf-Z4r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NJD-1x-113" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RUO-VE-Vg6"/>
+                    <tabBarItem key="tabBarItem" title="장소" image="placeDisabled" selectedImage="placeSelected" id="RUO-VE-Vg6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TUj-DW-tAR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -90,18 +92,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uj4-UJ-cdy" kind="relationship" relationship="rootViewController" id="YE8-4I-cOK"/>
+                        <segue destination="LWY-JF-3h2" kind="relationship" relationship="rootViewController" id="Hyk-Ny-dH3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZr-A4-cwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="910" y="-399"/>
         </scene>
-        <!--Item-->
+        <!--순위-->
         <scene sceneID="LUT-fS-w5b">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yMJ-RF-4Vx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="MZA-5h-aWE"/>
+                    <tabBarItem key="tabBarItem" title="순위" image="peopleDisabled" selectedImage="peopleSelected" id="MZA-5h-aWE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E84-gU-t7C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -109,18 +111,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="LWY-JF-3h2" kind="relationship" relationship="rootViewController" id="2i1-uy-fa3"/>
+                        <segue destination="uj4-UJ-cdy" kind="relationship" relationship="rootViewController" id="bMc-Vn-Ony"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgV-8H-S3M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1895" y="-401"/>
         </scene>
-        <!--Item-->
+        <!--글쓰기-->
         <scene sceneID="15h-Ua-KIU">
             <objects>
                 <navigationController storyboardIdentifier="WriteNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="kQT-Wd-MZ7" customClass="WriteNavigationController" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Vc0-U0-gv2"/>
+                    <tabBarItem key="tabBarItem" title="글쓰기" image="uploadDisabled" selectedImage="uploadSelected" id="Vc0-U0-gv2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oim-9Z-w8g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -135,11 +137,11 @@
             </objects>
             <point key="canvasLocation" x="2945" y="-400"/>
         </scene>
-        <!--Item-->
+        <!--저장-->
         <scene sceneID="vjd-ph-NvK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rq1-ws-pTh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HR5-am-LEv"/>
+                    <tabBarItem key="tabBarItem" title="저장" image="scrapDisabled" selectedImage="scrapSelected" id="HR5-am-LEv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QsS-ex-s7T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -154,11 +156,11 @@
             </objects>
             <point key="canvasLocation" x="3986" y="-395"/>
         </scene>
-        <!--Item-->
+        <!--내 정보-->
         <scene sceneID="j2m-qu-r9s">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mHG-xC-qxM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eFQ-gF-gAB"/>
+                    <tabBarItem key="tabBarItem" title="내 정보" image="mypageDisabled" selectedImage="mypageSelected" id="eFQ-gF-gAB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qz1-Ng-RA4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -174,4 +176,16 @@
             <point key="canvasLocation" x="4986" y="-395"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mypageDisabled" width="25" height="25"/>
+        <image name="mypageSelected" width="25" height="25"/>
+        <image name="peopleDisabled" width="25" height="25"/>
+        <image name="peopleSelected" width="25" height="25"/>
+        <image name="placeDisabled" width="25" height="25"/>
+        <image name="placeSelected" width="25" height="25"/>
+        <image name="scrapDisabled" width="25" height="25"/>
+        <image name="scrapSelected" width="25" height="25"/>
+        <image name="uploadDisabled" width="25" height="25"/>
+        <image name="uploadSelected" width="25" height="25"/>
+    </resources>
 </document>
