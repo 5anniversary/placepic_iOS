@@ -10,5 +10,5 @@ import Foundation
 
 struct placeListAPI {
     static let getplacedURL = GeneralAPI.baseURL + "/places/group/1"
-    
+//    static let getRestaurant =
 }
