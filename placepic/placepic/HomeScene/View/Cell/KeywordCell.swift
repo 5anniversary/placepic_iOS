@@ -64,10 +64,6 @@ class KeywordCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

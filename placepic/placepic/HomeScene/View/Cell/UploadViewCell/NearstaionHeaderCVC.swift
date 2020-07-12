@@ -9,5 +9,6 @@
 import UIKit
 
 class NearstaionHeaderCVC: UICollectionReusableView {
+    @IBOutlet weak var mainLabel: UILabel!
         
 }

@@ -45,6 +45,7 @@ class NearstationVC: UIViewController {
         setTableView()
         setDefaultRequest()
     }
+    
 }
 
 extension NearstationVC {
@@ -145,7 +146,6 @@ extension NearstationVC {
         SubwayServeices.subwayServices.getKeywordRequest { data in
             if let metaData = data {
                 self.stationModel.append(contentsOf: metaData)
-                print(self.stationModel)
                 self.tableView.reloadData()
             }
         }

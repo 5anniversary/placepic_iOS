@@ -16,13 +16,9 @@ class ArticleUploadVC: UIViewController {
     
     let keywordModel: [String] = []
     let usefulKeywordModel: [String] = []
+    var keywordData: [KeywordData] = []
     var nearStationModel: [SubwayData] = []
-    
     var frame: CGRect!
-    lazy var paramStationModel: [SubwayData] = []
-    lazy var keywordData: [KeywordData] = []
-//    lazy var usefulData: [KeywordData] = []
-
     
     lazy var keywordModal: KeywordLauncher = {
         let launcher = KeywordLauncher()
@@ -33,7 +29,6 @@ class ArticleUploadVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -43,6 +38,7 @@ class ArticleUploadVC: UIViewController {
         addObserver()
         setDefaultRequest()
     }
+    
 }
 
 extension ArticleUploadVC {
@@ -81,8 +77,7 @@ extension ArticleUploadVC {
     }
     
     private func setCollectionView() {
-        let nearstation = self.nearStationModel
-        print("nearstationModel: \(nearstation)")
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -101,15 +96,7 @@ extension ArticleUploadVC {
     @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
         
         guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
-        print("injectedModel: \(injectedModel)")
-        
-        /// 문제 : injected된 친구들의 개수를 세어야 합니다
-        /// 개수를 세어서 cell에서 죽여야 됨
-        
-        print(injectedModel.count)
         nearStationModel = injectedModel
-        
-        
         collectionView.reloadData()
     }
     
@@ -124,25 +111,23 @@ extension ArticleUploadVC {
         }
     }
     
+    
+}
+
+//MARK:- 통신
+extension ArticleUploadVC {
+    
     func setDefaultRequest() {
-        print(#function)
         KeywordServices.keywordServices.getKeywordRequest { data in
             if let metaData = data {
-                print(metaData)
+                self.keywordData = metaData
             }
         }
     }
 }
 
+//MARK:- CollectionView
 extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -152,14 +137,20 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
         return 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NearstaionHeaderCVC", for: indexPath) as? NearstaionHeaderCVC
-                else {
-                    return UICollectionReusableView()
-            }
-            return view
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.frame.width
+      
+        switch indexPath.section {
+        case 0:
+            return CGSize(width: width, height: 98)
+        case 1:
+            return returnDynamicHeight()
+        case 2:
+            return returnDynamicHeight()
+        case 3:
+            return returnDynamicHeight()
+        case 4:
+            return CGSize(width: width, height: 452)
         default:
             assert(false)
         }
@@ -173,20 +164,42 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.frame.width
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         
-        switch indexPath.section {
-        case 0:
-            return CGSize(width: width, height: 98)
-        case 1:
-            return returnDynamicHeight()
-        case 2:
-            return returnDynamicHeight()
-        case 3:
-            return returnDynamicHeight()
-        case 4:
-            return CGSize(width: width, height: 452)
+        return CGSize(width: view.frame.width, height: 1)
+    }
+}
+
+extension ArticleUploadVC: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NearstaionHeaderCVC", for: indexPath) as? NearstaionHeaderCVC
+                else {
+                    return UICollectionReusableView()
+            }
+            
+            return view
+            
+        case UICollectionView.elementKindSectionFooter:
+            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NearstationFooterCVC", for: indexPath) as? NearstationFooterCVC
+                else {
+                    return UICollectionReusableView()
+            }
+            
+            view.backgroundColor = UIColor.gray20
+            return view
         default:
             assert(false)
         }
@@ -205,21 +218,25 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
                 return UICollectionViewCell()
             }
             if nearStationModel.count == 0 {
-                return cell
+                
             } else if nearStationModel.count == 1 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
                 cell.textFieldArray[2].isHidden = true
+                
             } else if nearStationModel.count == 2 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
+                
             } else {
                 cell.stackView.isHidden = false
             }
+            
             for i in 0..<nearStationModel.count {
                 cell.textFieldArray[i].text = nearStationModel[i].subwayName
             }
             return cell
+            
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeKeywordCVC", for: indexPath) as? HomeKeywordCVC else {
                 return UICollectionViewCell()
@@ -245,7 +262,9 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -256,14 +275,9 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
             navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 2 {
-            keywordModal.showSettings("어어어")
+            keywordModal.showSettings("어어어", keywordData)
         } else if indexPath.section == 3 {
-            keywordModal.showSettings("우와아아")
+            keywordModal.showSettings("우와아아", keywordData)
         }
     }
-}
-
-extension ArticleUploadVC: UICollectionViewDataSource {
-    
-    
 }

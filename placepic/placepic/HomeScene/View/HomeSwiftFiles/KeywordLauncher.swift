@@ -60,16 +60,7 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         return button
     }()
     
-    var keyword: [String] = [
-        "abcd",
-        "abcdabcd",
-        "abcdabdabcdabcdabcd",
-        "abcdabdabcdabcdabcd",
-        "abcdabcabcdabcd",
-        "abbcdabcd",
-        "abcdabcdababcdabcdabcd",
-        "abbcdabcd",
-    ]
+    var keyword: [KeywordData] = []
     
     let cellId = "cellId"
     let cellHeight: CGFloat = 50
@@ -77,7 +68,7 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     private func calculateHeight() -> CGFloat {
         /// 2 + (셀 넓이가 좀 문제야 로직을 잘 모르겟음 padding 양쪽 10씩 20 + Itemspacing (10)
         /// 아 이거 모르겠넹 애좀 먹겠다 싶움
-        
+
         let width = UIScreen.main.bounds.width - 22
         let height: CGFloat = 50
         let itemspacing: CGFloat = 10
@@ -86,18 +77,21 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         var heightTemp: CGFloat = 0
         
         keyword.forEach {
-            heightTemp += $0.width(withConstrainedHeight: 40, font: .systemFont(ofSize: 16)) + itemspacing + 2 + 20
+            guard let nameWidth = $0.tagName?.width(withConstrainedHeight: 40, font: .systemFont(ofSize: 16)) else { return }
+            
+            heightTemp += nameWidth + itemspacing + 20
+            
 //            print("heightTemp: \(heightTemp)")
 //            print("floor: \(floor)")
             
             if width < heightTemp {
-                print("heightTemp : \(heightTemp)")
+//                print("heightTemp : \(heightTemp)")
                 floor += 1
                 heightTemp = 0
             }
         }
         
-        print("view Height : \(height*floor)")
+//        print("view Height : \(height*floor)")
         return height * (floor+2)
         
         /// 설명 : 마지막 층  + 1, 버튼 만들어놓을 친구들 층  + 1 + 키워드 라벨 층 ( 높이 지정 필요해욤 )
@@ -119,7 +113,8 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
     
     /// 호출할때 여기다가 매개변수로 넘겨주는게 조을거같아욤
-    func showSettings(_ titleLabel: String) {
+    func showSettings(_ titleLabel: String, _ subwayModel: [KeywordData]) {
+        keyword = subwayModel
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
             
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
@@ -224,16 +219,18 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! KeywordCell
-        
-        
-        cell.nameLabel.text = keyword[indexPath.item]
+        cell.nameLabel.text = keyword[indexPath.item].tagName
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
        
-        let width: CGFloat = keyword[indexPath.item].width(withConstrainedHeight: 40, font:.boldSystemFont(ofSize: 14)) + 20
+        guard let wid = keyword[indexPath.item].tagName?.width(withConstrainedHeight: 40, font: .boldSystemFont(ofSize: 14)) else {
+            return CGSize()
+        }
+        
+        let width: CGFloat = wid + 20
         let height: CGFloat = 40
                 
         return CGSize(width: width, height: height)
