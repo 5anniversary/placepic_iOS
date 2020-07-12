@@ -2,13 +2,13 @@
   "images" : [
     {
       "filename" : "icStation6.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "filename" : "icStation6@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "idiom" : "universal"
     },
     {
       "scale" : "3x",

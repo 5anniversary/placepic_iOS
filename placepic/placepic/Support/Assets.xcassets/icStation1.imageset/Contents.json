@@ -2,18 +2,18 @@
   "images" : [
     {
       "filename" : "icStation1.png",
+      "scale" : "1x",
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "icStation1@2x.png",
       "scale" : "2x",
-      "idiom" : "universal"
+      "filename" : "icStation1@2x.png"
     },
     {
+      "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "icStation1@3x.png",
-      "idiom" : "universal"
+      "filename" : "icStation1@3x.png"
     }
   ],
   "info" : {

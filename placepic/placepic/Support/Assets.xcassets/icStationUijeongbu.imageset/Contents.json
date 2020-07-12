@@ -1,18 +1,18 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
       "filename" : "icStationUijeongbu.png",
-      "scale" : "1x",
+      "scale" : "1x"
+    },
+    {
+      "scale" : "2x",
+      "filename" : "icStationUijeongbu@2x.png",
       "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "icStationUijeongbu@2x.png"
-    },
-    {
-      "scale" : "3x",
       "filename" : "icStationUijeongbu@3x.png",
+      "scale" : "3x",
       "idiom" : "universal"
     }
   ],

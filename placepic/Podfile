@@ -9,6 +9,7 @@ target 'placepic' do
 # New Pods
   pod 'YPImagePicker'
   pod 'SwiftKeychainWrapper'
+  pod 'FSPagerView'
 
 # Expected Pods
   pod 'Alamofire', '~> 4.8.2'

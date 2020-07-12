@@ -2,23 +2,23 @@
   "images" : [
     {
       "filename" : "whitePlacepicIc.png",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "idiom" : "universal"
     },
     {
-      "filename" : "whitePlacepicIc@2x.png",
       "idiom" : "universal",
+      "filename" : "whitePlacepicIc@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "whitePlacepicIc@3x.png",
+      "scale" : "3x",
       "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "whitePlacepicIc@3x.png"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   },
   "properties" : {
     "template-rendering-intent" : "original"
