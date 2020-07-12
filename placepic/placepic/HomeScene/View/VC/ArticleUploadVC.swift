@@ -68,6 +68,7 @@ extension ArticleUploadVC {
     }
     
     @objc private func dismissVC() {
+        dismiss(animated: true, completion: nil)
         navigationController?.popViewController(animated: true)
     }
     
@@ -196,7 +197,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
                 else {
                     return UICollectionReusableView()
             }
-            
             view.backgroundColor = UIColor.gray20
             return view
         default:

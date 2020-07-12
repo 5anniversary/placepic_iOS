@@ -229,6 +229,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		3D6F83B824BB6DC500ACD85A /* WriteArticleCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F83B024BB186000ACD85A /* FindfavoritePlaceTVC.swift */,
+			);
+			path = WriteArticleCell;
+			sourceTree = "<group>";
+		};
 		3DCE5F7C24B5768600BAF927 /* UploadViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +259,6 @@
 				3D6BAF9424B2D21200F6339E /* NearstationCVC.xib */,
 				3D6BAF9624B2DAD400F6339E /* ShowStationTVC.swift */,
 				3D6BAF9724B2DAD400F6339E /* ShowStationTVC.xib */,
-				3D6F83B024BB186000ACD85A /* FindfavoritePlaceTVC.swift */,
 			);
 			path = SubwayViewCell;
 			sourceTree = "<group>";
@@ -260,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				3D6BAF8824AF9B5000F6339E /* KeywordCell.swift */,
+				3D6F83B824BB6DC500ACD85A /* WriteArticleCell */,
 				3DCE5F7D24B5772700BAF927 /* SubwayViewCell */,
 				3DCE5F7C24B5768600BAF927 /* UploadViewCell */,
 			);

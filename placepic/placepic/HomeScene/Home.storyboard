@@ -19,9 +19,36 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6e7-so-Uqc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="eYh-kU-S3U">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="306-7v-0hs">
+                                            <rect key="frame" x="13" y="6" width="348" height="41"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchBarIc" translatesAutoresizingMaskIntoConstraints="NO" id="FAR-Ih-Q5u">
+                                            <rect key="frame" x="21" y="14" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="BjI-ql-4Sn"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="306-7v-0hs" secondAttribute="bottom" constant="6" id="0Uv-no-oN5"/>
+                                        <constraint firstAttribute="bottom" secondItem="FAR-Ih-Q5u" secondAttribute="bottom" constant="15" id="JcE-s5-zwF"/>
+                                        <constraint firstItem="306-7v-0hs" firstAttribute="top" secondItem="eYh-kU-S3U" secondAttribute="top" constant="6" id="NjW-Pu-43f"/>
+                                        <constraint firstAttribute="trailing" secondItem="306-7v-0hs" secondAttribute="trailing" constant="14" id="dsx-UX-33c"/>
+                                        <constraint firstItem="306-7v-0hs" firstAttribute="leading" secondItem="eYh-kU-S3U" secondAttribute="leading" constant="13" id="nbL-Mx-5MG"/>
+                                        <constraint firstItem="FAR-Ih-Q5u" firstAttribute="top" secondItem="eYh-kU-S3U" secondAttribute="top" constant="14" id="v9X-RQ-CMW"/>
+                                        <constraint firstItem="FAR-Ih-Q5u" firstAttribute="leading" secondItem="eYh-kU-S3U" secondAttribute="leading" constant="21" id="yyj-Wa-XzE"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FindfavoritePlaceTVC" rowHeight="71" id="F8R-3d-YDE" customClass="FindfavoritePlaceTVC" customModule="placepic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="71"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FindfavoritePlaceTVC" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FindfavoritePlaceTVC" rowHeight="71" id="F8R-3d-YDE" customClass="FindfavoritePlaceTVC" customModule="placepic" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="81" width="375" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F8R-3d-YDE" id="KF5-PC-AEP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
@@ -67,6 +94,7 @@
                         <viewLayoutGuide key="safeArea" id="mx8-cB-2pT"/>
                     </view>
                     <connections>
+                        <outlet property="searchTextField" destination="306-7v-0hs" id="dgQ-5c-F6M"/>
                         <outlet property="tableView" destination="6e7-so-Uqc" id="bGf-OI-SGU"/>
                     </connections>
                 </viewController>
@@ -496,6 +524,7 @@
     <resources>
         <image name="dummy1" width="300" height="300"/>
         <image name="nextArrowIc" width="24" height="24"/>
+        <image name="searchBarIc" width="24" height="24"/>
         <image name="searchSelectedIc" width="24" height="24"/>
     </resources>
 </document>
