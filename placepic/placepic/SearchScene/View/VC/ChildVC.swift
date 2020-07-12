@@ -113,17 +113,6 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         var dataInfo: String = ""
         var subwayInfo: String = ""
         
-        switch childNumber {
-        case "전체":
-        case "맛집":
-        case "술집":
-        case "카페":
-        case "스터디":
-        case "기타":
-        default:
-            <#code#>
-        }
-        
         for i in 0..<placeList[indexPath.row].subway.count{
             if i == (placeList[indexPath.row].subway.count-1){
                 subwayInfo = subwayInfo + placeList[indexPath.row].subway[i].subwayName
