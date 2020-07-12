@@ -14,10 +14,11 @@ class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let keywordModel: [String] = []
     let usefulKeywordModel: [String] = []
     var keywordData: [KeywordData] = []
-    var nearStationModel: [SubwayData] = []
+    var nearstationData: [SubwayData] = []
+    var usefulKeywordData: [UsefulInformData] = []
+    
     var frame: CGRect!
     
     lazy var keywordModal: KeywordLauncher = {
@@ -26,11 +27,6 @@ class ArticleUploadVC: UIViewController {
         return launcher
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
@@ -38,7 +34,6 @@ class ArticleUploadVC: UIViewController {
         addObserver()
         setDefaultRequest()
     }
-    
 }
 
 extension ArticleUploadVC {
@@ -96,22 +91,21 @@ extension ArticleUploadVC {
     @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
         
         guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
-        nearStationModel = injectedModel
+        nearstationData = injectedModel
         collectionView.reloadData()
     }
     
     func returnDynamicHeight() -> CGSize {
         let width = view.frame.width
         /// cell에 접근해서 처리하고자 함
+        /// 셀마다 분기해서 처리하고자 함
         
-        if nearStationModel.count == 0 {
+        if nearstationData.count == 0 {
             return CGSize(width: width, height: 60)
         } else {
             return CGSize(width: width, height: 90)
         }
     }
-    
-    
 }
 
 //MARK:- 통신
@@ -121,6 +115,12 @@ extension ArticleUploadVC {
         KeywordServices.keywordServices.getKeywordRequest { data in
             if let metaData = data {
                 self.keywordData = metaData
+            }
+        }
+        
+        UsefulInformServices.usefulInformServices.getKeywordRequest { data in
+            if let metaData = data {
+                self.usefulKeywordData = metaData
             }
         }
     }
@@ -182,7 +182,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NearstaionHeaderCVC", for: indexPath) as? NearstaionHeaderCVC
@@ -217,14 +216,14 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FindNearstationCVC", for: indexPath) as? FindNearstationCVC else {
                 return UICollectionViewCell()
             }
-            if nearStationModel.count == 0 {
+            if nearstationData.count == 0 {
                 
-            } else if nearStationModel.count == 1 {
+            } else if nearstationData.count == 1 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
                 cell.textFieldArray[2].isHidden = true
                 
-            } else if nearStationModel.count == 2 {
+            } else if nearstationData.count == 2 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
                 
@@ -232,8 +231,8 @@ extension ArticleUploadVC: UICollectionViewDataSource {
                 cell.stackView.isHidden = false
             }
             
-            for i in 0..<nearStationModel.count {
-                cell.textFieldArray[i].text = nearStationModel[i].subwayName
+            for i in 0..<nearstationData.count {
+                cell.textFieldArray[i].text = nearstationData[i].subwayName
             }
             return cell
             
@@ -260,11 +259,8 @@ extension ArticleUploadVC: UICollectionViewDataSource {
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -275,9 +271,9 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 2 {
-            keywordModal.showSettings("어어어", keywordData)
+            keywordModal.showSettings("키워드", keywordData)
         } else if indexPath.section == 3 {
-            keywordModal.showSettings("우와아아", keywordData)
+            keywordModal.showSettings("장소 정보", usefulKeywordData)
         }
     }
 }

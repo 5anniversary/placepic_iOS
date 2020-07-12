@@ -36,6 +36,10 @@ class FindNearstationCVC: UICollectionViewCell {
         })
     }
     
+    func dismissVC( ) {
+        
+    }
+    
     private func configureTextfield() {
         textFieldArray.forEach({
             $0.font = .systemFont(ofSize: 13)
