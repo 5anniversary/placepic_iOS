@@ -288,10 +288,10 @@
             </objects>
             <point key="canvasLocation" x="-3623.1999999999998" y="-45.42728635682159"/>
         </scene>
-        <!--View Controller-->
+        <!--Place DetailVC-->
         <scene sceneID="inn-Q8-f8H">
             <objects>
-                <viewController id="F5B-vE-VBo" sceneMemberID="viewController">
+                <viewController id="F5B-vE-VBo" customClass="placeDetailVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U3X-V5-E7B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upC-lM-eCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2969" y="-45"/>
+            <point key="canvasLocation" x="-2970.4000000000001" y="-45.42728635682159"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cpw-UU-KFW">

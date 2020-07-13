@@ -28,6 +28,7 @@ class PlaceListTVC: UITableViewCell {
             placeTag[i].layer.borderWidth = 0.0
         }
         placeTag[1].layer.borderWidth = 0.0
+//        placeTag[1].borderStyle.
         
         // Initialization code
     }

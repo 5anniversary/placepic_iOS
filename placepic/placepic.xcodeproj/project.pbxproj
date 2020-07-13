@@ -88,6 +88,7 @@
 		AE34147224B6D90000425889 /* adminAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34147124B6D90000425889 /* adminAPI.swift */; };
 		AE34147424B7057700425889 /* AdminAcceptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34147324B7057700425889 /* AdminAcceptService.swift */; };
 		AE34147624B7076B00425889 /* AdminData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34147524B7076B00425889 /* AdminData.swift */; };
+		AE34147924BC51AE00425889 /* placeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34147824BC51AE00425889 /* placeDetailVC.swift */; };
 		AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27424AC2E3500891C6E /* SearchVC.swift */; };
 		AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27824AC59A200891C6E /* ChildVC.swift */; };
 		AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */; };
@@ -180,6 +181,7 @@
 		AE34147124B6D90000425889 /* adminAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminAPI.swift; sourceTree = "<group>"; };
 		AE34147324B7057700425889 /* AdminAcceptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAcceptService.swift; sourceTree = "<group>"; };
 		AE34147524B7076B00425889 /* AdminData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminData.swift; sourceTree = "<group>"; };
+		AE34147824BC51AE00425889 /* placeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeDetailVC.swift; sourceTree = "<group>"; };
 		AEEEE27424AC2E3500891C6E /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AEEEE27824AC59A200891C6E /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
 		AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListTVC.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 				AEEEE27424AC2E3500891C6E /* SearchVC.swift */,
 				AEEEE27824AC59A200891C6E /* ChildVC.swift */,
 				AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */,
+				AE34147824BC51AE00425889 /* placeDetailVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -799,6 +802,7 @@
 				3D6C163724B877790050979C /* KeywordServies.swift in Sources */,
 				3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */,
 				AE34147424B7057700425889 /* AdminAcceptService.swift in Sources */,
+				AE34147924BC51AE00425889 /* placeDetailVC.swift in Sources */,
 				1302CA8024AC5EBF0013CACC /* GroupListVC.swift in Sources */,
 				3DCD865E24BAD356006783D2 /* UsefulInformServices.swift in Sources */,
 				3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */,
