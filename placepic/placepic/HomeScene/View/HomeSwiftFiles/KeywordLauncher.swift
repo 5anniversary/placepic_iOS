@@ -10,7 +10,7 @@ import UIKit
 
 class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var homeController: HomeVC?
+    var homeController: FavoritePlaceSearchVC?
     var searchVC: SearchVC?
     var childVC: ChildVC?
     var uploadVC: ArticleUploadVC?

@@ -25,9 +25,10 @@ extension TabbarController: UITabBarControllerDelegate {
             guard let vc =  storyboard?.instantiateViewController(identifier: "WriteNavigationController") as? WriteNavigationController else { return false }
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
-       
+            
             return false
         }
         return true
     }
 }
+

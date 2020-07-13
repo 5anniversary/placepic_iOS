@@ -18,6 +18,10 @@ class NearstationCVC: UICollectionViewCell {
     }
     
     private func configureTextfield() {
+        
+        stationTextField.isEnabled = false
+        stationTextField.font = Font.boldFontSize12
+        stationTextField.textColor = UIColor.gray70
         stationTextField.layer.cornerRadius = 5
         stationTextField.layer.borderColor = UIColor.white.cgColor
         stationTextField.layer.borderWidth = 1

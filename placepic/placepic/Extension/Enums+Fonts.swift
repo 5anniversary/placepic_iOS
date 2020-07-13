@@ -10,12 +10,14 @@ import UIKit
 
 enum Font {
     
-    static let nameLabel = UIFont.boldSystemFont(ofSize: 16)
-    static let titleLabel = UIFont.boldSystemFont(ofSize: 24)
-    static let contentTextView = UIFont.systemFont(ofSize: 18)
-    
-    static let studyTitleLabel = UIFont.boldSystemFont(ofSize: 17)
-    static let studyContentsLabel = UIFont.systemFont(ofSize: 15)
-    static let lightLabel = UIFont.systemFont(ofSize: 11)
-    
+    static let fontSize13 = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)
+    static let fontSize14 = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
+    static let fontSize15 = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)
+    static let fontSize17 = UIFont(name: "AppleSDGothicNeo-Regular", size: 17)
+    static let fontSize20 = UIFont(name: "AppleSDGothicNeo-Regular", size: 20)
+
+    static let boldFontSize12 = UIFont(name: "AppleSDGothicNeo-Bold", size: 12)
+    static let boldFontSize15 = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
+    static let boldFontSize17 = UIFont(name: "AppleSDGothicNeo-Bold", size: 17)
+    static let boldFontSize20 = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
 }

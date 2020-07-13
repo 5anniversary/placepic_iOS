@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
+        <!--ClassifyVC-->
         <scene sceneID="TpR-Ir-Wbo">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ClassifyVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aPc-c7-oJq"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLw-9i-9UK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -78,7 +78,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz7-0h-6Y8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="-1343"/>
+            <point key="canvasLocation" x="2945" y="-1376"/>
         </scene>
         <!--장소-->
         <scene sceneID="wY2-cf-Z4r">
