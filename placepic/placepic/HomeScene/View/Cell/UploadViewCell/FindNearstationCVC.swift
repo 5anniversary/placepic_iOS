@@ -14,6 +14,7 @@ class FindNearstationCVC: UICollectionViewCell {
     @IBOutlet weak var rightArrowImage: UIImageView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet var textFieldArray: [UITextField]!
+    @IBOutlet weak var nearStationTitleLabel: UILabel!
     
     var model: SubwayData? {
         didSet {
@@ -41,6 +42,8 @@ class FindNearstationCVC: UICollectionViewCell {
     }
     
     private func configureTextfield() {
+        nearStationTitleLabel.font = Font.boldFontSize15
+        nearStationTitleLabel.textColor = UIColor.gray90
         textFieldArray.forEach({
             $0.font = .systemFont(ofSize: 13)
             $0.layer.cornerRadius = 5

@@ -11,6 +11,7 @@ import UIKit
 class HomeReviewCVC: UICollectionViewCell {
     
     @IBOutlet weak var reviewTextfield: UITextView!
+    @IBOutlet weak var reviewTitleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -18,6 +19,9 @@ class HomeReviewCVC: UICollectionViewCell {
     }
     
     private func setReviewTextField() {
+        reviewTitleLabel.font = Font.boldFontSize15
+        reviewTitleLabel.textColor = UIColor.gray90
+
         reviewTextfield.layer.cornerRadius = 5
         reviewTextfield.backgroundColor = UIColor.gray10
     }

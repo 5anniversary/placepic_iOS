@@ -13,20 +13,28 @@ class FindfavoritePlaceTVC: UITableViewCell {
     @IBOutlet weak var regiesteredBadgeView: UIView!
     @IBOutlet weak var placeTitleLabel: UILabel!
     @IBOutlet weak var placeLoactionLabel: UILabel!
-    
+    @IBOutlet weak var registeredBadgeLabel: UILabel!
+        
     var model: PlaceSearchData? {
         didSet {
             placeTitleLabel.text = model?.placeName
             placeLoactionLabel.text = model?.placeAddress
+            regiesteredBadgeView.alpha = (model?.alreadyIn)! ? 1 : 0
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configure()
+        configureUI()
     }
     
-    private func configure() {
+    private func configureUI() {
         regiesteredBadgeView.layer.cornerRadius = 5
+        placeTitleLabel.font = .boldSystemFont(ofSize: 15)
+        placeTitleLabel.textColor = UIColor.gray90
+        placeLoactionLabel.font = .systemFont(ofSize: 13)
+        placeLoactionLabel.textColor = UIColor.gray40
+        registeredBadgeLabel.font = .boldSystemFont(ofSize: 10)
+        registeredBadgeLabel.textColor = UIColor.blueGray40
     }
 }

@@ -13,13 +13,14 @@ import Alamofire
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
     let usefulKeywordModel: [String] = []
     var keywordData: [KeywordData] = []
     var nearstationData: [SubwayData] = []
     var usefulKeywordData: [UsefulInformData] = []
     
-    var frame: CGRect!
+    var articleTitle: String = ""
+    var classifyBadge: String = ""
     
     lazy var keywordModal: KeywordLauncher = {
         let launcher = KeywordLauncher()
@@ -72,20 +73,8 @@ extension ArticleUploadVC {
     }
     
     private func setCollectionView() {
-        
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    // 나중에 숨겨주시고요
-    private func hideTabBar() {
-        frame = self.tabBarController?.tabBar.frame
-        let height = frame.size.height
-        frame?.origin.y = self.view.frame.size.height + (height)
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.tabBarController?.tabBar.frame = self.frame!
-        })
     }
     
     @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
@@ -188,6 +177,10 @@ extension ArticleUploadVC: UICollectionViewDataSource {
                 else {
                     return UICollectionReusableView()
             }
+            let badge = classifyBadge
+            let title = articleTitle
+            view.mainLabel.text = title
+            view.classifyBadge.text = badge
             
             return view
             
@@ -196,7 +189,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
                 else {
                     return UICollectionReusableView()
             }
-            
             view.backgroundColor = UIColor.gray20
             return view
         default:

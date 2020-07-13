@@ -14,8 +14,8 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var photoArray: [UIImage]! = []
     /// 항상얼웨이즈 index 0번째는 참조하면 안됨니당
-      /// 이유 : `인덱스 0 번은 다른 친구다 임마`
-
+    /// 이유 : `인덱스 0 번은 다른 친구다 임마`
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         registerCollectionView()
@@ -26,7 +26,7 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
     }
-
+    
     private func getImageArray() {        
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
             var config = YPImagePickerConfiguration()
@@ -36,7 +36,7 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
             config.screens = [.library]
             config.library.defaultMultipleSelection = true
             config.library.maxNumberOfItems = 10
-                
+            
             let picker = YPImagePicker(configuration: config)
             photoArray = []
             
@@ -66,7 +66,7 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
 }
 
 extension OutterUploadPhotoCVC: UICollectionViewDelegateFlowLayout {
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }

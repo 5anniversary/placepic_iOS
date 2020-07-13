@@ -6,15 +6,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ArticleUploadVC-->
+        <!--ClassifyVC-->
         <scene sceneID="TpR-Ir-Wbo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NLw-9i-9UK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ArticleUploadVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ClassifyVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aPc-c7-oJq"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLw-9i-9UK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1894" y="306"/>
+            <point key="canvasLocation" x="2945" y="264"/>
         </scene>
         <!--WriteVC-->
         <scene sceneID="ZZy-L0-DO7">
@@ -24,7 +24,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WV8-q0-erA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2944" y="306"/>
+            <point key="canvasLocation" x="1893" y="264"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="6i5-SV-v27">
@@ -34,7 +34,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ng-3X-jXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="306"/>
+            <point key="canvasLocation" x="910" y="264"/>
         </scene>
         <!--RankVC-->
         <scene sceneID="yvk-b5-M0o">
@@ -44,7 +44,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWu-oi-Xnv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3984" y="306"/>
+            <point key="canvasLocation" x="3984" y="264"/>
         </scene>
         <!--navi-->
         <scene sceneID="eSN-NW-G4b">
@@ -54,7 +54,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9D-OL-kAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4988" y="342"/>
+            <point key="canvasLocation" x="4985" y="264"/>
         </scene>
         <!--Tabbar Controller-->
         <scene sceneID="LAU-0N-EAb">
@@ -65,8 +65,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
-                        <color key="selectedImageTintColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="NJD-1x-113" kind="relationship" relationship="viewControllers" id="Dp6-Jx-d9P"/>
@@ -78,7 +78,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz7-0h-6Y8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="-1343"/>
+            <point key="canvasLocation" x="2945" y="-1376"/>
         </scene>
         <!--장소-->
         <scene sceneID="wY2-cf-Z4r">
@@ -111,7 +111,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uj4-UJ-cdy" kind="relationship" relationship="rootViewController" id="bMc-Vn-Ony"/>
+                        <segue destination="Ryn-gi-ym6" kind="relationship" relationship="rootViewController" id="zSj-2t-KN2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgV-8H-S3M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -130,7 +130,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ryn-gi-ym6" kind="relationship" relationship="rootViewController" id="8Eb-oq-Jsv"/>
+                        <segue destination="uj4-UJ-cdy" kind="relationship" relationship="rootViewController" id="xgb-Eu-6h0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnq-XM-XRs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

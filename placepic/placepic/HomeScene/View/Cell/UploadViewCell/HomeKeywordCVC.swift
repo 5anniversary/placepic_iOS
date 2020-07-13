@@ -11,7 +11,8 @@ import UIKit
 class HomeKeywordCVC: UICollectionViewCell {
     
     @IBOutlet var textFieldArray: [UITextField]!
-        @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var keywordTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,9 @@ class HomeKeywordCVC: UICollectionViewCell {
     }
     
     private func configureTextfield() {
+        keywordTitleLabel.font = Font.boldFontSize15
+        keywordTitleLabel.textColor = UIColor.gray90
+        
         textFieldArray.forEach({
             $0.font = .systemFont(ofSize: 13)
             $0.layer.cornerRadius = 5

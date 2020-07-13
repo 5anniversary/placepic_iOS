@@ -21,7 +21,12 @@ class ShowStationTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        configureUI()
+    }
+    
+    private func configureUI() {
+        stationLabel.font = Font.fontSize14
+        stationLabel.textColor = UIColor.gray70
     }
     
     override func prepareForReuse() {
