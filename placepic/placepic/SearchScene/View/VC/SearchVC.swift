@@ -20,41 +20,58 @@ class SearchVC: ButtonBarPagerTabStripViewController {
 //        //vcName?.modalTransitionStyle = .coverVertical
 //        self.present(vcName!, animated: true, completion: nil)
 //    }
-    
+
     override func viewDidLoad() {
         configureButtonBar()
         super.viewDidLoad()
         setNavigationBar()
         setButtons()
-//        getData()
-        
-//        print(self.placeList)
-        
-        for i in 1..<3 {
-            buttons[i].alpha = 1
-        }
-        //        text1.text = "aaa"
-        //        text1.frame.size.width = 15
-        //        text1.
-        //        navigationController?.navigationBar.isHidden = true
-        //        viewPager.translatesAutoresizingMaskIntoConstraints = false
-        //
-        //        viewPager.frame = CGRect.init(x: 0, y: 44, width: view.frame.width, height: 44)
-        //
-        //        let constraints = [
-        //            viewPager.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 44),
-        //             viewPager.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-        //        ]
-        //
-        //        NSLayoutConstraint.activate(constraints)
-        //
+        addObserver()
+//        set()
     }
     
-    //    func textFieldDidChange(sender: UITextField) {
-    //        sender.invalidateIntrinsicContentSize()
-    //    }
-    //
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonHidden), name: .changeChildViewVC, object: nil)
+    }
     
+    @objc func buttonHidden(_ notification: NSNotification) {
+        guard let childNumber = notification.userInfo?["childNumber"] as? String else { return }
+        print(childNumber)
+//        print(#function)
+        
+        if childNumber == "전체" {
+            for i in 0..<buttons.count {
+                buttons[1].isHidden = true
+                buttons[2].isHidden = true
+            }
+        } else {
+            buttons.forEach({
+                $0.isHidden = false
+            })
+        }
+    }
+    
+    func set() {
+        changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            guard changeCurrentIndex == true else { return }
+            print(changeCurrentIndex)
+
+            oldCell?.label.textColor = UIColor(white: 1, alpha: 0.6)
+            newCell?.label.textColor = UIColor.white
+            print(progressPercentage)
+            print(changeCurrentIndex)
+            if animated {
+                UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                    newCell?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                    oldCell?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                })
+            }
+            else {
+                newCell?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                oldCell?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            }
+        }
+    }
     // MARK: - Configuration
     
     
@@ -67,7 +84,6 @@ class SearchVC: ButtonBarPagerTabStripViewController {
             self.tabBarController?.tabBar.frame = self.frame!
         })
     }
-    
     
     func setButtons() {
         for i in 0..<3 {
@@ -162,20 +178,17 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         }
     }
     
-    //    override func updateIndicator(for viewController: PagerTabStripViewController, fromIndex: Int, toIndex: Int, withProgressPercentage progressPercentage: CGFloat, indexWasChanged: Bool) {
-    //
-    //        print(fromIndex, toIndex)
-    //    }
-    //
     
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
         let child1 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
+        
         child1.childNumber = "전체"
         
         let child2 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child2.childNumber = "맛집"
+        
         
         let child3 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child3.childNumber = "술집"
@@ -187,6 +200,7 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         child5.childNumber = "스터디"
         
         let child6 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
+
         child6.childNumber = "기타"
         
         return [child1, child2, child3, child4, child5, child6]
@@ -207,5 +221,6 @@ extension UIButton {
 //          launcher.homeController = self
 //          return launcher
 //    }()
+
 
 

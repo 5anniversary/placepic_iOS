@@ -110,7 +110,7 @@
     |-- feature/PlaceList
     |-- feature/MyPage
   ```
--  git branch
+-  git commit message rule
 
   ```
    [Feat] 기능 추가

@@ -1,8 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "subwayIc.png",
       "idiom" : "universal",
+      "filename" : "subwayIc.png",
       "scale" : "1x"
     },
     {
@@ -17,8 +17,8 @@
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   },
   "properties" : {
     "template-rendering-intent" : "original"

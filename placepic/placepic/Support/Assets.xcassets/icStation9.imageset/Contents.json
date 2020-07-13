@@ -1,8 +1,8 @@
 {
   "images" : [
     {
-      "scale" : "1x",
       "filename" : "icStation9.png",
+      "scale" : "1x",
       "idiom" : "universal"
     },
     {
@@ -11,9 +11,9 @@
       "scale" : "2x"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "icStation9@3x.png"
+      "filename" : "icStation9@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

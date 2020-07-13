@@ -4,11 +4,11 @@
 target 'placepic' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
     
 # New Pods
   pod 'YPImagePicker'
   pod 'SwiftKeychainWrapper'
+  pod 'FSPagerView'
 
 # Expected Pods
   pod 'Alamofire', '~> 4.8.2'
