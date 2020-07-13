@@ -31,9 +31,10 @@ class GroupListTVC: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setDataInformation(profileImageName: String, name: String, numofPeople:Int, numofPost:Int){
+    func configDataInformation(profileImageName: String, name: String, numofPeople:Int, numofPost:Int){
         
-            GLProfileImageview.image = UIImage(named: profileImageName)
+         //   GLProfileImageview.image = UIImage(named: profileImageName)
+            GLProfileImageview.kf.setImage(with: URL(string: profileImageName))
             GLNameLabel.text = name
             GLnumofPLabel.text = String(numofPeople)
             GLnumofPostLabel.text = String (numofPost)

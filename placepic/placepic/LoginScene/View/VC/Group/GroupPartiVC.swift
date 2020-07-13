@@ -10,21 +10,21 @@ import UIKit
 
 class GroupPartiVC: UIViewController {
     
-    @IBOutlet weak var grouppartiTV: UITableView!
-    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var GroupPartiTV: UITableView!
+    @IBOutlet weak var ButtonT: UIButton!
+
     
     private var dataInformations: [groupData] = []
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        grouppartiTV.delegate = self
-        grouppartiTV.dataSource = self
-        setbuttonlookslike()
+        GroupPartiTV.delegate = self
+        GroupPartiTV.dataSource = self
         getData()
+        setbuttonlookslike()
         setNavi()
         
-        
+//
         // Do any additional setup after loading the view.
     }
     
@@ -69,22 +69,6 @@ class GroupPartiVC: UIViewController {
 }
 
 
-extension GroupPartiVC{
-    
-    private func setbuttonlookslike(){
-        button1.backgroundColor = .white
-        button1.layer.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
-        button1.layer.cornerRadius = 8
-        button1.contentHorizontalAlignment = .left
-        button1.setTitle("     찾는 그룹이 없다면 새 그룹을 만들어보세요!", for: .normal)
-        //   button1.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
-        button1.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
-        button1.setTitleColor(UIColor(red: 0.31, green: 0.31, blue: 0.31, alpha: 1), for: .normal)}
-    
-}
-
-
-
 
 
 
@@ -96,11 +80,11 @@ extension GroupPartiVC: UITableViewDelegate {
         return 76
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 0
-    }
-    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//
+//        return 0
+//    }
+//
     //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     //
     //        let view = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
@@ -157,12 +141,13 @@ extension GroupPartiVC: UITableViewDataSource {
         //            TableViewCell.underBar.alpha = 0
         
         //(profileImageName: String, name: String, numofPeople:String, numofPost:String)
+        print(dataInformations)
         TableViewCell.setDataInformation(profileImageName:dataInformations[indexPath.row].groupImage,
                                          name: dataInformations[indexPath.row].groupName,
                                          numofPeople: dataInformations[indexPath.row].userCount,
                                          numofPost: dataInformations[indexPath.row].postCount  )
 //
-//        TableViewCell.GLProfileImageview.layer.cornerRadius = TableViewCell.GLProfileImageview.frame.height/2
+        TableViewCell.image1.layer.cornerRadius = TableViewCell.image1.frame.height/2
 //        //            TableViewCell.GLProfileImageview.layer.cornerRadius = 50/2
 //        TableViewCell.GLProfileImageview.topAnchor.constraint(equalTo: TableViewCell.topAnchor, constant: 13).isActive = true
 //        TableViewCell.GLProfileImageview.leadingAnchor.constraint(equalTo: TableViewCell.leadingAnchor, constant: 16).isActive = true
@@ -194,11 +179,11 @@ extension GroupPartiVC: UITableViewDataSource {
 extension GroupPartiVC {
     
     func getData(){
-        GroupListService.shared.grouplist { networkResult in
+        GroupPartiService.shared.grouplist { networkResult in
             switch networkResult {
                 
             case .success(let products):
-                print("안ㅇ")
+                print("안ㅇㅎㅎㅎㅎㅎㅎㅎ")
                 
                 guard let groups = products as? [groupData] else {return}
                 print("dslk")
@@ -206,7 +191,7 @@ extension GroupPartiVC {
                     self.dataInformations.append(groups[i])
                     print ("dslk")
                 }
-                self.grouppartiTV.reloadData()
+                self.GroupPartiTV.reloadData()
                 
                 guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
                     "nextNavi") as? UITabBarController else { return }
@@ -235,5 +220,20 @@ extension GroupPartiVC {
 }
 
 
+
+
+extension GroupPartiVC{
+    
+    private func setbuttonlookslike(){
+        ButtonT.backgroundColor = .white
+        ButtonT.layer.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
+        ButtonT.layer.cornerRadius = 8
+        ButtonT.contentHorizontalAlignment = .left
+        ButtonT.setTitle("     찾는 그룹이 없다면 새 그룹을 만들어보세요!", for: .normal)
+        //   button1.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
+        ButtonT.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
+        ButtonT.setTitleColor(UIColor(red: 0.31, green: 0.31, blue: 0.31, alpha: 1), for: .normal)}
+    
+}
 
 

@@ -33,6 +33,7 @@
 		13BC82F524B966E000A932F8 /* GroupUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC82F424B966E000A932F8 /* GroupUpService.swift */; };
 		13BC82F724BB4E8700A932F8 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 13BC82F624BB4E8600A932F8 /* Model */; };
 		13BC82F924BB4EAA00A932F8 /* Emailmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC82F824BB4EAA00A932F8 /* Emailmodel.swift */; };
+		13BC82FB24BB9F9F00A932F8 /* GroupPartiTVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC82FA24BB9F9F00A932F8 /* GroupPartiTVC1.swift */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
 		3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50527A24A9BCDC00140BCA /* APIServices.swift */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
@@ -73,6 +74,9 @@
 		AE34145824B3055F00425889 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145724B3055F00425889 /* AdminVC.swift */; };
 		AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145924B33A9600425889 /* PeopleDetailVC.swift */; };
 		AE34145C24B3578000425889 /* adminListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145B24B3578000425889 /* adminListModel.swift */; };
+		AE34146024B4DB6700425889 /* placeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145F24B4DB6700425889 /* placeListModel.swift */; };
+		AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146224B4EFD100425889 /* placeListAPI.swift */; };
+		AE34146524B4F51700425889 /* placeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34146424B4F51700425889 /* placeService.swift */; };
 		AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27424AC2E3500891C6E /* SearchVC.swift */; };
 		AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27824AC59A200891C6E /* ChildVC.swift */; };
 		AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */; };
@@ -107,6 +111,7 @@
 		13BC82F424B966E000A932F8 /* GroupUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUpService.swift; sourceTree = "<group>"; };
 		13BC82F624BB4E8600A932F8 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = placepic/LoginScene/Model; sourceTree = "<group>"; };
 		13BC82F824BB4EAA00A932F8 /* Emailmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emailmodel.swift; sourceTree = "<group>"; };
+		13BC82FA24BB9F9F00A932F8 /* GroupPartiTVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPartiTVC1.swift; sourceTree = "<group>"; };
 		3D50527824A9BCA800140BCA /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		3D50527A24A9BCDC00140BCA /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -154,6 +159,10 @@
 		AE34145724B3055F00425889 /* AdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
 		AE34145924B33A9600425889 /* PeopleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDetailVC.swift; sourceTree = "<group>"; };
 		AE34145B24B3578000425889 /* adminListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = adminListModel.swift; path = placepic/SearchScene/View/VC/adminListModel.swift; sourceTree = SOURCE_ROOT; };
+		AE34145D24B4B1C200425889 /* placeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = placeModel.swift; path = placepic/SearchScene/View/VC/placeModel.swift; sourceTree = SOURCE_ROOT; };
+		AE34145F24B4DB6700425889 /* placeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = placeListModel.swift; path = placepic/SearchScene/View/VC/placeListModel.swift; sourceTree = SOURCE_ROOT; };
+		AE34146224B4EFD100425889 /* placeListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeListAPI.swift; sourceTree = "<group>"; };
+		AE34146424B4F51700425889 /* placeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeService.swift; sourceTree = "<group>"; };
 		AEEEE27424AC2E3500891C6E /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AEEEE27824AC59A200891C6E /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
 		AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListTVC.swift; sourceTree = "<group>"; };
@@ -178,6 +187,7 @@
 			children = (
 				1302CA9324B2DF870013CACC /* GroupListTVC.swift */,
 				13BC82F024B92F9E00A932F8 /* GroupPartiTVC.swift */,
+				13BC82FA24BB9F9F00A932F8 /* GroupPartiTVC1.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -329,8 +339,8 @@
 		3DECB78F24A927FF00D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				134649DB24B4AFD50018F141 /* APIConstants.swift */,
 				134649D424B4AD5A0018F141 /* APIServices */,
+				134649DB24B4AFD50018F141 /* APIConstants.swift */,
 				134649EE24B83CA10018F141 /* GroupListmodel.swift */,
 				134649F224B886D10018F141 /* groupListData.swift */,
 				134649D924B4AF5E0018F141 /* LoginInfomodel.swift */,
@@ -390,8 +400,11 @@
 		3DECB79624A92AF600D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AE34146124B4EF3600425889 /* SearchAPI */,
 				AEEEE27C24ADF08300891C6E /* placeListInfo.swift */,
 				AE34145B24B3578000425889 /* adminListModel.swift */,
+				AE34145D24B4B1C200425889 /* placeModel.swift */,
+				AE34145F24B4DB6700425889 /* placeListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -586,6 +599,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AE34146124B4EF3600425889 /* SearchAPI */ = {
+			isa = PBXGroup;
+			children = (
+				AE34146224B4EFD100425889 /* placeListAPI.swift */,
+				AE34146424B4F51700425889 /* placeService.swift */,
+			);
+			path = SearchAPI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -735,6 +757,8 @@
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
 				13BC82F924BB4EAA00A932F8 /* Emailmodel.swift in Sources */,
 				AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */,
+				AE34146524B4F51700425889 /* placeService.swift in Sources */,
+				AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */,
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
 				13BC82F324B936FD00A932F8 /* GroupPartiService.swift in Sources */,
@@ -744,6 +768,7 @@
 				3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */,
 				1302CA8024AC5EBF0013CACC /* GroupListVC.swift in Sources */,
 				3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */,
+				AE34146024B4DB6700425889 /* placeListModel.swift in Sources */,
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
 				134649E424B521440018F141 /* SigninData.swift in Sources */,
@@ -766,6 +791,7 @@
 				3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */,
 				134649E224B520E30018F141 /* NetworkResult.swift in Sources */,
 				3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */,
+				13BC82FB24BB9F9F00A932F8 /* GroupPartiTVC1.swift in Sources */,
 				3DDD58B324B4E93000764C8F /* HomeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

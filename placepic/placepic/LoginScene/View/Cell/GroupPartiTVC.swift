@@ -16,16 +16,21 @@ class GroupPartiTVC: UITableViewCell {
     @IBOutlet weak var label3: UILabel!
     @IBOutlet weak var label4: UILabel!//post
     @IBOutlet weak var label5: UILabel!
+    
     static let identifier: String = "GroupPartiTVC"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         labelStyle()
+        
         // Initialization code
     }
-        override func setSelected(_ selected: Bool, animated: Bool) {
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
     }
+    
     func setDataInformation(profileImageName: String, name: String, numofPeople:Int, numofPost:Int){
         //image1.image = UIImage(named: profileImageName)
         
@@ -37,7 +42,9 @@ class GroupPartiTVC: UITableViewCell {
         label4.text = String (numofPost)
         
         
-    }}
+    }
+    
+}
 
 
 extension GroupPartiTVC{

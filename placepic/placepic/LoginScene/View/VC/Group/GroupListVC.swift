@@ -79,7 +79,6 @@ extension GroupListVC{
         GroupWaitingButton.layer.backgroundColor = UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1).cgColor
         GroupWaitingButton.layer.cornerRadius = 8
         GroupWaitingButton.contentHorizontalAlignment = .left
-
         GroupWaitingButton.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
         GroupWaitingButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
         GroupWaitingButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)}
@@ -114,7 +113,9 @@ extension GroupListVC: UITableViewDelegate {
 
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        print("유진왕자 안영")
         return 76
+        
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -221,7 +222,7 @@ extension GroupListVC: UITableViewDataSource {
         //            TableViewCell.underBar.alpha = 0
 
         //(profileImageName: String, name: String, numofPeople:String, numofPost:String)
-        TableViewCell.setDataInformation(profileImageName:dataInformations[indexPath.row].groupImage,
+        TableViewCell.configDataInformation(profileImageName:dataInformations[indexPath.row].groupImage,
                                          name: dataInformations[indexPath.row].groupName,
                                          numofPeople: dataInformations[indexPath.row].userCount,
                                          numofPost: dataInformations[indexPath.row].postCount  )

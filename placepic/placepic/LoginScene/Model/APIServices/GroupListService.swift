@@ -14,7 +14,7 @@ struct GroupListService {
     
     func grouplist (completion: @escaping (NetworkResult<Any>) -> Void) {
     
-        let header: HTTPHeaders = ["Content-Type": "application/json", "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjMsIm5hbWUiOiLstZzsmIHtm4giLCJpYXQiOjE1OTM2OTkxODMsImV4cCI6MTU5NjI5MTE4MywiaXNzIjoicGxhY2VwaWMifQ.rmFbeBfviyEzbMlMM4b3bMMiRcNDDbiX8bQtwL_cuN0"] //Request Header 생성
+        let header: HTTPHeaders = ["Content-Type": "application/json", "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjg5LCJuYW1lIjoi7ZmN7KSA7Je9IiwiaWF0IjoxNTk0NjE4NDkzLCJleHAiOjE1OTcyMTA0OTMsImlzcyI6InBsYWNlcGljIn0.p78Y5CFlUYNN-YFf4K5CT_sIilmVqNkazUMcn0mu2eU"] //Request Header 생성
         
         let detaRequest = Alamofire.request(APIConstants.mygrouplistURL, method: .get, encoding: JSONEncoding.default, headers: header)
         detaRequest.responseData { dataResponse in
@@ -48,6 +48,7 @@ struct GroupListService {
         guard let decodedData = try? decoder.decode(GroupListmodel.self, from: data) else { return .pathErr }
         guard let GroupListmodel: [groupData] = decodedData.data else { return .requestErr(decodedData.message) }
         print(GroupListmodel)
+        print("dskdddddj")
         return .success(GroupListmodel)
     }
     

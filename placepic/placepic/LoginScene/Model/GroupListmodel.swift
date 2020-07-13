@@ -24,8 +24,8 @@ struct groupData: Codable {
 
     enum CodingKeys: String, CodingKey {
         case groupIdx, groupUserIdx, userIdx, state, part, phoneNumber, groupName, groupImage
-        case userCount = "UserCount"
-        case postCount = "PostCount"
+        case userCount = "userCount"
+        case postCount = "postCount"
     }
 }
 

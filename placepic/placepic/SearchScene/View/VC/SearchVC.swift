@@ -9,39 +9,51 @@ import UIKit
 import XLPagerTabStrip
 
 class SearchVC: ButtonBarPagerTabStripViewController {
-    
+
+    var dataset: placeData?
     @IBOutlet var buttons: [UIButton]!
     var frame: CGRect!
+    var label: UILabel!
+    
+//    @IBAction func nextBut(_ sender: Any) {
+//        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "PeopleListView")
+//        //vcName?.modalTransitionStyle = .coverVertical
+//        self.present(vcName!, animated: true, completion: nil)
+//    }
+    
     override func viewDidLoad() {
         configureButtonBar()
         super.viewDidLoad()
         setNavigationBar()
         setButtons()
-    
+//        getData()
+        
+//        print(self.placeList)
+        
         for i in 1..<3 {
-            buttons[i].alpha = 0
+            buttons[i].alpha = 1
         }
         //        text1.text = "aaa"
-//        text1.frame.size.width = 15
-//        text1.
-//        navigationController?.navigationBar.isHidden = true
-//        viewPager.translatesAutoresizingMaskIntoConstraints = false
-//
-//        viewPager.frame = CGRect.init(x: 0, y: 44, width: view.frame.width, height: 44)
-//
-//        let constraints = [
-//            viewPager.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 44),
-//             viewPager.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-//        ]
-//
-//        NSLayoutConstraint.activate(constraints)
-//
+        //        text1.frame.size.width = 15
+        //        text1.
+        //        navigationController?.navigationBar.isHidden = true
+        //        viewPager.translatesAutoresizingMaskIntoConstraints = false
+        //
+        //        viewPager.frame = CGRect.init(x: 0, y: 44, width: view.frame.width, height: 44)
+        //
+        //        let constraints = [
+        //            viewPager.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 44),
+        //             viewPager.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
+        //        ]
+        //
+        //        NSLayoutConstraint.activate(constraints)
+        //
     }
-
-//    func textFieldDidChange(sender: UITextField) {
-//        sender.invalidateIntrinsicContentSize()
-//    }
-//
+    
+    //    func textFieldDidChange(sender: UITextField) {
+    //        sender.invalidateIntrinsicContentSize()
+    //    }
+    //
     
     // MARK: - Configuration
     
@@ -57,8 +69,8 @@ class SearchVC: ButtonBarPagerTabStripViewController {
     }
     
     
-    func setButtons(){
-        for i in 0..<3{
+    func setButtons() {
+        for i in 0..<3 {
             buttons[i].layer.cornerRadius = 4
         }
     }
@@ -69,40 +81,68 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         return txtField.frame.size.width
     }
     
-        private func setNavigationBar() {
-            guard let navigationBar = self.navigationController?.navigationBar else { return }
-            
-            navigationBar.isTranslucent = true
-            navigationBar.backgroundColor = UIColor.clear
-            navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            navigationBar.shadowImage = UIImage()
-            
-            let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-                                                              style: .plain,
-                                                              target: self,
-                                                              action: #selector(showSideMenuBar))
-       
-//        leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        let leftButton2: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-                                                             style: .plain,
-                                                             target: self,
-                                                             action: #selector(showSideMenuBar))
-     
-//        leftButton2.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0.1)
-        let buttons = [leftButton,leftButton2]
-        navigationItem.setRightBarButtonItems(buttons, animated: true)
+    private func setNavigationBar() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
         
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(showSideMenuBar))
+        
+        //        leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let leftButton2: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(showSideMenuBar))
+        
+        //        leftButton2.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0.1)
+        let titleLabel = UILabel()
+        titleLabel.text = "플레이스"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        titleLabel.sizeToFit()
+        
+        let leftItem = UIBarButtonItem(customView: titleLabel)
+        navigationItem.leftBarButtonItem = leftItem
     }
     
     @objc private func showSideMenuBar() {
         
     }
     
+//    func getData(){
+//        placeService.shared.getPlaces() { networkResult in
+//            switch networkResult {
+//            case .success(let products):
+//                print("~!@@#!@#")
+//                guard let places = products as? [placeData] else { return }
+//                for i in 0..<places.count{
+//                    self.placeList.append(places[i])
+////                    print(self.placeList[i])
+//                }
+//                thatTableView.reloadData()
+//            case .requestErr(let message):
+//                guard let message = message as? String else { return }
+//                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                alertViewController.addAction(action)
+//                self.present(alertViewController, animated: true, completion: nil)
+//            case .pathErr: print("path")
+//            case .serverErr: print("serverErr")
+//            case .networkFail: print("networkFail")
+//
+//            }
+//        }
+//    }
     
     func configureButtonBar() {
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
-
+        
         settings.style.buttonBarItemFont = UIFont(name: "Apple SD Gothic Neo", size: 15.0)!
         settings.style.buttonBarItemTitleColor = .gray
         
@@ -110,7 +150,7 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
         settings.style.buttonBarLeftContentInset = 0
         settings.style.buttonBarRightContentInset = 0
-
+        
         settings.style.selectedBarHeight = 3.0
         settings.style.selectedBarBackgroundColor = .black
         
@@ -122,11 +162,11 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         }
     }
     
-//    override func updateIndicator(for viewController: PagerTabStripViewController, fromIndex: Int, toIndex: Int, withProgressPercentage progressPercentage: CGFloat, indexWasChanged: Bool) {
-//
-//        print(fromIndex, toIndex)
-//    }
-//
+    //    override func updateIndicator(for viewController: PagerTabStripViewController, fromIndex: Int, toIndex: Int, withProgressPercentage progressPercentage: CGFloat, indexWasChanged: Bool) {
+    //
+    //        print(fromIndex, toIndex)
+    //    }
+    //
     
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -136,24 +176,22 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         
         let child2 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child2.childNumber = "맛집"
-
+        
         let child3 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child3.childNumber = "술집"
-
+        
         let child4 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child4.childNumber = "카페"
-
+        
         let child5 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child5.childNumber = "스터디"
-
+        
         let child6 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child6.childNumber = "기타"
-
+        
         return [child1, child2, child3, child4, child5, child6]
     }
- 
 }
-
 extension UIButton {
     func centerTextAndImage(spacing: CGFloat) {
         let insetAmount = spacing / 2
@@ -169,5 +207,5 @@ extension UIButton {
 //          launcher.homeController = self
 //          return launcher
 //    }()
-    
+
 
