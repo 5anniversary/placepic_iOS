@@ -27,40 +27,67 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    private func getImageArray() {        
+    class func topViewController() -> UIViewController? {
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
-            var config = YPImagePickerConfiguration()
-            config.showsCrop = .rectangle(ratio: (9/16))
-            config.showsPhotoFilters = false
-            config.startOnScreen = .library
-            config.screens = [.library]
-            config.library.defaultMultipleSelection = true
-            config.library.maxNumberOfItems = 10
-            
-            let picker = YPImagePicker(configuration: config)
-            photoArray = []
-            
-            picker.didFinishPicking { [unowned picker] items, cancelled in
-                if cancelled {
-                    picker.dismiss(animated: true, completion: nil)
-                    return
+            if var viewController = window.rootViewController {
+                while viewController.presentedViewController != nil {
+                    viewController = viewController.presentedViewController!
                 }
-                for item in items {
-                    switch item {
-                    // 이미지만 받기때문에 photo case만 처리
-                    case .photo(let p):
-                        // 이미지를 해당하는 이미지 배열에 넣어주는 code
-                        self.photoArray.append(p.image)
-                    default:
-                        print("")
+                print("topViewController -> \(String(describing: viewController))")
+                return viewController
+            }
+        }
+        return nil
+    }
+    
+    private func getImageArray() {
+        if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+            
+            let sb = UIStoryboard.init(name: "Home", bundle: nil)
+            guard let vc = sb.instantiateViewController(identifier: "ArticleUploadVC") as? ArticleUploadVC else {
+                return
+            }
+            window.rootViewController = vc
+            if var viewController = window.rootViewController {
+                print("viewController : \(viewController)")
+                while viewController.presentingViewController != nil {
+                    viewController = viewController.presentingViewController!
+                    print("viewController : \(viewController)")
+                    
+                    var config = YPImagePickerConfiguration()
+                    config.showsCrop = .rectangle(ratio: (9/16))
+                    config.showsPhotoFilters = false
+                    config.startOnScreen = .library
+                    config.screens = [.library]
+                    config.library.defaultMultipleSelection = true
+                    config.library.maxNumberOfItems = 10
+                    
+                    let picker = YPImagePicker(configuration: config)
+                    photoArray = []
+                    
+                    picker.didFinishPicking { [unowned picker] items, cancelled in
+                        if cancelled {
+                            picker.dismiss(animated: true, completion: nil)
+                            return
+                        }
+                        for item in items {
+                            switch item {
+                            // 이미지만 받기때문에 photo case만 처리
+                            case .photo(let p):
+                                // 이미지를 해당하는 이미지 배열에 넣어주는 code
+                                self.photoArray.append(p.image)
+                            default:
+                                print("")
+                            }
+                        }
+                        picker.dismiss(animated: true) {
+                            // picker뷰 dismiss 할 때 이미지가 들어가 있는 collectionView reloadData()
+                            self.collectionView.reloadData()
+                        }
                     }
-                }
-                picker.dismiss(animated: true) {
-                    // picker뷰 dismiss 할 때 이미지가 들어가 있는 collectionView reloadData()
-                    self.collectionView.reloadData()
+                    window.rootViewController?.present(picker, animated: true, completion: nil)
                 }
             }
-            window.rootViewController?.present(picker, animated: true, completion: nil)
         }
     }
 }
