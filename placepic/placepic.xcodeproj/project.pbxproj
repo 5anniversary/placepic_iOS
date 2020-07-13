@@ -39,7 +39,6 @@
 		3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83AC24BB0E0B00ACD85A /* ArticleWritingServices.swift */; };
 		3D6F83AF24BB13C800ACD85A /* CollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83AE24BB13C800ACD85A /* CollectionViewFlowLayout.swift */; };
 		3D6F83B124BB186000ACD85A /* FindfavoritePlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B024BB186000ACD85A /* FindfavoritePlaceTVC.swift */; };
-		3D6F83B324BB198A00ACD85A /* PlaceSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B224BB198A00ACD85A /* PlaceSearchModel.swift */; };
 		3D6F83B524BB20BB00ACD85A /* PlaceSearchServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B424BB20BB00ACD85A /* PlaceSearchServices.swift */; };
 		3D6F83B724BB348400ACD85A /* WriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B624BB348400ACD85A /* WriteNavigationController.swift */; };
 		3D84896924B4116F00AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -79,6 +78,7 @@
 		3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB7C024A9311200D54DBF /* Extensions+UITextField.swift */; };
 		3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDAC5024B4D6700069990A /* GeneralAPI.swift */; };
 		555A901CCC128ACD75D29CFE /* Pods_placepic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4DAE51304F8ADC517262E /* Pods_placepic.framework */; };
+		AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0192E324BCE6180051ACE6 /* PlaceSearchModel.swift */; };
 		AE34145824B3055F00425889 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145724B3055F00425889 /* AdminVC.swift */; };
 		AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145924B33A9600425889 /* PeopleDetailVC.swift */; };
 		AE34145C24B3578000425889 /* adminListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145B24B3578000425889 /* adminListModel.swift */; };
@@ -133,7 +133,6 @@
 		3D6F83AC24BB0E0B00ACD85A /* ArticleWritingServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWritingServices.swift; sourceTree = "<group>"; };
 		3D6F83AE24BB13C800ACD85A /* CollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		3D6F83B024BB186000ACD85A /* FindfavoritePlaceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindfavoritePlaceTVC.swift; sourceTree = "<group>"; };
-		3D6F83B224BB198A00ACD85A /* PlaceSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchModel.swift; sourceTree = "<group>"; };
 		3D6F83B424BB20BB00ACD85A /* PlaceSearchServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchServices.swift; sourceTree = "<group>"; };
 		3D6F83B624BB348400ACD85A /* WriteNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNavigationController.swift; sourceTree = "<group>"; };
 		3DCD865B24BAD336006783D2 /* UsefulImformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulImformModel.swift; sourceTree = "<group>"; };
@@ -175,6 +174,7 @@
 		3DFDAC5024B4D6700069990A /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
 		5277CB7E16744F56C4AC28BE /* Pods-placepic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placepic.release.xcconfig"; path = "Target Support Files/Pods-placepic/Pods-placepic.release.xcconfig"; sourceTree = "<group>"; };
 		83ACEB602688407CABFF2AF4 /* Pods-placepic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placepic.debug.xcconfig"; path = "Target Support Files/Pods-placepic/Pods-placepic.debug.xcconfig"; sourceTree = "<group>"; };
+		AE0192E324BCE6180051ACE6 /* PlaceSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSearchModel.swift; sourceTree = "<group>"; };
 		AE34145724B3055F00425889 /* AdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
 		AE34145924B33A9600425889 /* PeopleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDetailVC.swift; sourceTree = "<group>"; };
 		AE34145B24B3578000425889 /* adminListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = adminListModel.swift; path = placepic/MypageScene/Model/adminListModel.swift; sourceTree = SOURCE_ROOT; };
@@ -237,11 +237,11 @@
 		3D6C163424B8771A0050979C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AE0192E324BCE6180051ACE6 /* PlaceSearchModel.swift */,
 				3DCE5F6C24B4EF8F00BAF927 /* SubwayModel.swift */,
 				3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */,
 				3D6BAF8C24B0D7B600F6339E /* KeywordModel.swift */,
 				3DCD865B24BAD336006783D2 /* UsefulImformModel.swift */,
-				3D6F83B224BB198A00ACD85A /* PlaceSearchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -848,12 +848,12 @@
 				3DCE5F6B24B4EF7F00BAF927 /* StationModel.swift in Sources */,
 				1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
+				AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */,
 				3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */,
 				3DCE5F7B24B51B1D00BAF927 /* HomeReviewCVC.swift in Sources */,
 				3DCE5F7124B5114F00BAF927 /* NearstaionHeaderCVC.swift in Sources */,
 				1302CA7E24AC55330013CACC /* SendVC.swift in Sources */,
 				3DECB7B224A92C2F00D54DBF /* FavoritePlaceSearchVC.swift in Sources */,
-				3D6F83B324BB198A00ACD85A /* PlaceSearchModel.swift in Sources */,
 				3D50527B24A9BCDC00140BCA /* APIServices.swift in Sources */,
 				3DCD865C24BAD336006783D2 /* UsefulImformModel.swift in Sources */,
 				3DCE5F7F24B577D300BAF927 /* OutterUploadCVC.swift in Sources */,

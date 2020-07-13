@@ -67,7 +67,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         placeService.shared.getPlaces(urlString){ networkResult in
             switch networkResult {
             case .success(let products):
-                guard let places = products as? DataClass else { return }
+                guard let places = products as? PlaceDataClass else { return }
                 for i in 0..<places.count{
                     self.placeListData.append(places.result[i])
                 }

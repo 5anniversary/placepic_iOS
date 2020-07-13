@@ -69,11 +69,11 @@ struct placeListModel: Codable {
     var status: Int
     var success: Bool
     var message: String
-    var data: DataClass
+    var data: PlaceDataClass?
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct PlaceDataClass: Codable {
     var result: [placeData]
     var count: Int
 }

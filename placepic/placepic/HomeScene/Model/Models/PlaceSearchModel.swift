@@ -25,7 +25,7 @@ import Foundation
 //}
 
 // MARK: - Empty
-struct PlaceSearchModel: Codable {
+struct PlaceSearchModel: Decodable, Encodable {
     let status: Int?
     let success: Bool?
     let message: String?
@@ -33,7 +33,7 @@ struct PlaceSearchModel: Codable {
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct DataClass: Decodable, Encodable {
     let result: [PlaceSearchData]?
     let count: Int?
 }
@@ -46,3 +46,4 @@ struct PlaceSearchData: Codable {
     let mobileNaverMapLink: String?
     let alreadyIn: Bool?
 }
+
