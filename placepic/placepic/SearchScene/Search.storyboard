@@ -264,7 +264,7 @@
                                             <outletCollection property="placeTag" destination="BHg-hY-AaM" collectionClass="NSMutableArray" id="DE6-iG-kbT"/>
                                             <outletCollection property="placeTag" destination="h9P-4b-uT1" collectionClass="NSMutableArray" id="jWb-iF-hgq"/>
                                             <outletCollection property="placeTag" destination="BHg-hY-AaM" collectionClass="NSMutableArray" id="wXy-dJ-z9f"/>
-                                            <segue destination="F5B-vE-VBo" kind="presentation" modalPresentationStyle="overFullScreen" id="PRw-WP-csb"/>
+                                            <segue destination="F5B-vE-VBo" kind="show" id="PRw-WP-csb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -291,18 +291,72 @@
         <!--Place DetailVC-->
         <scene sceneID="inn-Q8-f8H">
             <objects>
-                <viewController id="F5B-vE-VBo" customClass="placeDetailVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="F5B-vE-VBo" customClass="placeDetailVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U3X-V5-E7B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy2" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-3R-Uiu">
+                                <rect key="frame" x="14" y="18" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="F5p-x2-7ax"/>
+                                    <constraint firstAttribute="height" constant="40" id="zF0-8v-y1y"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPf-Lw-jfb">
+                                <rect key="frame" x="65" y="21" width="40" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mI-Jq-zrN">
+                                <rect key="frame" x="64" y="41" width="31" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UB6-bg-mDO" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="0.0" y="70" width="375" height="375"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="Hkq-UD-Bym"/>
+                                    <constraint firstAttribute="width" constant="375" id="PTY-z3-cJO"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="F5B-vE-VBo" id="vum-To-fOo"/>
+                                    <outlet property="delegate" destination="F5B-vE-VBo" id="BOq-bj-n2O"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1d3-mr-Hcr" customClass="FSPageControl" customModule="FSPagerView">
+                                <rect key="frame" x="157" y="398" width="62" height="8"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HPf-Lw-jfb" firstAttribute="leading" secondItem="jeN-3R-Uiu" secondAttribute="trailing" constant="11" id="AZs-g3-GS3"/>
+                            <constraint firstItem="HPf-Lw-jfb" firstAttribute="top" secondItem="diw-g6-eeh" secondAttribute="top" constant="21" id="DRs-IK-Ytr"/>
+                            <constraint firstItem="2mI-Jq-zrN" firstAttribute="top" secondItem="HPf-Lw-jfb" secondAttribute="bottom" constant="2" id="L1v-F1-EDK"/>
+                            <constraint firstItem="UB6-bg-mDO" firstAttribute="top" secondItem="jeN-3R-Uiu" secondAttribute="bottom" constant="12" id="Oub-1h-RMj"/>
+                            <constraint firstItem="2mI-Jq-zrN" firstAttribute="leading" secondItem="jeN-3R-Uiu" secondAttribute="trailing" constant="10" id="Pi5-oR-2js"/>
+                            <constraint firstItem="UB6-bg-mDO" firstAttribute="leading" secondItem="diw-g6-eeh" secondAttribute="leading" id="Wzs-cN-zfi"/>
+                            <constraint firstItem="diw-g6-eeh" firstAttribute="trailing" secondItem="UB6-bg-mDO" secondAttribute="trailing" id="c3S-Dg-P6b"/>
+                            <constraint firstItem="jeN-3R-Uiu" firstAttribute="leading" secondItem="diw-g6-eeh" secondAttribute="leading" constant="14" id="hX4-sW-uXL"/>
+                            <constraint firstItem="jeN-3R-Uiu" firstAttribute="top" secondItem="diw-g6-eeh" secondAttribute="top" constant="18" id="rlC-uc-IUM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="diw-g6-eeh"/>
                     </view>
                     <navigationItem key="navigationItem" id="xO6-Nj-Fhi"/>
+                    <connections>
+                        <outlet property="detailImg" destination="UB6-bg-mDO" id="1gw-Hs-l7f"/>
+                        <outlet property="pageControl" destination="1d3-mr-Hcr" id="3QM-qJ-VwJ"/>
+                        <outlet property="profileImg" destination="jeN-3R-Uiu" id="SYW-3e-3wB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upC-lM-eCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2970.4000000000001" y="-45.42728635682159"/>
+            <point key="canvasLocation" x="-2871" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cpw-UU-KFW">
@@ -325,5 +379,6 @@
     </scenes>
     <resources>
         <image name="downArrowIc" width="16" height="16"/>
+        <image name="dummy2" width="300" height="300"/>
     </resources>
 </document>
