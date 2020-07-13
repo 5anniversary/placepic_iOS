@@ -23,13 +23,18 @@ class PlaceListTVC: UITableViewCell {
     //210
     override func awakeFromNib() {
         super.awakeFromNib()
+        placeWriter.layer.cornerRadius = placeWriter.frame.height/2
+        for i in 0..<3{
+            placeTag[i].layer.borderWidth = 0.0
+        }
+        placeTag[1].layer.borderWidth = 0.0
+//        placeTag[1].borderStyle.
         
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
@@ -39,10 +44,11 @@ class PlaceListTVC: UITableViewCell {
         placeDate.text = pDate
         placePhoto.kf.setImage(with: URL(string: pPhoto))
         placeWriter.kf.setImage(with: URL(string: pWriter))
-        placeWriter.layer.cornerRadius = 5
+        placePhoto.layer.cornerRadius = 4
         writerName.text = wName
         placeTag[0].text = pTag1
         placeTag[1].text = pTag2
         placeTag[2].text = pTag3
+        
     }
 }

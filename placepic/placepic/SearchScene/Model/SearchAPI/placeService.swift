@@ -46,7 +46,7 @@ struct placeService {
         private func isPlace(by data: Data) -> NetworkResult<Any> {
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(placeListModel.self, from: data) else { return .pathErr }
-            guard let placeData: [placeData] = decodedData.data else { return .requestErr(decodedData.message) }
+            guard let placeData: DataClass = decodedData.data else { return .requestErr(decodedData.message) }
             return .success(placeData)
         }
 }
