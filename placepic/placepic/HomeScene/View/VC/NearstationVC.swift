@@ -126,10 +126,8 @@ extension NearstationVC {
         NotificationCenter.default.post(name: .homeSendmodelNotification, object: nil, userInfo: ["model": collectionViewModel])
         
         navigationController?.popViewController(animated: true)
-        
     }
 }
-
 
 //MARK: - 통신
 extension NearstationVC {
@@ -191,7 +189,8 @@ extension NearstationVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    }
+    
+    }  
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48

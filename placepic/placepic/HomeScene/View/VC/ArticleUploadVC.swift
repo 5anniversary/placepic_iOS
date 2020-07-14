@@ -13,11 +13,15 @@ import Alamofire
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
     let usefulKeywordModel: [String] = []
-    var keywordData: [KeywordData] = []
     var nearstationData: [SubwayData] = []
+    var keywordData: [KeywordData] = []
     var usefulKeywordData: [UsefulInformData] = []
+    var photoArray: [UIImage]! = []
+    
+    var storageKeywordData: [KeywordData] = []
+    var storageUsefulKeywordData: [UsefulInformData] = []
     
     var articleTitle: String = ""
     var classifyBadge: String = ""
@@ -84,15 +88,62 @@ extension ArticleUploadVC {
         collectionView.reloadData()
     }
     
-    func returnDynamicHeight() -> CGSize {
+    func returnNearStationDynamicHeight() -> CGSize {
         let width = view.frame.width
-        /// cell에 접근해서 처리하고자 함
-        /// 셀마다 분기해서 처리하고자 함
-        
-        if nearstationData.count == 0 {
-            return CGSize(width: width, height: 60)
-        } else {
+        /// `flag 도입하면 지하철역 돌아갔다 와도 괜춘겠네욤`
+        if nearstationData.count != 0 {
             return CGSize(width: width, height: 90)
+        } else {
+            return CGSize(width: width, height: 60)
+        }
+    }
+    
+    func returnKeywordDynamicHeight() -> CGFloat {
+        let width = UIScreen.main.bounds.width - 20
+        let height: CGFloat = 24
+        let itemspacing: CGFloat = 10
+        
+        var floor: CGFloat = 1
+        var heightTemp: CGFloat = 0
+        
+        if storageKeywordData.count == 0 {
+            return CGFloat(60)
+        } else {
+            storageKeywordData.forEach {
+                guard let nameWidth = $0.tagName?.width(withConstrainedHeight: 24, font: .boldSystemFont(ofSize: 14)) else { return }
+                heightTemp += nameWidth + itemspacing + 20
+                
+                if width < heightTemp {
+                    floor += 1
+                    heightTemp = 0
+                }
+            }
+            return height * floor
+        }
+    }
+    
+    
+    func returnUsefulInfoDynamicHeight() -> CGFloat {
+        let width = UIScreen.main.bounds.width - 20
+        let height: CGFloat = 24
+        let itemspacing: CGFloat = 10
+        
+        var floor: CGFloat = 1
+        var heightTemp: CGFloat = 0
+        
+        if storageUsefulKeywordData.count == 0 {
+            return CGFloat(60)
+        } else {
+            storageUsefulKeywordData.forEach {
+                guard let nameWidth = $0.tagName?.width(withConstrainedHeight: 24, font: .boldSystemFont(ofSize: 14)) else { return }
+                heightTemp += nameWidth + itemspacing + 20
+                
+                if width < heightTemp {
+                    floor += 1
+                    heightTemp = 0
+                }
+            }
+            return height * floor
         }
     }
 }
@@ -128,16 +179,16 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-      
+        
         switch indexPath.section {
         case 0:
             return CGSize(width: width, height: 98)
         case 1:
-            return returnDynamicHeight()
+            return returnNearStationDynamicHeight()
         case 2:
-            return returnDynamicHeight()
+            return CGSize(width: width, height: returnKeywordDynamicHeight())
         case 3:
-            return returnDynamicHeight()
+            return CGSize(width: width, height: returnUsefulInfoDynamicHeight())
         case 4:
             return CGSize(width: width, height: 452)
         default:
@@ -209,7 +260,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             if nearstationData.count == 0 {
-                
             } else if nearstationData.count == 1 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
@@ -222,30 +272,30 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             } else {
                 cell.stackView.isHidden = false
             }
-            
             for i in 0..<nearstationData.count {
                 cell.textFieldArray[i].text = nearstationData[i].subwayName
             }
-            return cell
             
+            return cell
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeKeywordCVC", for: indexPath) as? HomeKeywordCVC else {
                 return UICollectionViewCell()
             }
-            return cell
+            cell.keywordArray = storageKeywordData
             
+            return cell
         case 3:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsefulInformationCVC", for: indexPath) as? UsefulInformationCVC else {
                 return UICollectionViewCell()
             }
-            return cell
             
+            return cell
         case 4:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeReviewCVC", for: indexPath) as? HomeReviewCVC else {
                 return UICollectionViewCell()
             }
-            return cell
             
+            return cell
         default:
             assert(false)
         }
@@ -256,7 +306,14 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        
+        if indexPath.section == 0 {
+            //            let newIndexPath = IndexPath(item: 0, section: 0)
+            //            self.collectionView.selectItem(at: newIndexPath, animated: true, scrollPosition: .bottom)
+            print(#function)
+            tempfunction()
+            
+        } else if indexPath.section == 1 {
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "NearstationVC") as? NearstationVC else {
                 return
             }
@@ -268,4 +325,40 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             keywordModal.showSettings("장소 정보", usefulKeywordData)
         }
     }
+    
+    func tempfunction() {
+        var config = YPImagePickerConfiguration()
+        config.showsCrop = .rectangle(ratio: (9/16))
+        config.showsPhotoFilters = false
+        config.startOnScreen = .library
+        config.screens = [.library]
+        config.library.defaultMultipleSelection = true
+        config.library.maxNumberOfItems = 10
+        
+        let picker = YPImagePicker(configuration: config)
+        photoArray = []
+        
+        picker.didFinishPicking { [unowned picker] items, cancelled in
+            if cancelled {
+                picker.dismiss(animated: true, completion: nil)
+                return
+            }
+            for item in items {
+                switch item {
+                // 이미지만 받기때문에 photo case만 처리
+                case .photo(let p):
+                    // 이미지를 해당하는 이미지 배열에 넣어주는 code
+                    self.photoArray.append(p.image)
+                default:
+                    print("")
+                }
+            }
+            picker.dismiss(animated: true) {
+                // picker뷰 dismiss 할 때 이미지가 들어가 있는 collectionView reloadData()
+                self.collectionView.reloadData()
+            }
+        }
+        present(picker, animated: true, completion: nil)
+    }
+    
 }

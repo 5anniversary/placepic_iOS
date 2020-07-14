@@ -10,43 +10,68 @@ import UIKit
 
 class HomeKeywordCVC: UICollectionViewCell {
     
-    @IBOutlet var textFieldArray: [UITextField]!
-    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var keywordTitleLabel: UILabel!
+    @IBOutlet weak var innerCollectionView: UICollectionView!
+    
+    var keywordArray: [KeywordData] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureTextfield()
-        stackView.isHidden = true
+        setCollectionView()
+        innerCollectionView.collectionViewLayout = CenterAlignedCollectionViewFlowLayout()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        textFieldArray.forEach({
-            $0.isHidden = false
-        })
     }
-    
+}
+
+extension HomeKeywordCVC {
+
     private func configureTextfield() {
         keywordTitleLabel.font = Font.boldFontSize15
         keywordTitleLabel.textColor = UIColor.gray90
         
-        textFieldArray.forEach({
-            $0.font = .systemFont(ofSize: 13)
-            $0.layer.cornerRadius = 5
-            $0.clipsToBounds = true
-            $0.layer.borderColor = UIColor.white.cgColor
-            $0.layer.borderWidth = 1
-            $0.isUserInteractionEnabled = false
-            $0.backgroundColor = UIColor.gray10
-        })
+    }
+    
+    private func setCollectionView() {
+        innerCollectionView.delegate = self
+        innerCollectionView.dataSource = self
     }
 }
 
-//MARK:- 통신
-extension HomeKeywordCVC {
-
-}
-
+extension HomeKeywordCVC: UICollectionViewDelegateFlowLayout {
+   
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = UIScreen.main.bounds.width
+        let height: CGFloat = 23
+    
+        return CGSize(width: width, height: height)
+    }
+}
+extension HomeKeywordCVC: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return keywordArray.count
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InnerKeywordCVC", for: indexPath) as? InnerKeywordCVC else {
+            return UICollectionViewCell()
+        }
+        cell.model = keywordArray[indexPath.item]
+        return cell
+    }
+}
 
