@@ -103,7 +103,6 @@
 		1302CA7F24AC5EBF0013CACC /* GroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListVC.swift; sourceTree = "<group>"; };
 		1302CA8124AC70A00013CACC /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
 		1302CA8324ACCC540013CACC /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
-		1302CA8F24AF34350013CACC /* SignUp2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp2VC.swift; path = ../../../../../../../.Trash/SignUp2VC.swift; sourceTree = "<group>"; };
 		1302CA9324B2DF870013CACC /* GroupListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListTVC.swift; sourceTree = "<group>"; };
 		1302CA9624B342760013CACC /* GroupReqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReqVC.swift; sourceTree = "<group>"; };
 		3D06C27F24BBA6C900A4F869 /* ClassifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyVC.swift; sourceTree = "<group>"; };
@@ -211,6 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				1302CA9324B2DF870013CACC /* GroupListTVC.swift */,
+				13BC82F024B92F9E00A932F8 /* GroupPartiTVC.swift */,
+				13BC82FA24BB9F9F00A932F8 /* GroupPartiTVC1.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -308,6 +309,7 @@
 		3DECB76724A9274100D54DBF = {
 			isa = PBXGroup;
 			children = (
+				13BC82F624BB4E8600A932F8 /* Model */,
 				3DECB77224A9274100D54DBF /* placepic */,
 				3DECB77124A9274100D54DBF /* Products */,
 				A8F160BA8789A8A35E3C82E6 /* Pods */,
@@ -374,13 +376,8 @@
 		3DECB78B24A9274D00D54DBF /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				1302CA9624B342760013CACC /* GroupReqVC.swift */,
-				1302CA7D24AC55330013CACC /* SendVC.swift */,
-				3DECB77724A9274100D54DBF /* LoginVC.swift */,
-				1302CA8F24AF34350013CACC /* SignUp2VC.swift */,
-				1302CA7F24AC5EBF0013CACC /* GroupListVC.swift */,
-				1302CA8124AC70A00013CACC /* SigninVC.swift */,
-				1302CA8324ACCC540013CACC /* SignupVC.swift */,
+				134649E824B5BD470018F141 /* Signupin */,
+				134649E724B5BD2C0018F141 /* Group */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -388,6 +385,13 @@
 		3DECB78F24A927FF00D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				134649D424B4AD5A0018F141 /* APIServices */,
+				134649DB24B4AFD50018F141 /* APIConstants.swift */,
+				134649EE24B83CA10018F141 /* GroupListmodel.swift */,
+				134649F224B886D10018F141 /* groupListData.swift */,
+				134649D924B4AF5E0018F141 /* LoginInfomodel.swift */,
+				134649DF24B5159B0018F141 /* SignupInfomodel.swift */,
+				134649EA24B649F60018F141 /* Emailmodel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -734,6 +738,7 @@
 				3DECB77D24A9274200D54DBF /* Assets.xcassets in Resources */,
 				3D06C28424BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib in Resources */,
 				3D62560924AA49C30047AD70 /* Search.storyboard in Resources */,
+				13BC82F724BB4E8700A932F8 /* Model in Resources */,
 				3D62560D24AA4A050047AD70 /* Rank.storyboard in Resources */,
 				3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */,
 				3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */,
@@ -796,6 +801,7 @@
 				3DAC651B24B6EFF800FBA399 /* SubwayModel.swift in Sources */,
 				3DAC651A24B6EFE400FBA399 /* (null) in Sources */,
 				AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */,
+				134649EF24B83CA10018F141 /* GroupListmodel.swift in Sources */,
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
 				AE34147224B6D90000425889 /* adminAPI.swift in Sources */,
 				1302CA8224AC70A00013CACC /* SigninVC.swift in Sources */,
@@ -806,6 +812,8 @@
 				3DDABA3324BAC23A0061A6C7 /* NearstationFooterCVC.swift in Sources */,
 				AEEEE27D24ADF08300891C6E /* placeListInfo.swift in Sources */,
 				AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */,
+				134649DC24B4AFD50018F141 /* APIConstants.swift in Sources */,
+				134649ED24B64A640018F141 /* EmailService.swift in Sources */,
 				3DECB77824A9274100D54DBF /* LoginVC.swift in Sources */,
 				3D6BAF8F24B108A400F6339E /* ArticleUploadVC.swift in Sources */,
 				3D84896B24B440A600AE6A45 /* (null) in Sources */,
@@ -825,7 +833,9 @@
 				AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */,
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
+				13BC82F324B936FD00A932F8 /* GroupPartiService.swift in Sources */,
 				3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */,
+				134649F124B843FB0018F141 /* GroupListService.swift in Sources */,
 				3D6BAF9324B1D21A00F6339E /* NearstationCVC.swift in Sources */,
 				3D6C163724B877790050979C /* KeywordServies.swift in Sources */,
 				3DECB7C724A9311200D54DBF /* Extensions+UITextField.swift in Sources */,
@@ -841,12 +851,18 @@
 				3DCE5F7924B519D600BAF927 /* UsefulInformationCVC.swift in Sources */,
 				AE34146724B4F66900425889 /* NetworkResult.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
+				134649E424B521440018F141 /* SigninData.swift in Sources */,
+				134649F324B886D10018F141 /* groupListData.swift in Sources */,
 				3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */,
+				134649DE24B4F0250018F141 /* GroupUpVC.swift in Sources */,
+				134649D624B4AD7A0018F141 /* LoginService.swift in Sources */,
 				1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */,
+				134649D124B417FE0018F141 /* Signup3VC.swift in Sources */,
 				3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */,
 				3D6F83B124BB186000ACD85A /* FindfavoritePlaceTVC.swift in Sources */,
 				3DCE5F6B24B4EF7F00BAF927 /* StationModel.swift in Sources */,
 				1302CA8424ACCC540013CACC /* SignupVC.swift in Sources */,
+				13BC82F524B966E000A932F8 /* GroupUpService.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
 				AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */,
 				3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */,

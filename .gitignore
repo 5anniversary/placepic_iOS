@@ -1,8 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/swift,cocoapods,firebase,xcode
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,cocoapods,firebase,xcode
 
+.DS_Store
+*/.DS_Store
+
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
+
 
 # CocoaPods - Only use to conserve bandwidth / Save time on Pushing
 #           - Also handy if you have a large number of dependant pods
@@ -122,4 +126,3 @@ iOSInjectionProject/
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,cocoapods,firebase,xcode
 
-.DS_Store
