@@ -5,7 +5,6 @@
 //  Created by elesahich on 2020/07/05.
 //  Copyright © 2020 elesahich. All rights reserved.
 //
-
 import UIKit
 import YPImagePicker
 import Alamofire
@@ -14,7 +13,6 @@ class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let usefulKeywordModel: [String] = []
     var nearstationData: [SubwayData] = []
     var keywordData: [KeywordData] = []
     var usefulKeywordData: [UsefulInformData] = []
@@ -45,6 +43,8 @@ extension ArticleUploadVC {
     
     private func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeDefaultCellHeight), name: .homeSendmodelNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keywordSendedIndex), name: .homeModalKeywordNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(usefulSendedIndex(_:)), name: .homeModalUsefulNotification, object: nil)
     }
     
     private func setNavigationBar() {
@@ -81,6 +81,33 @@ extension ArticleUploadVC {
         collectionView.dataSource = self
     }
     
+    @objc private func keywordSendedIndex(_ notification: NSNotification) {
+        
+        storageKeywordData = []
+        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
+            return
+        }
+        
+        for i in 0..<injectedModel.count {
+            print(keywordData[injectedModel[i]])
+            storageKeywordData.append(keywordData[injectedModel[i]])
+        }
+        collectionView.reloadData()
+    }
+    
+    @objc private func usefulSendedIndex(_ notification: NSNotification) {
+        
+        storageUsefulKeywordData = []
+        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
+            return
+        }
+        
+        for i in 0..<injectedModel.count {
+            storageUsefulKeywordData.append(usefulKeywordData[injectedModel[i]])
+        }
+        collectionView.reloadData()
+    }
+        
     @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
         
         guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
@@ -99,51 +126,19 @@ extension ArticleUploadVC {
     }
     
     func returnKeywordDynamicHeight() -> CGFloat {
-        let width = UIScreen.main.bounds.width - 20
-        let height: CGFloat = 24
-        let itemspacing: CGFloat = 10
-        
-        var floor: CGFloat = 1
-        var heightTemp: CGFloat = 0
-        
         if storageKeywordData.count == 0 {
             return CGFloat(60)
         } else {
-            storageKeywordData.forEach {
-                guard let nameWidth = $0.tagName?.width(withConstrainedHeight: 24, font: .boldSystemFont(ofSize: 14)) else { return }
-                heightTemp += nameWidth + itemspacing + 20
-                
-                if width < heightTemp {
-                    floor += 1
-                    heightTemp = 0
-                }
-            }
-            return height * floor
+            return CGFloat(90)
         }
     }
     
     
     func returnUsefulInfoDynamicHeight() -> CGFloat {
-        let width = UIScreen.main.bounds.width - 20
-        let height: CGFloat = 24
-        let itemspacing: CGFloat = 10
-        
-        var floor: CGFloat = 1
-        var heightTemp: CGFloat = 0
-        
         if storageUsefulKeywordData.count == 0 {
             return CGFloat(60)
         } else {
-            storageUsefulKeywordData.forEach {
-                guard let nameWidth = $0.tagName?.width(withConstrainedHeight: 24, font: .boldSystemFont(ofSize: 14)) else { return }
-                heightTemp += nameWidth + itemspacing + 20
-                
-                if width < heightTemp {
-                    floor += 1
-                    heightTemp = 0
-                }
-            }
-            return height * floor
+            return CGFloat(90)
         }
     }
 }
@@ -260,14 +255,14 @@ extension ArticleUploadVC: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             if nearstationData.count == 0 {
+                cell.stackView.isHidden = true
             } else if nearstationData.count == 1 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
                 cell.textFieldArray[2].isHidden = true
-                
             } else if nearstationData.count == 2 {
                 cell.stackView.isHidden = false
-                cell.textFieldArray[1].isHidden = true
+                cell.textFieldArray[2].isHidden = true
                 
             } else {
                 cell.stackView.isHidden = false
@@ -281,15 +276,50 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeKeywordCVC", for: indexPath) as? HomeKeywordCVC else {
                 return UICollectionViewCell()
             }
-            cell.keywordArray = storageKeywordData
-            
+            cell.keywordTextFieldArray.forEach({
+                $0.isHidden = false
+            })
+            if storageKeywordData.count == 0 {
+                cell.keywordStackView.isHidden = true
+            } else if storageKeywordData.count == 1 {
+                cell.keywordStackView.isHidden = false
+                cell.keywordTextFieldArray[1].isHidden = true
+                cell.keywordTextFieldArray[2].isHidden = true
+            } else if storageKeywordData.count == 2 {
+                cell.keywordStackView.isHidden = false
+                cell.keywordTextFieldArray[2].isHidden = true
+            } else {
+                cell.keywordStackView.isHidden = false
+            }
+            for i in 0..<storageKeywordData.count {
+                cell.keywordTextFieldArray[i].text = storageKeywordData[i].tagName
+            }
             return cell
+            
         case 3:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsefulInformationCVC", for: indexPath) as? UsefulInformationCVC else {
                 return UICollectionViewCell()
             }
-            
+            cell.usefulTextFieldarray.forEach({
+                $0.isHidden = false
+            })
+            if storageUsefulKeywordData.count == 0 {
+                cell.usefulStackView.isHidden = true
+            } else if storageUsefulKeywordData.count == 1 {
+                cell.usefulStackView.isHidden = false
+                cell.usefulTextFieldarray[1].isHidden = true
+                cell.usefulTextFieldarray[2].isHidden = true
+            } else if storageUsefulKeywordData.count == 2 {
+                cell.usefulStackView.isHidden = false
+                cell.usefulTextFieldarray[2].isHidden = true
+            } else {
+                cell.usefulStackView.isHidden = false
+            }
+            for i in 0..<storageUsefulKeywordData.count {
+                cell.usefulTextFieldarray[i].text = storageUsefulKeywordData[i].tagName
+            }
             return cell
+            
         case 4:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeReviewCVC", for: indexPath) as? HomeReviewCVC else {
                 return UICollectionViewCell()

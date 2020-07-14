@@ -11,67 +11,50 @@ import UIKit
 class HomeKeywordCVC: UICollectionViewCell {
     
     @IBOutlet weak var keywordTitleLabel: UILabel!
-    @IBOutlet weak var innerCollectionView: UICollectionView!
+    @IBOutlet weak var keywordStackView: UIStackView!
+    @IBOutlet var keywordTextFieldArray: [UITextField]!
+            
+    /// `1. Modal에서 데이터를 받아서 Keyword나 UsefulInfo에 삽입, reload`
+    /// `2. 없던 데이터가 생겼고 CollectionView가 다시 그려질 때`
+    /// `       Height가 다시 계산 될 것임`
+    /// `3. 새로 생긴 데이터를 cell에다가 주입해줄 것이고`
+    /// `       innerCollectionView의 데이터도 변했으므로 늘어나게 된다`
+    /// reload 안 해줘도 됨,,,이제,,,근데 사실 리팩토링때도 어떻게 짜야겠다 하는 답은 안나옴
+    /// 내생각에는 모델은 다 살리고 이제 TableView를 쓸 것 같다 (AutomaticDemension)
     
-    var keywordArray: [KeywordData] = []
+    var model: KeywordData? {
+        didSet {
+            keywordTextFieldArray.forEach({
+                $0.text = model?.tagName
+            })
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configureTextfield()
-        setCollectionView()
-        innerCollectionView.collectionViewLayout = CenterAlignedCollectionViewFlowLayout()
+        configureCell()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
     }
 }
 
 extension HomeKeywordCVC {
 
-    private func configureTextfield() {
+    private func configureCell() {
         keywordTitleLabel.font = Font.boldFontSize15
         keywordTitleLabel.textColor = UIColor.gray90
         
-    }
-    
-    private func setCollectionView() {
-        innerCollectionView.delegate = self
-        innerCollectionView.dataSource = self
-    }
-}
-
-extension HomeKeywordCVC: UICollectionViewDelegateFlowLayout {
-   
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = UIScreen.main.bounds.width
-        let height: CGFloat = 23
-    
-        return CGSize(width: width, height: height)
+        keywordTextFieldArray.forEach({
+            $0.layer.cornerRadius = 5
+            $0.layer.borderColor = UIColor.warmPink.cgColor
+            $0.layer.borderWidth = 1
+            $0.textColor = UIColor.warmPink
+            $0.textAlignment = .center
+            $0.font = Font.fontSize13
+            $0.isEnabled = false
+        })
     }
 }
-extension HomeKeywordCVC: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return keywordArray.count
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InnerKeywordCVC", for: indexPath) as? InnerKeywordCVC else {
-            return UICollectionViewCell()
-        }
-        cell.model = keywordArray[indexPath.item]
-        return cell
-    }
-}
-

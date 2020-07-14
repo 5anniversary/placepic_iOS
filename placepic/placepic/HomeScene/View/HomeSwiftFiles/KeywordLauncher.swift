@@ -118,10 +118,43 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         cancelButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
     }
     
+    func alertaction() {
+        let alert = UIAlertController(title: "Your Title", message: "Your Message", preferredStyle: UIAlertController.Style.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler : nil )
+        let cancel = UIAlertAction(title: "cancel", style: .destructive, handler : nil)
+        
+        alert.addAction(cancel)
+        alert.addAction(okAction)
+        
+        self.uploadVC?.present(alert, animated: true, completion: nil)
+    }
+
     @objc private func doneButtonTapped() {
-        print(collectionView.indexPathsForSelectedItems ?? 0)
-        collectionView.reloadData()
-        handleDismiss()
+              
+        guard let count = collectionView.indexPathsForSelectedItems?.count else { return }
+        
+        if count >= 4 {
+            alertaction()
+        } else {
+            
+            guard let index: [IndexPath] = collectionView.indexPathsForSelectedItems else { return }
+            var sendIndex: [Int] = []
+            
+            for i in 0..<index.count {
+                print(index[i][1])
+                sendIndex.append(index[i][1])
+            }
+            
+            if keyword.count != 0 {
+                NotificationCenter.default.post(name: .homeModalKeywordNotification, object: nil, userInfo: ["indexPath.item": sendIndex])
+            } else {
+                NotificationCenter.default.post(name: .homeModalUsefulNotification, object: nil, userInfo: ["indexPath.item": sendIndex])
+            }
+            
+            collectionView.reloadData()
+            handleDismiss()
+        }
     }
     
     /// 호출할때 여기다가 매개변수로 넘겨주는게 조을거같아욤
@@ -221,7 +254,9 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        
+        guard let count = collectionView.indexPathsForSelectedItems?.count else { return }
+        print("count: \(count)")
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {

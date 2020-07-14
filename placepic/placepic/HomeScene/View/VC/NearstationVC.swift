@@ -5,7 +5,6 @@
 //  Created by elesahich on 2020/07/05.
 //  Copyright © 2020 elesahich. All rights reserved.
 //
-
 import UIKit
 import Alamofire
 
@@ -37,7 +36,6 @@ class NearstationVC: UIViewController {
         setTableView()
         setDefaultRequest()
     }
-    
 }
 
 extension NearstationVC {
@@ -122,10 +120,28 @@ extension NearstationVC {
         navigationItem.leftBarButtonItem = leftButton
     }
     
+    
     @objc private func dismissVC() {
-        NotificationCenter.default.post(name: .homeSendmodelNotification, object: nil, userInfo: ["model": collectionViewModel])
-        
+        if collectionViewModel.count >= 4 {
+            alertaction()
+            collectionViewModel.removeAll()
+            collectionView.reloadData()
+        } else {
+            NotificationCenter.default.post(name: .homeSendmodelNotification, object: nil, userInfo: ["model": collectionViewModel])
         navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func alertaction() {
+        let alert = UIAlertController(title: "Your Title", message: "Your Message", preferredStyle: UIAlertController.Style.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler : nil )
+        let cancel = UIAlertAction(title: "cancel", style: .destructive, handler : nil)
+        
+        alert.addAction(cancel)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
