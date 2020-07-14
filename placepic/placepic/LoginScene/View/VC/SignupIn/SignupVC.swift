@@ -11,6 +11,7 @@ import UIKit
 class SignupVC: UIViewController {
     
     @IBOutlet weak var signupEmailLabel: UILabel!
+    
     @IBOutlet weak var signupEmailTextbox: UITextField!
     @IBOutlet weak var signupEmailcheckValLabel: UILabel!
     @IBOutlet weak var signupPwLabel: UILabel!
@@ -21,7 +22,55 @@ class SignupVC: UIViewController {
     @IBOutlet var signupTxtFields: [UITextField]!
     @IBOutlet weak var signup1Button: UIButton!
     
+        
     @IBAction func signup1acButton(_ sender: UIButton) {
+    
+        guard let vc = storyboard?.instantiateViewController(identifier: "Signup3VC") as? Signup3VC
+            else {
+                return
+        }
+            vc.signupemail = signupEmailTextbox.text
+            vc.signuppw = signupPwTextbox.text
+            navigationController?.pushViewController(vc, animated: true)
+        
+        
+        guard let signupEmail = signupEmailTextbox.text else{return}
+        
+        
+        EmailService.shared.emailcheck(email:  signupEmail) { networkResult in
+            switch networkResult {
+                
+            case .success(let token):
+                print("제발.")
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+                    "nextNavi") as? UITabBarController else { return }
+                tabbarController.modalPresentationStyle = .fullScreen
+                self.present(tabbarController, animated: true, completion: nil)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
+                                                            preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
+        //A VC의 Button Action
+        ///B VC
+        //        guard let vc = storyboard?.instantiateViewController(identifier: "Signup3VC") as? Signup3VC else {
+        //          return
+        //        }
+        /// A VC에 있는데 B VC에 정보를 넘겨주는건 가능하지
+        /// 가져오는건 불가
+        //        vc.signupemail = signupEmailTextbox.text
+        
         
 //        guard let vc = storyboard?.instantiateViewController(identifier: "SignUp2VC") as? SignUp2VC else {
 //            return
@@ -33,15 +82,81 @@ class SignupVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+
+//        var text:String = ""
+    
         super.viewDidLoad()
         
         setLabelLooksLike()
         setButtonsLooksLike()
         setTextfieldsLooksLike()
+        setNavigationBar()
+       
+        setNavi()
         
-        
-        
+//        let emailSU = signupEmailTextbox.text
+//        let pwSU = signupPwTextbox.text
+   
+
     }
+    
+//        let vc = SignupVC()
+//        vc.text = signupEmailTextbox.text
+    
+    
+    
+    
+    
+    private func setNavi() { //타이틀이 가운데에 있는 네비
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(dismissVC))
+        
+        navigationItem.leftBarButtonItem = leftButton
+        navigationItem.title = "회원가입"
+    }
+    
+    @objc func dismissVC() {
+        navigationController?.popViewController(animated: true)
+        
+        let transform = CGAffineTransform(translationX: 0, y: 100)
+        self.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.transform = transform
+                
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.tabBarController?.tabBar.transform = .identity
+                        
+        }, completion: nil)
+    }
+    
+     private func setNavigationBar() {
+            guard let navigationBar = self.navigationController?.navigationBar else { return }
+            
+            navigationBar.isTranslucent = true
+            navigationBar.backgroundColor = UIColor.white
+            navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            navigationBar.shadowImage = UIImage()
+            
+    //        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icMenuHamburg"),
+    //                                                          style: .plain,
+    //                                                          target: self,
+    //                                                          action: #selector(showSideMenuBar))
+    //        navigationItem.leftBarButtonItem = leftButton
+        }
 }
 
 // MARK:- UI - set Function
@@ -52,6 +167,7 @@ extension SignupVC {
         signupEmailLabel.text = "이메일"
         signupEmailLabel.textColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1)
         signupEmailLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
+        
         
         
         signupEmailcheckValLabel.textColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1)
