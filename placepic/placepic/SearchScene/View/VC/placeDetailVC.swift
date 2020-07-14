@@ -9,6 +9,7 @@
 import UIKit
 import NMapsMap
 import FSPagerView
+import Kingfisher
 
 class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
 
@@ -17,6 +18,22 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var detailViewHC: NSLayoutConstraint!
     @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var heartbutView: UIView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userPart: UILabel!
+    @IBOutlet weak var postNum: UILabel!
+    @IBOutlet weak var postDate: UILabel!
+    @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var scrapNum: UILabel!
+    @IBOutlet var placeTag: [UITextField]!
+    @IBOutlet weak var placeCate: UILabel!
+    @IBOutlet weak var placeSubway: UILabel!
+    @IBOutlet weak var placeAddress: UILabel!
+    @IBOutlet weak var placeInfo: UILabel!
+    @IBOutlet weak var likeNum: UILabel!
+    
+    var selectIdx: Int!
+    var placeDetailData: DetailModel?
     
     @IBOutlet weak var detailImg: FSPagerView!{
         didSet {
@@ -35,29 +52,57 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
-        detailTextView.text = "여기는 이래서 좋고 저래서 좋고 와 진짜 좋고 너무 좋은데 솔직히 이게 안좋은데 이건 이래서 커버 가능하고 와 여기 정말 솝트 사람들끼리 오면 너무 좋을 것 같고 진짜 개좋고 인생 어쩌구 저쩌구 이고 솔직히 존맛탱이고 네네 여기 "
-        
-        setView()
-//        setTextview()
-        //        let mapView = NMFMapView(frame: view.frame)
-//        view.addSubview(mapView)
-//
-//        let naverMapView = NMFNaverMapView(frame: view.frame)
-//        view.addSubview(naverMapView)
-//
-//        mapView.mapType = .basic
-//
-//        let marker = NMFMarker()
-//        marker.position = NMGLatLng(lat: 37.5670135, lng: 126.9783740)
-//        marker.mapView = mapView
-        // Do any additional setup after loading the view.
+        getDetailData()
+        setData()
     }
     
+    private func setData(){
+        profileImg.kf.setImage(with: URL(string: placeDetailData?.uploader.profileImageURL ?? ""))
+        userName.text = placeDetailData?.uploader.userName
+        userPart.text = placeDetailData?.uploader.part
+//        postNum.text = "작성한 글 " + String(placeDetailData?.uploader.postCount)
+        let date:Date = Date(timeIntervalSince1970: TimeInterval(placeDetailData?.placeCreatedAt ?? 0))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        postDate.text = dateFormatter.string(from: date)
+        detailTextView.text = placeDetailData?.placeReview
+//        likeNum.text = placeDetailData?.likeCount
+        placeName.text = placeDetailData?.placeName
+//        
+//        placeTag
+        
+    }
+    private func getDetailData(){
+        DetailViewService.shared.getPlaces(String(selectIdx)){ networkResult in
+                    switch networkResult {
+                    case .success(let products):
+                        guard let places = products as? DetailModel else { return }
+                        self.placeDetailData = places
+                        print(self.placeDetailData)
+                    case .requestErr(let message):
+                        guard let message = message as? String else { return }
+                        let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
+                    case .pathErr: print("pathErr")
+                    case .serverErr: print("serverErr")
+                    case .networkFail: print("networkFail")
+                        
+                    }
+                }
+    }
     private func setView(){
         detailViewHC.constant = self.detailTextView.contentSize.height
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         detailImg.isInfinite = true
         buttonView.layer.cornerRadius = 4
+        
+        heartbutView.layer.cornerRadius = 4
+        heartbutView.layer.borderWidth = 2
+        heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
+        
+//        bottomView.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
     }
     
 //    private func setView(){
@@ -102,7 +147,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                                                           target: self,
                                                           action: #selector(dismissVC))
         navigationItem.leftBarButtonItem = leftButton
-        navigationItem.title = "상세정보"
+        navigationItem.title = placeDetailData?.placeName
         
     }
     

@@ -8,7 +8,7 @@ extension Notification.Name {
     
     static let changeChildViewVC = Notification.Name("changechildviewVC")
 }
-
+//placeDetailVC
 class ChildVC: UIViewController, IndicatorInfoProvider {
     
     @IBOutlet var placeListTV: UITableView!
@@ -24,6 +24,11 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         placeListTV.dataSource = self
         setNavigationBar()
         getData()
+    
+        
+//        
+//        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "placeDetailVC") as! placeDetailVC
+//        self.navigationController?.pushViewController(secondViewController, animated: true)
         
     }
     
@@ -115,6 +120,18 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         return placeListData.count
     }
     
+    //placeDetailVC
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "toDetailVC" {
+            if let destination = segue.destination as? placeDetailVC {
+                if let selectedIndex = self.placeListTV.indexPathsForSelectedRows?.first?.row {
+                    destination.selectIdx = placeListData[selectedIndex].placeIdx
+                }
+            }
+        }
+    }
     
     func sizeHeaderToFit(tableView: UITableView) {
         if let headerView = placeListTV.tableHeaderView {
