@@ -22,7 +22,7 @@ class GroupListVC: UIViewController {
         GroupListTV.delegate = self
         GroupListTV.dataSource = self
         GroupWaitingButtonLooksLike()
-        //        setNavigationBar()
+        //setNavigationBar()
         setNavi()
 
 
@@ -38,13 +38,13 @@ class GroupListVC: UIViewController {
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
 
-        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+        let rightButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "groupIc-1"),
                                                           style: .plain,
                                                           target: self,
                                                           action: #selector(dismissVC))
 
-        navigationItem.leftBarButtonItem = leftButton
-        navigationItem.title = "그룹신청"
+        navigationItem.rightBarButtonItem = rightButton
+        navigationItem.title = "내 그룹"
     }
 
     @objc func dismissVC() {

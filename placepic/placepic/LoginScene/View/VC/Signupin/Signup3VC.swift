@@ -41,10 +41,15 @@ class Signup3VC: UIViewController {
                 print("제발.")
                 guard let token = token as? String else { return }
                 UserDefaults.standard.set(token, forKey: "token")
-                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-                    "nextNavi") as? UITabBarController else { return }
-                tabbarController.modalPresentationStyle = .fullScreen
-                self.present(tabbarController, animated: true, completion: nil)
+                
+                let vc =  self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccess") as! SignupSuccess //App crashes here
+                self.present(vc, animated: false, completion: nil)
+                vc.modalPresentationStyle = .fullScreen
+//
+//                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccess") as! SignupSuccess
+//                print("네비")
+//                self.navigationController?.pushViewController(secondViewController, animated: true)
+//                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
@@ -79,7 +84,6 @@ class Signup3VC: UIViewController {
         gender[2] = 0
         
         if(signupNameTextfield != nil && signupDOBTextfield != nil ){
-            
             
             signup2sendButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
             signup2sendButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)

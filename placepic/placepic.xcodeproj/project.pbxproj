@@ -33,6 +33,9 @@
 		13B9DC5F24BD989C00D15591 /* GroupPartiTVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC5A24BD989C00D15591 /* GroupPartiTVC1.swift */; };
 		13B9DC6124BD98F400D15591 /* LoginInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6024BD98F400D15591 /* LoginInfomodel.swift */; };
 		13B9DC6324BD994E00D15591 /* SignupInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6224BD994E00D15591 /* SignupInfomodel.swift */; };
+		13B9DC6824BE230B00D15591 /* SignupSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6724BE230B00D15591 /* SignupSuccess.swift */; };
+		13B9DC6B24BE4C2D00D15591 /* Send2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6A24BE4C2D00D15591 /* Send2VC.swift */; };
+		13B9DC6D24BE4C5A00D15591 /* Send3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6C24BE4C5A00D15591 /* Send3VC.swift */; };
 		3D06C28024BBA6C900A4F869 /* ClassifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06C27F24BBA6C900A4F869 /* ClassifyVC.swift */; };
 		3D06C28324BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06C28124BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift */; };
 		3D06C28424BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D06C28224BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib */; };
@@ -144,6 +147,9 @@
 		13B9DC5A24BD989C00D15591 /* GroupPartiTVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPartiTVC1.swift; sourceTree = "<group>"; };
 		13B9DC6024BD98F400D15591 /* LoginInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfomodel.swift; sourceTree = "<group>"; };
 		13B9DC6224BD994E00D15591 /* SignupInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInfomodel.swift; sourceTree = "<group>"; };
+		13B9DC6724BE230B00D15591 /* SignupSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSuccess.swift; sourceTree = "<group>"; };
+		13B9DC6A24BE4C2D00D15591 /* Send2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send2VC.swift; sourceTree = "<group>"; };
+		13B9DC6C24BE4C5A00D15591 /* Send3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send3VC.swift; sourceTree = "<group>"; };
 		3D06C27F24BBA6C900A4F869 /* ClassifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyVC.swift; sourceTree = "<group>"; };
 		3D06C28124BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyFavoritePlaceTVC.swift; sourceTree = "<group>"; };
 		3D06C28224BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassifyFavoritePlaceTVC.xib; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 				13B9DC4824BD976B00D15591 /* GroupReqVC.swift */,
 				13B9DC4A24BD976B00D15591 /* GroupUpVC.swift */,
 				13B9DC4424BD976B00D15591 /* SendVC.swift */,
+				13B9DC6A24BE4C2D00D15591 /* Send2VC.swift */,
+				13B9DC6C24BE4C5A00D15591 /* Send3VC.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 				13B9DC3724BD976400D15591 /* SigninVC.swift */,
 				13B9DC3624BD976400D15591 /* Signup3VC.swift */,
 				13B9DC3524BD976300D15591 /* SignupVC.swift */,
+				13B9DC6724BE230B00D15591 /* SignupSuccess.swift */,
 			);
 			path = SignupIn;
 			sourceTree = "<group>";
@@ -899,10 +908,12 @@
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
 				AE34147624B7076B00425889 /* AdminData.swift in Sources */,
 				13B9DC3E24BD976400D15591 /* Signup3VC.swift in Sources */,
+				13B9DC6824BE230B00D15591 /* SignupSuccess.swift in Sources */,
 				13B9DC2724BD96D800D15591 /* SignupService.swift in Sources */,
 				3DDABA3124B969A20061A6C7 /* SubwayServices.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
 				3D06C28324BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift in Sources */,
+				13B9DC6D24BE4C5A00D15591 /* Send3VC.swift in Sources */,
 				AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */,
 				AE34146524B4F51700425889 /* placeService.swift in Sources */,
 				AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */,
@@ -933,6 +944,7 @@
 				13B9DC5424BD976B00D15591 /* GroupUpVC.swift in Sources */,
 				13B9DC3F24BD976400D15591 /* SigninVC.swift in Sources */,
 				3D6BAF9124B1CDB500F6339E /* NearstationVC.swift in Sources */,
+				13B9DC6B24BE4C2D00D15591 /* Send2VC.swift in Sources */,
 				1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */,
 				3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */,
 				3D6F83B124BB186000ACD85A /* FindfavoritePlaceTVC.swift in Sources */,
