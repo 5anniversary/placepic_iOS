@@ -12,14 +12,16 @@ import Alamofire
 struct placeService {
     static let shared = placeService()
     
-    func getPlaces(completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getPlaces(_ queryurl: String,completion: @escaping (NetworkResult<Any>) -> Void) {
         print(#function)
+        
+        let url = placeListAPI.getplacedURL + queryurl
         let header: HTTPHeaders = [
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjMsIm5hbWUiOiLstZzsmIHtm4giLCJpYXQiOjE1OTM2OTkxODMsImV4cCI6MTU5NjI5MTE4MywiaXNzIjoicGxhY2VwaWMifQ.rmFbeBfviyEzbMlMM4b3bMMiRcNDDbiX8bQtwL_cuN0",
             "Content-Type": "application/json"
         ]
+        let dataRequest = Alamofire.request(url, method: .get, encoding:JSONEncoding.default, headers: header)
         
-        let dataRequest = Alamofire.request(placeListAPI.getplacedURL, method: .get, encoding:JSONEncoding.default, headers: header)
         dataRequest.responseData { dataResponse in
                 switch dataResponse.result {
                 case .success:
@@ -29,7 +31,6 @@ struct placeService {
                     completion(networkResult)
                 case .failure:
                     completion(.networkFail)
-                    
                 }
             }
         }
@@ -45,7 +46,7 @@ struct placeService {
         private func isPlace(by data: Data) -> NetworkResult<Any> {
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(placeListModel.self, from: data) else { return .pathErr }
-            guard let placeData: [placeData] = decodedData.data else { return .requestErr(decodedData.message) }
+            guard let placeData: PlaceDataClass = decodedData.data else { return .requestErr(decodedData.message) }
             return .success(placeData)
         }
 }

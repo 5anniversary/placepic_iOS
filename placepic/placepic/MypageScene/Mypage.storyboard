@@ -10,7 +10,7 @@
         <!--Title-->
         <scene sceneID="l6P-vS-39i">
             <objects>
-                <viewController id="8pL-YV-JGG" customClass="AdminVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="adminListView" id="8pL-YV-JGG" customClass="AdminVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I5E-cS-1nG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,21 +72,6 @@
             </objects>
             <point key="canvasLocation" x="-2503" y="-681"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="8X8-D9-xdE">
-            <objects>
-                <viewController id="Tks-sO-WSg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gul-7c-S5g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6qG-WL-VEq"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kyy-3y-L4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2492" y="1"/>
-        </scene>
         <!--People DetailVC-->
         <scene sceneID="OfG-3X-ZDN">
             <objects>
@@ -118,6 +103,9 @@
                                 <state key="normal" title="거절">
                                     <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="butDelete:" destination="tGr-9w-xmv" eventType="touchUpInside" id="yhw-1a-ERJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVh-Rk-ZSZ">
                                 <rect key="frame" x="192" y="585" width="169" height="42"/>
@@ -259,10 +247,25 @@
             </objects>
             <point key="canvasLocation" x="-1799" y="-681"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="2KU-Vv-Swv">
+            <objects>
+                <viewController storyboardIdentifier="MyPageVC" id="g3O-kr-4e8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Tf-GX-Cr7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="S8m-if-uQ4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fn9-rU-6k8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4345" y="-678"/>
+        </scene>
         <!--PeopleListView-->
         <scene sceneID="lLM-EZ-O1P">
             <objects>
-                <navigationController storyboardIdentifier="MypageVC" title="PeopleListView" automaticallyAdjustsScrollViewInsets="NO" id="QsB-uX-bw5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navi" title="PeopleListView" automaticallyAdjustsScrollViewInsets="NO" id="QsB-uX-bw5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c5k-rD-5oy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
