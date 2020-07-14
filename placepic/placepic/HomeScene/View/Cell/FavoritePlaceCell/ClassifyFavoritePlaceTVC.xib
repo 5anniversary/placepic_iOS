@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassifyFavoritePlaceTVCIdentifier" id="KGk-i7-Jjw" customClass="ClassifyFavoritePlaceTVC" customModule="placepic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icRestaurant" translatesAutoresizingMaskIntoConstraints="NO" id="Ru2-I5-s6a">
+                        <rect key="frame" x="14" y="14" width="42" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="AwL-Lh-SLS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErN-pe-noA">
+                        <rect key="frame" x="64" y="24.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-pc-aH8">
+                        <rect key="frame" x="337" y="23" width="24" height="24"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ru2-I5-s6a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="3JM-4w-SSU"/>
+                    <constraint firstItem="Ru2-I5-s6a" firstAttribute="centerY" secondItem="M8s-pc-aH8" secondAttribute="centerY" id="LIy-zH-s2R"/>
+                    <constraint firstItem="ErN-pe-noA" firstAttribute="leading" secondItem="Ru2-I5-s6a" secondAttribute="trailing" constant="8" id="Qz2-KL-ijg"/>
+                    <constraint firstItem="Ru2-I5-s6a" firstAttribute="centerY" secondItem="ErN-pe-noA" secondAttribute="centerY" id="T8d-Zf-j8T"/>
+                    <constraint firstAttribute="trailing" secondItem="M8s-pc-aH8" secondAttribute="trailing" constant="14" id="ZiE-Ek-Ga8"/>
+                    <constraint firstItem="Ru2-I5-s6a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="sNj-Li-kXd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="favoriteImage" destination="Ru2-I5-s6a" id="P6q-Fv-71f"/>
+                <outlet property="titleLabel" destination="ErN-pe-noA" id="M7e-LV-URQ"/>
+            </connections>
+            <point key="canvasLocation" x="136.80000000000001" y="126.38680659670166"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icRestaurant" width="42" height="42"/>
+        <image name="nextArrowIc" width="24" height="24"/>
+    </resources>
+</document>

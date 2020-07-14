@@ -22,19 +22,43 @@ class KeywordCell: UICollectionViewCell {
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nameLabel.text = ""
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            contentView.layer.borderColor = isSelected ? UIColor.warmPink.cgColor : UIColor.blueGray30.cgColor
+            contentView.layer.borderWidth = 2
+            nameLabel.textColor = isSelected ? UIColor.warmPink : UIColor.blueGray80
+
+        }
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            contentView.layer.borderColor = isHighlighted ? UIColor.warmPink.cgColor : UIColor.blueGray30.cgColor
+            contentView.layer.borderWidth = 2
+            nameLabel.textColor = isHighlighted ? UIColor.warmPink : UIColor.blueGray80
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupViews()
     }
     
     private func setupViews() {
         contentView.backgroundColor = UIColor.white
         contentView.layer.cornerRadius = 5
-        contentView.layer.borderColor = UIColor.black80.cgColor
-        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.blueGray30.cgColor
+        contentView.layer.borderWidth = 2
         
         addSubview(nameLabel)
+        nameLabel.textColor = UIColor.blueGray80
+        nameLabel.font = .systemFont(ofSize: 14)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [
@@ -43,10 +67,6 @@ class KeywordCell: UICollectionViewCell {
         ]
         
         NSLayoutConstraint.activate(constraints)
-    }
-    
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        
     }
     
     required init?(coder: NSCoder) {

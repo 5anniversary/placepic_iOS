@@ -6,15 +6,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NearstationVC-->
+        <!--ClassifyVC-->
         <scene sceneID="TpR-Ir-Wbo">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NearstationVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ClassifyVC" id="uj4-UJ-cdy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aPc-c7-oJq"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLw-9i-9UK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="907" y="342"/>
+            <point key="canvasLocation" x="2945" y="264"/>
         </scene>
         <!--WriteVC-->
         <scene sceneID="ZZy-L0-DO7">
@@ -24,7 +24,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WV8-q0-erA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2944" y="342"/>
+            <point key="canvasLocation" x="1893" y="264"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="6i5-SV-v27">
@@ -34,7 +34,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ng-3X-jXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="342"/>
+            <point key="canvasLocation" x="910" y="264"/>
         </scene>
         <!--RankVC-->
         <scene sceneID="yvk-b5-M0o">
@@ -44,45 +44,47 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWu-oi-Xnv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3986" y="342"/>
+            <point key="canvasLocation" x="3984" y="264"/>
         </scene>
-        <!--MypageVC-->
+        <!--navi-->
         <scene sceneID="eSN-NW-G4b">
             <objects>
-                <viewControllerPlaceholder storyboardName="Mypage" referencedIdentifier="MypageVC" id="qe2-nW-Mt7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Mypage" referencedIdentifier="navi" id="qe2-nW-Mt7" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="geA-i6-9jo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9D-OL-kAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4988" y="342"/>
+            <point key="canvasLocation" x="4985" y="264"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar Controller-->
         <scene sceneID="LAU-0N-EAb">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TvZ-eJ-phw" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TvZ-eJ-phw" customClass="TabbarController" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5FV-Ja-a5P">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="NJD-1x-113" kind="relationship" relationship="viewControllers" id="Dp6-Jx-d9P"/>
-                        <segue destination="kQT-Wd-MZ7" kind="relationship" relationship="viewControllers" id="iwG-iK-lis"/>
-                        <segue destination="mHG-xC-qxM" kind="relationship" relationship="viewControllers" id="QkL-RR-koY"/>
-                        <segue destination="Rq1-ws-pTh" kind="relationship" relationship="viewControllers" id="Tl4-AR-eI2"/>
                         <segue destination="yMJ-RF-4Vx" kind="relationship" relationship="viewControllers" id="b4e-uX-2xg"/>
+                        <segue destination="kQT-Wd-MZ7" kind="relationship" relationship="viewControllers" id="iwG-iK-lis"/>
+                        <segue destination="Rq1-ws-pTh" kind="relationship" relationship="viewControllers" id="Tl4-AR-eI2"/>
+                        <segue destination="mHG-xC-qxM" kind="relationship" relationship="viewControllers" id="QkL-RR-koY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz7-0h-6Y8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="-1343"/>
+            <point key="canvasLocation" x="2945" y="-1376"/>
         </scene>
-        <!--Item-->
+        <!--장소-->
         <scene sceneID="wY2-cf-Z4r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NJD-1x-113" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RUO-VE-Vg6"/>
+                    <tabBarItem key="tabBarItem" title="장소" image="placeDisabled" selectedImage="placeSelected" id="RUO-VE-Vg6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TUj-DW-tAR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -90,18 +92,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uj4-UJ-cdy" kind="relationship" relationship="rootViewController" id="YE8-4I-cOK"/>
+                        <segue destination="LWY-JF-3h2" kind="relationship" relationship="rootViewController" id="Hyk-Ny-dH3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZr-A4-cwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="910" y="-399"/>
         </scene>
-        <!--Item-->
+        <!--순위-->
         <scene sceneID="LUT-fS-w5b">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yMJ-RF-4Vx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="MZA-5h-aWE"/>
+                    <tabBarItem key="tabBarItem" title="순위" image="peopleDisabled" selectedImage="peopleSelected" id="MZA-5h-aWE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E84-gU-t7C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -109,18 +111,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="LWY-JF-3h2" kind="relationship" relationship="rootViewController" id="2i1-uy-fa3"/>
+                        <segue destination="Ryn-gi-ym6" kind="relationship" relationship="rootViewController" id="zSj-2t-KN2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgV-8H-S3M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="-395"/>
+            <point key="canvasLocation" x="1895" y="-401"/>
         </scene>
-        <!--Item-->
+        <!--글쓰기-->
         <scene sceneID="15h-Ua-KIU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kQT-Wd-MZ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Vc0-U0-gv2"/>
+                <navigationController storyboardIdentifier="WriteNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="kQT-Wd-MZ7" customClass="WriteNavigationController" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="글쓰기" image="uploadDisabled" selectedImage="uploadSelected" id="Vc0-U0-gv2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oim-9Z-w8g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -128,18 +130,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ryn-gi-ym6" kind="relationship" relationship="rootViewController" id="8Eb-oq-Jsv"/>
+                        <segue destination="uj4-UJ-cdy" kind="relationship" relationship="rootViewController" id="xgb-Eu-6h0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnq-XM-XRs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="-395"/>
+            <point key="canvasLocation" x="2945" y="-400"/>
         </scene>
-        <!--Item-->
+        <!--저장-->
         <scene sceneID="vjd-ph-NvK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rq1-ws-pTh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HR5-am-LEv"/>
+                    <tabBarItem key="tabBarItem" title="저장" image="scrapDisabled" selectedImage="scrapSelected" id="HR5-am-LEv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QsS-ex-s7T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -154,11 +156,11 @@
             </objects>
             <point key="canvasLocation" x="3986" y="-395"/>
         </scene>
-        <!--Item-->
+        <!--내 정보-->
         <scene sceneID="j2m-qu-r9s">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mHG-xC-qxM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eFQ-gF-gAB"/>
+                    <tabBarItem key="tabBarItem" title="내 정보" image="mypageDisabled" selectedImage="mypageSelected" id="eFQ-gF-gAB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qz1-Ng-RA4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -174,4 +176,16 @@
             <point key="canvasLocation" x="4986" y="-395"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mypageDisabled" width="25" height="25"/>
+        <image name="mypageSelected" width="25" height="25"/>
+        <image name="peopleDisabled" width="25" height="25"/>
+        <image name="peopleSelected" width="25" height="25"/>
+        <image name="placeDisabled" width="25" height="25"/>
+        <image name="placeSelected" width="25" height="25"/>
+        <image name="scrapDisabled" width="25" height="25"/>
+        <image name="scrapSelected" width="25" height="25"/>
+        <image name="uploadDisabled" width="25" height="25"/>
+        <image name="uploadSelected" width="25" height="25"/>
+    </resources>
 </document>

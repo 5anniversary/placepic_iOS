@@ -2,8 +2,8 @@
   "images" : [
     {
       "filename" : "icStationWest.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "1x"
     },
     {
       "scale" : "2x",
@@ -11,9 +11,9 @@
       "filename" : "icStationWest@2x.png"
     },
     {
-      "scale" : "3x",
       "filename" : "icStationWest@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
