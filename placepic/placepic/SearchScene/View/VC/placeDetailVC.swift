@@ -14,6 +14,9 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
 
     let imageNames = ["dummy1","dummy2","dummy3","dummy4"]
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var detailTextView: UITextView!
+    @IBOutlet weak var detailViewHC: NSLayoutConstraint!
+    @IBOutlet weak var buttonView: UIView!
     
     @IBOutlet weak var detailImg: FSPagerView!{
         didSet {
@@ -32,8 +35,11 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        detailTextView.text = "여기는 이래서 좋고 저래서 좋고 와 진짜 좋고 너무 좋은데 솔직히 이게 안좋은데 이건 이래서 커버 가능하고 와 여기 정말 솝트 사람들끼리 오면 너무 좋을 것 같고 진짜 개좋고 인생 어쩌구 저쩌구 이고 솔직히 존맛탱이고 네네 여기 "
+        
         setView()
-//        let mapView = NMFMapView(frame: view.frame)
+//        setTextview()
+        //        let mapView = NMFMapView(frame: view.frame)
 //        view.addSubview(mapView)
 //
 //        let naverMapView = NMFNaverMapView(frame: view.frame)
@@ -48,9 +54,16 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     private func setView(){
+        detailViewHC.constant = self.detailTextView.contentSize.height
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         detailImg.isInfinite = true
+        buttonView.layer.cornerRadius = 4
     }
+    
+//    private func setView(){
+//        profileImg.layer.cornerRadius = profileImg.frame.height/2
+//        detailImg.isInfinite = true
+//    }
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell{
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         cell.imageView?.image = UIImage(named: self.imageNames[index])

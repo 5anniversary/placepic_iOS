@@ -49,6 +49,14 @@ class PlaceListTVC: UITableViewCell {
         placeTag[0].text = pTag1
         placeTag[1].text = pTag2
         placeTag[2].text = pTag3
-        
+       
+        for i in 0..<3{
+            placeTag[i].clipsToBounds = true
+            placeTag[i].layer.borderWidth = 2
+            placeTag[i].layer.borderColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
+            placeTag[i].backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+            placeTag[i].layer.cornerRadius = 4
+            placeTag[i].isEnabled = false
+        }
     }
 }
