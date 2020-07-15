@@ -14,6 +14,7 @@ class Signup3VC: UIViewController {
     var signuppw : String!
     var gender : [Int] = [0,0,0]
     
+    
     @IBOutlet weak var signupNameLabel: UILabel!
     @IBOutlet weak var signupNameTextfield: UITextField!
     @IBOutlet weak var signupDOBLabel: UILabel!
