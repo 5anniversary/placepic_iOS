@@ -32,6 +32,10 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet weak var placeInfo: UILabel!
     @IBOutlet weak var likeNum: UILabel!
     
+    @IBAction func likeList(_ sender: Any) {
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
     var selectIdx: Int!
     var placeDetailData: DetailModel?
     
@@ -59,30 +63,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     override func viewWillAppear(_ animated: Bool) {
         print(#function)
         setData()
-        print(placeDetailData?.keyword)
-        
-        if placeDetailData?.keyword.count == 1{
-            print(placeDetailData?.keyword)
-            placeTag[0].text = placeDetailData?.keyword[0]
-//            placeTag[1].isHidden = true
-//            placeTag[2].isHidden = true
-        }
-        else if placeDetailData?.keyword.count == 2{
-            placeTag[0].text = placeDetailData?.keyword[0]
-            placeTag[1].text = placeDetailData?.keyword[1]
-//            placeTag[2].isHidden = true
-        }
-        else if placeDetailData?.keyword.count == 3{
-            placeTag[0].text = placeDetailData?.keyword[0]
-            placeTag[1].text = placeDetailData?.keyword[1]
-            placeTag[2].text = placeDetailData?.keyword[2]
-        }
-        else{
-//            placeTag[0].isHidden = true
-//            placeTag[1].isHidden = true
-//            placeTag[2].isHidden = true
-        }
-        
     }
     
     private func setData(){
@@ -105,10 +85,72 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         heartbutView.layer.borderWidth = 1.5
         heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
         
-        
         //**setTag
+        if placeDetailData?.keyword.count == 1{
+            print(placeDetailData?.keyword)
+            placeTag[0].text = placeDetailData?.keyword[0]
+            placeTag[1].isHidden = true
+            placeTag[2].isHidden = true
+        }
+        else if placeDetailData?.keyword.count == 2{
+            placeTag[0].text = placeDetailData?.keyword[0]
+            placeTag[1].text = placeDetailData?.keyword[1]
+            placeTag[2].isHidden = true
+        }
+        else if placeDetailData?.keyword.count == 3{
+            placeTag[0].text = placeDetailData?.keyword[0]
+            placeTag[1].text = placeDetailData?.keyword[1]
+            placeTag[2].text = placeDetailData?.keyword[2]
+        }
+        else if placeDetailData?.keyword.count == 0{
+            placeTag[0].isHidden = true
+            placeTag[1].isHidden = true
+            placeTag[2].isHidden = true
+        }
+        for i in 0..<3{
+            placeTag[i].clipsToBounds = true
+            placeTag[i].layer.borderWidth = 2
+            placeTag[i].layer.borderColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
+            placeTag[i].backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+            placeTag[i].layer.cornerRadius = 4
+            placeTag[i].isEnabled = false
+        }
+//        scrapNum.text = placeDetailData?.bookmarkCount
+        if placeDetailData?.categoryIdx == 1{
+            placeCate.text = "맛집"
+        }
+        else if placeDetailData?.categoryIdx == 2{
+            placeCate.text = "술집"
+        }
+        else if placeDetailData?.categoryIdx == 3{
+            placeCate.text = "카페"
+        }
+        else if placeDetailData?.categoryIdx == 4{
+            placeCate.text = "스터디"
+        }
+        else if placeDetailData?.categoryIdx == 5{
+            placeCate.text = "기타공간"
+        }
         
+//        for i in 0..<placeListData[indexPath.row].subway.count{
+//            if i == (placeListData[indexPath.row].subway.count-1){
+//                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName
+//            }
+//            else {
+//                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName + "/"
+//            }
+//        }
+        
+        print(placeDetailData?.subway.count)
+        var substr:String = ""
+//        for i in 0..<placeDetailData?.subway.count{
+//            substr = substr + placeDetailData?.subway[i]
+//        }
+//        placeSubway.text = substr
+//        placeAddress.text = placeDetailData
+        navigationItem.title = placeDetailData?.placeName
     }
+    
     private func getDetailData() {
         print(#function)
         DetailViewService.shared.getPlaces(String(selectIdx)){ networkResult in
@@ -175,6 +217,16 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         return imageNames.count
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "LikelistVC" {
+            if let destination = segue.destination as? LikelistVC {
+                destination.likeList = placeDetailData?.likeList as! [Uploader]
+            }
+        }
+    }
+    
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         
@@ -188,8 +240,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                                                           target: self,
                                                           action: #selector(dismissVC))
         navigationItem.leftBarButtonItem = leftButton
-        navigationItem.title = placeDetailData?.placeName
-        
     }
     
     @objc private func dismissVC() {
