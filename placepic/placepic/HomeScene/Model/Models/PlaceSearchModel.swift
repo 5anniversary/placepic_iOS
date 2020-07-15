@@ -8,23 +8,6 @@
 import Foundation
 
 // MARK: - Empty
-//struct PlaceSearchModel: Codable {
-//    let status: Int?
-//    let success: Bool?
-//    let message: String?
-//    let data: [PlaceSearchData]?
-//}
-//
-//// MARK: - Datum
-//struct PlaceSearchData: Codable {
-//    let placeName, placeAddress, placeRoadAddress, placeMapX: String?
-//    let placeMapY: String?
-//    let link: String?
-//    let mobileNaverMapLink: String?
-//    let alreadyIn: Bool?
-//}
-
-// MARK: - Empty
 struct PlaceSearchModel: Decodable, Encodable {
     let status: Int?
     let success: Bool?

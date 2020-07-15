@@ -49,6 +49,7 @@ extension NearstationVC {
         searchTextField.clipsToBounds = true
         searchTextField.setLeftPaddingPoints(30)
         searchTextField.placeholder = "가까운 지하철 역을 검색해보세요"
+        searchTextField.delegate = self
     }
     
     @objc private func textFieldDidChage(_ textField: UITextField) {
@@ -235,3 +236,17 @@ extension NearstationVC: UITableViewDataSource {
         }
     }
 }
+
+extension NearstationVC: UITextFieldDelegate {
+  
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
+        return true
+    }
+}
+
+
+
+
+
+

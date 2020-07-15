@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="L1H-cO-M2N">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassifyFavoritePlaceTVCIdentifier" id="L1H-cO-M2N">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L1H-cO-M2N" id="P3J-ox-q9d">
@@ -507,7 +507,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="452"/>
                                         <connections>
-                                            <outlet property="reviewTextfield" destination="Fmp-nL-Agq" id="xPI-by-LRn"/>
+                                            <outlet property="reviewTextView" destination="Fmp-nL-Agq" id="ljQ-Gf-mze"/>
                                             <outlet property="reviewTitleLabel" destination="L5s-fK-7nm" id="k91-PY-4si"/>
                                         </connections>
                                     </collectionViewCell>

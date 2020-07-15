@@ -45,6 +45,7 @@ extension ArticleUploadVC {
         NotificationCenter.default.addObserver(self, selector: #selector(changeDefaultCellHeight), name: .homeSendmodelNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keywordSendedIndex), name: .homeModalKeywordNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(usefulSendedIndex(_:)), name: .homeModalUsefulNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeTextviewState(_:)), name: .homeWriteTextViewisEditingNotification, object: nil)
     }
     
     private func setNavigationBar() {
@@ -64,12 +65,14 @@ extension ArticleUploadVC {
         
         let rightButton = UIButton()
         rightButton.setTitle("등록", for: .normal)
-        rightButton.isEnabled = false
         rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        rightButton.setTitleColor(.blueGray80, for: .normal)
+        rightButton.setTitleColor(.blueGray80, for: .disabled)
+        rightButton.setTitleColor(.warmPink, for: .normal)
+        rightButton.addTarget(self, action: #selector(tapDoneButtonAction), for: .touchUpInside)
         
         let rightnavigationButton = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = rightnavigationButton
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     @objc private func dismissVC() {
@@ -82,7 +85,6 @@ extension ArticleUploadVC {
     }
     
     @objc private func keywordSendedIndex(_ notification: NSNotification) {
-        
         storageKeywordData = []
         guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
             return
@@ -96,7 +98,6 @@ extension ArticleUploadVC {
     }
     
     @objc private func usefulSendedIndex(_ notification: NSNotification) {
-        
         storageUsefulKeywordData = []
         guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
             return
@@ -113,6 +114,32 @@ extension ArticleUploadVC {
         guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
         nearstationData = injectedModel
         collectionView.reloadData()
+    }
+    
+    @objc private func changeTextviewState(_ notification: NSNotification) {
+        
+        guard let injectedModel = notification.userInfo?["editingflag"] as? Bool else { return }
+        print(injectedModel)
+        if injectedModel == true {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
+    
+    @objc private func tapDoneButtonAction() {
+        alertaction()
+    }
+    
+    func alertaction() {
+        let alert = UIAlertController(title: "Your Title", message: "Your Message", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler : nil )
+        let cancel = UIAlertAction(title: "cancel", style: .destructive, handler : nil)
+        
+        alert.addAction(cancel)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func returnNearStationDynamicHeight() -> CGSize {
@@ -133,7 +160,6 @@ extension ArticleUploadVC {
         }
     }
     
-    
     func returnUsefulInfoDynamicHeight() -> CGFloat {
         if storageUsefulKeywordData.count == 0 {
             return CGFloat(60)
@@ -152,7 +178,6 @@ extension ArticleUploadVC {
                 self.keywordData = metaData
             }
         }
-        
         UsefulInformServices.usefulInformServices.getKeywordRequest { data in
             if let metaData = data {
                 self.usefulKeywordData = metaData
@@ -185,7 +210,8 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
         case 3:
             return CGSize(width: width, height: returnUsefulInfoDynamicHeight())
         case 4:
-            return CGSize(width: width, height: 452)
+            let marginConstant: CGFloat = 100 // Keyboard 칠 공간이 없어욥
+            return CGSize(width: width, height: 452 + marginConstant)
         default:
             assert(false)
         }
@@ -200,7 +226,6 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        
         return CGSize(width: view.frame.width, height: 1)
     }
 }
@@ -336,14 +361,7 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if indexPath.section == 0 {
-            //            let newIndexPath = IndexPath(item: 0, section: 0)
-            //            self.collectionView.selectItem(at: newIndexPath, animated: true, scrollPosition: .bottom)
-            print(#function)
-            tempfunction()
-            
-        } else if indexPath.section == 1 {
+        if indexPath.section == 1 {
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "NearstationVC") as? NearstationVC else {
                 return
             }
@@ -355,40 +373,4 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             keywordModal.showSettings("장소 정보", usefulKeywordData)
         }
     }
-    
-    func tempfunction() {
-        var config = YPImagePickerConfiguration()
-        config.showsCrop = .rectangle(ratio: (9/16))
-        config.showsPhotoFilters = false
-        config.startOnScreen = .library
-        config.screens = [.library]
-        config.library.defaultMultipleSelection = true
-        config.library.maxNumberOfItems = 10
-        
-        let picker = YPImagePicker(configuration: config)
-        photoArray = []
-        
-        picker.didFinishPicking { [unowned picker] items, cancelled in
-            if cancelled {
-                picker.dismiss(animated: true, completion: nil)
-                return
-            }
-            for item in items {
-                switch item {
-                // 이미지만 받기때문에 photo case만 처리
-                case .photo(let p):
-                    // 이미지를 해당하는 이미지 배열에 넣어주는 code
-                    self.photoArray.append(p.image)
-                default:
-                    print("")
-                }
-            }
-            picker.dismiss(animated: true) {
-                // picker뷰 dismiss 할 때 이미지가 들어가 있는 collectionView reloadData()
-                self.collectionView.reloadData()
-            }
-        }
-        present(picker, animated: true, completion: nil)
-    }
-    
 }

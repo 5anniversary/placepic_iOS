@@ -56,11 +56,11 @@
 		3D6C163324B83BF20050979C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C163224B83BF20050979C /* Notification.swift */; };
 		3D6C163724B877790050979C /* KeywordServies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C163624B877790050979C /* KeywordServies.swift */; };
 		3D6C163B24B87E830050979C /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C163A24B87E830050979C /* ResponseResult.swift */; };
-		3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83AC24BB0E0B00ACD85A /* ArticleWritingServices.swift */; };
 		3D6F83AF24BB13C800ACD85A /* CollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83AE24BB13C800ACD85A /* CollectionViewFlowLayout.swift */; };
 		3D6F83B124BB186000ACD85A /* FindfavoritePlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B024BB186000ACD85A /* FindfavoritePlaceTVC.swift */; };
 		3D6F83B524BB20BB00ACD85A /* PlaceSearchServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B424BB20BB00ACD85A /* PlaceSearchServices.swift */; };
 		3D6F83B724BB348400ACD85A /* WriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B624BB348400ACD85A /* WriteNavigationController.swift */; };
+		3D7BF87B24BEC8D90031EE6D /* UploadServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BF87A24BEC8D90031EE6D /* UploadServices.swift */; };
 		3D84896924B4116F00AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3D84896B24B440A600AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3DAC651A24B6EFE400FBA399 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -168,11 +168,11 @@
 		3D6C163624B877790050979C /* KeywordServies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordServies.swift; sourceTree = "<group>"; };
 		3D6C163824B877AD0050979C /* HomeAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIs.swift; sourceTree = "<group>"; };
 		3D6C163A24B87E830050979C /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
-		3D6F83AC24BB0E0B00ACD85A /* ArticleWritingServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWritingServices.swift; sourceTree = "<group>"; };
 		3D6F83AE24BB13C800ACD85A /* CollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		3D6F83B024BB186000ACD85A /* FindfavoritePlaceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindfavoritePlaceTVC.swift; sourceTree = "<group>"; };
 		3D6F83B424BB20BB00ACD85A /* PlaceSearchServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchServices.swift; sourceTree = "<group>"; };
 		3D6F83B624BB348400ACD85A /* WriteNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNavigationController.swift; sourceTree = "<group>"; };
+		3D7BF87A24BEC8D90031EE6D /* UploadServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadServices.swift; sourceTree = "<group>"; };
 		3DCD865B24BAD336006783D2 /* UsefulImformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulImformModel.swift; sourceTree = "<group>"; };
 		3DCD865D24BAD356006783D2 /* UsefulInformServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInformServices.swift; sourceTree = "<group>"; };
 		3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
@@ -377,8 +377,8 @@
 				3D6C163624B877790050979C /* KeywordServies.swift */,
 				3DDABA3024B969A20061A6C7 /* SubwayServices.swift */,
 				3DCD865D24BAD356006783D2 /* UsefulInformServices.swift */,
-				3D6F83AC24BB0E0B00ACD85A /* ArticleWritingServices.swift */,
 				3D6F83B424BB20BB00ACD85A /* PlaceSearchServices.swift */,
+				3D7BF87A24BEC8D90031EE6D /* UploadServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -940,7 +940,6 @@
 				13B9DC5C24BD989C00D15591 /* GroupPartiTVC.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
 				AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */,
-				3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */,
 				13B9DC0124BD963200D15591 /* APIConstants.swift in Sources */,
 				3DCE5F7B24B51B1D00BAF927 /* HomeReviewCVC.swift in Sources */,
 				13B9DC1D24BD96D800D15591 /* GroupPartiService.swift in Sources */,
@@ -958,6 +957,7 @@
 				3D6C163324B83BF20050979C /* Notification.swift in Sources */,
 				3D6BAF8924AF9B5000F6339E /* KeywordCell.swift in Sources */,
 				AE34146E24B6251C00425889 /* adminUserModel.swift in Sources */,
+				3D7BF87B24BEC8D90031EE6D /* UploadServices.swift in Sources */,
 				AE34145824B3055F00425889 /* AdminVC.swift in Sources */,
 				3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */,
 				3D6F83AF24BB13C800ACD85A /* CollectionViewFlowLayout.swift in Sources */,

@@ -270,7 +270,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if keyword.count != 0 {
             return keyword.count
         } else {
@@ -280,7 +279,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! KeywordCell
-        
         if keyword.count != 0 {
             cell.nameLabel.text = keyword[indexPath.item].tagName
         } else {
@@ -290,7 +288,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         if keyword.count != 0 {
             guard let wid = keyword[indexPath.item].tagName?.width(withConstrainedHeight: 40, font: .boldSystemFont(ofSize: 14)) else {
                 return CGSize()

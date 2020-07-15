@@ -154,7 +154,7 @@ extension FavoritePlaceSearchVC: UITableViewDelegate {
 }
 
 extension FavoritePlaceSearchVC: UITextFieldDelegate {
-    
+  
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         return true
