@@ -25,7 +25,6 @@ class SignupSuccess: UIViewController {
         setDesign()
 
         
-        
         // Do any additional setup after loading the view.
     }
     

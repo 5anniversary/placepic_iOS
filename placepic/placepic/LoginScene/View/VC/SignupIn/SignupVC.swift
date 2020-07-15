@@ -61,6 +61,8 @@ class SignupVC: UIViewController {
                 self.present(alertViewController, animated: true, completion: nil)
                 
             case .pathErr: print("path")
+                
+                
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }

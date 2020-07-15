@@ -14,7 +14,6 @@ class Signup3VC: UIViewController {
     var signuppw : String!
     var gender : [Int] = [0,0,0]
     
-    
     @IBOutlet weak var signupNameLabel: UILabel!
     @IBOutlet weak var signupNameTextfield: UITextField!
     @IBOutlet weak var signupDOBLabel: UILabel!
@@ -28,6 +27,12 @@ class Signup3VC: UIViewController {
     @IBOutlet weak var signup2sendButton: UIButton!
     @IBAction func sendButtonaction(_ sender: Any) {
         
+        guard let vc =  self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccess") as? SignupSuccess else {return} //App crashes here
+        vc.modalPresentationStyle = .fullScreen
+        
+        
+        
+        self.present(vc, animated: true, completion: nil)
         
         guard let signupname = signupNameTextfield.text else{return}
         guard let signupDOB = signupDOBTextfield.text else{return}
@@ -42,14 +47,15 @@ class Signup3VC: UIViewController {
                 guard let token = token as? String else { return }
                 UserDefaults.standard.set(token, forKey: "token")
                 
-                let vc =  self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccess") as! SignupSuccess //App crashes here
-                self.present(vc, animated: false, completion: nil)
+                guard let vc =  self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccess") as? SignupSuccess else {return} //App crashes here
                 vc.modalPresentationStyle = .fullScreen
-//
-//                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccess") as! SignupSuccess
-//                print("네비")
-//                self.navigationController?.pushViewController(secondViewController, animated: true)
-//                
+                
+                self.present(vc, animated: false, completion: nil)
+                //
+                //                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccess") as! SignupSuccess
+                //                print("네비")
+                //                self.navigationController?.pushViewController(secondViewController, animated: true)
+            //
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
@@ -59,11 +65,19 @@ class Signup3VC: UIViewController {
                 self.present(alertViewController, animated: true, completion: nil)
                 
             case .pathErr: print("path")
-            case .serverErr: print("serverErr")
-            case .networkFail: print("networkFail")
+//                guard let message = message as? String else { return }
+//                let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
+//                                                            preferredStyle: .alert)
+//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                alertViewController.addAction(action)
+//                self.present(alertViewController, animated: true, completion: nil)
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
             }
         }
     }
+    
+    
     
     @IBAction func buttonaction1(_ sender: Any) {
         

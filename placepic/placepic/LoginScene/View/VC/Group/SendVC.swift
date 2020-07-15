@@ -16,6 +16,8 @@ class SendVC: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     
+    var model: SubwayModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setalertlabel()
