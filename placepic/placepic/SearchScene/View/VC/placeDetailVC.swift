@@ -12,7 +12,7 @@ import FSPagerView
 import Kingfisher
 
 class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
-
+    
     let imageNames = ["dummy1","dummy2","dummy3","dummy4"]
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var detailTextView: UITextView!
@@ -50,14 +50,47 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     override func viewDidLoad() {
+        print(#function)
         super.viewDidLoad()
         setNavigationBar()
         getDetailData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
         setData()
+        print(placeDetailData?.keyword)
+        
+        if placeDetailData?.keyword.count == 1{
+            print(placeDetailData?.keyword)
+            placeTag[0].text = placeDetailData?.keyword[0]
+//            placeTag[1].isHidden = true
+//            placeTag[2].isHidden = true
+        }
+        else if placeDetailData?.keyword.count == 2{
+            placeTag[0].text = placeDetailData?.keyword[0]
+            placeTag[1].text = placeDetailData?.keyword[1]
+//            placeTag[2].isHidden = true
+        }
+        else if placeDetailData?.keyword.count == 3{
+            placeTag[0].text = placeDetailData?.keyword[0]
+            placeTag[1].text = placeDetailData?.keyword[1]
+            placeTag[2].text = placeDetailData?.keyword[2]
+        }
+        else{
+//            placeTag[0].isHidden = true
+//            placeTag[1].isHidden = true
+//            placeTag[2].isHidden = true
+        }
+        
     }
     
     private func setData(){
-        profileImg.kf.setImage(with: URL(string: placeDetailData?.uploader.profileImageURL ?? ""))
+        print(#function)
+        
+        profileImg.layer.cornerRadius = profileImg.frame.height/2
+//        profileImg.kf.setImage(with: URL(string: (placeDetailData?.uploader.profileImageURL)!))
+//        profileImg.kf.setImage(with: placeDetailData?.uploader.profileImageURL)
         userName.text = placeDetailData?.uploader.userName
         userPart.text = placeDetailData?.uploader.part
 //        postNum.text = "작성한 글 " + String(placeDetailData?.uploader.postCount)
@@ -66,34 +99,42 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         dateFormatter.dateFormat = "yyyy.MM.dd"
         postDate.text = dateFormatter.string(from: date)
         detailTextView.text = placeDetailData?.placeReview
-//        likeNum.text = placeDetailData?.likeCount
+//        likeNum.text = String(placeDetailData?.likeCount)
         placeName.text = placeDetailData?.placeName
-//        
-//        placeTag
+        heartbutView.layer.cornerRadius = 4
+        heartbutView.layer.borderWidth = 1.5
+        heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
+        
+        
+        //**setTag
         
     }
-    private func getDetailData(){
+    private func getDetailData() {
+        print(#function)
         DetailViewService.shared.getPlaces(String(selectIdx)){ networkResult in
-                    switch networkResult {
-                    case .success(let products):
-                        guard let places = products as? DetailModel else { return }
-                        self.placeDetailData = places
-                        print(self.placeDetailData)
-                    case .requestErr(let message):
-                        guard let message = message as? String else { return }
-                        let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
-                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                        alertViewController.addAction(action)
-                        self.present(alertViewController, animated: true, completion: nil)
-                    case .pathErr: print("pathErr")
-                    case .serverErr: print("serverErr")
-                    case .networkFail: print("networkFail")
-                        
-                    }
-                }
+            switch networkResult {
+            case .success(let products):
+                guard let places = products as? DetailModel else { return }
+                self.placeDetailData = places
+                print(self.placeDetailData)
+                self.viewWillAppear(true)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("pathErr")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+                
+            }
+        }
     }
     private func setView(){
-        detailViewHC.constant = self.detailTextView.contentSize.height
+//        detailViewHC.constant = self.detailTextView.contentSize.height
+        detailViewHC.constant = CGFloat(100)
+
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         detailImg.isInfinite = true
         buttonView.layer.cornerRadius = 4
@@ -102,13 +143,13 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         heartbutView.layer.borderWidth = 2
         heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
         
-//        bottomView.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+        //        bottomView.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
     }
     
-//    private func setView(){
-//        profileImg.layer.cornerRadius = profileImg.frame.height/2
-//        detailImg.isInfinite = true
-//    }
+    //    private func setView(){
+    //        profileImg.layer.cornerRadius = profileImg.frame.height/2
+    //        detailImg.isInfinite = true
+    //    }
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell{
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         cell.imageView?.image = UIImage(named: self.imageNames[index])
@@ -122,11 +163,11 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)
     }
-       
+    
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
         self.pageControl.currentPage = targetIndex
     }
-       
+    
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
         self.pageControl.currentPage = pagerView.currentIndex
     }
@@ -155,24 +196,31 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         navigationController?.popViewController(animated: true)
     }
     
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//
-//        NMFAuthManager.shared().clientId = "YOUR_CLIENT_ID_HERE"
-//
-//        return true
-//
-//    }
-
+    //    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    //
+    //        NMFAuthManager.shared().clientId = "YOUR_CLIENT_ID_HERE"
+    //
+    //        return true
+    //
+    //    }
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
-
+//extension UIViewController {
+//    func reloadViewFromNib() {
+//        let parent = view.superview
+//        view.removeFromSuperview()
+//        view = nil
+//        parent?.addSubview(view) // This line causes the view to be reloaded
+//    }
+//}

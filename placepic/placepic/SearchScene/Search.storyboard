@@ -356,7 +356,7 @@
                                                 <rect key="frame" x="14" y="474" width="347" height="20"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="m0l-Ec-Ucc"/>
+                                                    <constraint firstAttribute="height" constant="20" id="c0r-zU-TVw"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -462,6 +462,9 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="23" id="Tsy-ar-GlC"/>
+                                                </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEA-Ic-bAr">
                                                 <rect key="frame" x="14" y="718.5" width="59" height="20.5"/>
@@ -560,7 +563,7 @@
                                             <constraint firstItem="x0v-Yf-8bY" firstAttribute="top" secondItem="tCf-ap-WQh" secondAttribute="bottom" constant="35" id="htA-4p-CMC"/>
                                             <constraint firstItem="KYS-AL-Hnj" firstAttribute="top" secondItem="3R6-2Z-7Fw" secondAttribute="bottom" constant="4" id="iH2-Fh-6y9"/>
                                             <constraint firstItem="mPR-ag-nH4" firstAttribute="leading" secondItem="BFU-oW-LSQ" secondAttribute="trailing" constant="12" id="igs-lI-RwN"/>
-                                            <constraint firstAttribute="bottom" secondItem="d1H-6t-vba" secondAttribute="bottom" constant="202.5" id="kfN-1I-Xqi"/>
+                                            <constraint firstAttribute="bottom" secondItem="d1H-6t-vba" secondAttribute="bottom" priority="750" constant="202.5" id="kfN-1I-Xqi"/>
                                             <constraint firstAttribute="trailing" secondItem="MSH-My-SKN" secondAttribute="trailing" constant="14" id="kl4-fI-e7a"/>
                                             <constraint firstItem="MSH-My-SKN" firstAttribute="top" secondItem="jeN-3R-Uiu" secondAttribute="bottom" constant="15" id="ldY-Qn-OZz"/>
                                             <constraint firstItem="d1H-6t-vba" firstAttribute="top" secondItem="PAI-QN-Qrx" secondAttribute="bottom" constant="25" id="otI-Rx-Kht"/>
@@ -611,7 +614,7 @@
                         <outlet property="buttonView" destination="9dV-6e-rwo" id="MSL-z3-Beo"/>
                         <outlet property="detailImg" destination="UB6-bg-mDO" id="1gw-Hs-l7f"/>
                         <outlet property="detailTextView" destination="tCf-ap-WQh" id="cgc-mh-K65"/>
-                        <outlet property="detailViewHC" destination="m0l-Ec-Ucc" id="F0N-ST-E1m"/>
+                        <outlet property="detailViewHC" destination="c0r-zU-TVw" id="WNJ-0V-seR"/>
                         <outlet property="heartbutView" destination="x0v-Yf-8bY" id="J7M-sj-Rta"/>
                         <outlet property="likeNum" destination="2GA-v7-NGj" id="Xul-Dk-qdN"/>
                         <outlet property="pageControl" destination="1d3-mr-Hcr" id="3QM-qJ-VwJ"/>

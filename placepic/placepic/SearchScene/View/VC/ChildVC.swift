@@ -76,7 +76,6 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 for i in 0..<places.count{
                     self.placeListData.append(places.result[i])
                 }
-                
                 //placeList
                 self.placeListTV.reloadData() //***!!!
 //                print(self.placeList?.count)
@@ -119,7 +118,12 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return placeListData.count
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let index = placeListTV.indexPathForSelectedRow {
+            placeListTV.deselectRow(at: index, animated: true)
+        }
+    }
     //placeDetailVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
