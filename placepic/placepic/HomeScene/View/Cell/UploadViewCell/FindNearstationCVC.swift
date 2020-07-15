@@ -45,6 +45,7 @@ class FindNearstationCVC: UICollectionViewCell {
         nearStationTitleLabel.font = Font.boldFontSize15
         nearStationTitleLabel.textColor = UIColor.gray90
         textFieldArray.forEach({
+            $0.textAlignment = .center
             $0.font = .systemFont(ofSize: 13)
             $0.layer.cornerRadius = 5
             $0.clipsToBounds = true

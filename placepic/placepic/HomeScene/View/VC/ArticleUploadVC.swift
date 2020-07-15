@@ -5,7 +5,6 @@
 //  Created by elesahich on 2020/07/05.
 //  Copyright © 2020 elesahich. All rights reserved.
 //
-
 import UIKit
 import YPImagePicker
 import Alamofire
@@ -13,11 +12,14 @@ import Alamofire
 class ArticleUploadVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
-    let usefulKeywordModel: [String] = []
-    var keywordData: [KeywordData] = []
+    
     var nearstationData: [SubwayData] = []
+    var keywordData: [KeywordData] = []
     var usefulKeywordData: [UsefulInformData] = []
+    var photoArray: [UIImage]! = []
+    
+    var storageKeywordData: [KeywordData] = []
+    var storageUsefulKeywordData: [UsefulInformData] = []
     
     var articleTitle: String = ""
     var classifyBadge: String = ""
@@ -41,6 +43,8 @@ extension ArticleUploadVC {
     
     private func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeDefaultCellHeight), name: .homeSendmodelNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keywordSendedIndex), name: .homeModalKeywordNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(usefulSendedIndex(_:)), name: .homeModalUsefulNotification, object: nil)
     }
     
     private func setNavigationBar() {
@@ -77,6 +81,33 @@ extension ArticleUploadVC {
         collectionView.dataSource = self
     }
     
+    @objc private func keywordSendedIndex(_ notification: NSNotification) {
+        
+        storageKeywordData = []
+        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
+            return
+        }
+        
+        for i in 0..<injectedModel.count {
+            print(keywordData[injectedModel[i]])
+            storageKeywordData.append(keywordData[injectedModel[i]])
+        }
+        collectionView.reloadData()
+    }
+    
+    @objc private func usefulSendedIndex(_ notification: NSNotification) {
+        
+        storageUsefulKeywordData = []
+        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
+            return
+        }
+        
+        for i in 0..<injectedModel.count {
+            storageUsefulKeywordData.append(usefulKeywordData[injectedModel[i]])
+        }
+        collectionView.reloadData()
+    }
+        
     @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
         
         guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
@@ -84,15 +115,30 @@ extension ArticleUploadVC {
         collectionView.reloadData()
     }
     
-    func returnDynamicHeight() -> CGSize {
+    func returnNearStationDynamicHeight() -> CGSize {
         let width = view.frame.width
-        /// cell에 접근해서 처리하고자 함
-        /// 셀마다 분기해서 처리하고자 함
-        
-        if nearstationData.count == 0 {
-            return CGSize(width: width, height: 60)
-        } else {
+        /// `flag 도입하면 지하철역 돌아갔다 와도 괜춘겠네욤`
+        if nearstationData.count != 0 {
             return CGSize(width: width, height: 90)
+        } else {
+            return CGSize(width: width, height: 60)
+        }
+    }
+    
+    func returnKeywordDynamicHeight() -> CGFloat {
+        if storageKeywordData.count == 0 {
+            return CGFloat(60)
+        } else {
+            return CGFloat(90)
+        }
+    }
+    
+    
+    func returnUsefulInfoDynamicHeight() -> CGFloat {
+        if storageUsefulKeywordData.count == 0 {
+            return CGFloat(60)
+        } else {
+            return CGFloat(90)
         }
     }
 }
@@ -128,16 +174,16 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-      
+        
         switch indexPath.section {
         case 0:
             return CGSize(width: width, height: 98)
         case 1:
-            return returnDynamicHeight()
+            return returnNearStationDynamicHeight()
         case 2:
-            return returnDynamicHeight()
+            return CGSize(width: width, height: returnKeywordDynamicHeight())
         case 3:
-            return returnDynamicHeight()
+            return CGSize(width: width, height: returnUsefulInfoDynamicHeight())
         case 4:
             return CGSize(width: width, height: 452)
         default:
@@ -209,28 +255,44 @@ extension ArticleUploadVC: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             if nearstationData.count == 0 {
-                
+                cell.stackView.isHidden = true
             } else if nearstationData.count == 1 {
                 cell.stackView.isHidden = false
                 cell.textFieldArray[1].isHidden = true
                 cell.textFieldArray[2].isHidden = true
-                
             } else if nearstationData.count == 2 {
                 cell.stackView.isHidden = false
-                cell.textFieldArray[1].isHidden = true
+                cell.textFieldArray[2].isHidden = true
                 
             } else {
                 cell.stackView.isHidden = false
             }
-            
             for i in 0..<nearstationData.count {
                 cell.textFieldArray[i].text = nearstationData[i].subwayName
             }
-            return cell
             
+            return cell
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeKeywordCVC", for: indexPath) as? HomeKeywordCVC else {
                 return UICollectionViewCell()
+            }
+            cell.keywordTextFieldArray.forEach({
+                $0.isHidden = false
+            })
+            if storageKeywordData.count == 0 {
+                cell.keywordStackView.isHidden = true
+            } else if storageKeywordData.count == 1 {
+                cell.keywordStackView.isHidden = false
+                cell.keywordTextFieldArray[1].isHidden = true
+                cell.keywordTextFieldArray[2].isHidden = true
+            } else if storageKeywordData.count == 2 {
+                cell.keywordStackView.isHidden = false
+                cell.keywordTextFieldArray[2].isHidden = true
+            } else {
+                cell.keywordStackView.isHidden = false
+            }
+            for i in 0..<storageKeywordData.count {
+                cell.keywordTextFieldArray[i].text = storageKeywordData[i].tagName
             }
             return cell
             
@@ -238,14 +300,32 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsefulInformationCVC", for: indexPath) as? UsefulInformationCVC else {
                 return UICollectionViewCell()
             }
+            cell.usefulTextFieldarray.forEach({
+                $0.isHidden = false
+            })
+            if storageUsefulKeywordData.count == 0 {
+                cell.usefulStackView.isHidden = true
+            } else if storageUsefulKeywordData.count == 1 {
+                cell.usefulStackView.isHidden = false
+                cell.usefulTextFieldarray[1].isHidden = true
+                cell.usefulTextFieldarray[2].isHidden = true
+            } else if storageUsefulKeywordData.count == 2 {
+                cell.usefulStackView.isHidden = false
+                cell.usefulTextFieldarray[2].isHidden = true
+            } else {
+                cell.usefulStackView.isHidden = false
+            }
+            for i in 0..<storageUsefulKeywordData.count {
+                cell.usefulTextFieldarray[i].text = storageUsefulKeywordData[i].tagName
+            }
             return cell
             
         case 4:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeReviewCVC", for: indexPath) as? HomeReviewCVC else {
                 return UICollectionViewCell()
             }
-            return cell
             
+            return cell
         default:
             assert(false)
         }
@@ -256,7 +336,14 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        
+        if indexPath.section == 0 {
+            //            let newIndexPath = IndexPath(item: 0, section: 0)
+            //            self.collectionView.selectItem(at: newIndexPath, animated: true, scrollPosition: .bottom)
+            print(#function)
+            tempfunction()
+            
+        } else if indexPath.section == 1 {
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "NearstationVC") as? NearstationVC else {
                 return
             }
@@ -268,4 +355,40 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             keywordModal.showSettings("장소 정보", usefulKeywordData)
         }
     }
+    
+    func tempfunction() {
+        var config = YPImagePickerConfiguration()
+        config.showsCrop = .rectangle(ratio: (9/16))
+        config.showsPhotoFilters = false
+        config.startOnScreen = .library
+        config.screens = [.library]
+        config.library.defaultMultipleSelection = true
+        config.library.maxNumberOfItems = 10
+        
+        let picker = YPImagePicker(configuration: config)
+        photoArray = []
+        
+        picker.didFinishPicking { [unowned picker] items, cancelled in
+            if cancelled {
+                picker.dismiss(animated: true, completion: nil)
+                return
+            }
+            for item in items {
+                switch item {
+                // 이미지만 받기때문에 photo case만 처리
+                case .photo(let p):
+                    // 이미지를 해당하는 이미지 배열에 넣어주는 code
+                    self.photoArray.append(p.image)
+                default:
+                    print("")
+                }
+            }
+            picker.dismiss(animated: true) {
+                // picker뷰 dismiss 할 때 이미지가 들어가 있는 collectionView reloadData()
+                self.collectionView.reloadData()
+            }
+        }
+        present(picker, animated: true, completion: nil)
+    }
+    
 }
