@@ -18,7 +18,7 @@ class NearstationCVC: UICollectionViewCell {
     }
     
     private func configureTextfield() {
-        
+        stationTextField.textAlignment = .center
         stationTextField.isEnabled = false
         stationTextField.font = Font.boldFontSize12
         stationTextField.textColor = UIColor.gray70

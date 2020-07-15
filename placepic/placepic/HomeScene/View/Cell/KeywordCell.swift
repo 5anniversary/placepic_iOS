@@ -24,7 +24,6 @@ class KeywordCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         nameLabel.text = ""
     }
     

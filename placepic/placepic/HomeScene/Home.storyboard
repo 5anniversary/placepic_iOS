@@ -366,46 +366,46 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="TfH-uf-xt1">
                                                     <rect key="frame" x="337" y="19.5" width="24" height="24"/>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6R9-cU-0Q1">
-                                                    <rect key="frame" x="14" y="53" width="104" height="23"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5f8-Uq-OCt">
+                                                    <rect key="frame" x="14" y="53" width="108" height="23"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFd-IY-Waa">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tml-De-4eS">
                                                             <rect key="frame" x="0.0" y="0.0" width="32" height="23"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XnU-36-0rL">
-                                                            <rect key="frame" x="36" y="0.0" width="32" height="23"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-QX-kHl">
+                                                            <rect key="frame" x="38" y="0.0" width="32" height="23"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u68-Ry-2Zd">
-                                                            <rect key="frame" x="72" y="0.0" width="32" height="23"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZj-iW-D1T">
+                                                            <rect key="frame" x="76" y="0.0" width="32" height="23"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="23" id="OUg-83-U5a"/>
+                                                        <constraint firstAttribute="height" constant="23" id="jCE-y4-YMJ"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6R9-cU-0Q1" firstAttribute="leading" secondItem="4cj-pl-aFT" secondAttribute="leading" constant="14" id="DHG-oW-C75"/>
                                                 <constraint firstItem="TfH-uf-xt1" firstAttribute="leading" secondItem="RiT-U1-kM8" secondAttribute="trailing" constant="152.5" id="H25-AK-fzZ"/>
+                                                <constraint firstItem="5f8-Uq-OCt" firstAttribute="leading" secondItem="4cj-pl-aFT" secondAttribute="leading" constant="14" id="O4G-Dj-kkm"/>
                                                 <constraint firstItem="RiT-U1-kM8" firstAttribute="centerY" secondItem="TfH-uf-xt1" secondAttribute="centerY" id="P3A-sd-PIu"/>
                                                 <constraint firstItem="RiT-U1-kM8" firstAttribute="leading" secondItem="4cj-pl-aFT" secondAttribute="leading" constant="14" id="YaT-eS-Q3G"/>
                                                 <constraint firstItem="RiT-U1-kM8" firstAttribute="top" secondItem="4cj-pl-aFT" secondAttribute="top" constant="21" id="bK4-Zv-n4G"/>
-                                                <constraint firstItem="6R9-cU-0Q1" firstAttribute="top" secondItem="RiT-U1-kM8" secondAttribute="bottom" constant="11" id="jEM-nR-Jp2"/>
+                                                <constraint firstItem="5f8-Uq-OCt" firstAttribute="top" secondItem="RiT-U1-kM8" secondAttribute="bottom" constant="11" id="xoJ-es-mqU"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="90"/>
                                         <connections>
+                                            <outlet property="keywordStackView" destination="5f8-Uq-OCt" id="JEg-gc-3NF"/>
                                             <outlet property="keywordTitleLabel" destination="RiT-U1-kM8" id="UW6-66-FtC"/>
-                                            <outlet property="stackView" destination="6R9-cU-0Q1" id="alV-p5-6JL"/>
-                                            <outletCollection property="textFieldArray" destination="vFd-IY-Waa" collectionClass="NSMutableArray" id="dvM-eH-CEI"/>
-                                            <outletCollection property="textFieldArray" destination="XnU-36-0rL" collectionClass="NSMutableArray" id="f2c-bU-XLn"/>
-                                            <outletCollection property="textFieldArray" destination="u68-Ry-2Zd" collectionClass="NSMutableArray" id="tIz-XC-tZ2"/>
+                                            <outletCollection property="keywordTextFieldArray" destination="tml-De-4eS" collectionClass="NSMutableArray" id="tEm-Od-8L4"/>
+                                            <outletCollection property="keywordTextFieldArray" destination="bv4-QX-kHl" collectionClass="NSMutableArray" id="dtD-ie-SFY"/>
+                                            <outletCollection property="keywordTextFieldArray" destination="qZj-iW-D1T" collectionClass="NSMutableArray" id="52j-bY-pOd"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="UsefulInformationCVC" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="UsefulInformationCVC" id="zri-Fk-uWK" customClass="UsefulInformationCVC" customModule="placepic" customModuleProvider="target">
@@ -427,17 +427,46 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-tE-pow">
                                                     <rect key="frame" x="337" y="19.5" width="24" height="24"/>
                                                 </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jQc-JA-BjK">
+                                                    <rect key="frame" x="14" y="53" width="108" height="23"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16e-Ap-WZK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="32" height="23"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fa2-w0-QMs">
+                                                            <rect key="frame" x="38" y="0.0" width="32" height="23"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wot-hn-hci">
+                                                            <rect key="frame" x="76" y="0.0" width="32" height="23"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23" id="Jgs-m7-xtz"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="jQc-JA-BjK" firstAttribute="leading" secondItem="aHh-MF-JcB" secondAttribute="leading" constant="14" id="1bK-fW-NSS"/>
                                                 <constraint firstItem="S6q-ZI-SEg" firstAttribute="centerY" secondItem="cXe-tE-pow" secondAttribute="centerY" id="Gqs-3y-rIi"/>
                                                 <constraint firstItem="S6q-ZI-SEg" firstAttribute="top" secondItem="aHh-MF-JcB" secondAttribute="top" constant="21" id="Uav-RM-xi5"/>
                                                 <constraint firstItem="S6q-ZI-SEg" firstAttribute="leading" secondItem="aHh-MF-JcB" secondAttribute="leading" constant="14" id="Vcg-Ma-pVK"/>
                                                 <constraint firstItem="cXe-tE-pow" firstAttribute="leading" secondItem="S6q-ZI-SEg" secondAttribute="trailing" constant="224.5" id="s0k-hR-KDf"/>
+                                                <constraint firstItem="jQc-JA-BjK" firstAttribute="top" secondItem="S6q-ZI-SEg" secondAttribute="bottom" constant="11" id="xXR-uw-5ZX"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="90"/>
                                         <connections>
+                                            <outlet property="usefulStackView" destination="jQc-JA-BjK" id="Uqa-j0-hH9"/>
                                             <outlet property="usefulTitleLabel" destination="S6q-ZI-SEg" id="IzS-RA-wCT"/>
+                                            <outletCollection property="usefulTextFieldarray" destination="16e-Ap-WZK" collectionClass="NSMutableArray" id="8wf-Q8-OeH"/>
+                                            <outletCollection property="usefulTextFieldarray" destination="fa2-w0-QMs" collectionClass="NSMutableArray" id="oX7-R6-FpQ"/>
+                                            <outletCollection property="usefulTextFieldarray" destination="wot-hn-hci" collectionClass="NSMutableArray" id="nHE-Jz-Ybi"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HomeReviewCVC" id="ism-lG-uab" customClass="HomeReviewCVC" customModule="placepic" customModuleProvider="target">

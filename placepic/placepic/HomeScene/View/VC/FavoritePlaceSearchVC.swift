@@ -26,6 +26,14 @@ class FavoritePlaceSearchVC: UIViewController {
         configureTableView()
         configureNullPageView()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if let index = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: index, animated: true)
+        }
+    }
 }
 
 // MARK: - UI
@@ -107,8 +115,6 @@ extension FavoritePlaceSearchVC {
         }
     }
 }
-
-
 
 extension FavoritePlaceSearchVC: UITableViewDataSource {
     

@@ -10,4 +10,6 @@ import Foundation
 
 extension Notification.Name {
     static let homeSendmodelNotification = Notification.Name("sendmodelnotification")
+    static let homeModalKeywordNotification = Notification.Name("homemodalkeywordnotification")
+    static let homeModalUsefulNotification = Notification.Name("homemodalusefulnotification")
 }
