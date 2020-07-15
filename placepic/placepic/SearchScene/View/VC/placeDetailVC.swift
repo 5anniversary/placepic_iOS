@@ -13,7 +13,7 @@ import Kingfisher
 
 class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
     
-    let imageNames = ["dummy1","dummy2","dummy3","dummy4"]
+    let imageNames = []
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var detailViewHC: NSLayoutConstraint!
@@ -32,10 +32,10 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet weak var placeInfo: UILabel!
     @IBOutlet weak var likeNum: UILabel!
     
-    @IBAction func likeList(_ sender: Any) {
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
-        self.navigationController?.pushViewController(secondViewController, animated: true)
-    }
+//    @IBAction func likeList(_ sender: Any) {
+//        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
+//        self.navigationController?.pushViewController(secondViewController, animated: true)
+//    }
     var selectIdx: Int!
     var placeDetailData: DetailModel?
     
@@ -47,7 +47,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet var pageControl: FSPageControl!{
         //홍보배너 밑에 띄울 페이지컨트롤
         didSet {
-            self.pageControl.numberOfPages = self.imageNames.count //페이지 수
+            self.pageControl.numberOfPages = imageNames.count //페이지 수
             self.pageControl.contentHorizontalAlignment = .center //중앙에 배치
             self.pageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         }
@@ -69,17 +69,18 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         print(#function)
         
         profileImg.layer.cornerRadius = profileImg.frame.height/2
-//        profileImg.kf.setImage(with: URL(string: (placeDetailData?.uploader.profileImageURL)!))
+//        profileImg.kf.setImage(with: URL(string: )
+        profileImg.kf.setImage(with: URL(string: placeDetailData?.uploader.profileImageURL ?? ""))
 //        profileImg.kf.setImage(with: placeDetailData?.uploader.profileImageURL)
         userName.text = placeDetailData?.uploader.userName
         userPart.text = placeDetailData?.uploader.part
-//        postNum.text = "작성한 글 " + String(placeDetailData?.uploader.postCount)
+        postNum.text = "작성한 글 \(placeDetailData?.uploader.postCount)"
         let date:Date = Date(timeIntervalSince1970: TimeInterval(placeDetailData?.placeCreatedAt ?? 0))
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
         postDate.text = dateFormatter.string(from: date)
         detailTextView.text = placeDetailData?.placeReview
-//        likeNum.text = String(placeDetailData?.likeCount)
+        likeNum.text = "\(placeDetailData?.likeCount)"
         placeName.text = placeDetailData?.placeName
         heartbutView.layer.cornerRadius = 4
         heartbutView.layer.borderWidth = 1.5
@@ -115,7 +116,9 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             placeTag[i].layer.cornerRadius = 4
             placeTag[i].isEnabled = false
         }
-//        scrapNum.text = placeDetailData?.bookmarkCount
+//        scrapNum.text = "\(placeDetailData?.bookmarkCount)"
+        scrapNum.text = String(describing: placeDetailData?.bookmarkCount)
+
         if placeDetailData?.categoryIdx == 1{
             placeCate.text = "맛집"
         }
@@ -132,23 +135,37 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             placeCate.text = "기타공간"
         }
         
-//        for i in 0..<placeListData[indexPath.row].subway.count{
-//            if i == (placeListData[indexPath.row].subway.count-1){
-//                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName
-//            }
-//            else {
-//                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName + "/"
-//            }
-//        }
-        
-        print(placeDetailData?.subway.count)
         var substr:String = ""
-//        for i in 0..<placeDetailData?.subway.count{
-//            substr = substr + placeDetailData?.subway[i]
-//        }
-//        placeSubway.text = substr
-//        placeAddress.text = placeDetailData
+        guard let count = placeDetailData?.subway.count else { return }
+        for i in 0..<count {
+            if i == 0 || i == placeDetailData?.subway.count {
+                substr = substr + (placeDetailData?.subway[i])!
+            }
+            else if i > 0 {
+                substr = substr + "/" + (placeDetailData?.subway[i])!
+            }
+        }
+        placeSubway.text = substr
+        placeAddress.text = placeDetailData?.placeRoadAddress
+        
+        var substr2:String = ""
+        guard let count2 = placeDetailData?.placeInfo.count else { return }
+        for i in 0..<count2 {
+            if i == 0 || i == placeDetailData?.placeInfo.count {
+                substr2 = substr2 + (placeDetailData?.placeInfo[i])!
+            }
+            else if i > 0 {
+                substr2 = substr2 + " · " + (placeDetailData?.placeInfo[i])!
+            }
+        }
+        placeInfo.text = substr2
         navigationItem.title = placeDetailData?.placeName
+    
+        var substr3:String = ""
+        guard let count3 = placeDetailData?.imageURL.count else { return }
+        for i in 0..<count3 {
+            
+        }
     }
     
     private func getDetailData() {
@@ -223,6 +240,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         if segue.identifier == "LikelistVC" {
             if let destination = segue.destination as? LikelistVC {
                 destination.likeList = placeDetailData?.likeList as! [Uploader]
+                print(destination.likeList)
             }
         }
     }

@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import Kingfisher
 
 class likeListTVC: UITableViewCell {
+    static let identifier: String = "likeListTVC"
 
+    @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var listName: UILabel!
+    @IBOutlet weak var listPart: UILabel!
+    @IBOutlet weak var listDate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +26,21 @@ class likeListTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setLikeList(lname: String, lpart:String, ldate:String, limg:String) {
+        listName.text = lname
+        profileImg.kf.setImage(with: URL(string: limg))
+        listPart.text = lpart
+        listDate.text = ldate
+//        for i in 0..<3{
+//            placeTag[i].clipsToBounds = true
+//            placeTag[i].layer.borderWidth = 2
+//            placeTag[i].layer.borderColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
+//            placeTag[i].backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+//            placeTag[i].layer.cornerRadius = 4
+//            placeTag[i].isEnabled = false
+//        }
     }
 
 }
