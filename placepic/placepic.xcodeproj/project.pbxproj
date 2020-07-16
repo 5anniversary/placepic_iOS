@@ -61,7 +61,7 @@
 		3D6F83B524BB20BB00ACD85A /* PlaceSearchServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B424BB20BB00ACD85A /* PlaceSearchServices.swift */; };
 		3D6F83B724BB348400ACD85A /* WriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F83B624BB348400ACD85A /* WriteNavigationController.swift */; };
 		3D7BF87B24BEC8D90031EE6D /* UploadServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BF87A24BEC8D90031EE6D /* UploadServices.swift */; };
-		3D7BF87E24BF90B30031EE6D /* categoryIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BF87D24BF90B30031EE6D /* categoryIndex.swift */; };
+		3D7BF87E24BF90B30031EE6D /* CategoryIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BF87D24BF90B30031EE6D /* CategoryIndex.swift */; };
 		3D84896924B4116F00AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3D84896B24B440A600AE6A45 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3DAC651A24B6EFE400FBA399 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -174,7 +174,7 @@
 		3D6F83B424BB20BB00ACD85A /* PlaceSearchServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchServices.swift; sourceTree = "<group>"; };
 		3D6F83B624BB348400ACD85A /* WriteNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNavigationController.swift; sourceTree = "<group>"; };
 		3D7BF87A24BEC8D90031EE6D /* UploadServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadServices.swift; sourceTree = "<group>"; };
-		3D7BF87D24BF90B30031EE6D /* categoryIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryIndex.swift; sourceTree = "<group>"; };
+		3D7BF87D24BF90B30031EE6D /* CategoryIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIndex.swift; sourceTree = "<group>"; };
 		3DCD865B24BAD336006783D2 /* UsefulImformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulImformModel.swift; sourceTree = "<group>"; };
 		3DCD865D24BAD356006783D2 /* UsefulInformServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInformServices.swift; sourceTree = "<group>"; };
 		3DCE5F6A24B4EF7F00BAF927 /* StationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				3DCE5F6C24B4EF8F00BAF927 /* SubwayModel.swift */,
-				3D7BF87D24BF90B30031EE6D /* categoryIndex.swift */,
+				3D7BF87D24BF90B30031EE6D /* CategoryIndex.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -885,7 +885,7 @@
 				3DDABA2F24B8C9260061A6C7 /* HomeAPIs.swift in Sources */,
 				3DAC651B24B6EFF800FBA399 /* SubwayModel.swift in Sources */,
 				13B9DC6324BD994E00D15591 /* SignupInfomodel.swift in Sources */,
-				3D7BF87E24BF90B30031EE6D /* categoryIndex.swift in Sources */,
+				3D7BF87E24BF90B30031EE6D /* CategoryIndex.swift in Sources */,
 				3DAC651A24B6EFE400FBA399 /* (null) in Sources */,
 				AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */,
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
