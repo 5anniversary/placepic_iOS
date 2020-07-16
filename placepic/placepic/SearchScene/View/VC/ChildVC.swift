@@ -36,6 +36,8 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getData()
+        
         NotificationCenter.default.post(name: .changeChildViewVC, object: nil, userInfo: ["childNumber": childNumber])
         
     }
@@ -51,7 +53,8 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     func textFieldDidChange(sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
     }
-    func getData(){
+    func getData () {
+        print(#function)
         var urlString: String = ""
         if childNumber == "맛집" {
             urlString = "?categoryIdx=1"
@@ -84,7 +87,9 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-            case .pathErr: print("pathErr")
+            case .pathErr:
+                print("pathErr")
+                print("dkdkdkdkdk")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
                 

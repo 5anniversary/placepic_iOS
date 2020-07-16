@@ -101,6 +101,8 @@
 		3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDAC5024B4D6700069990A /* GeneralAPI.swift */; };
 		555A901CCC128ACD75D29CFE /* Pods_placepic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4DAE51304F8ADC517262E /* Pods_placepic.framework */; };
 		AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0192E324BCE6180051ACE6 /* PlaceSearchModel.swift */; };
+		AE15624D24C0DC86007D2303 /* likeButtonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15624C24C0DC86007D2303 /* likeButtonService.swift */; };
+		AE15624F24C0DE97007D2303 /* LikeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15624E24C0DE97007D2303 /* LikeData.swift */; };
 		AE34145824B3055F00425889 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145724B3055F00425889 /* AdminVC.swift */; };
 		AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145924B33A9600425889 /* PeopleDetailVC.swift */; };
 		AE34145C24B3578000425889 /* adminListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145B24B3578000425889 /* adminListModel.swift */; };
@@ -118,6 +120,10 @@
 		AE34951524BE406D005FEF60 /* DetailViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34951424BE406D005FEF60 /* DetailViewService.swift */; };
 		AE34951724BF1018005FEF60 /* LikelistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34951624BF1018005FEF60 /* LikelistVC.swift */; };
 		AE34951B24BF162C005FEF60 /* likeListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34951A24BF162C005FEF60 /* likeListTVC.swift */; };
+		AE6A0B3024C0C08E00D5DE00 /* bookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6A0B2F24C0C08E00D5DE00 /* bookmarkModel.swift */; };
+		AE6A0B3224C0C0F600D5DE00 /* bookmarkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6A0B3124C0C0F600D5DE00 /* bookmarkService.swift */; };
+		AE6A0B3424C0CD3C00D5DE00 /* likeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6A0B3324C0CD3C00D5DE00 /* likeListModel.swift */; };
+		AE6A0B3624C0CD7A00D5DE00 /* likeListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6A0B3524C0CD7A00D5DE00 /* likeListService.swift */; };
 		AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27424AC2E3500891C6E /* SearchVC.swift */; };
 		AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27824AC59A200891C6E /* ChildVC.swift */; };
 		AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */; };
@@ -222,6 +228,8 @@
 		5277CB7E16744F56C4AC28BE /* Pods-placepic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placepic.release.xcconfig"; path = "Target Support Files/Pods-placepic/Pods-placepic.release.xcconfig"; sourceTree = "<group>"; };
 		83ACEB602688407CABFF2AF4 /* Pods-placepic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placepic.debug.xcconfig"; path = "Target Support Files/Pods-placepic/Pods-placepic.debug.xcconfig"; sourceTree = "<group>"; };
 		AE0192E324BCE6180051ACE6 /* PlaceSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSearchModel.swift; sourceTree = "<group>"; };
+		AE15624C24C0DC86007D2303 /* likeButtonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeButtonService.swift; sourceTree = "<group>"; };
+		AE15624E24C0DE97007D2303 /* LikeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeData.swift; sourceTree = "<group>"; };
 		AE34145724B3055F00425889 /* AdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
 		AE34145924B33A9600425889 /* PeopleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDetailVC.swift; sourceTree = "<group>"; };
 		AE34145B24B3578000425889 /* adminListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = adminListModel.swift; path = placepic/MypageScene/Model/adminListModel.swift; sourceTree = SOURCE_ROOT; };
@@ -239,6 +247,10 @@
 		AE34951424BE406D005FEF60 /* DetailViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewService.swift; sourceTree = "<group>"; };
 		AE34951624BF1018005FEF60 /* LikelistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikelistVC.swift; sourceTree = "<group>"; };
 		AE34951A24BF162C005FEF60 /* likeListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeListTVC.swift; sourceTree = "<group>"; };
+		AE6A0B2F24C0C08E00D5DE00 /* bookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarkModel.swift; sourceTree = "<group>"; };
+		AE6A0B3124C0C0F600D5DE00 /* bookmarkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarkService.swift; sourceTree = "<group>"; };
+		AE6A0B3324C0CD3C00D5DE00 /* likeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeListModel.swift; sourceTree = "<group>"; };
+		AE6A0B3524C0CD7A00D5DE00 /* likeListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeListService.swift; sourceTree = "<group>"; };
 		AEEEE27424AC2E3500891C6E /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AEEEE27824AC59A200891C6E /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
 		AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListTVC.swift; sourceTree = "<group>"; };
@@ -541,7 +553,13 @@
 			children = (
 				AE34146124B4EF3600425889 /* SearchAPI */,
 				AEEEE27C24ADF08300891C6E /* placeListInfo.swift */,
+				AE6A0B3524C0CD7A00D5DE00 /* likeListService.swift */,
+				AE6A0B3324C0CD3C00D5DE00 /* likeListModel.swift */,
+				AE6A0B3124C0C0F600D5DE00 /* bookmarkService.swift */,
+				AE34146424B4F51700425889 /* placeService.swift */,
+				AE34951424BE406D005FEF60 /* DetailViewService.swift */,
 				AE34951224BE3F70005FEF60 /* placeDetailModel.swift */,
+				AE6A0B2F24C0C08E00D5DE00 /* bookmarkModel.swift */,
 				AE34145F24B4DB6700425889 /* placeListModel.swift */,
 			);
 			path = Model;
@@ -750,8 +768,8 @@
 			isa = PBXGroup;
 			children = (
 				AE34146224B4EFD100425889 /* placeListAPI.swift */,
-				AE34146424B4F51700425889 /* placeService.swift */,
-				AE34951424BE406D005FEF60 /* DetailViewService.swift */,
+				AE15624C24C0DC86007D2303 /* likeButtonService.swift */,
+				AE15624E24C0DE97007D2303 /* LikeData.swift */,
 			);
 			path = SearchAPI;
 			sourceTree = "<group>";
@@ -912,6 +930,7 @@
 				3D84896B24B440A600AE6A45 /* (null) in Sources */,
 				3DECB7C224A9311200D54DBF /* Extensions+UIFont.swift in Sources */,
 				3D6F83B524BB20BB00ACD85A /* PlaceSearchServices.swift in Sources */,
+				AE15624D24C0DC86007D2303 /* likeButtonService.swift in Sources */,
 				AE34951724BF1018005FEF60 /* LikelistVC.swift in Sources */,
 				3DECB7C424A9311200D54DBF /* Extensions+Date.swift in Sources */,
 				3D6F83B724BB348400ACD85A /* WriteNavigationController.swift in Sources */,
@@ -922,6 +941,7 @@
 				AE34147624B7076B00425889 /* AdminData.swift in Sources */,
 				13B9DC3E24BD976400D15591 /* Signup3VC.swift in Sources */,
 				13B9DC6824BE230B00D15591 /* SignupSuccess.swift in Sources */,
+				AE6A0B3024C0C08E00D5DE00 /* bookmarkModel.swift in Sources */,
 				13B9DC2724BD96D800D15591 /* SignupService.swift in Sources */,
 				3DDABA3124B969A20061A6C7 /* SubwayServices.swift in Sources */,
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
@@ -932,6 +952,7 @@
 				AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */,
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
 				13B9DC2324BD96D800D15591 /* SigninData.swift in Sources */,
+				AE6A0B3424C0CD3C00D5DE00 /* likeListModel.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
 				3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */,
 				13B9DC1C24BD96D800D15591 /* GroupUpService.swift in Sources */,
@@ -949,6 +970,7 @@
 				AE34146024B4DB6700425889 /* placeListModel.swift in Sources */,
 				13B9DC4E24BD976B00D15591 /* SendVC.swift in Sources */,
 				3D6C163B24B87E830050979C /* ResponseResult.swift in Sources */,
+				AE6A0B3624C0CD7A00D5DE00 /* likeListService.swift in Sources */,
 				13B9DC3D24BD976400D15591 /* SignupVC.swift in Sources */,
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
 				AE34146B24B6224E00425889 /* adminService.swift in Sources */,
@@ -969,6 +991,7 @@
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
 				AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */,
 				3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */,
+				AE6A0B3224C0C0F600D5DE00 /* bookmarkService.swift in Sources */,
 				13B9DC0124BD963200D15591 /* APIConstants.swift in Sources */,
 				3DCE5F7B24B51B1D00BAF927 /* HomeReviewCVC.swift in Sources */,
 				13B9DC1D24BD96D800D15591 /* GroupPartiService.swift in Sources */,
@@ -990,6 +1013,7 @@
 				3DECB7B424A92C8300D54DBF /* TabbarController.swift in Sources */,
 				3D6F83AF24BB13C800ACD85A /* CollectionViewFlowLayout.swift in Sources */,
 				13B9DC0424BD963200D15591 /* GroupListmodel.swift in Sources */,
+				AE15624F24C0DE97007D2303 /* LikeData.swift in Sources */,
 				13B9DC3A24BD976400D15591 /* LoginVC.swift in Sources */,
 				3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */,
 				3DDD58B324B4E93000764C8F /* (null) in Sources */,

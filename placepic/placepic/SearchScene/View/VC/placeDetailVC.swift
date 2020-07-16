@@ -12,7 +12,10 @@ import FSPagerView
 import Kingfisher
 
 class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
-    
+
+    var selectIdx: Int!
+    var placeDetailData: DetailModel?
+
     let imageNames:[String] = ["dummy1"]
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var detailTextView: UITextView!
@@ -31,19 +34,67 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet weak var placeAddress: UILabel!
     @IBOutlet weak var placeInfo: UILabel!
     @IBOutlet weak var likeNum: UILabel!
+    
+    
+    @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
+    
     @IBAction func likeButton(_ sender: Any) {
+        guard var like = placeDetailData?.likeCount else { return }
+        
+        if placeDetailData?.isLiked == false{
+            likeButton.setImage(UIImage(named: "icSelectedHeart"), for: .normal)
+            heartbutView.layer.borderColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor
+            placeDetailData?.isLiked = true
+            
+            like = like + 1
+            likeNum.text = "\(like)"
+            
+            likeButtonService.shared.like(placeIdx: self.selectIdx) { networkResult in
+            switch networkResult {
+            case .success:
+                print(self.selectIdx)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "회원가입 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        }
+        else{
+            likeButton.setImage(UIImage(named: "icUnselectedHeart"), for: .normal)
+            heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
+            placeDetailData?.isLiked = false
+
+            like = like - 1
+            likeNum.text = "\(like)"
+        }
         
     }
-    @IBOutlet weak var likeButton: UIButton!
-    //
-//    @IBAction func likeList(_ sender: Any) {
-//        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
-//        self.navigationController?.pushViewController(secondViewController, animated: true)
-//        secondViewController.likePeopleList = placeDetailData?.likeList as! [LikeList]
-//    }
-    var selectIdx: Int!
-    var placeDetailData: DetailModel?
     
+
+    @IBAction func scrapButton(_ sender: Any) {
+        if placeDetailData?.isBookmarked == false{
+            bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
+            placeDetailData?.isBookmarked = true
+            
+        }
+        else{
+            bookmarkButton.setImage(UIImage(named: "icUnselectedBookmark"), for: .normal)
+            placeDetailData?.isBookmarked = false
+        }
+    }
+
+    //
+    @IBAction func likeList(_ sender: Any) {
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
     @IBOutlet weak var detailImg: FSPagerView!{
         didSet {
             self.detailImg.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -173,6 +224,8 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         
         if placeDetailData?.isLiked == true {
             likeButton.setImage(UIImage(named: "icSelectedHeart"), for: .normal)
+            heartbutView.layer.borderColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor
+            
         }
        
     }

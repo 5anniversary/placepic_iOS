@@ -57,17 +57,17 @@ struct DetailView: Codable {
 
 // MARK: - DetailModel
 struct DetailModel: Codable {
-    let categoryIdx: Int
-    let placeName, placeReview: String
-    let placeCreatedAt: Int
-    let placeRoadAddress: String
-    let isLiked, isBookmarked: Bool
-    let likeCount, bookmarkCount: Int
-    let subway: [String]
-    let imageURL: [String]
-    let keyword, placeInfo: [String]
-    let uploader: Upload
-    let mobileNaverMapLink: String
+    var categoryIdx: Int
+    var placeName, placeReview: String
+    var placeCreatedAt: Int
+    var placeRoadAddress: String
+    var isLiked, isBookmarked: Bool
+    var likeCount, bookmarkCount: Int
+    var subway: [String]
+    var imageURL: [String]
+    var keyword, placeInfo: [String]
+    var uploader: Upload
+    var mobileNaverMapLink: String
 
     enum CodingKeys: String, CodingKey {
         case categoryIdx, placeName, placeReview, placeCreatedAt, placeRoadAddress, isLiked, isBookmarked, likeCount, bookmarkCount, subway
@@ -78,11 +78,11 @@ struct DetailModel: Codable {
 
 // MARK: - Uploader
 struct Upload: Codable {
-    let userName: String
-    let profileImageURL: String
-    let part: String
-    let postCount: Int
-    let deleteBtn: Bool
+    var userName: String
+    var profileImageURL: String
+    var part: String
+    var postCount: Int
+    var deleteBtn: Bool
 
     enum CodingKeys: String, CodingKey {
         case userName
