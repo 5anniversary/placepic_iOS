@@ -12,22 +12,53 @@ class SignupSuccess: UIViewController {
     @IBOutlet weak var sucLabel: UILabel!
     @IBOutlet weak var sucButton: UIButton!
     @IBAction func sucButtonAction(_ sender: Any) {
+        dismissViews()
         
-        guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-            "SigninVC") as? UIViewController else { return }
-        tabbarController.modalPresentationStyle = .fullScreen
-        self.present(tabbarController, animated: true, completion: nil)
+        
+        
+//        guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+//            "SigninVC") as? UIViewController else { return }
+//        tabbarController.modalPresentationStyle = .fullScreen
+//        self.present(tabbarController, animated: true, completion: nil)
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setDesign()
+        
 
         
         // Do any additional setup after loading the view.
     }
+    @objc func dismissViews() {
+             navigationController?.popToRootViewController(animated: true)
+      
     
+//             let transform = CGAffineTransform(translationX: 0, y: 100)
+//             self.tabBarController?.tabBar.isHidden = false
+//             tabBarController?.tabBar.transform = transform
+//
+//             UIView.animate(withDuration: 0.5,
+//                            delay: 0,
+//                            usingSpringWithDamping: 1,
+//                            initialSpringVelocity: 1,
+//                            options: .curveEaseOut,
+//                            animations: {
+//                             self.tabBarController?.tabBar.transform = .identity
+//
+//             }, completion: nil)
+         }
     
     /*
      // MARK: - Navigation

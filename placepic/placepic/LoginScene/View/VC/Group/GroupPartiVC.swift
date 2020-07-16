@@ -12,7 +12,16 @@ class GroupPartiVC: UIViewController {
     
     @IBOutlet weak var GroupPartiTV: UITableView!
     @IBOutlet weak var ButtonT: UIButton!
+    @IBAction func buttonAction(_ sender: Any) {
+        
+        let alertViewController = UIAlertController(title: "", message:"아직 지원하지 않는 기능입니다.",
+                                                    preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+        alertViewController.addAction(action)
+        self.present(alertViewController, animated: true, completion: nil)
 
+    }
+    
     
     private var dataInformations: [groupData] = []
     
@@ -128,9 +137,9 @@ extension GroupPartiVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         
-        guard let vc = storyboard?.instantiateViewController(identifier: "SendVC") as? SendVC else { return }
-        
-//        vc.model = 
+         guard let vc = self.storyboard?.instantiateViewController(identifier: "GroupUpVC") as? GroupUpVC
+                      else { return }
+                  self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

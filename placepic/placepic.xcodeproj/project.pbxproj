@@ -14,8 +14,6 @@
 		13B9DC1C24BD96D800D15591 /* GroupUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC0824BD96D700D15591 /* GroupUpService.swift */; };
 		13B9DC1D24BD96D800D15591 /* GroupPartiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC0924BD96D700D15591 /* GroupPartiService.swift */; };
 		13B9DC1E24BD96D800D15591 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC0A24BD96D700D15591 /* EmailService.swift */; };
-		13B9DC2024BD96D800D15591 /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC0C24BD96D700D15591 /* SignupData.swift */; };
-		13B9DC2324BD96D800D15591 /* SigninData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC0F24BD96D700D15591 /* SigninData.swift */; };
 		13B9DC2724BD96D800D15591 /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC1324BD96D800D15591 /* SignupService.swift */; };
 		13B9DC2B24BD96D800D15591 /* GroupListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC1724BD96D800D15591 /* GroupListService.swift */; };
 		13B9DC2C24BD96D800D15591 /* Emailmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC1824BD96D800D15591 /* Emailmodel.swift */; };
@@ -30,12 +28,15 @@
 		13B9DC5424BD976B00D15591 /* GroupUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC4A24BD976B00D15591 /* GroupUpVC.swift */; };
 		13B9DC5524BD976B00D15591 /* GroupPartiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC4B24BD976B00D15591 /* GroupPartiVC.swift */; };
 		13B9DC5C24BD989C00D15591 /* GroupPartiTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC5724BD989C00D15591 /* GroupPartiTVC.swift */; };
-		13B9DC5F24BD989C00D15591 /* GroupPartiTVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC5A24BD989C00D15591 /* GroupPartiTVC1.swift */; };
 		13B9DC6124BD98F400D15591 /* LoginInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6024BD98F400D15591 /* LoginInfomodel.swift */; };
 		13B9DC6324BD994E00D15591 /* SignupInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6224BD994E00D15591 /* SignupInfomodel.swift */; };
 		13B9DC6824BE230B00D15591 /* SignupSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6724BE230B00D15591 /* SignupSuccess.swift */; };
 		13B9DC6B24BE4C2D00D15591 /* Send2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6A24BE4C2D00D15591 /* Send2VC.swift */; };
 		13B9DC6D24BE4C5A00D15591 /* Send3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6C24BE4C5A00D15591 /* Send3VC.swift */; };
+		13B9DC6F24BFB44500D15591 /* GroupWaitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6E24BFB44500D15591 /* GroupWaitVC.swift */; };
+		13B9DC7124BFB73C00D15591 /* GroupWaitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC7024BFB73C00D15591 /* GroupWaitService.swift */; };
+		13B9DC7324BFBF0500D15591 /* GroupWaitTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC7224BFBF0500D15591 /* GroupWaitTVC.swift */; };
+		13B9DC7524C0209000D15591 /* GroupApplyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC7424C0209000D15591 /* GroupApplyModel.swift */; };
 		3D06C28024BBA6C900A4F869 /* ClassifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06C27F24BBA6C900A4F869 /* ClassifyVC.swift */; };
 		3D06C28324BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06C28124BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift */; };
 		3D06C28424BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D06C28224BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib */; };
@@ -128,8 +129,6 @@
 		13B9DC0824BD96D700D15591 /* GroupUpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUpService.swift; sourceTree = "<group>"; };
 		13B9DC0924BD96D700D15591 /* GroupPartiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPartiService.swift; sourceTree = "<group>"; };
 		13B9DC0A24BD96D700D15591 /* EmailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
-		13B9DC0C24BD96D700D15591 /* SignupData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
-		13B9DC0F24BD96D700D15591 /* SigninData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninData.swift; sourceTree = "<group>"; };
 		13B9DC1324BD96D800D15591 /* SignupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
 		13B9DC1724BD96D800D15591 /* GroupListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListService.swift; sourceTree = "<group>"; };
 		13B9DC1824BD96D800D15591 /* Emailmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emailmodel.swift; sourceTree = "<group>"; };
@@ -144,12 +143,15 @@
 		13B9DC4A24BD976B00D15591 /* GroupUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUpVC.swift; sourceTree = "<group>"; };
 		13B9DC4B24BD976B00D15591 /* GroupPartiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPartiVC.swift; sourceTree = "<group>"; };
 		13B9DC5724BD989C00D15591 /* GroupPartiTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPartiTVC.swift; sourceTree = "<group>"; };
-		13B9DC5A24BD989C00D15591 /* GroupPartiTVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPartiTVC1.swift; sourceTree = "<group>"; };
 		13B9DC6024BD98F400D15591 /* LoginInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfomodel.swift; sourceTree = "<group>"; };
 		13B9DC6224BD994E00D15591 /* SignupInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInfomodel.swift; sourceTree = "<group>"; };
 		13B9DC6724BE230B00D15591 /* SignupSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSuccess.swift; sourceTree = "<group>"; };
 		13B9DC6A24BE4C2D00D15591 /* Send2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send2VC.swift; sourceTree = "<group>"; };
 		13B9DC6C24BE4C5A00D15591 /* Send3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send3VC.swift; sourceTree = "<group>"; };
+		13B9DC6E24BFB44500D15591 /* GroupWaitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupWaitVC.swift; sourceTree = "<group>"; };
+		13B9DC7024BFB73C00D15591 /* GroupWaitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupWaitService.swift; sourceTree = "<group>"; };
+		13B9DC7224BFBF0500D15591 /* GroupWaitTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupWaitTVC.swift; sourceTree = "<group>"; };
+		13B9DC7424C0209000D15591 /* GroupApplyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupApplyModel.swift; sourceTree = "<group>"; };
 		3D06C27F24BBA6C900A4F869 /* ClassifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyVC.swift; sourceTree = "<group>"; };
 		3D06C28124BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyFavoritePlaceTVC.swift; sourceTree = "<group>"; };
 		3D06C28224BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassifyFavoritePlaceTVC.xib; sourceTree = "<group>"; };
@@ -254,8 +256,8 @@
 			isa = PBXGroup;
 			children = (
 				13B9DC5724BD989C00D15591 /* GroupPartiTVC.swift */,
-				13B9DC5A24BD989C00D15591 /* GroupPartiTVC1.swift */,
 				1302CA9324B2DF870013CACC /* GroupListTVC.swift */,
+				13B9DC7224BFBF0500D15591 /* GroupWaitTVC.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -269,9 +271,9 @@
 				13B9DC0924BD96D700D15591 /* GroupPartiService.swift */,
 				13B9DC0824BD96D700D15591 /* GroupUpService.swift */,
 				13B9DC1924BD96D800D15591 /* LoginService.swift */,
-				13B9DC0F24BD96D700D15591 /* SigninData.swift */,
-				13B9DC0C24BD96D700D15591 /* SignupData.swift */,
 				13B9DC1324BD96D800D15591 /* SignupService.swift */,
+				13B9DC7024BFB73C00D15591 /* GroupWaitService.swift */,
+				13B9DC7424C0209000D15591 /* GroupApplyModel.swift */,
 			);
 			path = APIConstants;
 			sourceTree = "<group>";
@@ -279,6 +281,7 @@
 		13B9DC3024BD972F00D15591 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				13B9DC6E24BFB44500D15591 /* GroupWaitVC.swift */,
 				13B9DC4624BD976B00D15591 /* GroupListVC.swift */,
 				13B9DC4B24BD976B00D15591 /* GroupPartiVC.swift */,
 				13B9DC4824BD976B00D15591 /* GroupReqVC.swift */,
@@ -895,6 +898,8 @@
 				AE34145C24B3578000425889 /* adminListModel.swift in Sources */,
 				3DDABA3324BAC23A0061A6C7 /* NearstationFooterCVC.swift in Sources */,
 				AEEEE27D24ADF08300891C6E /* placeListInfo.swift in Sources */,
+				13B9DC7124BFB73C00D15591 /* GroupWaitService.swift in Sources */,
+				13B9DC7524C0209000D15591 /* GroupApplyModel.swift in Sources */,
 				AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */,
 				3D6BAF8F24B108A400F6339E /* ArticleUploadVC.swift in Sources */,
 				3D84896B24B440A600AE6A45 /* (null) in Sources */,
@@ -904,7 +909,6 @@
 				3D6F83B724BB348400ACD85A /* WriteNavigationController.swift in Sources */,
 				13B9DC5224BD976B00D15591 /* GroupReqVC.swift in Sources */,
 				3DCE5F6F24B4F16A00BAF927 /* innerUploadPhotoCVC.swift in Sources */,
-				13B9DC5F24BD989C00D15591 /* GroupPartiTVC1.swift in Sources */,
 				3D6BAF8D24B0D7B600F6339E /* KeywordModel.swift in Sources */,
 				AE34147624B7076B00425889 /* AdminData.swift in Sources */,
 				13B9DC3E24BD976400D15591 /* Signup3VC.swift in Sources */,
@@ -918,7 +922,6 @@
 				AE34146524B4F51700425889 /* placeService.swift in Sources */,
 				AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */,
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
-				13B9DC2324BD96D800D15591 /* SigninData.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
 				3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */,
 				13B9DC1C24BD96D800D15591 /* GroupUpService.swift in Sources */,
@@ -931,6 +934,7 @@
 				13B9DC1E24BD96D800D15591 /* EmailService.swift in Sources */,
 				3DCD865E24BAD356006783D2 /* UsefulInformServices.swift in Sources */,
 				13B9DC5024BD976B00D15591 /* GroupListVC.swift in Sources */,
+				13B9DC7324BFBF0500D15591 /* GroupWaitTVC.swift in Sources */,
 				3D6BAF8724AF9B2F00F6339E /* KeywordLauncher.swift in Sources */,
 				AE34146024B4DB6700425889 /* placeListModel.swift in Sources */,
 				13B9DC4E24BD976B00D15591 /* SendVC.swift in Sources */,
@@ -964,7 +968,6 @@
 				3DCD865C24BAD336006783D2 /* UsefulImformModel.swift in Sources */,
 				13B9DC2C24BD96D800D15591 /* Emailmodel.swift in Sources */,
 				3DCE5F7F24B577D300BAF927 /* OutterUploadCVC.swift in Sources */,
-				13B9DC2024BD96D800D15591 /* SignupData.swift in Sources */,
 				3D84896924B4116F00AE6A45 /* (null) in Sources */,
 				3DCE5F7724B5199600BAF927 /* HomeKeywordCVC.swift in Sources */,
 				3D6C163324B83BF20050979C /* Notification.swift in Sources */,
@@ -975,6 +978,7 @@
 				3D6F83AF24BB13C800ACD85A /* CollectionViewFlowLayout.swift in Sources */,
 				13B9DC0424BD963200D15591 /* GroupListmodel.swift in Sources */,
 				13B9DC3A24BD976400D15591 /* LoginVC.swift in Sources */,
+				13B9DC6F24BFB44500D15591 /* GroupWaitVC.swift in Sources */,
 				3D6BAF9824B2DAD400F6339E /* ShowStationTVC.swift in Sources */,
 				3DDD58B324B4E93000764C8F /* (null) in Sources */,
 			);

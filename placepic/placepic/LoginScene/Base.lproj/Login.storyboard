@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l34-1L-Dd3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l34-1L-Dd3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -86,13 +86,25 @@
                                                 <constraint firstAttribute="height" constant="48" id="ODN-5B-im9"/>
                                                 <constraint firstAttribute="width" constant="347" id="d1o-3x-rvf"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="buttonAction:" destination="Vkv-DE-dfR" eventType="touchUpInside" id="Mgr-Nh-4oU"/>
+                                            </connections>
                                         </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteNextArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="TGW-dk-g1k">
+                                            <rect key="frame" x="323" y="21" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="9MZ-CZ-qJm"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="TGW-dk-g1k" secondAttribute="trailing" constant="28" id="a4c-kt-Nho"/>
                                         <constraint firstItem="Dt0-gy-Gwa" firstAttribute="top" secondItem="F9Z-lV-tV9" secondAttribute="top" constant="9" id="bcu-6g-k3v"/>
+                                        <constraint firstAttribute="bottom" secondItem="TGW-dk-g1k" secondAttribute="bottom" constant="20" id="gRS-zS-nW7"/>
                                         <constraint firstAttribute="trailing" secondItem="Dt0-gy-Gwa" secondAttribute="trailing" constant="14" id="iJt-xV-0UX"/>
                                         <constraint firstItem="Dt0-gy-Gwa" firstAttribute="leading" secondItem="F9Z-lV-tV9" secondAttribute="leading" constant="14" id="vfT-NJ-JjW"/>
+                                        <constraint firstItem="TGW-dk-g1k" firstAttribute="top" secondItem="F9Z-lV-tV9" secondAttribute="top" constant="21" id="wWw-DI-NmY"/>
                                         <constraint firstAttribute="bottom" secondItem="Dt0-gy-Gwa" secondAttribute="bottom" constant="8" id="zhC-RY-n14"/>
                                     </constraints>
                                 </view>
@@ -197,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHa-QF-GEi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-906"/>
+            <point key="canvasLocation" x="808.79999999999995" y="-906.29685157421295"/>
         </scene>
         <!--Signup Success-->
         <scene sceneID="Kz9-Yi-c8t">
@@ -267,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAO-Ea-CjL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3772" y="-90"/>
+            <point key="canvasLocation" x="3714" y="-90"/>
         </scene>
         <!--SigninVC-->
         <scene sceneID="jCI-3T-KDZ">
@@ -531,7 +543,7 @@
         <!--Signup3VC-->
         <scene sceneID="I1s-1V-jal">
             <objects>
-                <viewController storyboardIdentifier="Signup3VC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JEV-Aj-gif" customClass="Signup3VC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Signup3VC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JEV-Aj-gif" customClass="Signup3VC" customModule="placepic" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Ay-QU-vKR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="805"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -598,16 +610,6 @@
                                                     <action selector="buttonaction2:" destination="JEV-Aj-gif" eventType="touchUpInside" id="rbW-mw-GTY"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3F-K3-wFA">
-                                                <rect key="frame" x="14" y="348" width="347" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="D2e-wb-OVM"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <action selector="sendButtonaction:" destination="JEV-Aj-gif" eventType="touchUpInside" id="V6F-sv-Q99"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tb-2R-XH7">
                                                 <rect key="frame" x="250" y="262" width="110" height="44"/>
                                                 <constraints>
@@ -619,27 +621,37 @@
                                                     <action selector="buttonaction3:" destination="JEV-Aj-gif" eventType="touchUpInside" id="m9e-lG-IFw"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHt-Yd-ep8">
+                                                <rect key="frame" x="14" y="348" width="347" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Z3u-Lx-zT7"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="sendButtonaction:" destination="JEV-Aj-gif" eventType="touchUpInside" id="g5p-Bp-QXq"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="XC2-7F-YwC" firstAttribute="top" secondItem="WEc-cG-mY4" secondAttribute="bottom" constant="34" id="05q-P1-kA4"/>
-                                            <constraint firstItem="o3F-K3-wFA" firstAttribute="top" secondItem="5ng-CF-5Xn" secondAttribute="bottom" constant="42" id="0DN-kC-V5I"/>
                                             <constraint firstItem="kNm-lQ-20c" firstAttribute="leading" secondItem="eZs-Pq-sGL" secondAttribute="leading" constant="14" id="4gl-Dr-t1A"/>
                                             <constraint firstItem="8tb-2R-XH7" firstAttribute="leading" secondItem="5ng-CF-5Xn" secondAttribute="trailing" constant="8" id="82g-Sc-7d5"/>
                                             <constraint firstAttribute="trailing" secondItem="WEc-cG-mY4" secondAttribute="trailing" constant="14" id="Asr-Iu-yNo"/>
                                             <constraint firstItem="fqJ-C7-tYp" firstAttribute="top" secondItem="eZs-Pq-sGL" secondAttribute="top" constant="10" id="GIs-ug-lD9"/>
+                                            <constraint firstAttribute="trailing" secondItem="iHt-Yd-ep8" secondAttribute="trailing" constant="14" id="JR8-RF-6Rj"/>
+                                            <constraint firstItem="iHt-Yd-ep8" firstAttribute="top" secondItem="8CT-Hh-kcT" secondAttribute="bottom" constant="42" id="OXg-Gb-Hte"/>
                                             <constraint firstItem="8CT-Hh-kcT" firstAttribute="leading" secondItem="eZs-Pq-sGL" secondAttribute="leading" constant="14" id="Q20-RM-T4D"/>
                                             <constraint firstItem="WEc-cG-mY4" firstAttribute="top" secondItem="Kb5-jJ-tzi" secondAttribute="bottom" constant="10" id="WAQ-V3-LWR"/>
                                             <constraint firstItem="Kb5-jJ-tzi" firstAttribute="leading" secondItem="eZs-Pq-sGL" secondAttribute="leading" constant="14" id="XQw-vQ-cjy"/>
                                             <constraint firstItem="kNm-lQ-20c" firstAttribute="top" secondItem="fqJ-C7-tYp" secondAttribute="bottom" constant="10" id="YAO-SV-O42"/>
-                                            <constraint firstItem="o3F-K3-wFA" firstAttribute="leading" secondItem="eZs-Pq-sGL" secondAttribute="leading" constant="14" id="Zvi-Qv-qd4"/>
                                             <constraint firstItem="XC2-7F-YwC" firstAttribute="leading" secondItem="eZs-Pq-sGL" secondAttribute="leading" constant="14" id="akl-Ne-rSL"/>
+                                            <constraint firstItem="iHt-Yd-ep8" firstAttribute="leading" secondItem="eZs-Pq-sGL" secondAttribute="leading" constant="14" id="eLy-QL-bPh"/>
                                             <constraint firstItem="WEc-cG-mY4" firstAttribute="leading" secondItem="eZs-Pq-sGL" secondAttribute="leading" constant="14" id="eWc-nB-7eW"/>
                                             <constraint firstItem="Kb5-jJ-tzi" firstAttribute="top" secondItem="kNm-lQ-20c" secondAttribute="bottom" constant="34" id="eo7-T9-6hQ"/>
                                             <constraint firstItem="5ng-CF-5Xn" firstAttribute="leading" secondItem="8CT-Hh-kcT" secondAttribute="trailing" constant="8" id="h0e-f2-l7E"/>
                                             <constraint firstItem="5ng-CF-5Xn" firstAttribute="centerY" secondItem="8tb-2R-XH7" secondAttribute="centerY" id="ncP-bO-bqU"/>
                                             <constraint firstAttribute="trailing" secondItem="8tb-2R-XH7" secondAttribute="trailing" constant="15" id="pNe-zJ-3zZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="o3F-K3-wFA" secondAttribute="trailing" constant="14" id="qoW-cO-Rch"/>
                                             <constraint firstAttribute="trailing" secondItem="kNm-lQ-20c" secondAttribute="trailing" constant="14" id="rPF-27-c8f"/>
                                             <constraint firstItem="8CT-Hh-kcT" firstAttribute="top" secondItem="XC2-7F-YwC" secondAttribute="bottom" constant="13" id="sWv-E8-1gy"/>
                                             <constraint firstItem="8CT-Hh-kcT" firstAttribute="centerY" secondItem="5ng-CF-5Xn" secondAttribute="centerY" id="wyd-sJ-ahM"/>
@@ -669,7 +681,7 @@
                     <navigationItem key="navigationItem" id="3bX-e8-mJy"/>
                     <size key="freeformSize" width="375" height="805"/>
                     <connections>
-                        <outlet property="signup2sendButton" destination="o3F-K3-wFA" id="fN3-pk-p7y"/>
+                        <outlet property="signup2sendButton" destination="iHt-Yd-ep8" id="TeN-8a-hfj"/>
                         <outlet property="signupDOBLabel" destination="Kb5-jJ-tzi" id="TBw-q9-FH5"/>
                         <outlet property="signupDOBTextfield" destination="WEc-cG-mY4" id="UK5-yE-tUb"/>
                         <outlet property="signupFemaleButton" destination="5ng-CF-5Xn" id="UvN-WZ-Zer"/>
@@ -774,7 +786,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GYv-3B-1sO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4694" y="-958"/>
+            <point key="canvasLocation" x="4850" y="-906"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tK6-ez-J1g">
@@ -913,12 +925,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abo-Sp-a7u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524" y="-906"/>
+            <point key="canvasLocation" x="1486" y="-1690"/>
         </scene>
-        <!--View Controller-->
+        <!--Group WaitVC-->
         <scene sceneID="jFd-8G-JmC">
             <objects>
-                <viewController storyboardIdentifier="GroupPartiVC" id="TwT-HD-DPV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupWaitVC" id="TwT-HD-DPV" customClass="GroupWaitVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2K3-Zw-c8R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -926,34 +938,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ruq-09-a6C">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="ifC-HE-zat">
-                                    <rect key="frame" x="0.0" y="130" width="375" height="65"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-Ot-vG6">
-                                            <rect key="frame" x="14" y="9" width="347" height="48"/>
-                                            <state key="normal" title="Button"/>
-                                        </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="BtA-hf-KP8">
-                                            <rect key="frame" x="323" y="21" width="24" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="udo-us-oNk"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Ale-Ot-vG6" secondAttribute="bottom" constant="8" id="FJg-LL-TEC"/>
-                                        <constraint firstItem="Ale-Ot-vG6" firstAttribute="top" secondItem="ifC-HE-zat" secondAttribute="top" constant="9" id="JeX-AV-tED"/>
-                                        <constraint firstAttribute="trailing" secondItem="Ale-Ot-vG6" secondAttribute="trailing" constant="14" id="Ndy-gL-LiI"/>
-                                        <constraint firstItem="Ale-Ot-vG6" firstAttribute="leading" secondItem="ifC-HE-zat" secondAttribute="leading" constant="14" id="ZIZ-E3-DCn"/>
-                                        <constraint firstAttribute="bottom" secondItem="BtA-hf-KP8" secondAttribute="bottom" constant="20" id="beu-lG-MwM"/>
-                                        <constraint firstItem="BtA-hf-KP8" firstAttribute="top" secondItem="ifC-HE-zat" secondAttribute="top" constant="21" id="uRA-Gc-Rhd"/>
-                                        <constraint firstAttribute="trailing" secondItem="BtA-hf-KP8" secondAttribute="trailing" constant="28" id="w3n-ED-XLo"/>
-                                    </constraints>
-                                </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupListTVC" rowHeight="74" id="YF0-4A-nQ5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GroupWaitTVC" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupListTVC" rowHeight="74" id="YF0-4A-nQ5" customClass="GroupWaitTVC" customModule="placepic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YF0-4A-nQ5" id="8va-uM-Ydv">
@@ -1024,12 +1010,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="image1" destination="pgF-C9-0sK" id="EmE-4K-z7e"/>
-                                            <outlet property="label1" destination="CSu-kp-OhQ" id="iAi-nj-J5o"/>
-                                            <outlet property="label2" destination="3bT-cw-Xw3" id="qmE-XR-SPn"/>
-                                            <outlet property="label3" destination="Pxn-sX-WXZ" id="tLZ-oK-ksJ"/>
-                                            <outlet property="label4" destination="CsR-0U-duj" id="S5Z-jc-G3z"/>
-                                            <outlet property="label5" destination="8yt-Aq-1MN" id="5bM-EQ-vkG"/>
+                                            <outlet property="image1" destination="pgF-C9-0sK" id="KU9-ws-grz"/>
+                                            <outlet property="label1" destination="CSu-kp-OhQ" id="8yY-Tk-CXn"/>
+                                            <outlet property="label2" destination="3bT-cw-Xw3" id="V6x-du-W7O"/>
+                                            <outlet property="label3" destination="Pxn-sX-WXZ" id="fT1-tj-sOk"/>
+                                            <outlet property="label4" destination="CsR-0U-duj" id="dbN-Br-Rqo"/>
+                                            <outlet property="label5" destination="8yt-Aq-1MN" id="ruR-BM-Ntz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1046,18 +1032,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="KJB-18-g1G"/>
                     <connections>
-                        <outlet property="GrouppartiTV" destination="ruq-09-a6C" id="Rna-P8-dvc"/>
-                        <outlet property="button1" destination="Ale-Ot-vG6" id="vDP-kR-e4p"/>
+                        <outlet property="GroupWaitTV" destination="ruq-09-a6C" id="YmR-oM-rfs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cau-5w-x97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3226" y="-906"/>
+            <point key="canvasLocation" x="3224.8000000000002" y="-906.29685157421295"/>
         </scene>
         <!--Group PartiVC-->
         <scene sceneID="97L-4A-KcU">
             <objects>
-                <viewController id="fvF-np-bVt" customClass="GroupPartiVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupPartiVC" id="fvF-np-bVt" customClass="GroupPartiVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vLh-N3-i20">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1072,12 +1057,25 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOZ-hO-gje">
                                             <rect key="frame" x="14" y="8" width="347" height="48"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="buttonAction:" destination="fvF-np-bVt" eventType="touchUpInside" id="0DB-zw-JEd"/>
+                                            </connections>
                                         </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="xc0-c3-7ha">
+                                            <rect key="frame" x="323" y="21" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="2Vq-Ct-pXZ"/>
+                                                <constraint firstAttribute="height" constant="24" id="UDK-fS-s7z"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstItem="pOZ-hO-gje" firstAttribute="leading" secondItem="OFX-YN-SIR" secondAttribute="leading" constant="14" id="DLU-co-exD"/>
+                                        <constraint firstAttribute="bottom" secondItem="xc0-c3-7ha" secondAttribute="bottom" constant="20" id="MNA-Em-X2v"/>
                                         <constraint firstAttribute="bottom" secondItem="pOZ-hO-gje" secondAttribute="bottom" constant="9" id="SPT-C7-ToY"/>
+                                        <constraint firstAttribute="trailing" secondItem="xc0-c3-7ha" secondAttribute="trailing" constant="28" id="hdd-RU-BhI"/>
+                                        <constraint firstItem="xc0-c3-7ha" firstAttribute="top" secondItem="OFX-YN-SIR" secondAttribute="top" constant="21" id="jNP-dI-VTU"/>
                                         <constraint firstAttribute="trailing" secondItem="pOZ-hO-gje" secondAttribute="trailing" constant="14" id="kB4-vl-o39"/>
                                         <constraint firstItem="pOZ-hO-gje" firstAttribute="top" secondItem="OFX-YN-SIR" secondAttribute="top" constant="8" id="kkO-dq-oH6"/>
                                     </constraints>
@@ -1181,7 +1179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvU-hf-uL5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2362" y="-906"/>
+            <point key="canvasLocation" x="1517.5999999999999" y="-906.29685157421295"/>
         </scene>
         <!--Group UpVC-->
         <scene sceneID="h4M-Ib-h5m">
@@ -1250,7 +1248,7 @@
                                     <constraint firstAttribute="height" constant="50" id="yPB-XF-Xbb"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="sendActionButton:" destination="2cw-1o-pr7" eventType="touchUpInside" id="hEy-zH-uxu"/>
+                                    <action selector="sendActionButton:" destination="2cw-1o-pr7" eventType="touchUpInside" id="Qqh-1G-mbX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1274,18 +1272,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="8Jb-M0-tai"/>
                     <connections>
-                        <outlet property="belongLabel" destination="M37-Ue-dsR" id="re2-Il-F8r"/>
-                        <outlet property="belongTxtbox" destination="ykL-aR-vg0" id="T29-da-DAA"/>
-                        <outlet property="partLabel" destination="nyc-TF-gv1" id="hUz-ha-nbv"/>
-                        <outlet property="partTxtbox" destination="jyz-GA-L5k" id="sRP-pM-gEg"/>
-                        <outlet property="sendButton" destination="Pvu-eC-vPk" id="2La-j4-Ac2"/>
-                        <outletCollection property="TextFields" destination="ykL-aR-vg0" collectionClass="NSMutableArray" id="L5s-SO-TqQ"/>
-                        <outletCollection property="TextFields" destination="jyz-GA-L5k" collectionClass="NSMutableArray" id="hHZ-IJ-Kz9"/>
+                        <outlet property="belongLabel" destination="M37-Ue-dsR" id="bCH-XO-Nkj"/>
+                        <outlet property="belongTxtbox" destination="ykL-aR-vg0" id="fhX-NX-uS5"/>
+                        <outlet property="partLabel" destination="nyc-TF-gv1" id="SSs-FC-6lo"/>
+                        <outlet property="partTxtbox" destination="jyz-GA-L5k" id="eWa-Ro-hwy"/>
+                        <outlet property="sendButton" destination="Pvu-eC-vPk" id="r5k-1O-cxM"/>
+                        <outletCollection property="TextFields" destination="ykL-aR-vg0" collectionClass="NSMutableArray" id="CN7-Wc-pVW"/>
+                        <outletCollection property="TextFields" destination="jyz-GA-L5k" collectionClass="NSMutableArray" id="7Ya-C3-QJs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Op-d0-8l8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="1430"/>
+            <point key="canvasLocation" x="4017" y="-906"/>
         </scene>
         <!--Send2VC-->
         <scene sceneID="RJ0-aI-LvY">
@@ -1346,7 +1344,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6r-dQ-o5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5348" y="-958"/>
+            <point key="canvasLocation" x="6506" y="-888"/>
         </scene>
         <!--Send3VC-->
         <scene sceneID="99c-eD-JG8">
@@ -1407,7 +1405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkc-2c-6Gr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5999" y="-958"/>
+            <point key="canvasLocation" x="7156" y="-888"/>
         </scene>
     </scenes>
     <resources>
@@ -1415,5 +1413,6 @@
         <image name="doneIc" width="40" height="40"/>
         <image name="nextArrowIc" width="24" height="24"/>
         <image name="placepicIc" width="121" height="42"/>
+        <image name="whiteNextArrowIc" width="24" height="24"/>
     </resources>
 </document>

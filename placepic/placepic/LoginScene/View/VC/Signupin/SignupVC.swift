@@ -11,7 +11,6 @@ import UIKit
 class SignupVC: UIViewController {
     
     @IBOutlet weak var signupEmailLabel: UILabel!
-    
     @IBOutlet weak var signupEmailTextbox: UITextField!
     @IBOutlet weak var signupEmailcheckValLabel: UILabel!
     @IBOutlet weak var signupPwLabel: UILabel!
@@ -25,33 +24,46 @@ class SignupVC: UIViewController {
         
     @IBAction func signup1acButton(_ sender: UIButton) {
     
-        guard let vc = storyboard?.instantiateViewController(identifier: "Signup3VC") as? Signup3VC
-            else {
-                return
-        }
-            vc.signupemail = signupEmailTextbox.text
-            vc.signuppw = signupPwTextbox.text
-            navigationController?.pushViewController(vc, animated: true)
-        
-        
+//        guard let vc = storyboard?.instantiateViewController(identifier: "Signup3VC") as? Signup3VC
+//            else {
+//                return
+//        }
+           
+
+//
         guard let signupEmail = signupEmailTextbox.text else{return}
-        
+//
         
         EmailService.shared.emailcheck(email:  signupEmail) { networkResult in
             switch networkResult {
                 
             case .success(let token):
-                print("제발.")
+                print("제발1p")
+
+                
+//                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "Signup3VC") as! Signup3VC
+//                self.navigationController?.pushViewController(secondViewController, animated: true)
+                guard let vc = self.storyboard?.instantiateViewController(identifier: "Signup3VC") as? Signup3VC
+                    else { return }
+                vc.signupemail = self.signupEmailTextbox.text
+                vc.signuppw = self.signupPwTextbox.text
+                self.navigationController?.pushViewController(vc, animated: true)
+                
                 guard let token = token as? String else { return }
                 UserDefaults.standard.set(token, forKey: "token")
+       
                 
-                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "Signup3VC") as! Signup3VC
-                self.navigationController?.pushViewController(secondViewController, animated: true)
+//                guard let vc =  self.storyboard?.instantiateViewController(withIdentifier: "Signup3VC") as? Signup3VC else {return} //App crashes here
+//                vc.modalPresentationStyle = .fullScreen
+//
+//                self.present(vc, animated: false, completion: nil)
                 
-//                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-//                    "nextNavi") as? UITabBarController else { return }
-//                tabbarController.modalPresentationStyle = .fullScreen
-//                self.present(tabbarController, animated: true, completion: nil)
+                
+                
+                //                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+                //                    "nextNavi") as? UITabBarController else { return }
+                //                tabbarController.modalPresentationStyle = .fullScreen
+            //                self.present(tabbarController, animated: true, completion: nil)
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
@@ -60,9 +72,15 @@ class SignupVC: UIViewController {
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
                 
-            case .pathErr: print("path")
-                
-                
+            case .pathErr:
+                print("path")
+                //guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "회원가입 실패", message: "이미 사용중인 아이디입니다.",
+                                                            preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                    
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }
@@ -78,13 +96,13 @@ class SignupVC: UIViewController {
         //        vc.signupemail = signupEmailTextbox.text
         
         
-//        guard let vc = storyboard?.instantiateViewController(identifier: "SignUp2VC") as? SignUp2VC else {
-//            return
-//        }
-//
-//        navigationController?.pushViewController(vc, animated: true)
-//
-//
+        //        guard let vc = storyboard?.instantiateViewController(identifier: "SignUp2VC") as? SignUp2VC else {
+        //            return
+        //        }
+        //
+        //        navigationController?.pushViewController(vc, animated: true)
+        //
+        //
     }
     
     override func viewDidLoad() {
@@ -93,7 +111,7 @@ class SignupVC: UIViewController {
 //        var text:String = ""
     
         super.viewDidLoad()
-        
+        signup1Button.isEnabled = false
         setLabelLooksLike()
         setButtonsLooksLike()
         setTextfieldsLooksLike()
@@ -261,6 +279,7 @@ extension SignupVC {
         signupEmailcheckValLabel.alpha = signupEmailTextbox.text?.validateEmail() == false ? 1 : 0
         print(#function)
         signupEmailTextbox.layer.borderColor = signupEmailTextbox.text?.validateEmail() == false ? UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor : UIColor.black.cgColor
+          
         
         //        if(signupEmailTextbox.text?.validateEmail() == true && signupPwTextbox.text == signupPwcheckTextbox.text && signupPwTextbox.text != nil
         //            && signupPwcheckTextbox.text != nil){
@@ -304,14 +323,13 @@ extension SignupVC {
     }
     
     @objc private func textFieldEnd3(_ signupTxtFields: UITextField) {
-//        signupPwcheckTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
-//        signupPwcheckTextbox.layer.borderColor = UIColor.white.cgColor
-//        signupPwcheckTextbox.layer.borderWidth = 1
-        print(#function)
+        signupPwcheckTextbox.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+        signupPwcheckTextbox.layer.borderColor = UIColor.white.cgColor
+        signupPwcheckTextbox.layer.borderWidth = 1
     }
     
     @objc private func textFieldDidChange3(_ signupTxtFields: UITextField) {
-        print(#function)
+       
         if signupPwTextbox.text != signupPwcheckTextbox.text {
          signupPwcheckValLabel.alpha = 1
             signupPwcheckTextbox.layer.borderColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor
@@ -327,6 +345,7 @@ extension SignupVC {
         if signupEmailTextbox.text?.validateEmail() == true && signupPwTextbox.text == signupPwcheckTextbox.text {
             signup1Button.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
             signup1Button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            signup1Button.isEnabled = true
             
             //        signupPwcheckValLabel.alpha = signupTxtFields[2].text?.validatePasswd() == false ? 1 : 0
         }

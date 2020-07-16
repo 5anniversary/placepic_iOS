@@ -12,6 +12,11 @@ class GroupListVC: UIViewController {
 
     @IBOutlet weak var GroupListTV: UITableView!
     @IBOutlet weak var GroupWaitingButton: UIButton!
+    @IBAction func buttonAction(_ sender: Any) {
+guard let vc = self.storyboard?.instantiateViewController(identifier: "GroupWaitVC") as? GroupWaitVC else { return }
+self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     var waitinggroup:Int = 0
     private var dataInformations: [groupData] = []
 
@@ -41,28 +46,31 @@ class GroupListVC: UIViewController {
         let rightButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "groupIc-1"),
                                                           style: .plain,
                                                           target: self,
-                                                          action: #selector(dismissVC))
+                                                          action: #selector(navi))
 
         navigationItem.rightBarButtonItem = rightButton
         navigationItem.title = "내 그룹"
     }
 
-    @objc func dismissVC() {
-        navigationController?.popViewController(animated: true)
+    @objc func navi() {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "GroupPartiVC") as? GroupPartiVC else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+//        navigationController?.popViewController(animated: true)
 
-        let transform = CGAffineTransform(translationX: 0, y: 100)
-        self.tabBarController?.tabBar.isHidden = false
-        tabBarController?.tabBar.transform = transform
-
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 1,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {
-                        self.tabBarController?.tabBar.transform = .identity
-
-        }, completion: nil)
+//        let transform = CGAffineTransform(translationX: 0, y: 100)
+//        self.tabBarController?.tabBar.isHidden = false
+//        tabBarController?.tabBar.transform = transform
+//
+//        UIView.animate(withDuration: 0.5,
+//                       delay: 0,
+//                       usingSpringWithDamping: 1,
+//                       initialSpringVelocity: 1,
+//                       options: .curveEaseOut,
+//                       animations: {
+//                        self.tabBarController?.tabBar.transform = .identity
+//
+//        }, completion: nil)
     }
 
 
@@ -211,7 +219,18 @@ extension GroupListVC: UITableViewDataSource {
 
     }
     //    cell.imageView.contentMode = UIViewContentMode.scaleAspectFit
-
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath.row)")
+        
+//        guard let vc = self.storyboard?.instantiateViewController(identifier: "GroupUpVC") as? GroupUpVC
+//            else { return }
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let TableViewCell = tableView.dequeueReusableCell(withIdentifier: "GroupListTVC", for:
             indexPath) as? GroupListTVC else { return UITableViewCell() }
