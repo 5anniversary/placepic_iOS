@@ -31,7 +31,11 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet weak var placeAddress: UILabel!
     @IBOutlet weak var placeInfo: UILabel!
     @IBOutlet weak var likeNum: UILabel!
-//    
+    @IBAction func likeButton(_ sender: Any) {
+        
+    }
+    @IBOutlet weak var likeButton: UIButton!
+    //
 //    @IBAction func likeList(_ sender: Any) {
 //        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
 //        self.navigationController?.pushViewController(secondViewController, animated: true)
@@ -167,7 +171,9 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
 //        }
         guard let imageNames = placeDetailData?.imageURL else { return }
         
-        //*navi
+        if placeDetailData?.isLiked == true {
+            likeButton.setImage(UIImage(named: "icSelectedHeart"), for: .normal)
+        }
        
     }
     
@@ -238,15 +244,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         return imageNames.count
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "LikelistVC" {
-            if let destination = segue.destination as? LikelistVC {
-                destination.likePeopleList = placeDetailData?.likeList as! [LikeList]
-            }
-        }
-    }
+    
     
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
@@ -262,7 +260,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                                                           action: #selector(dismissVC))
         navigationItem.leftBarButtonItem = leftButton
         
-        print(placeDetailData?.uploader.deleteBtn)
         if placeDetailData?.uploader.deleteBtn == true{
             let rightButton: UIBarButtonItem = UIBarButtonItem(title: "삭제",
                                                                style: .plain,

@@ -10,7 +10,7 @@ import UIKit
 
 class LikelistVC: UIViewController {
 
-    var likePeopleList:[LikeList] = []
+//    var likePeopleList:[LikeList] = []
     @IBOutlet weak var likeListTV: UITableView!
     
     override func viewDidLoad() {
@@ -19,7 +19,7 @@ class LikelistVC: UIViewController {
         likeListTV.delegate = self
         likeListTV.dataSource = self
         
-        print(likePeopleList)
+//        print(likePeopleList)
         // Do any additional setup after loading the view.
     }
 
