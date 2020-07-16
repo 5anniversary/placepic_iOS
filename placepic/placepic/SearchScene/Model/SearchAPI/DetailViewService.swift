@@ -1,20 +1,21 @@
 //
-//  placeService.swift
+//  DetailViewService.swift
 //  placepic
 //
-//  Created by 이유진 on 2020/07/08.
+//  Created by 이유진 on 2020/07/15.
 //  Copyright © 2020 elesahich. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-struct placeService {
-    static let shared = placeService()
+struct DetailViewService {
+    static let shared = DetailViewService()
     
     func getPlaces(_ queryurl: String,completion: @escaping (NetworkResult<Any>) -> Void) {
         print(#function)
-        let url = placeListAPI.getplacedURL + queryurl
+        
+        let url = placeListAPI.getdetailplace + queryurl
         let header: HTTPHeaders = [
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjMsIm5hbWUiOiLstZzsmIHtm4giLCJpYXQiOjE1OTM2OTkxODMsImV4cCI6MTU5NjI5MTE4MywiaXNzIjoicGxhY2VwaWMifQ.rmFbeBfviyEzbMlMM4b3bMMiRcNDDbiX8bQtwL_cuN0",
             "Content-Type": "application/json"
@@ -35,18 +36,17 @@ struct placeService {
         }
         private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
             switch statusCode {
-            case 200: return isPlace(by: data)
+            case 200: return isDetailPlace(by: data)
             case 400: return .pathErr
             case 500: return .serverErr
             default: return .networkFail
             }
         }
 
-        private func isPlace(by data: Data) -> NetworkResult<Any> {
+        private func isDetailPlace(by data: Data) -> NetworkResult<Any> {
             let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode(placeListModel.self, from: data) else { return .pathErr }
-            guard let placeData: placeListClass = decodedData.data else { return .requestErr(decodedData.message) }
+            guard let decodedData = try? decoder.decode(DetailView.self, from: data) else { return .pathErr }
+            guard let placeData: DetailModel = decodedData.data else { return .requestErr(decodedData.message) }
             return .success(placeData)
         }
 }
-
