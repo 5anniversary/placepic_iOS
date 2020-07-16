@@ -90,6 +90,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 
             }
         }
+        
     }
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
@@ -175,23 +176,30 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         }
         
         
-        if placeListData[indexPath.row].tag.count == 0 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: "", pWriter: "", wName: placeListData[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")
+        var tags:[String] = []
+        for i in 0..<placeListData[indexPath.row].tag.count{
+            if placeListData[indexPath.row].tag[i].tagIsBasic == 0{
+                tags.append(placeListData[indexPath.row].tag[i].tagName)
+            }
+        }
+        
+        if tags.count == 0 {
+            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")
             placeListCell.placeTag[0].isHidden = true
             placeListCell.placeTag[1].isHidden = true
             placeListCell.placeTag[2].isHidden = true
         }
-        else if placeListData[indexPath.row].tag.count == 1 {
-//            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo, pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")
-//            placeListCell.placeTag[1].isHidden = true
-//            placeListCell.placeTag[2].isHidden = true
-        }
-        else if placeListData[indexPath.row].tag.count == 2 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")
+        else if tags.count == 1 {
+            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo, pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: tags[0], pTag2: "", pTag3: "")
+            placeListCell.placeTag[1].isHidden = true
             placeListCell.placeTag[2].isHidden = true
         }
-        else if placeListData[indexPath.row].tag.count >= 3 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "...")
+        else if tags.count == 2 {
+            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: tags[0], pTag2: tags[1], pTag3: "")
+            placeListCell.placeTag[2].isHidden = true
+        }
+        else if tags.count > 2 {
+            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: tags[0], pTag2: tags[1], pTag3: "...")
         }
         
         return placeListCell

@@ -10,11 +10,16 @@ import UIKit
 
 class LikelistVC: UIViewController {
 
-    var likeList:[Uploader] = []
+    var likePeopleList:[LikeList] = []
+    @IBOutlet weak var likeListTV: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        likeListTV.delegate = self
+        likeListTV.dataSource = self
+        
+        print(likePeopleList)
         // Do any additional setup after loading the view.
     }
 
@@ -22,16 +27,17 @@ class LikelistVC: UIViewController {
 
 extension LikelistVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return likeList.count
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let placeListCell = tableView.dequeueReusableCell(withIdentifier: likeListTVC.identifier, for: indexPath) as? likeListTVC else { return UITableViewCell() }
+        guard let peopleListCell = tableView.dequeueReusableCell(withIdentifier: likeListTVC.identifier, for: indexPath) as? likeListTVC else { return UITableViewCell() }
 
-        placeListCell.setLikeList(lname: likeList[indexPath.row].userName, lpart: likeList[indexPath.row].part, ldate: "", limg: "")
-        print(placeListCell)
-        return placeListCell
+//        peopleListCell.setLikeList(lname: likePeopleList[indexPath.row].userName, lpart: likePeopleList[indexPath.row].part, ldate: "", limg: "")
+//        
+        return peopleListCell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }

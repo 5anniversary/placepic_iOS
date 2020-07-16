@@ -31,10 +31,11 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet weak var placeAddress: UILabel!
     @IBOutlet weak var placeInfo: UILabel!
     @IBOutlet weak var likeNum: UILabel!
-    
+//    
 //    @IBAction func likeList(_ sender: Any) {
 //        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
 //        self.navigationController?.pushViewController(secondViewController, animated: true)
+//        secondViewController.likePeopleList = placeDetailData?.likeList as! [LikeList]
 //    }
     var selectIdx: Int!
     var placeDetailData: DetailModel?
@@ -55,12 +56,12 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
         getDetailData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setData()
+        setNavigationBar()
     }
     
     private func setData(){
@@ -159,11 +160,15 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         placeInfo.text = substr2
         navigationItem.title = placeDetailData?.placeName
     
-        var substr3:String = ""
-        guard let count3 = placeDetailData?.imageURL.count else { return }
-        for i in 0..<count3 {
-            
-        }
+//        var substr3:String = ""
+//        guard let count3 = placeDetailData?.imageURL.count else { return }
+//        for i in 0..<count3 {
+//
+//        }
+        guard let imageNames = placeDetailData?.imageURL else { return }
+        
+        //*navi
+       
     }
     
     private func getDetailData() {
@@ -206,9 +211,12 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     //        profileImg.layer.cornerRadius = profileImg.frame.height/2
     //        detailImg.isInfinite = true
     //    }
+    
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell{
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.image = UIImage(named: self.imageNames[index])
+//        cell.imageView?.image = UIImage(named: self.imageNames[index])
+//        placePhoto.kf.setImage(with: URL(string: pPhoto))
+        cell.imageView?.kf.setImage(with: URL(string: self.imageNames[index]))
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         
@@ -236,8 +244,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         // Pass the selected object to the new view controller.
         if segue.identifier == "LikelistVC" {
             if let destination = segue.destination as? LikelistVC {
-                destination.likeList = placeDetailData?.likeList as! [Uploader]
-                print(destination.likeList)
+                destination.likePeopleList = placeDetailData?.likeList as! [LikeList]
             }
         }
     }
@@ -255,37 +262,26 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                                                           target: self,
                                                           action: #selector(dismissVC))
         navigationItem.leftBarButtonItem = leftButton
+        
+        print(placeDetailData?.uploader.deleteBtn)
+        if placeDetailData?.uploader.deleteBtn == true{
+            let rightButton: UIBarButtonItem = UIBarButtonItem(title: "삭제",
+                                                               style: .plain,
+                                                               target: self,
+                                                               action: #selector(deleteData))
+            
+            navigationItem.rightBarButtonItem = rightButton
+        }
     }
     
     @objc private func dismissVC() {
         navigationController?.popViewController(animated: true)
     }
     
-    //    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    //
-    //        NMFAuthManager.shared().clientId = "YOUR_CLIENT_ID_HERE"
-    //
-    //        return true
-    //
-    //    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @objc private func deleteData() {
+        
+    }
+  
     
 }
 
-//extension UIViewController {
-//    func reloadViewFromNib() {
-//        let parent = view.superview
-//        view.removeFromSuperview()
-//        view = nil
-//        parent?.addSubview(view) // This line causes the view to be reloaded
-//    }
-//}
