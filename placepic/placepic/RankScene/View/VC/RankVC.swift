@@ -25,13 +25,11 @@ class RankVC: UIViewController {
 
 //MARK: - 통신
 extension RankVC {
-    
     func setDefaultRequest() {
         print(#function)
 
         RankServices.rankServices.getRankData { data in
             if let metaData = data {
-                print(metaData)
                 self.rankLargeData = metaData
                 guard let datum = self.rankLargeData?.userList else { return }
                 self.rankData = datum
@@ -77,6 +75,10 @@ extension RankVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 extension RankVC: UITableViewDataSource {
@@ -86,11 +88,12 @@ extension RankVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RankTVCIdentifer") as? RankTVC else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RankTVCIdentifier") as? RankTVC else {
             return UITableViewCell()
         }
-        
         cell.model = rankData[indexPath.row]
         return cell
     }
+    
+    
 }

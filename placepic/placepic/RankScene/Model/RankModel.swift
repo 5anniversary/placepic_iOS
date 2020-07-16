@@ -7,7 +7,7 @@
 //
 import Foundation
 
-// MARK: - Empty
+//MARK: - Empty
 struct RankModel: Codable {
     let status: Int?
     let success: Bool?
@@ -17,8 +17,8 @@ struct RankModel: Codable {
 
 // MARK: - DataClass
 struct RankDataClass: Codable {
-    let userCnt: Int?
     let userList: [RankData]?
+    let userCnt: Int?
 }
 
 // MARK: - UserList
@@ -26,6 +26,11 @@ struct RankData: Codable {
     let userName: String?
     let profileImageURL: String?
     let part: String?
-    let postCount: Int?
-    let rank: String?
+    let postCount, rank: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case userName
+        case profileImageURL = "profileImageUrl"
+        case part, postCount, rank
+    }
 }

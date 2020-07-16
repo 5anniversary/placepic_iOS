@@ -21,10 +21,16 @@ class RankTVC: UITableViewCell {
     // 사진을 넣을 것이닷
     var model: RankData? {
         didSet {
-            rankLabel.text = model?.rank
+            guard let articleCount = model?.postCount else { return }
+            guard let rank = model?.rank else { return }
+            guard let imageURL = model?.profileImageURL else { return }
+            
+            
+            profileImage.kf.setImage(with: URL(string: imageURL))
+            rankLabel.text = model?.rank == -1 ? "-" : "\(String(describing: rank))"
             nameLabel.text = model?.userName
             affiliationLabel.text = model?.part
-            articleCountLabel.text = String(describing: model?.postCount)
+            articleCountLabel.text = String(describing: articleCount)
         }
     }
     
@@ -47,6 +53,8 @@ extension RankTVC {
         articleCountLabel.textColor = UIColor.gray60
         writtenArticleLabel.font = Font.fontSize11
         writtenArticleLabel.textColor = UIColor.gray60
-        
+        profileImage.layer.cornerRadius = profileImage.frame.height / 2
     }
 }
+
+

@@ -24,6 +24,7 @@ struct RankServices {
             
             switch response.result {
             case .success:
+                print("success")
                 guard let data = response.data else { return }
                 do {
                     let decoder = JSONDecoder()
@@ -34,6 +35,7 @@ struct RankServices {
                         completion(nil)
                     }
                 } catch (let err) {
+                    print("123233")
                     print(err.localizedDescription)
                 }
             case .failure:

@@ -93,10 +93,11 @@ extension FavoritePlaceSearchVC {
         
         guard let searchText = searchTextField.text else { return }
       
-        PlaceSearchServices.placeSearchServices.getplaceSearchList(2, searchText) { data in
+        PlaceSearchServices.placeSearchServices.getplaceSearchList(1, searchText) { data in
             if let metaData = data {
                 self.placeLargeData = metaData
                 guard let datum = self.placeLargeData?.result else { return }
+                print(datum)
                 self.placeSearchData = datum
                 self.nullPageView.transform = .identity
                 self.tableView.reloadData()
