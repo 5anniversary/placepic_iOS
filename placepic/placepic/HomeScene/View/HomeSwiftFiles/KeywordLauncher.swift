@@ -131,19 +131,22 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
 
     @objc private func doneButtonTapped() {
-              
         guard let count = collectionView.indexPathsForSelectedItems?.count else { return }
-        
         if count >= 4 {
             alertaction()
         } else {
-            
             guard let index: [IndexPath] = collectionView.indexPathsForSelectedItems else { return }
             var sendIndex: [Int] = []
-            
-            for i in 0..<index.count {
-                print(index[i][1])
-                sendIndex.append(index[i][1])
+
+
+            if useful.count != 0 {
+                for i in 0..<index.count {
+                    sendIndex.append(useful[index[i][1]].tagIdx ?? 0)
+                }
+            } else {
+                for i in 0..<index.count {
+                    sendIndex.append(keyword[index[i][1]].tagIdx ?? 0)
+                }
             }
             
             if keyword.count != 0 {

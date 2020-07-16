@@ -134,47 +134,47 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         var dataInfo: String = ""
         var subwayInfo: String = ""
         
-        for i in 0..<placeListData[indexPath.row].subway.count{
-            if i == (placeListData[indexPath.row].subway.count-1){
-                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName
-            }
-            else {
-                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName + "/"
-            }
-        }
-        
-        let date:Date = Date(timeIntervalSince1970: TimeInterval(placeListData[indexPath.row].placeCreatedAt))
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        
-        if placeListData[indexPath.row].tag.count == 0 {
-            dataInfo = dataInfo + dateFormatter.string(from: date)
-        }
-        else{
-            dataInfo = dataInfo + " · " + dateFormatter.string(from: date)
-        }
-        
-        
-        if placeListData[indexPath.row].tag.count == 0 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: "", pWriter: "", wName: placeListData[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")
-            placeListCell.placeTag[0].isHidden = true
-            placeListCell.placeTag[1].isHidden = true
-            placeListCell.placeTag[2].isHidden = true
-        }
-        else if placeListData[indexPath.row].tag.count == 1 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo, pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")
-            placeListCell.placeTag[1].isHidden = true
-            placeListCell.placeTag[2].isHidden = true
-        }
-        else if placeListData[indexPath.row].tag.count == 2 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")
-            placeListCell.placeTag[2].isHidden = true
-        }
-        else if placeListData[indexPath.row].tag.count >= 3 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "...")
-        }
-        
+//        for i in 0..<placeListData[indexPath.row].subway.count{
+//            if i == (placeListData[indexPath.row].subway.count-1){
+//                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName
+//            }
+//            else {
+//                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName + "/"
+//            }
+//        }
+//
+//        let date:Date = Date(timeIntervalSince1970: TimeInterval(placeListData[indexPath.row].placeCreatedAt))
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy.MM.dd"
+//
+//        if placeListData[indexPath.row].tag.count == 0 {
+//            dataInfo = dataInfo + dateFormatter.string(from: date)
+//        }
+//        else{
+//            dataInfo = dataInfo + " · " + dateFormatter.string(from: date)
+//        }
+//
+//
+//        if placeListData[indexPath.row].tag.count == 0 {
+//            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: "", pWriter: "", wName: placeListData[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")
+//            placeListCell.placeTag[0].isHidden = true
+//            placeListCell.placeTag[1].isHidden = true
+//            placeListCell.placeTag[2].isHidden = true
+//        }
+//        else if placeListData[indexPath.row].tag.count == 1 {
+//            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo, pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")
+//            placeListCell.placeTag[1].isHidden = true
+//            placeListCell.placeTag[2].isHidden = true
+//        }
+//        else if placeListData[indexPath.row].tag.count == 2 {
+//            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")
+//            placeListCell.placeTag[2].isHidden = true
+//        }
+//        else if placeListData[indexPath.row].tag.count >= 3 {
+//            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "...")
+//        }
+//
         return placeListCell
     }
     

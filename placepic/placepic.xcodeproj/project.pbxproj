@@ -33,6 +33,11 @@
 		13B9DC5F24BD989C00D15591 /* GroupPartiTVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC5A24BD989C00D15591 /* GroupPartiTVC1.swift */; };
 		13B9DC6124BD98F400D15591 /* LoginInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6024BD98F400D15591 /* LoginInfomodel.swift */; };
 		13B9DC6324BD994E00D15591 /* SignupInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6224BD994E00D15591 /* SignupInfomodel.swift */; };
+		3D00CEB724C011A900BE7A2A /* RankTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00CEB624C011A900BE7A2A /* RankTVC.swift */; };
+		3D00CEB924C0125D00BE7A2A /* RankTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D00CEB824C0125D00BE7A2A /* RankTVC.xib */; };
+		3D00CEBB24C0189000BE7A2A /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00CEBA24C0189000BE7A2A /* RankModel.swift */; };
+		3D00CEBD24C01BEF00BE7A2A /* RankServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00CEBC24C01BEF00BE7A2A /* RankServices.swift */; };
+		3D00CEBF24C01C5200BE7A2A /* RankAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00CEBE24C01C5200BE7A2A /* RankAPI.swift */; };
 		3D06C28024BBA6C900A4F869 /* ClassifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06C27F24BBA6C900A4F869 /* ClassifyVC.swift */; };
 		3D06C28324BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06C28124BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift */; };
 		3D06C28424BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D06C28224BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib */; };
@@ -145,6 +150,11 @@
 		13B9DC5A24BD989C00D15591 /* GroupPartiTVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPartiTVC1.swift; sourceTree = "<group>"; };
 		13B9DC6024BD98F400D15591 /* LoginInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfomodel.swift; sourceTree = "<group>"; };
 		13B9DC6224BD994E00D15591 /* SignupInfomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInfomodel.swift; sourceTree = "<group>"; };
+		3D00CEB624C011A900BE7A2A /* RankTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTVC.swift; sourceTree = "<group>"; };
+		3D00CEB824C0125D00BE7A2A /* RankTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTVC.xib; sourceTree = "<group>"; };
+		3D00CEBA24C0189000BE7A2A /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
+		3D00CEBC24C01BEF00BE7A2A /* RankServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankServices.swift; sourceTree = "<group>"; };
+		3D00CEBE24C01C5200BE7A2A /* RankAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankAPI.swift; sourceTree = "<group>"; };
 		3D06C27F24BBA6C900A4F869 /* ClassifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyVC.swift; sourceTree = "<group>"; };
 		3D06C28124BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyFavoritePlaceTVC.swift; sourceTree = "<group>"; };
 		3D06C28224BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassifyFavoritePlaceTVC.xib; sourceTree = "<group>"; };
@@ -293,6 +303,15 @@
 				13B9DC3524BD976300D15591 /* SignupVC.swift */,
 			);
 			path = SignupIn;
+			sourceTree = "<group>";
+		};
+		3D00CEB524C0119000BE7A2A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3D00CEB624C011A900BE7A2A /* RankTVC.swift */,
+				3D00CEB824C0125D00BE7A2A /* RankTVC.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3D06C28524BBAB4C00A4F869 /* FavoritePlaceCell */ = {
@@ -570,6 +589,9 @@
 		3DECB79A24A92B1100D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D00CEBA24C0189000BE7A2A /* RankModel.swift */,
+				3D00CEBC24C01BEF00BE7A2A /* RankServices.swift */,
+				3D00CEBE24C01C5200BE7A2A /* RankAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -616,6 +638,7 @@
 		3DECB7A124A92B7800D54DBF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D00CEB524C0119000BE7A2A /* Cell */,
 				3DECB7A224A92B7900D54DBF /* VC */,
 			);
 			path = View;
@@ -826,6 +849,7 @@
 				3D62560924AA49C30047AD70 /* Search.storyboard in Resources */,
 				3D62560D24AA4A050047AD70 /* Rank.storyboard in Resources */,
 				3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */,
+				3D00CEB924C0125D00BE7A2A /* RankTVC.xib in Resources */,
 				3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */,
 				3D6BAF9524B2D21200F6339E /* NearstationCVC.xib in Resources */,
 				3D6BAF9924B2DAD400F6339E /* ShowStationTVC.xib in Resources */,
@@ -916,12 +940,14 @@
 				3DECB77424A9274100D54DBF /* AppDelegate.swift in Sources */,
 				3D06C28324BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift in Sources */,
 				AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */,
+				3D00CEB724C011A900BE7A2A /* RankTVC.swift in Sources */,
 				AE34146524B4F51700425889 /* placeService.swift in Sources */,
 				AE34146324B4EFD100425889 /* placeListAPI.swift in Sources */,
 				AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */,
 				13B9DC2324BD96D800D15591 /* SigninData.swift in Sources */,
 				3DECB7AD24A92C0400D54DBF /* WriteVC.swift in Sources */,
 				3DFDAC5124B4D6700069990A /* GeneralAPI.swift in Sources */,
+				3D00CEBD24C01BEF00BE7A2A /* RankServices.swift in Sources */,
 				13B9DC1C24BD96D800D15591 /* GroupUpService.swift in Sources */,
 				3D6BAF9324B1D21A00F6339E /* NearstationCVC.swift in Sources */,
 				3D6C163724B877790050979C /* KeywordServies.swift in Sources */,
@@ -963,7 +989,9 @@
 				3DCD865C24BAD336006783D2 /* UsefulImformModel.swift in Sources */,
 				13B9DC2C24BD96D800D15591 /* Emailmodel.swift in Sources */,
 				3DCE5F7F24B577D300BAF927 /* OutterUploadCVC.swift in Sources */,
+				3D00CEBB24C0189000BE7A2A /* RankModel.swift in Sources */,
 				13B9DC2024BD96D800D15591 /* SignupData.swift in Sources */,
+				3D00CEBF24C01C5200BE7A2A /* RankAPI.swift in Sources */,
 				3D84896924B4116F00AE6A45 /* (null) in Sources */,
 				3DCE5F7724B5199600BAF927 /* HomeKeywordCVC.swift in Sources */,
 				3D6C163324B83BF20050979C /* Notification.swift in Sources */,

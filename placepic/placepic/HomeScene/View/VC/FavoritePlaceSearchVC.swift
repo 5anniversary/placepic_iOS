@@ -92,6 +92,7 @@ extension FavoritePlaceSearchVC {
         ///`@@@@ group Index @@@@` 받아서 확인
         
         guard let searchText = searchTextField.text else { return }
+      
         PlaceSearchServices.placeSearchServices.getplaceSearchList(2, searchText) { data in
             if let metaData = data {
                 self.placeLargeData = metaData

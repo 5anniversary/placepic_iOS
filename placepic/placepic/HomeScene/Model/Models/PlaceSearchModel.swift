@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Empty
-struct PlaceSearchModel: Decodable, Encodable {
+struct PlaceSearchModel: Codable {
     let status: Int?
     let success: Bool?
     let message: String?
@@ -16,7 +16,7 @@ struct PlaceSearchModel: Decodable, Encodable {
 }
 
 // MARK: - DataClass
-struct DataClass: Decodable, Encodable {
+struct DataClass: Codable {
     let result: [PlaceSearchData]?
     let count: Int?
 }

@@ -27,7 +27,7 @@ class ArticleUploadVC: UIViewController {
     var forUploadKeyword: [Int] = []
     var forUploadUsefulInfo: [Int] = []
     var subwayIntArray: [Int] = []
-
+    
     lazy var keywordModal: KeywordLauncher = {
         let launcher = KeywordLauncher()
         launcher.uploadVC = self
@@ -80,72 +80,9 @@ extension ArticleUploadVC {
         navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
-    @objc private func dismissVC() {
-        navigationController?.popViewController(animated: true)
-    }
-    
     private func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    @objc private func setPhotoArray(_ notification: NSNotification) {
-        guard let injectedModel = notification.userInfo?["photo"] as? [UIImage]  else {
-            return
-        }
-        photoArray = injectedModel
-        print(photoArray)
-    }
-    
-    @objc private func keywordSendedIndex(_ notification: NSNotification) {
-        storageKeywordData = []
-        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
-            return
-        }
-        forUploadKeyword = injectedModel
-        
-        for i in 0..<injectedModel.count {
-            print(keywordData[injectedModel[i]])
-            storageKeywordData.append(keywordData[injectedModel[i]])
-        }
-        collectionView.reloadData()
-    }
-    
-    @objc private func usefulSendedIndex(_ notification: NSNotification) {
-        storageUsefulKeywordData = []
-        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
-            return
-        }
-        forUploadUsefulInfo = injectedModel
-        for i in 0..<injectedModel.count {
-            storageUsefulKeywordData.append(usefulKeywordData[injectedModel[i]])
-        }
-        collectionView.reloadData()
-    }
-        
-    @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
-        guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
-        nearstationData = injectedModel
-        nearstationData.forEach({
-            subwayIntArray.append($0.subwayIdx!)
-        })
-                
-        collectionView.reloadData()
-    }
-    
-    @objc private func changeTextviewState(_ notification: NSNotification) {
-        
-        guard let injectedModel = notification.userInfo?["editingflag"] as? Bool else { return }
-        print(injectedModel)
-        if injectedModel == true {
-            navigationItem.rightBarButtonItem?.isEnabled = true
-        } else {
-            navigationItem.rightBarButtonItem?.isEnabled = false
-        }
-    }
-    
-    @objc private func tapDoneButtonAction() {
-        alertaction()
     }
     
     private func alertaction() {
@@ -166,10 +103,22 @@ extension ArticleUploadVC {
         guard let roadAddress = placeSearchData.placeRoadAddress else { return }
         guard let mapX = placeSearchData.placeMapX else { return }
         guard let mapY = placeSearchData.placeMapY else { return }
-        guard let categoryIndex = categoryIndex(rawValue: "\(classifyBadge)")?.index else { return }
+        guard let categoryIndex = CategoryIndex(rawValue: "\(classifyBadge)")?.index else { return }
+        forUploadUsefulInfo = []
+        forUploadKeyword = []
         
-    
-        print(address, roadAddress, mapX, mapY, categoryIndex)
+        storageKeywordData.forEach({
+            guard let keyword = $0.tagIdx else { return }
+            forUploadKeyword.append(keyword)
+        })
+        
+        
+        storageUsefulKeywordData.forEach({
+            guard let useful = $0.tagIdx else { return }
+            forUploadUsefulInfo.append(useful)
+        })
+        
+        print(address, roadAddress, mapX, mapY, categoryIndex, forUploadKeyword, forUploadUsefulInfo)
         
         UploadServices.uploadServices.upload(
             imageArray: photoArray,
@@ -222,6 +171,84 @@ extension ArticleUploadVC {
         }
     }
 }
+
+//MARK: - @objc, notification
+extension ArticleUploadVC {
+    
+    @objc private func dismissVC() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func setPhotoArray(_ notification: NSNotification) {
+        guard let injectedModel = notification.userInfo?["photo"] as? [UIImage]  else {
+            return
+        }
+        photoArray = injectedModel
+        print(photoArray)
+    }
+    
+    @objc private func keywordSendedIndex(_ notification: NSNotification) {
+        storageKeywordData = []
+        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
+            return
+        }
+        
+        keywordData.enumerated().forEach({
+            guard let index = $1.tagIdx else { return }
+            for i in 0..<injectedModel.count {
+                if injectedModel[i] == index {
+                    storageKeywordData.append(keywordData[$0])
+                }
+            }
+        })
+        print("storageKeywordData : \(storageKeywordData)\n")
+        collectionView.reloadData()
+    }
+    
+    @objc private func usefulSendedIndex(_ notification: NSNotification) {
+        storageUsefulKeywordData = []
+        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
+            return
+        }
+
+        usefulKeywordData.enumerated().forEach({
+            guard let index = $1.tagIdx else { return }
+            for i in 0..<injectedModel.count {
+                if injectedModel[i] == index {
+                    storageUsefulKeywordData.append(usefulKeywordData[$0])
+                }
+            }
+        })
+        print("storageUsefulKeywㄷordData: \(storageUsefulKeywordData)\n")
+        collectionView.reloadData()
+    }
+    
+    @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
+        guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
+        nearstationData = injectedModel
+        nearstationData.forEach({
+            subwayIntArray.append($0.subwayIdx!)
+        })
+        
+        collectionView.reloadData()
+    }
+    
+    @objc private func changeTextviewState(_ notification: NSNotification) {
+        
+        guard let injectedModel = notification.userInfo?["editingflag"] as? Bool else { return }
+        print(injectedModel)
+        if injectedModel == true {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
+    
+    @objc private func tapDoneButtonAction() {
+        alertaction()
+    }
+}
+
 
 //MARK:- 통신
 extension ArticleUploadVC {
@@ -381,6 +408,7 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             cell.usefulTextFieldarray.forEach({
                 $0.isHidden = false
             })
+            
             if storageUsefulKeywordData.count == 0 {
                 cell.usefulStackView.isHidden = true
             } else if storageUsefulKeywordData.count == 1 {
