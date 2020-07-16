@@ -27,19 +27,37 @@ class SigninVC: UIViewController {
             case .success(let token):
                 guard let token = token as? String else { return }
                 UserDefaults.standard.set(token, forKey: "token")
-                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-                    "customTabbarController") as? UITabBarController else { return }
-                tabbarController.modalPresentationStyle = .fullScreen
-                self.present(tabbarController, animated: true, completion: nil)
+                
+                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "GroupListVC") as! GroupListVC
+                self.navigationController?.pushViewController(secondViewController, animated: true)
+                
+                
+//                let GroupController = self.storyboard.instantiateViewControllerWithIdentifier("SecondViewController") as SecondViewController
+//                self.navigationController.pushViewController(secondViewController, animated: true)
+//                self.present(GroupListVC, animated: true, completion: nil)
             case .requestErr(let message):
-                guard let message = message as? String else { return }
-                let alertViewController = UIAlertController(title: "로그인 실패", message: message,
-                                                            preferredStyle: .alert)
+//                guard let message = message as? String else { return }
+//                let alertViewController = UIAlertController(title: "로그인 실패", message: message,
+//                                                            preferredStyle: .alert)
+                
+                let alert = UIAlertController(title: "로그인에 실패하였습니다.", message: "입력하신 이메일과 비밀번호를 /n 확인 후 다시 확인해주세요.", preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+
+
+                self.present(alert, animated: true)
+                
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                alertViewController.addAction(action)
-                self.present(alertViewController, animated: true, completion: nil)
+//                alertViewController.addAction(action)
+//                self.present(alertViewController, animated: true, completion: nil)
                 
             case .pathErr: print("path")
+                let alert = UIAlertController(title: "로그인에 실패하였습니다.", message: "입력하신 이메일과 비밀번호를 확인 후 다시 확인해주세요.", preferredStyle: .alert)
+
+                               alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+
+
+                               self.present(alert, animated: true)
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }

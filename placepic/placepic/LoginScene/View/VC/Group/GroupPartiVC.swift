@@ -125,6 +125,15 @@ extension GroupPartiVC: UITableViewDataSource {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "SendVC") as? SendVC else { return }
+        
+//        vc.model = 
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataInformations.count// data count
         

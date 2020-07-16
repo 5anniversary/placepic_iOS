@@ -44,10 +44,14 @@ class SignupVC: UIViewController {
                 print("제발.")
                 guard let token = token as? String else { return }
                 UserDefaults.standard.set(token, forKey: "token")
-                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-                    "nextNavi") as? UITabBarController else { return }
-                tabbarController.modalPresentationStyle = .fullScreen
-                self.present(tabbarController, animated: true, completion: nil)
+                
+                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "Signup3VC") as! Signup3VC
+                self.navigationController?.pushViewController(secondViewController, animated: true)
+                
+//                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+//                    "nextNavi") as? UITabBarController else { return }
+//                tabbarController.modalPresentationStyle = .fullScreen
+//                self.present(tabbarController, animated: true, completion: nil)
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
@@ -57,6 +61,8 @@ class SignupVC: UIViewController {
                 self.present(alertViewController, animated: true, completion: nil)
                 
             case .pathErr: print("path")
+                
+                
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }

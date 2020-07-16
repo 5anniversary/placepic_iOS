@@ -244,9 +244,3 @@ extension NearstationVC: UITextFieldDelegate {
         return true
     }
 }
-
-
-
-
-
-
