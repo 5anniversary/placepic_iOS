@@ -14,7 +14,6 @@ struct placeService {
     
     func getPlaces(_ queryurl: String,completion: @escaping (NetworkResult<Any>) -> Void) {
         print(#function)
-        
         let url = placeListAPI.getplacedURL + queryurl
         let header: HTTPHeaders = [
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjMsIm5hbWUiOiLstZzsmIHtm4giLCJpYXQiOjE1OTM2OTkxODMsImV4cCI6MTU5NjI5MTE4MywiaXNzIjoicGxhY2VwaWMifQ.rmFbeBfviyEzbMlMM4b3bMMiRcNDDbiX8bQtwL_cuN0",
@@ -46,7 +45,7 @@ struct placeService {
         private func isPlace(by data: Data) -> NetworkResult<Any> {
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(placeListModel.self, from: data) else { return .pathErr }
-            guard let placeData: PlaceDataClass = decodedData.data else { return .requestErr(decodedData.message) }
+            guard let placeData: placeListClass = decodedData.data else { return .requestErr(decodedData.message) }
             return .success(placeData)
         }
 }

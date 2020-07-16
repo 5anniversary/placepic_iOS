@@ -13,7 +13,7 @@ import Kingfisher
 
 class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
     
-    let imageNames = []
+    let imageNames:[String] = ["dummy1"]
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var detailViewHC: NSLayoutConstraint!
@@ -61,12 +61,12 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(#function)
         setData()
     }
     
     private func setData(){
-        print(#function)
+        guard let postcount = placeDetailData?.uploader.postCount else { return }
+        guard let likecount = placeDetailData?.likeCount else { return }
         
         profileImg.layer.cornerRadius = profileImg.frame.height/2
 //        profileImg.kf.setImage(with: URL(string: )
@@ -74,13 +74,13 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
 //        profileImg.kf.setImage(with: placeDetailData?.uploader.profileImageURL)
         userName.text = placeDetailData?.uploader.userName
         userPart.text = placeDetailData?.uploader.part
-        postNum.text = "작성한 글 \(placeDetailData?.uploader.postCount)"
+        postNum.text = "작성한 글 \(postcount)"
         let date:Date = Date(timeIntervalSince1970: TimeInterval(placeDetailData?.placeCreatedAt ?? 0))
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
         postDate.text = dateFormatter.string(from: date)
         detailTextView.text = placeDetailData?.placeReview
-        likeNum.text = "\(placeDetailData?.likeCount)"
+        likeNum.text = "\(likecount)"
         placeName.text = placeDetailData?.placeName
         heartbutView.layer.cornerRadius = 4
         heartbutView.layer.borderWidth = 1.5
@@ -88,7 +88,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         
         //**setTag
         if placeDetailData?.keyword.count == 1{
-            print(placeDetailData?.keyword)
             placeTag[0].text = placeDetailData?.keyword[0]
             placeTag[1].isHidden = true
             placeTag[2].isHidden = true
@@ -136,8 +135,8 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         }
         
         var substr:String = ""
-        guard let count = placeDetailData?.subway.count else { return }
-        for i in 0..<count {
+        guard let subwaycount = placeDetailData?.subway.count else { return }
+        for i in 0..<subwaycount {
             if i == 0 || i == placeDetailData?.subway.count {
                 substr = substr + (placeDetailData?.subway[i])!
             }
@@ -175,7 +174,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             case .success(let products):
                 guard let places = products as? DetailModel else { return }
                 self.placeDetailData = places
-                print(self.placeDetailData)
                 self.viewWillAppear(true)
             case .requestErr(let message):
                 guard let message = message as? String else { return }
