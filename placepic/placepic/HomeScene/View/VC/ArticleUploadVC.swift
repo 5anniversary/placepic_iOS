@@ -16,14 +16,18 @@ class ArticleUploadVC: UIViewController {
     var nearstationData: [SubwayData] = []
     var keywordData: [KeywordData] = []
     var usefulKeywordData: [UsefulInformData] = []
-    var photoArray: [UIImage]! = []
     
-    var storageKeywordData: [KeywordData] = []
-    var storageUsefulKeywordData: [UsefulInformData] = []
-    
+    /// 서버 업로드 파라미터
+    var photoArray: [UIImage] = []
     var articleTitle: String = ""
     var classifyBadge: String = ""
-    
+    var placeSearchData: PlaceSearchData!
+    var storageKeywordData: [KeywordData] = []
+    var storageUsefulKeywordData: [UsefulInformData] = []
+    var forUploadKeyword: [Int] = []
+    var forUploadUsefulInfo: [Int] = []
+    var subwayIntArray: [Int] = []
+
     lazy var keywordModal: KeywordLauncher = {
         let launcher = KeywordLauncher()
         launcher.uploadVC = self
@@ -43,9 +47,10 @@ extension ArticleUploadVC {
     
     private func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeDefaultCellHeight), name: .homeSendmodelNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keywordSendedIndex), name: .homeModalKeywordNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keywordSendedIndex(_:)), name: .homeModalKeywordNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(usefulSendedIndex(_:)), name: .homeModalUsefulNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeTextviewState(_:)), name: .homeWriteTextViewisEditingNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setPhotoArray(_:)), name: .homeSendPhotoNotification, object: nil)
     }
     
     private func setNavigationBar() {
@@ -84,11 +89,20 @@ extension ArticleUploadVC {
         collectionView.dataSource = self
     }
     
+    @objc private func setPhotoArray(_ notification: NSNotification) {
+        guard let injectedModel = notification.userInfo?["photo"] as? [UIImage]  else {
+            return
+        }
+        photoArray = injectedModel
+        print(photoArray)
+    }
+    
     @objc private func keywordSendedIndex(_ notification: NSNotification) {
         storageKeywordData = []
         guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
             return
         }
+        forUploadKeyword = injectedModel
         
         for i in 0..<injectedModel.count {
             print(keywordData[injectedModel[i]])
@@ -102,7 +116,7 @@ extension ArticleUploadVC {
         guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else {
             return
         }
-        
+        forUploadUsefulInfo = injectedModel
         for i in 0..<injectedModel.count {
             storageUsefulKeywordData.append(usefulKeywordData[injectedModel[i]])
         }
@@ -110,9 +124,12 @@ extension ArticleUploadVC {
     }
         
     @objc private func changeDefaultCellHeight(_ notification: NSNotification) {
-        
         guard let injectedModel = notification.userInfo?["model"] as? [SubwayData] else { return }
         nearstationData = injectedModel
+        nearstationData.forEach({
+            subwayIntArray.append($0.subwayIdx!)
+        })
+                
         collectionView.reloadData()
     }
     
@@ -131,15 +148,52 @@ extension ArticleUploadVC {
         alertaction()
     }
     
-    func alertaction() {
+    private func alertaction() {
         let alert = UIAlertController(title: "Your Title", message: "Your Message", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler : nil )
-        let cancel = UIAlertAction(title: "cancel", style: .destructive, handler : nil)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.postAction()
+        }
+        let cancel = UIAlertAction(title: "cancel", style: .destructive, handler: nil)
         
         alert.addAction(cancel)
         alert.addAction(okAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func postAction() {
+        guard let address = placeSearchData.placeAddress else { return }
+        guard let roadAddress = placeSearchData.placeRoadAddress else { return }
+        guard let mapX = placeSearchData.placeMapX else { return }
+        guard let mapY = placeSearchData.placeMapY else { return }
+        guard let categoryIndex = categoryIndex(rawValue: "\(classifyBadge)")?.index else { return }
+        
+    
+        print(address, roadAddress, mapX, mapY, categoryIndex)
+        
+        UploadServices.uploadServices.upload(
+            imageArray: photoArray,
+            title: articleTitle,
+            adress: address,
+            roadAddress: roadAddress,
+            mapX: Int(mapX) ?? 0,
+            mapY: Int(mapY) ?? 0,
+            placeReview: "123",
+            categoryIndex: categoryIndex,
+            groupIdx: 1,
+            tags: forUploadKeyword,
+            infotags: forUploadUsefulInfo,
+            subwayIdx: subwayIntArray) { networkResult in
+                switch networkResult {
+                case .success:
+                    print("received PhotoArray : \(self.photoArray)")
+                case .requestErr(let message):
+                    print(message)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+        }
     }
     
     func returnNearStationDynamicHeight() -> CGSize {
@@ -252,7 +306,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             let title = articleTitle
             view.mainLabel.text = title
             view.classifyBadge.text = badge
-            
             return view
             
         case UICollectionView.elementKindSectionFooter:
@@ -349,7 +402,6 @@ extension ArticleUploadVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeReviewCVC", for: indexPath) as? HomeReviewCVC else {
                 return UICollectionViewCell()
             }
-            
             return cell
         default:
             assert(false)

@@ -41,7 +41,7 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
     }
     
     private func getImageArray() {
-        if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+        if UIApplication.shared.windows.first(where: { $0.isKeyWindow }) != nil {
             
             var config = YPImagePickerConfiguration()
             config.showsCrop = .rectangle(ratio: (9/16))
@@ -72,6 +72,9 @@ class OutterUploadPhotoCVC: UICollectionViewCell {
                 picker.dismiss(animated: true) {
                     // picker뷰 dismiss 할 때 이미지가 들어가 있는 collectionView reloadData()
                     self.collectionView.reloadData()
+                    
+                    guard let pictureArray = self.photoArray else { return }
+                    NotificationCenter.default.post(name: .homeSendPhotoNotification, object: nil, userInfo: ["photo": pictureArray])
                 }
             }
             topViewController()?.present(picker, animated: true, completion: nil)
