@@ -178,10 +178,9 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         
         var tags:[String] = []
         for i in 0..<placeListData[indexPath.row].tag.count{
-            if placeListData[indexPath.row].tag[i].tagIsBasic == 0{
-                tags.append(placeListData[indexPath.row].tag[i].tagName)
-            }
+            tags.append(placeListData[indexPath.row].tag[i].tagName)
         }
+        print(tags)
         
         if tags.count == 0 {
             placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: "", pTag2: "", pTag3: "")

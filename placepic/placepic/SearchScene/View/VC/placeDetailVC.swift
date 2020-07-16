@@ -172,7 +172,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     private func getDetailData() {
-        print(#function)
         DetailViewService.shared.getPlaces(String(selectIdx)){ networkResult in
             switch networkResult {
             case .success(let products):
