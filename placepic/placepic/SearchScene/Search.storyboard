@@ -442,7 +442,7 @@
                                                 </constraints>
                                                 <state key="normal" image="icUnselectedBookmark"/>
                                                 <connections>
-                                                    <action selector="scrapButton:" destination="F5B-vE-VBo" eventType="touchUpInside" id="5rU-gA-rCi"/>
+                                                    <action selector="bookmarkButton:" destination="F5B-vE-VBo" eventType="touchUpInside" id="O9Z-s9-bHq"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30p-o6-MQz">

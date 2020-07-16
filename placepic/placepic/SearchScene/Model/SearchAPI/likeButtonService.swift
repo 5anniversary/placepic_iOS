@@ -34,7 +34,8 @@ struct likeButtonService {
         }
     func delete(placeIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
             let header: HTTPHeaders = ["Content-Type": "application/json", "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjMsIm5hbWUiOiLstZzsmIHtm4giLCJpYXQiOjE1OTM2OTkxODMsImV4cCI6MTU5NjI5MTE4MywiaXNzIjoicGxhY2VwaWMifQ.rmFbeBfviyEzbMlMM4b3bMMiRcNDDbiX8bQtwL_cuN0"]
-        let dataRequest = Alamofire.request(placeListAPI.deletelikeURL, method: .delete, parameters: makeParameter(placeIdx), encoding:
+        let likedeleteURL:String = placeListAPI.deletelikeURL + "\(placeIdx)"
+        let dataRequest = Alamofire.request(likedeleteURL, method: .delete, parameters: makeParameter(placeIdx), encoding:
     JSONEncoding.default, headers: header)
 
             dataRequest.responseData { dataResponse in

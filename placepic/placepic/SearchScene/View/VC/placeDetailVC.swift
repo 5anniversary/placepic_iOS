@@ -38,8 +38,9 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
-    
+
     @IBAction func likeButton(_ sender: Any) {
+        
         guard var like = placeDetailData?.likeCount else { return }
         
         if placeDetailData?.isLiked == false{
@@ -49,22 +50,23 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             
             like = like + 1
             likeNum.text = "\(like)"
+            placeDetailData?.likeCount = like
             
             likeButtonService.shared.like(placeIdx: self.selectIdx) { networkResult in
-            switch networkResult {
-            case .success:
-                print(self.selectIdx)
-            case .requestErr(let message):
-                guard let message = message as? String else { return }
-                let alertViewController = UIAlertController(title: "회원가입 실패", message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                alertViewController.addAction(action)
-                self.present(alertViewController, animated: true, completion: nil)
-            case .pathErr: print("path")
-            case .serverErr: print("serverErr")
-            case .networkFail: print("networkFail")
+                switch networkResult {
+                case .success:
+                    print(self.selectIdx)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "좋아요 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
             }
-        }
         }
         else{
             likeButton.setImage(UIImage(named: "icUnselectedHeart"), for: .normal)
@@ -73,22 +75,93 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
 
             like = like - 1
             likeNum.text = "\(like)"
+            placeDetailData?.likeCount = like
+            
+            likeButtonService.shared.delete(placeIdx: self.selectIdx) { networkResult in
+                switch networkResult {
+                case .success:
+                    print(self.selectIdx)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "좋아요 취소 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
         }
         
     }
     
-
-    @IBAction func scrapButton(_ sender: Any) {
+    @IBAction func bookmarkButton(_ sender: Any) {
+        guard var bookmark = placeDetailData?.bookmarkCount else { return }
+        
         if placeDetailData?.isBookmarked == false{
             bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
             placeDetailData?.isBookmarked = true
             
+            bookmark = bookmark + 1
+            scrapNum.text = "\(bookmark)"
+            placeDetailData?.bookmarkCount = bookmark
+            
+            bookmarkService.shared.like(placeIdx: self.selectIdx) { networkResult in
+                switch networkResult {
+                case .success:
+                    print(self.selectIdx)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "북마크 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
         }
         else{
             bookmarkButton.setImage(UIImage(named: "icUnselectedBookmark"), for: .normal)
+//            heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
             placeDetailData?.isBookmarked = false
+
+            bookmark = bookmark - 1
+            scrapNum.text = "\(bookmark)"
+            placeDetailData?.bookmarkCount = bookmark
+            
+            bookmarkService.shared.delete(placeIdx: self.selectIdx) { networkResult in
+                switch networkResult {
+                case .success:
+                    print(self.selectIdx)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "북마크 취소 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
         }
     }
+    
+//
+//    @IBAction func scrapButton(_ sender: Any) {
+//        if placeDetailData?.isBookmarked == false{
+//            bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
+//            placeDetailData?.isBookmarked = true
+//
+//        }
+//        else{
+//            bookmarkButton.setImage(UIImage(named: "icUnselectedBookmark"), for: .normal)
+//            placeDetailData?.isBookmarked = false
+//        }
+//    }
 
     //
     @IBAction func likeList(_ sender: Any) {
@@ -112,6 +185,8 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         getDetailData()
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
