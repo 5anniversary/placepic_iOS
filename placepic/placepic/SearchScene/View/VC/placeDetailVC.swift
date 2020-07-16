@@ -54,7 +54,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     override func viewDidLoad() {
-        print(#function)
         super.viewDidLoad()
         setNavigationBar()
         getDetailData()
@@ -67,6 +66,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     private func setData(){
         guard let postcount = placeDetailData?.uploader.postCount else { return }
         guard let likecount = placeDetailData?.likeCount else { return }
+        guard let scrapcount = placeDetailData?.bookmarkCount else { return }
         
         profileImg.layer.cornerRadius = profileImg.frame.height/2
 //        profileImg.kf.setImage(with: URL(string: )
@@ -115,8 +115,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             placeTag[i].layer.cornerRadius = 4
             placeTag[i].isEnabled = false
         }
-//        scrapNum.text = "\(placeDetailData?.bookmarkCount)"
-        scrapNum.text = String(describing: placeDetailData?.bookmarkCount)
+        scrapNum.text = "\(scrapcount)"
 
         if placeDetailData?.categoryIdx == 1{
             placeCate.text = "맛집"
