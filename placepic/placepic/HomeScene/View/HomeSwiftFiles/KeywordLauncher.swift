@@ -131,19 +131,22 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
 
     @objc private func doneButtonTapped() {
-              
         guard let count = collectionView.indexPathsForSelectedItems?.count else { return }
-        
         if count >= 4 {
             alertaction()
         } else {
-            
             guard let index: [IndexPath] = collectionView.indexPathsForSelectedItems else { return }
             var sendIndex: [Int] = []
-            
-            for i in 0..<index.count {
-                print(index[i][1])
-                sendIndex.append(index[i][1])
+
+
+            if useful.count != 0 {
+                for i in 0..<index.count {
+                    sendIndex.append(useful[index[i][1]].tagIdx ?? 0)
+                }
+            } else {
+                for i in 0..<index.count {
+                    sendIndex.append(keyword[index[i][1]].tagIdx ?? 0)
+                }
             }
             
             if keyword.count != 0 {
@@ -270,7 +273,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if keyword.count != 0 {
             return keyword.count
         } else {
@@ -280,7 +282,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! KeywordCell
-        
         if keyword.count != 0 {
             cell.nameLabel.text = keyword[indexPath.item].tagName
         } else {
@@ -290,7 +291,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         if keyword.count != 0 {
             guard let wid = keyword[indexPath.item].tagName?.width(withConstrainedHeight: 40, font: .boldSystemFont(ofSize: 14)) else {
                 return CGSize()

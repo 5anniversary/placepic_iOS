@@ -11,7 +11,6 @@ import UIKit
 class ClassifyVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
     var classifyModel: [ClassifyModel] = [
         ClassifyModel(image: UIImage(named: "icRestaurant"), title: "맛집"),
         ClassifyModel(image: UIImage(named: "icDrink"), title: "술집"),
@@ -75,10 +74,10 @@ extension ClassifyVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard let vc = storyboard?.instantiateViewController(identifier: "FavoritePlaceSearchVC") as? FavoritePlaceSearchVC else {
             return
         }
+        
         vc.classifyText = classifyModel[indexPath.item].title
         navigationController?.pushViewController(vc, animated: true)
     }

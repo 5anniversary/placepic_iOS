@@ -45,6 +45,9 @@
                                         <state key="normal" title="키워드" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="keywordButtonAction:" destination="ejm-mK-5My" eventType="touchUpInside" id="Lx0-5U-tgd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFN-f1-eiB">
                                         <rect key="frame" x="182" y="14" width="87" height="30"/>
@@ -56,6 +59,9 @@
                                         <state key="normal" title="장소 정보" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="usefulInfoButtonAction:" destination="ejm-mK-5My" eventType="touchUpInside" id="rGE-Qf-I3d"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUP-8y-SUO">
                                         <rect key="frame" x="14" y="14" width="72" height="30"/>
@@ -67,6 +73,9 @@
                                         <state key="normal" title="주변역" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nearstationButtonAction:" destination="ejm-mK-5My" eventType="touchUpInside" id="Llw-br-sG4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -514,7 +523,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPR-ag-nH4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mPR-ag-nH4">
                                                 <rect key="frame" x="71" y="758.5" width="33" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="Z28-DI-kqI"/>
@@ -529,7 +538,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAI-QN-Qrx">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAI-QN-Qrx">
                                                 <rect key="frame" x="71" y="778.5" width="290" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="290" id="2mL-KN-VH0"/>
@@ -574,7 +583,6 @@
                                             <constraint firstItem="PAI-QN-Qrx" firstAttribute="centerY" secondItem="h5a-dg-myR" secondAttribute="centerY" id="F5h-gB-Axm"/>
                                             <constraint firstItem="BFU-oW-LSQ" firstAttribute="leading" secondItem="IEa-DX-RUi" secondAttribute="leading" constant="14" id="Gh0-jr-QOm"/>
                                             <constraint firstItem="3R6-2Z-7Fw" firstAttribute="centerY" secondItem="HEA-Ic-bAr" secondAttribute="centerY" id="Gwg-CS-oKp"/>
-                                            <constraint firstItem="h5a-dg-myR" firstAttribute="top" secondItem="BFU-oW-LSQ" secondAttribute="bottom" priority="250" constant="4" id="HKc-gM-QVL"/>
                                             <constraint firstItem="PAI-QN-Qrx" firstAttribute="top" secondItem="mPR-ag-nH4" secondAttribute="bottom" constant="4" id="HgB-c6-vXl"/>
                                             <constraint firstItem="HPf-Lw-jfb" firstAttribute="top" secondItem="UB6-bg-mDO" secondAttribute="bottom" constant="17" id="JVL-Z2-f9d"/>
                                             <constraint firstItem="mPR-ag-nH4" firstAttribute="firstBaseline" secondItem="BFU-oW-LSQ" secondAttribute="firstBaseline" id="LBg-EC-NS5"/>
@@ -676,7 +684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upC-lM-eCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2938.4000000000001" y="-45.877061469265371"/>
+            <point key="canvasLocation" x="-2964" y="-46.776611694152926"/>
         </scene>
         <!--Like ListVC-->
         <scene sceneID="JSZ-Cc-qdA">
