@@ -163,9 +163,9 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
             placeListCell.placeTag[2].isHidden = true
         }
         else if placeListData[indexPath.row].tag.count == 1 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo, pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")
-            placeListCell.placeTag[1].isHidden = true
-            placeListCell.placeTag[2].isHidden = true
+//            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo, pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")
+//            placeListCell.placeTag[1].isHidden = true
+//            placeListCell.placeTag[2].isHidden = true
         }
         else if placeListData[indexPath.row].tag.count == 2 {
             placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName, pSubway: subwayInfo,pDate: dataInfo, pPhoto: placeListData[indexPath.row].imageURL[0], pWriter: placeListData[indexPath.row].user.profileURL, wName: placeListData[indexPath.row].user.userName, pTag1: placeListData[indexPath.row].tag[0].tagName, pTag2: placeListData[indexPath.row].tag[1].tagName, pTag3: "")

@@ -19,6 +19,7 @@ class GroupUpVC: UIViewController {
     @IBOutlet var TextFields: [UITextField]!
     @IBOutlet weak var sendButton: UIButton!
     @IBAction func sendActionButton(_ sender: Any) {
+        print(#function)
         
         
         guard let inputpart = belongTxtbox.text else { return }
@@ -30,17 +31,20 @@ class GroupUpVC: UIViewController {
             switch networkResult {
                 
             case .success(let token):
+                print("sadadasdasd")
+                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SendVC") as! SendVC
+                self.navigationController?.pushViewController(secondViewController, animated: true)
+                
                 guard let token = token as? String else { return }
                 UserDefaults.standard.set(token, forKey: "token")
                 
-                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SendVC") as! SendVC
-                self.navigationController?.pushViewController(secondViewController, animated: true)
                 
                 
                 //                let GroupController = self.storyboard.instantiateViewControllerWithIdentifier("SecondViewController") as SecondViewController
                 //                self.navigationController.pushViewController(secondViewController, animated: true)
             //                self.present(GroupListVC, animated: true, completion: nil)
             case .requestErr(let message):
+                print("21312313")
                 //                guard let message = message as? String else { return }
                 //                let alertViewController = UIAlertController(title: "로그인 실패", message: message,
                 //                                                            preferredStyle: .alert)

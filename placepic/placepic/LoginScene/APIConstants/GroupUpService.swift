@@ -14,7 +14,11 @@ struct GroupUpService {
     
 //    let groupIdx2 = UserDefaults.standard.integer(forKey: "groupIdx")
     private func makeParameter(_ part: String, _ phonenumber: String, _ groupIdx: Int) -> Parameters{
-        return ["part": part, "phoneNumber": phonenumber, "groupIdx": groupIdx ]
+        
+        return ["part": part,
+                "phoneNumber": phonenumber,
+                "groupIdx": groupIdx
+        ]
     }//Request Body에 들어갈 parameter 생성
     
     func signup(part: String, phoneNumber: String, groupIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -27,7 +31,9 @@ struct GroupUpService {
             switch dataResponse.result {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else {return}
+                print("statuscode: \(statusCode)")
                 guard let data = dataResponse.result.value else {return}
+                
                 let networkResult = self.judge(by: statusCode,data)
                 completion(networkResult)
     
