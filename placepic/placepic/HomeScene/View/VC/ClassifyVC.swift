@@ -21,6 +21,12 @@ class ClassifyVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addActivityIndicator()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            self.view.removeActivityIndicator()
+        })
+        
         setNavigationBar()
         configTableView()
     }

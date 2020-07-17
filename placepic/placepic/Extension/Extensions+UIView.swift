@@ -28,15 +28,20 @@ extension UIView {
         //    creating array with images, which will be animated
         //    in my case I have 30 images with names activity0.png ... activity29.png
         var imagesArray: [UIImage] = []
-        for i in 1..<7 {
-            imagesArray.append(UIImage(named: "loading0\(i)")!)
-        }
+        imagesArray.append(UIImage(named: "icCafe")!)
+        imagesArray.append(UIImage(named: "icDrink")!)
+        imagesArray.append(UIImage(named: "icPlace")!)
+        imagesArray.append(UIImage(named: "icRestaurant")!)
+        imagesArray.append(UIImage(named: "icCafe")!)
+        imagesArray.append(UIImage(named: "icDrink")!)
+        imagesArray.append(UIImage(named: "icPlace")!)
+        imagesArray.append(UIImage(named: "icRestaurant")!)
         
         //    creating UIImageView with array of images
         //    setting up animation duration and starting animation
         let activityImage = UIImageView()
         activityImage.animationImages = imagesArray
-        activityImage.animationDuration = TimeInterval(0.8)
+        activityImage.animationDuration = TimeInterval(1)
         activityImage.startAnimating()
         
         //    adding UIImageView on "loading" view
