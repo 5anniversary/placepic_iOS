@@ -16,7 +16,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     var selectIdx: Int!
     var placeDetailData: DetailModel?
 
-    let imageNames:[String] = ["dummy1"]
+    var imageNames:[String] = []
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var detailViewHC: NSLayoutConstraint!
@@ -161,25 +161,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             }
         }
     }
-    
-//
-//    @IBAction func scrapButton(_ sender: Any) {
-//        if placeDetailData?.isBookmarked == false{
-//            bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
-//            placeDetailData?.isBookmarked = true
-//
-//        }
-//        else{
-//            bookmarkButton.setImage(UIImage(named: "icUnselectedBookmark"), for: .normal)
-//            placeDetailData?.isBookmarked = false
-//        }
-//    }
-
-    //
-//    @IBAction func likeList(_ sender: Any) {
-//        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
-//        self.navigationController?.pushViewController(secondViewController, animated: true)
-//    }
     @IBOutlet weak var detailImg: FSPagerView!{
         didSet {
             self.detailImg.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -302,11 +283,12 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         placeInfo.text = substr2
         navigationItem.title = placeDetailData?.placeName
     
-//        var substr3:String = ""
-//        guard let count3 = placeDetailData?.imageURL.count else { return }
-//        for i in 0..<count3 {
-//
-//        }
+        var substr3:String = ""
+        guard let count3 = placeDetailData?.imageURL.count else { return }
+        for i in 0..<count3 {
+            imageNames.append(placeDetailData?.imageURL[i] ?? "")
+        }
+        
         guard let imageNames = placeDetailData?.imageURL else { return }
         
         if placeDetailData?.isLiked == true {
@@ -317,7 +299,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         if placeDetailData?.isBookmarked == true{
             bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
         }
-       
+        
     }
     
     private func getDetailData() {
@@ -327,6 +309,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                 guard let places = products as? DetailModel else { return }
                 self.placeDetailData = places
                 self.viewWillAppear(true)
+                self.detailImg.reloadData()
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
@@ -386,8 +369,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return imageNames.count
     }
-    
-    
     
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
