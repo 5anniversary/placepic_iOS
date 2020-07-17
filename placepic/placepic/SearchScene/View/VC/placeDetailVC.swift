@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 import NMapsMap
 import FSPagerView
 import Kingfisher
@@ -51,11 +52,20 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     
     @IBAction func webButton(_ sender: Any) {
         print(placeDetailData?.mobileNaverMapLink ?? "")
-//        guard let url = URL(string: placeDetailData!.mobileNaverMapLink), UIApplication.shared.canOpenURL(url) else { return }
+//        guard let urls = URL(string: placeDetailData!.mobileNaverMapLink), UIApplication.shared.canOpenURL(urls) else { return }
+//        print("url : \(urls)")
 //        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        guard let url = URL(string: "https://www.naver.com") else { return }
-            let safariViewController = SFSafariViewController(url: url)
-            present(safariViewController, animated: true, completion: nil)
+        
+//        let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+//        let url = URL(string: encodedString)!
+        
+        guard let url = placeDetailData?.mobileNaverMapLink else { return }
+        let encodedString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        guard let urlString = URL(string: encodedString) else { return }
+
+        //        guard let url = urlString else { return }
+        let safariViewController = SFSafariViewController(url: urlString)
+        present(safariViewController, animated: true, completion: nil)
 
 
     }
@@ -322,7 +332,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             case .success(let products):
                 guard let places = products as? DetailModel else { return }
                 self.placeDetailData = places
-                self.viewWillAppear(true)
                 self.detailImg.reloadData()
                 self.viewWillAppear(true)
             case .requestErr(let message):
@@ -344,7 +353,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
 //        detailViewHC.constant = CGFloat(100)
 
         profileImg.layer.cornerRadius = profileImg.frame.height/2
-        detailImg.isInfinite = true
+        detailImg.isInfinite = false
         buttonView.layer.cornerRadius = 4
         
         heartbutView.layer.cornerRadius = 4
