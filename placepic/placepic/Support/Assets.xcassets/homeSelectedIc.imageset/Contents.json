@@ -11,9 +11,9 @@
       "filename" : "homeSelectedIc@2x.png"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "homeSelectedIc@3x.png"
+      "filename" : "homeSelectedIc@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
