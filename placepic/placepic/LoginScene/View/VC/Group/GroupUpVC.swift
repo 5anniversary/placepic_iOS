@@ -20,6 +20,7 @@ class GroupUpVC: UIViewController {
     var inputpart : String!
     var inputnum : String!
     var groupinfo : Groupdata!
+    var groupmodel : GroupApplyModel?
     @IBAction func sendActionButton(_ sender: Any) {
         
         guard let inputpart = belongTxtbox.text else { return }
@@ -29,21 +30,14 @@ class GroupUpVC: UIViewController {
         
         GroupUpService.shared.signup(part: inputpart, phoneNumber: inputnum, groupIdx: groupIdx2 ) { networkResult in
             switch networkResult {
+            case .success(let partt, let numm ):
+                guard let partt = partt as? String else { return }
+                guard let numm = numm as? String else { return }
                 
-            case .success(let groupinfo):
-                print("sadadasdasd")
                 let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SendVC") as! SendVC
-//                secondViewController.groupimage1 = groupinfo.groupName
-//                secondViewController.groupname1 = groupinfo.groupImage
+                secondViewController.groupimage1 = numm
+                secondViewController.groupname1 = partt
                 self.navigationController?.pushViewController(secondViewController, animated: true)
-                
-                guard let groupinfo = groupinfo as? Groupdata else { return }
-                
-                
-                
-                
-                
-                
                 
                 //                let GroupController = self.storyboard.instantiateViewControllerWithIdentifier("SecondViewController") as SecondViewController
                 //                self.navigationController.pushViewController(secondViewController, animated: true)
@@ -59,8 +53,8 @@ class GroupUpVC: UIViewController {
                 alertViewController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
                 self.present(alertViewController, animated: true)
                 
-               
-        
+                
+                
                 //                alertViewController.addAction(action)
                 //                self.present(alertViewController, animated: true, completion: nil)
                 
@@ -95,8 +89,6 @@ class GroupUpVC: UIViewController {
     
     
     private func setLabelLooksLike(){
-        
-        
         
         belongLabel.text = "소속"
         belongLabel.textColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1)

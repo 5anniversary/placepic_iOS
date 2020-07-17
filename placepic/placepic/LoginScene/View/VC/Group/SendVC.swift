@@ -23,7 +23,7 @@ class SendVC: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBAction func buttonAction(_ sender: Any) {
  
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: false)
              
         
     }
@@ -43,6 +43,7 @@ class SendVC: UIViewController {
         setalertlabel()
         setbutton()
         groupImageview.layer.cornerRadius = groupImageview.frame.height/2
+        setNavi()
 //        let groupimage1 = ""
 //        let groupname1 = ""
         
@@ -57,40 +58,40 @@ class SendVC: UIViewController {
     }
     
 
-//    private func setNavi() { //타이틀이 가운데에 있는 네비
-//               guard let navigationBar = self.navigationController?.navigationBar else { return }
-//               
-//               navigationBar.isTranslucent = true
-//               navigationBar.backgroundColor = UIColor.clear
-//               navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//               navigationBar.shadowImage = UIImage()
-//               
-//               let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-//                                                                 style: .plain,
-//                                                                 target: self,
-//                                                                 action: #selector(dismissVC))
-//               
-//               navigationItem.leftBarButtonItem = leftButton
-//               navigationItem.title = "승인 대기중인 그룹"
-//           }
-//           
-//           @objc func dismissVC() {
-//               navigationController?.popViewController(animated: true)
-//               
-//               let transform = CGAffineTransform(translationX: 0, y: 100)
-//               self.tabBarController?.tabBar.isHidden = false
-//               tabBarController?.tabBar.transform = transform
-//               
-//               UIView.animate(withDuration: 0.5,
-//                              delay: 0,
-//                              usingSpringWithDamping: 1,
-//                              initialSpringVelocity: 1,
-//                              options: .curveEaseOut,
-//                              animations: {
-//                               self.tabBarController?.tabBar.transform = .identity
-//                               
-//               }, completion: nil)
-//           }
+    private func setNavi() { //타이틀이 가운데에 있는 네비
+               guard let navigationBar = self.navigationController?.navigationBar else { return }
+               
+               navigationBar.isTranslucent = true
+               navigationBar.backgroundColor = UIColor.clear
+               navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+               navigationBar.shadowImage = UIImage()
+               
+               let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(dismissVC))
+               
+               navigationItem.leftBarButtonItem = leftButton
+               navigationItem.title = "승인 대기중인 그룹"
+           }
+           
+           @objc func dismissVC() {
+               navigationController?.popViewController(animated: true)
+               
+               let transform = CGAffineTransform(translationX: 0, y: 100)
+               self.tabBarController?.tabBar.isHidden = false
+               tabBarController?.tabBar.transform = transform
+               
+               UIView.animate(withDuration: 0.5,
+                              delay: 0,
+                              usingSpringWithDamping: 1,
+                              initialSpringVelocity: 1,
+                              options: .curveEaseOut,
+                              animations: {
+                               self.tabBarController?.tabBar.transform = .identity
+                               
+               }, completion: nil)
+           }
     
 }
 
@@ -130,7 +131,7 @@ extension SendVC{
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 0.81
         alertLabel.textAlignment = .center
-        alertLabel.attributedText = NSMutableAttributedString(string: "\(groupname1) 가입 신청이 \n완료되었습니다! :(", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        alertLabel.attributedText = NSMutableAttributedString(string: "\(String(describing: groupname1 ?? "")) 가입 신청이 \n완료되었습니다! :)", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
         Label2.frame = CGRect(x: 0, y: 0, width: 141, height: 34)
         Label2.backgroundColor = .white

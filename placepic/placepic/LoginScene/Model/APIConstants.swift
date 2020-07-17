@@ -11,6 +11,7 @@ import Foundation
 struct APIConstants {
     static let baseURL = "http://3.34.209.95:3000"
 //    static let baseURL = "http://172.30.1.56:3000"
+//    static let baseURL = "http://172.30.1.26:3000"
     static let signinURL = APIConstants.baseURL + "/auth/signin"
     static let signupURL = APIConstants.baseURL + "/auth/signup"
     static let emailcheckURL = APIConstants.baseURL + "/auth/checkemail"
