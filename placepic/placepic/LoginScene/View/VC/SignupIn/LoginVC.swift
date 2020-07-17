@@ -58,7 +58,7 @@ class LoginVC: UIViewController {
 extension LoginVC {
     private func setDesign(){
         
-        fullView.backgroundColor = UIColor.warmPink
+        
         
         loginLabel.layer.cornerRadius = 8
         loginLabel.layer.borderWidth = 1
@@ -68,20 +68,20 @@ extension LoginVC {
         loginLabel.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         loginLabel.setTitleColor(.white, for: .normal)
         loginLabel.backgroundColor = .white
-        loginLabel.layer.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
-        loginLabel.setTitleColor(UIColor(red: 0.514, green: 0.529, blue: 0.533, alpha: 1)
+        loginLabel.layer.backgroundColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor
+        loginLabel.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             , for: .normal)
         
         
         signupLabel.layer.cornerRadius = 8
         signupLabel.layer.borderWidth = 1.5
-        signupLabel.layer.borderColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
+        signupLabel.layer.borderColor = UIColor.warmPink.cgColor
         signupLabel.clipsToBounds = true
         signupLabel.setTitle("회원가입", for: .normal)
         signupLabel.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         signupLabel.setTitleColor(.white, for: .normal)
-        signupLabel.backgroundColor = UIColor.warmPink
+        signupLabel.backgroundColor = UIColor.white
 //        signupButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
-        signupLabel.setTitleColor(UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1), for: .normal)
+        signupLabel.setTitleColor(UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1), for: .normal)
     }
 }

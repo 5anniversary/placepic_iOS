@@ -16,7 +16,6 @@ struct GroupApplyModel: Codable {
     let message: String
     let data: Groupdata?
     
-    
     enum CodingKeys:String, CodingKey {
         case status = "status"
         case success = "success"
