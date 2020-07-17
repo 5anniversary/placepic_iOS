@@ -543,6 +543,7 @@
 		3DECB78A24A9274D00D54DBF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D44396D24C243D30027BA8C /* SplashVC.swift */,
 				1302CA9524B2DF910013CACC /* Cell */,
 				3DECB78B24A9274D00D54DBF /* VC */,
 			);
@@ -727,7 +728,6 @@
 			isa = PBXGroup;
 			children = (
 				3DECB7A524A92B8A00D54DBF /* RankVC.swift */,
-				3D44396D24C243D30027BA8C /* SplashVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
