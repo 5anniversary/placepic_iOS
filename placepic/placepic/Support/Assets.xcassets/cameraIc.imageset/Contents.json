@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "filename" : "cameraIc.png",
       "idiom" : "universal",
-      "filename" : "cameraIc.png"
+      "scale" : "1x"
     },
     {
       "filename" : "cameraIc@2x.png",

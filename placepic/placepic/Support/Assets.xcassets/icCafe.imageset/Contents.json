@@ -1,9 +1,9 @@
 {
   "images" : [
     {
+      "filename" : "icCafe.png",
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "icCafe.png"
+      "scale" : "1x"
     },
     {
       "filename" : "icCafe@2x.png",

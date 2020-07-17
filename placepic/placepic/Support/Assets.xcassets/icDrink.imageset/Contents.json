@@ -2,12 +2,12 @@
   "images" : [
     {
       "filename" : "icDrink.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "filename" : "icDrink@2x.png",
+      "idiom" : "universal",
       "scale" : "2x"
     },
     {

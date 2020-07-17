@@ -2,8 +2,8 @@
   "images" : [
     {
       "filename" : "icSelectedHeart.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "1x"
     },
     {
       "filename" : "icSelectedHeart@2x.png",

@@ -28,14 +28,14 @@ extension UIView {
         //    creating array with images, which will be animated
         //    in my case I have 30 images with names activity0.png ... activity29.png
         var imagesArray: [UIImage] = []
-        imagesArray.append(UIImage(named: "icCafe")!)
-        imagesArray.append(UIImage(named: "icDrink")!)
-        imagesArray.append(UIImage(named: "icPlace")!)
-        imagesArray.append(UIImage(named: "icRestaurant")!)
-        imagesArray.append(UIImage(named: "icCafe")!)
-        imagesArray.append(UIImage(named: "icDrink")!)
-        imagesArray.append(UIImage(named: "icPlace")!)
-        imagesArray.append(UIImage(named: "icRestaurant")!)
+        imagesArray.append(UIImage(named: "circleCafe")!)
+        imagesArray.append(UIImage(named: "circleEtc")!)
+        imagesArray.append(UIImage(named: "circleRestaurant")!)
+        imagesArray.append(UIImage(named: "circleStudy")!)
+        imagesArray.append(UIImage(named: "circleCafe")!)
+        imagesArray.append(UIImage(named: "circleEtc")!)
+        imagesArray.append(UIImage(named: "circleRestaurant")!)
+        imagesArray.append(UIImage(named: "circleStudy")!)
         
         //    creating UIImageView with array of images
         //    setting up animation duration and starting animation
