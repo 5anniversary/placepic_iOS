@@ -54,7 +54,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         print(placeDetailData?.mobileNaverMapLink ?? "")
 //        guard let url = URL(string: placeDetailData!.mobileNaverMapLink), UIApplication.shared.canOpenURL(url) else { return }
 //        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        guard let url = URL(string: "https://m.map.naver.com/search2/search.nhn?query=맥도날드%20명동점&sm=hty&style=v5#/map/1") else { return }
+        guard let url = URL(string: "https://www.naver.com") else { return }
             let safariViewController = SFSafariViewController(url: url)
             present(safariViewController, animated: true, completion: nil)
 

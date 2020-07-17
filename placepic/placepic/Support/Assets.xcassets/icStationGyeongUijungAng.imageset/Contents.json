@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "filename" : "icStationGyeongUijungAng.png",
       "idiom" : "universal",
-      "filename" : "icStationGyeongUijungAng.png"
+      "scale" : "1x"
     },
     {
       "filename" : "icStationGyeongUijungAng@2x.png",
@@ -11,14 +11,14 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "universal",
       "filename" : "icStationGyeongUijungAng@3x.png",
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
     "template-rendering-intent" : "original"

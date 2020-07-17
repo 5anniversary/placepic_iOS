@@ -16,8 +16,16 @@ class SendVC: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     
-    var model: SubwayModel?
-    
+   // var model: SubwayModel?
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           navigationController?.setNavigationBarHidden(true, animated: animated)
+       }
+
+       override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           navigationController?.setNavigationBarHidden(false, animated: animated)
+       }
     override func viewDidLoad() {
         super.viewDidLoad()
         setalertlabel()
@@ -31,7 +39,40 @@ class SendVC: UIViewController {
     }
     
 
-    
+//    private func setNavi() { //타이틀이 가운데에 있는 네비
+//               guard let navigationBar = self.navigationController?.navigationBar else { return }
+//               
+//               navigationBar.isTranslucent = true
+//               navigationBar.backgroundColor = UIColor.clear
+//               navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//               navigationBar.shadowImage = UIImage()
+//               
+//               let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+//                                                                 style: .plain,
+//                                                                 target: self,
+//                                                                 action: #selector(dismissVC))
+//               
+//               navigationItem.leftBarButtonItem = leftButton
+//               navigationItem.title = "승인 대기중인 그룹"
+//           }
+//           
+//           @objc func dismissVC() {
+//               navigationController?.popViewController(animated: true)
+//               
+//               let transform = CGAffineTransform(translationX: 0, y: 100)
+//               self.tabBarController?.tabBar.isHidden = false
+//               tabBarController?.tabBar.transform = transform
+//               
+//               UIView.animate(withDuration: 0.5,
+//                              delay: 0,
+//                              usingSpringWithDamping: 1,
+//                              initialSpringVelocity: 1,
+//                              options: .curveEaseOut,
+//                              animations: {
+//                               self.tabBarController?.tabBar.transform = .identity
+//                               
+//               }, completion: nil)
+//           }
     
 }
 
@@ -39,17 +80,7 @@ class SendVC: UIViewController {
 extension SendVC{
     
     private func setbutton(){
-        button1.layer.cornerRadius = 8
-        button1.layer.borderWidth = 1
-        button1.layer.borderColor = UIColor.white.cgColor
-        button1.clipsToBounds = true
-        button1.setTitle("다시 신청하기", for: .normal)
-        button1.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        button1.setTitleColor(.white, for: .normal)
-        button1.backgroundColor = .white
-        button1.layer.backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
-        button1.setTitleColor(UIColor(red: 0.31, green: 0.31, blue: 0.31, alpha: 1)
-            , for: .normal)
+       
         
         
         button2.layer.cornerRadius = 8
@@ -81,7 +112,7 @@ extension SendVC{
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 0.81
         alertLabel.textAlignment = .center
-        alertLabel.attributedText = NSMutableAttributedString(string: "SOPT 가입 신청이\n거절되었습니다 :(", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        alertLabel.attributedText = NSMutableAttributedString(string: "SOPT 가입 신청이 \n완료되었습니다! :(", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
         Label2.frame = CGRect(x: 0, y: 0, width: 141, height: 34)
         Label2.backgroundColor = .white
@@ -90,7 +121,7 @@ extension SendVC{
         Label2.numberOfLines = 0
         Label2.lineBreakMode = .byWordWrapping
         Label2.textAlignment = .center
-        Label2.text = "알맞은 정보를 입력했는지\n다시 한 번 확인해주세요."
+        Label2.text = "관리자의 승인 이후 그룹에 참여하실 수 있습니다.\n승인 결과는 푸시알림으로 알려드립니다."
 
 
         

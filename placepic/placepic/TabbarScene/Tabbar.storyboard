@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvZ-eJ-phw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvZ-eJ-phw">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="1893" y="203"/>
         </scene>
-        <!--navi-->
+        <!--MypageVC-->
         <scene sceneID="eSN-NW-G4b">
             <objects>
-                <viewControllerPlaceholder storyboardName="Mypage" referencedIdentifier="navi" id="qe2-nW-Mt7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Mypage" referencedIdentifier="MypageVC" id="qe2-nW-Mt7" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="geA-i6-9jo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9D-OL-kAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

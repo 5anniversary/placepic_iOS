@@ -26,8 +26,8 @@ class RankVC: UIViewController {
 
 //MARK: - 통신
 extension RankVC {
+  
     func setDefaultRequest() {
-
         RankServices.rankServices.getRankData { data in
             if let metaData = data {
                 self.rankLargeData = metaData

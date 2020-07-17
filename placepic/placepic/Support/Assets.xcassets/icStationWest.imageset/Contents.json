@@ -6,9 +6,9 @@
       "scale" : "1x"
     },
     {
-      "scale" : "2x",
+      "filename" : "icStationWest@2x.png",
       "idiom" : "universal",
-      "filename" : "icStationWest@2x.png"
+      "scale" : "2x"
     },
     {
       "filename" : "icStationWest@3x.png",
@@ -17,8 +17,8 @@
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
     "template-rendering-intent" : "original"

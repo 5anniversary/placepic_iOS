@@ -25,7 +25,6 @@ class RankTVC: UITableViewCell {
             guard let rank = model?.rank else { return }
             guard let imageURL = model?.profileImageURL else { return }
             
-            
             profileImage.kf.setImage(with: URL(string: imageURL))
             rankLabel.text = model?.rank == -1 ? "-" : "\(String(describing: rank))"
             nameLabel.text = model?.userName
