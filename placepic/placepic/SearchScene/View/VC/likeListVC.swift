@@ -53,6 +53,9 @@ class likeListVC: UIViewController {
                     self.peopleList.append(people[i])
                 }
                 self.likeList.reloadData()
+                if self.peopleList.count == 0{
+                    self.likeList.alpha = 0
+                }
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
@@ -73,23 +76,14 @@ class likeListVC: UIViewController {
 
 extension likeListVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if peopleList.count == 0 {
-            return 1
-        }
-        else{
-            return peopleList.count
-        }
+        return peopleList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let likeListCell = tableView.dequeueReusableCell(withIdentifier: likeListTVC.identifier, for: indexPath) as? likeListTVC else { return UITableViewCell() }
 
-        if peopleList.count == 0 {
-            
-        }
-        else{
-            likeListCell.setListInfo(likeImg: peopleList[indexPath.row].profileImageURL, likeName: peopleList[indexPath.row].userName, likePart: peopleList[indexPath.row].part, likeDate: peopleList[indexPath.row].likeCreatedAt)
-        }
+        likeListCell.setListInfo(likeImg: peopleList[indexPath.row].profileImageURL, likeName: peopleList[indexPath.row].userName, likePart: peopleList[indexPath.row].part, likeDate: peopleList[indexPath.row].likeCreatedAt)
+        
         return likeListCell
     }
 

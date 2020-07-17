@@ -167,7 +167,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         }
     }
     @IBOutlet var pageControl: FSPageControl!{
-        //홍보배너 밑에 띄울 페이지컨트롤
+        //페이지컨트롤
         didSet {
             self.pageControl.numberOfPages = imageNames.count //페이지 수
             self.pageControl.contentHorizontalAlignment = .center //중앙에 배치
@@ -178,7 +178,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         getDetailData()
-
+        
         
     }
     
@@ -186,6 +186,9 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         setData()
         setView()
         setNavigationBar()
+        
+        self.pageControl.setImage(UIImage(named: "circle1"), for: .selected)
+        self.pageControl.setImage(UIImage(named: "circle2"), for: .normal)
     }
     
     private func setData(){
@@ -311,6 +314,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                 self.placeDetailData = places
                 self.viewWillAppear(true)
                 self.detailImg.reloadData()
+                self.viewWillAppear(true)
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
@@ -325,6 +329,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         }
     }
     private func setView(){
+        
         detailViewHC.constant = self.detailTextView.contentSize.height
 //        detailViewHC.constant = CGFloat(100)
 
