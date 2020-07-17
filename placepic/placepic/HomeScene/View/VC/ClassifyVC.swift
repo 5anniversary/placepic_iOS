@@ -12,11 +12,11 @@ class ClassifyVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var classifyModel: [ClassifyModel] = [
-        ClassifyModel(image: UIImage(named: "icRestaurant"), title: "맛집"),
+        ClassifyModel(image: UIImage(named: "circleRestaurant"), title: "맛집"),
         ClassifyModel(image: UIImage(named: "icDrink"), title: "술집"),
-        ClassifyModel(image: UIImage(named: "icCafe"), title: "카페"),
-        ClassifyModel(image: UIImage(named: "icStudy"), title: "스터디"),
-        ClassifyModel(image: UIImage(named: "icPlace"), title: "기타")
+        ClassifyModel(image: UIImage(named: "circleCafe"), title: "카페"),
+        ClassifyModel(image: UIImage(named: "circleStudy"), title: "스터디"),
+        ClassifyModel(image: UIImage(named: "circleEtc"), title: "기타")
     ]
     
     override func viewDidLoad() {
