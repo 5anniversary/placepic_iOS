@@ -1,10 +1,9 @@
 # placepic_iOS 🍎🍏
 
-<img style="border: 1px solid black !important; border-radius:20px;" src="https://avatars2.githubusercontent.com/u/67547341?s=200&v=4" width="200px" />
-
+<img style="border: 1px solid black !important; border-radius:20px;" src="https://avatars2.githubusercontent.com/u/67547341?s=200&v=4" width="150px" /> <br>
 ![placepic_badge](https://img.shields.io/badge/placepic-Sprint1-%23ff7adc) ![pod_bedge](https://img.shields.io/badge/pod-v1.9.1-blue) ![ios_bedge](https://img.shields.io/badge/iOS-13.3-red) ![Swift_badge](https://img.shields.io/badge/Swift-5.0-orange.svg)
 
-- SOPT 26th APPJAM </b>
+- SOPT 26th APPJAM </br>
 - 프로젝트 기간: 2020.06.28 ~ 2020.07.18
 
 ---
@@ -19,9 +18,9 @@ Service key Feature
 
 - Exploration - 쉽고, 빠르게 원하는 장소를 탐색
 - Discovery - 가보고 싶은 장소를 발견할 수 있어야함
-- Interaction - 상호작용, 소통할 수 있는 공간
+- Interaction - 상호작용, 소통할 수 있는 공간 <br>
 
----
+## <img src="./Screenshots/workflow.png" width="100%" height="100%"> </br>
 
 ## 💎 Core value
 
@@ -186,11 +185,11 @@ placepic
 
 > ### 1. 장소리스트
 
-<img src="./Screenshots/placeList1.png" width="19%" height="19%"><img src="./Screenshots/placeList2.png" width="20%" height="20%"> <img src="./Screenshots/placeList3.png" width="20%" height="20%"> <img src="./Screenshots/placeList4.png" width="20%" height="20%"> <img src="./Screenshots/placeList5.png" width="20%" height="20%">
+<img src="./Screenshots/placeList1.png" width="20%" height="20%"><img src="./Screenshots/placeList2.png" width="20%" height="20%"> <img src="./Screenshots/placeList3.png" width="20%" height="20%"> <img src="./Screenshots/placeList4.png" width="20%" height="20%"> <img src="./Screenshots/placeList5.png" width="20%" height="20%">
 
 > ### 2. 디테일 뷰
 
-<img src="./Screenshots/placedetail1.png" width="19%" height="19%"> <img src="./Screenshots/placedetail2.png" width="19%" height="19%"> <img src="./Screenshots/placedetail3.png" width="19%" height="19%">
+<img src="./Screenshots/placedetail1.png" width="20%" height="20%"> <img src="./Screenshots/placedetail2.png" width="19%" height="19%"> <img src="./Screenshots/placedetail3.png" width="19%" height="19%">
 
 > ### 3. 랭킹
 
@@ -198,7 +197,7 @@ placepic
 
 > ### 4. 글쓰기
 
-<img src="./Screenshots/upload.png" width="19%" height="19%"><img src="./Screenshots/upload2.png" width="20%" height="20%"> <img src="./Screenshots/login3.png" width="20%" height="20%">
+<img src="./Screenshots/upload.gif" width="17%" height="17%"> <img src="./Screenshots/upload.png" width="20%" height="20%"><img src="./Screenshots/upload2.png" width="20%" height="20%"> <img src="./Screenshots/login3.png" width="20%" height="20%">
 
 > ### 5. 저장
 >
