@@ -23,32 +23,29 @@ class SplashVC: UIViewController {
         super.viewDidLoad()
         
         startAnimation()
-        ticktok()
-//        setNavigationBar()
+//        ticktok()
+        setNavigationBar()
         // Do any additional setup after loading the view.
     }
     
     func startAnimation() {
-        let animationView = Lottie.AnimationView(name:"splash")
-        
-        animationView.frame = CGRect(x:0, y:0, width: 500, height: 1100)
+        let animationView = Lottie.AnimationView(name:"pp_splash_final")
+        self.view.backgroundColor = UIColor.warmPink
+        animationView.frame = CGRect(x:0, y:0, width: 456, height: 812)
+        animationView.layer.backgroundColor = UIColor.warmPink.cgColor
         animationView.center = self.view.center
-        animationView.contentMode = .scaleAspectFill //.scaleToFill
+        animationView.clipsToBounds = true
         
-        AnimationView.addSubview(animationView)
+        self.view.addSubview(animationView)
         animationView.play()
+
     }
-//
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//
-//    }
     
-//    func setNavigationBar() {
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.black
-//    }
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.black
+    }
 
     func ticktok(){
             

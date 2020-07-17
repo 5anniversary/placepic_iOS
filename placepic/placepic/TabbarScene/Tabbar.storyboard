@@ -36,10 +36,10 @@
             </objects>
             <point key="canvasLocation" x="910" y="203"/>
         </scene>
-        <!--RankVC-->
+        <!--SplashVC-->
         <scene sceneID="yvk-b5-M0o">
             <objects>
-                <viewControllerPlaceholder storyboardName="Rank" referencedIdentifier="RankVC" id="GpV-fN-hZE" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Rank" referencedIdentifier="SplashVC" id="GpV-fN-hZE" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="7pz-oA-Lbm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWu-oi-Xnv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

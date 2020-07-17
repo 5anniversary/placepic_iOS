@@ -50,23 +50,18 @@
         <!--SplashVC-->
         <scene sceneID="y1F-du-eMy">
             <objects>
-                <viewController id="1gm-yT-Ib8" customClass="SplashVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashVC" id="1gm-yT-Ib8" customClass="SplashVC" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jie-Pl-WDX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUb-jz-hpH" customClass="LottieView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUb-jz-hpH" customClass="LottieView" customModule="Lottie">
+                                <rect key="frame" x="97.5" y="135.5" width="180" height="396"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="eUb-jz-hpH" firstAttribute="bottom" secondItem="TmB-s9-6Rz" secondAttribute="bottom" id="2nh-3J-eFf"/>
-                            <constraint firstItem="eUb-jz-hpH" firstAttribute="trailing" secondItem="TmB-s9-6Rz" secondAttribute="trailing" id="43V-bl-gUT"/>
-                            <constraint firstItem="eUb-jz-hpH" firstAttribute="top" secondItem="TmB-s9-6Rz" secondAttribute="top" id="qII-zo-LEZ"/>
-                            <constraint firstItem="eUb-jz-hpH" firstAttribute="leading" secondItem="TmB-s9-6Rz" secondAttribute="leading" id="xlO-JN-Ho0"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TmB-s9-6Rz"/>
                     </view>
                     <connections>
