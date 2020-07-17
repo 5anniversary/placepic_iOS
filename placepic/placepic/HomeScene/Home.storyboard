@@ -260,15 +260,16 @@
                                                                                 <rect key="frame" x="36" y="30" width="26" height="24"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="24" id="Dzr-jd-3Rg"/>
+                                                                                    <constraint firstAttribute="width" constant="26" id="STP-o2-ZlL"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
+                                                                            <constraint firstItem="ETA-QH-qto" firstAttribute="centerX" secondItem="kkZ-YQ-H92" secondAttribute="centerX" id="8C4-NZ-SC9"/>
                                                                             <constraint firstItem="dEr-gP-hUK" firstAttribute="top" secondItem="ETA-QH-qto" secondAttribute="bottom" constant="6" id="EFB-wm-IrV"/>
                                                                             <constraint firstItem="ETA-QH-qto" firstAttribute="leading" secondItem="kkZ-YQ-H92" secondAttribute="leading" constant="36" id="SAc-QZ-NiP"/>
                                                                             <constraint firstItem="ETA-QH-qto" firstAttribute="top" secondItem="kkZ-YQ-H92" secondAttribute="top" constant="30" id="TJm-zZ-16r"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="ETA-QH-qto" secondAttribute="trailing" constant="36" id="XVH-bJ-pN6"/>
                                                                             <constraint firstItem="ETA-QH-qto" firstAttribute="centerX" secondItem="dEr-gP-hUK" secondAttribute="centerX" id="rJ0-0z-PQn"/>
                                                                         </constraints>
                                                                     </view>

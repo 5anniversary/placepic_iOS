@@ -22,7 +22,7 @@ struct LoginInfomodel: Codable {
             case data = "data"
             
             }
-            
+        
      //
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
