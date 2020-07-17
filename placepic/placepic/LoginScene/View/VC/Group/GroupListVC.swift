@@ -10,6 +10,7 @@ import UIKit
 
 class GroupListVC: UIViewController {
     
+    @IBOutlet weak var Grouptablewaitingbutton: UIButton!
     @IBOutlet weak var backWaitingbutton: UIButton!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -21,6 +22,11 @@ class GroupListVC: UIViewController {
        
     }
     
+    @IBAction func grouptablewaitingbuttonAction(_ sender: Any) {
+//        guard let vc = self.storyboard?.instantiateViewController(identifier: "GroupWaitVC") as? GroupWaitVC else { return }
+//        self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
     @IBAction func backButton(_ sender: Any) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "GroupPartiVC") as? GroupPartiVC else { return }
         self.navigationController?.pushViewController(vc, animated: true)
@@ -29,7 +35,7 @@ class GroupListVC: UIViewController {
    
     
     @IBOutlet weak var GroupListTV: UITableView!
-    @IBOutlet weak var GroupWaitingButton: UIButton!
+
     @IBAction func buttonAction(_ sender: Any) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "GroupWaitVC") as? GroupWaitVC else { return }
         self.navigationController?.pushViewController(vc, animated: true)
@@ -48,6 +54,16 @@ class GroupListVC: UIViewController {
         backWaitingbutton.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
         backWaitingbutton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
         backWaitingbutton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        
+        Grouptablewaitingbutton.backgroundColor = .white
+        Grouptablewaitingbutton.layer.backgroundColor = UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1).cgColor
+        Grouptablewaitingbutton.layer.cornerRadius = 8
+        Grouptablewaitingbutton.contentHorizontalAlignment = .left
+        Grouptablewaitingbutton.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
+        Grouptablewaitingbutton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
+        Grouptablewaitingbutton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        
+        
         backLabel.textColor = UIColor(red: 0.808, green: 0.831, blue: 0.855, alpha: 1)
         
         backLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
@@ -78,23 +94,34 @@ class GroupListVC: UIViewController {
     var waitinggroup:Int = 0
     
     private var dataInformations: [groupData] = []
+    private var dataInformations2: [groupData] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         backWaitingbutton.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
+       Grouptablewaitingbutton.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
+        
+        
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
-        // serverGroup()
+        
+        print("11111111111111111111111111111111111111")
+        print(waitinggroup)
         GroupListTV.delegate = self
         GroupListTV.dataSource = self
         GroupWaitingButtonLooksLike()
         //setNavigationBar()
         setNavi()
         setbackground()
+        getData2()
+        backWaitingbutton.setTitle("    승인 대기중인 그룹(0)", for: .normal)
         
-        guard let test = UserDefaults.standard.string(forKey: "token") else { return }
-        print(#function)
-        
-        
-        print(test)
+//        guard let test = UserDefaults.standard.string(forKey: "token") else { return }
+       
         
         
         
@@ -147,15 +174,52 @@ class GroupListVC: UIViewController {
 
 extension GroupListVC{
     
+    private func getData2(){
+                GroupWaitService.shared.grouplist { networkResult in
+                    switch networkResult {
+                        
+                    case .success(let products):
+                
+                        guard let groups = products as? [groupData] else {return}
+                    
+                        for i in 0..<groups.count{
+                         
+                            self.dataInformations2.append(groups[i])
+                          
+                        }
+                        
+                        self.waitinggroup = self.dataInformations2.count
+                       
+                        self.viewWillAppear(true)
+                    case .requestErr(let message):
+                        
+                        guard let message = message as? String else { return }
+                        let alertViewController = UIAlertController(title: "회원가입 실패", message: message,
+                                                                    preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
+                        
+                    case .pathErr: print("path")
+                        
+                    case .serverErr: print("serverErr")
+                        
+                    case .networkFail: print("networkFail")
+                        
+                    }
+                }
+            }
+        
+    
     private func GroupWaitingButtonLooksLike(){
         
-        GroupWaitingButton.backgroundColor = .white
-        GroupWaitingButton.layer.backgroundColor = UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1).cgColor
-        GroupWaitingButton.layer.cornerRadius = 8
-        GroupWaitingButton.contentHorizontalAlignment = .left
-        GroupWaitingButton.setTitle("    승인 대기중인 그룹(\(waitinggroup))", for: .normal)
-        GroupWaitingButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
-        GroupWaitingButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)}
+//        GroupWaitingButton.backgroundColor = .white
+        Grouptablewaitingbutton.layer.backgroundColor = UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1).cgColor
+        Grouptablewaitingbutton.layer.cornerRadius = 8
+        Grouptablewaitingbutton.contentHorizontalAlignment = .left
+        
+        Grouptablewaitingbutton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
+        Grouptablewaitingbutton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)}
     
     
     //    private func setNavigationBar() {
@@ -282,6 +346,7 @@ extension GroupListVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return dataInformations.count// data count
         
     }
@@ -289,10 +354,22 @@ extension GroupListVC: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)")
-        let groupindex = groups[indexPath.row].groupIdx
-        UserDefaults.standard.set(groupindex, forKey: "groupIdx")
-        waitinggroup = UserDefaults.standard.integer(forKey: "groupIdx")
+       
+        
+       
+        //        let groupindex = groups[indexPath.row].groupIdx
+        //        UserDefaults.standard.set(groupindex, forKey: "groupIdx")
+        //        waitinggroup = UserDefaults.standard.integer(forKey: "groupIdx")
+        let sb = UIStoryboard.init(name: "Tabbar", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "TabbarController") as? TabbarController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
+//
+//        guard let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "nextNavi") else { return }
+//        secondViewController.modalPresentationStyle = .fullScreen
+//        self.present(secondViewController, animated: true)
+        
         //        guard let vc = self.storyboard?.instantiateViewController(identifier: "GroupUpVC") as? GroupUpVC
         //            else { return }
         //        self.navigationController?.pushViewController(vc, animated: true)

@@ -14,8 +14,9 @@ struct GroupPartiService {
     static let shared = GroupPartiService()
     
     func grouplist (completion: @escaping (NetworkResult<Any>) -> Void) {
-            print("dfsdfsfsdfsdf")
-       guard let test = UserDefaults.standard.string(forKey: "token") else { return }
+        print("dfsdfsfsdfsdf")
+        guard let test = UserDefaults.standard.string(forKey: "token") else { return }
+        
         let header: HTTPHeaders = ["Content-Type": "application/json", "token":test] //Request Header 생성
         let detaRequest = Alamofire.request(APIConstants.applygrouplistURL, method: .get, encoding: JSONEncoding.default, headers: header)
         detaRequest.responseData { dataResponse in
