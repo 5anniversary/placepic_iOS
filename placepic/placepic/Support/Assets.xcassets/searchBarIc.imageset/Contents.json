@@ -1,24 +1,24 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "filename" : "searchBarIc.png",
       "idiom" : "universal",
-      "filename" : "searchBarIc.png"
+      "scale" : "1x"
     },
     {
-      "scale" : "2x",
       "filename" : "searchBarIc@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "2x"
     },
     {
-      "scale" : "3x",
+      "filename" : "searchBarIc@3x.png",
       "idiom" : "universal",
-      "filename" : "searchBarIc@3x.png"
+      "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
     "template-rendering-intent" : "original"

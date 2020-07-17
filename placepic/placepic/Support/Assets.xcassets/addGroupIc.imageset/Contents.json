@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "idiom" : "universal",
       "filename" : "addGroupIc.png",
-      "idiom" : "universal"
+      "scale" : "1x"
     },
     {
       "filename" : "addGroupIc@2x.png",
@@ -11,13 +11,16 @@
       "idiom" : "universal"
     },
     {
+      "scale" : "3x",
       "filename" : "addGroupIc@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }
