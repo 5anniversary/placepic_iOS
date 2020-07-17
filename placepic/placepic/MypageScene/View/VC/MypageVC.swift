@@ -28,7 +28,6 @@ extension MypageVC {
         navigationBar.shadowImage = UIImage()
         
         
-        
         let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "downArrowIc"),
                                                           style: .plain,
                                                           target: self,

@@ -12,8 +12,11 @@ import FSPagerView
 import Kingfisher
 
 class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
-    
-    let imageNames:[String] = ["dummy1"]
+
+    var selectIdx: Int!
+    var placeDetailData: DetailModel?
+
+    var imageNames:[String] = []
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var detailViewHC: NSLayoutConstraint!
@@ -31,15 +34,133 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet weak var placeAddress: UILabel!
     @IBOutlet weak var placeInfo: UILabel!
     @IBOutlet weak var likeNum: UILabel!
-//    
-//    @IBAction func likeList(_ sender: Any) {
-//        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
-//        self.navigationController?.pushViewController(secondViewController, animated: true)
-//        secondViewController.likePeopleList = placeDetailData?.likeList as! [LikeList]
-//    }
-    var selectIdx: Int!
-    var placeDetailData: DetailModel?
     
+    
+    @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "tolikeListVC" {
+            if let destination = segue.destination as? likeListVC {
+                destination.placeindex = self.selectIdx
+            }
+        }
+    }
+    
+    @IBAction func likeButton(_ sender: Any) {
+        
+        guard var like = placeDetailData?.likeCount else { return }
+        
+        if placeDetailData?.isLiked == false{
+            likeButton.setImage(UIImage(named: "icSelectedHeart"), for: .normal)
+            heartbutView.layer.borderColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor
+            placeDetailData?.isLiked = true
+            
+            like = like + 1
+            likeNum.text = "\(like)"
+            placeDetailData?.likeCount = like
+            
+            likeButtonService.shared.like(placeIdx: self.selectIdx) { networkResult in
+                switch networkResult {
+                case .success:
+                    print(self.selectIdx)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "좋아요 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
+        }
+        else{
+            likeButton.setImage(UIImage(named: "icUnselectedHeart"), for: .normal)
+            heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
+            placeDetailData?.isLiked = false
+
+            like = like - 1
+            likeNum.text = "\(like)"
+            placeDetailData?.likeCount = like
+            
+            likeButtonService.shared.delete(placeIdx: self.selectIdx) { networkResult in
+                switch networkResult {
+                case .success:
+                    print(self.selectIdx)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "좋아요 취소 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
+        }
+        
+    }
+    
+    @IBAction func bookmarkButton(_ sender: Any) {
+        guard var bookmark = placeDetailData?.bookmarkCount else { return }
+        
+        if placeDetailData?.isBookmarked == false{
+            bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
+            placeDetailData?.isBookmarked = true
+            
+            bookmark = bookmark + 1
+            scrapNum.text = "\(bookmark)"
+            placeDetailData?.bookmarkCount = bookmark
+            
+            bookmarkService.shared.like(placeIdx: self.selectIdx) { networkResult in
+                switch networkResult {
+                case .success:
+                    print(self.selectIdx)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "북마크 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
+        }
+        else{
+            bookmarkButton.setImage(UIImage(named: "icUnselectedBookmark"), for: .normal)
+//            heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
+            placeDetailData?.isBookmarked = false
+
+            bookmark = bookmark - 1
+            scrapNum.text = "\(bookmark)"
+            placeDetailData?.bookmarkCount = bookmark
+            
+            bookmarkService.shared.delete(placeIdx: self.selectIdx) { networkResult in
+                switch networkResult {
+                case .success:
+                    print(self.selectIdx)
+
+                    self.dismiss(animated: true, completion: nil)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "북마크 취소 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
+        }
+    }
     @IBOutlet weak var detailImg: FSPagerView!{
         didSet {
             self.detailImg.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -57,10 +178,13 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         getDetailData()
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setData()
+        setView()
         setNavigationBar()
     }
     
@@ -160,15 +284,23 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         placeInfo.text = substr2
         navigationItem.title = placeDetailData?.placeName
     
-//        var substr3:String = ""
-//        guard let count3 = placeDetailData?.imageURL.count else { return }
-//        for i in 0..<count3 {
-//
-//        }
+        var substr3:String = ""
+        guard let count3 = placeDetailData?.imageURL.count else { return }
+        for i in 0..<count3 {
+            imageNames.append(placeDetailData?.imageURL[i] ?? "")
+        }
+        
         guard let imageNames = placeDetailData?.imageURL else { return }
         
-        //*navi
-       
+        if placeDetailData?.isLiked == true {
+            likeButton.setImage(UIImage(named: "icSelectedHeart"), for: .normal)
+            heartbutView.layer.borderColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor
+        }
+        
+        if placeDetailData?.isBookmarked == true{
+            bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
+        }
+        
     }
     
     private func getDetailData() {
@@ -178,6 +310,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                 guard let places = products as? DetailModel else { return }
                 self.placeDetailData = places
                 self.viewWillAppear(true)
+                self.detailImg.reloadData()
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
@@ -192,8 +325,8 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         }
     }
     private func setView(){
-//        detailViewHC.constant = self.detailTextView.contentSize.height
-        detailViewHC.constant = CGFloat(100)
+        detailViewHC.constant = self.detailTextView.contentSize.height
+//        detailViewHC.constant = CGFloat(100)
 
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         detailImg.isInfinite = true
@@ -238,16 +371,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         return imageNames.count
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "LikelistVC" {
-            if let destination = segue.destination as? LikelistVC {
-                destination.likePeopleList = placeDetailData?.likeList as! [LikeList]
-            }
-        }
-    }
-    
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         
@@ -262,7 +385,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                                                           action: #selector(dismissVC))
         navigationItem.leftBarButtonItem = leftButton
         
-        print(placeDetailData?.uploader.deleteBtn)
         if placeDetailData?.uploader.deleteBtn == true{
             let rightButton: UIBarButtonItem = UIBarButtonItem(title: "삭제",
                                                                style: .plain,
@@ -278,7 +400,23 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     @objc private func deleteData() {
-        
+        placeDeleteService.shared.delete(placeIdx: selectIdx){ networkResult in
+            switch networkResult {
+            case .success(let products):
+                print(self.selectIdx)
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "삭제 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("pathErr")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+                
+            }
+        }
     }
   
     

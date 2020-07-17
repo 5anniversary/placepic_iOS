@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="1893" y="203"/>
         </scene>
-        <!--adminListView-->
+        <!--MypageVC-->
         <scene sceneID="eSN-NW-G4b">
             <objects>
-                <viewControllerPlaceholder storyboardName="Mypage" referencedIdentifier="adminListView" id="qe2-nW-Mt7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Mypage" referencedIdentifier="MypageVC" id="qe2-nW-Mt7" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="geA-i6-9jo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9D-OL-kAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

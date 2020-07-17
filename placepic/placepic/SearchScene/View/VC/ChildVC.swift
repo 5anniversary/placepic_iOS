@@ -40,7 +40,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         super.viewWillDisappear(animated)
         
         NotificationCenter.default.post(name: .changeChildViewVC, object: nil, userInfo: ["childNumber": childNumber])
-        getData()
+//        getData()
         
     }
     override func didReceiveMemoryWarning() {
@@ -54,8 +54,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     func textFieldDidChange(sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
     }
-    
-    func getData() {
+    func getData(){
         var urlString: String = ""
         if childNumber == "맛집" {
             urlString = "?categoryIdx=1"
@@ -78,40 +77,56 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 
                 let LargeData = metaData
                 guard let datum = LargeData.result else { return }
-                print("datum: \(datum)\n")
-
+//                print("datum: \(datum)\n")
+                
                 self.placeListData = datum
-//                self.placeListTV.reloadData()
+                self.placeListTV.reloadData()
+//
             }
+            
         }
+//                self.placeListTV.reloadData()
+//                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
+//            case .requestErr(let message):
+//                guard let message = message as? String else { return }
+//                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                alertViewController.addAction(action)
+//                self.present(alertViewController, animated: true, completion: nil)
+//            case .pathErr: print("pathErr")
+//            case .serverErr: print("serverErr")
+//            case .networkFail: print("networkFail")
+//
+//            }
+//        }
         
         
-        //        placeService.shared.getPlaces(urlString){ networkResult in
-        //            switch networkResult {
-        //            case .success(let products):
-        //
-        //                print("success")
-        //                guard let places = products as? placeListClass else { return }
-        //                for i in 0..<places.result.count{
-        //                    self.placeListData.append(places.result[i])
-        //                }
-        //                self.placeListTV.reloadData()
-        //                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
-        //            case .requestErr(let message):
-        //
-        //                print("requestErr")
-        //
-        //                guard let message = message as? String else { return }
-        //                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
-        //                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-        //                alertViewController.addAction(action)
-        //                self.present(alertViewController, animated: true, completion: nil)
-        //            case .pathErr: print("pathErr")
-        //            case .serverErr: print("serverErr")
-        //            case .networkFail: print("networkFail")
-        //
-        //            }
-        //        }
+//        placeService.shared.getPlaces(urlString){ networkResult in
+//            switch networkResult {
+//            case .success(let products):
+//
+//                print("success")
+//                guard let places = products as? placeListClass else { return }
+//                for i in 0..<places.result.count{
+//                    self.placeListData.append(places.result[i])
+//                }
+//                self.placeListTV.reloadData()
+//                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
+//            case .requestErr(let message):
+//
+//                print("requestErr")
+//
+//                guard let message = message as? String else { return }
+//                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                alertViewController.addAction(action)
+//                self.present(alertViewController, animated: true, completion: nil)
+//            case .pathErr: print("pathErr")
+//            case .serverErr: print("serverErr")
+//            case .networkFail: print("networkFail")
+//
+//            }
+//        }
         
     }
     private func setNavigationBar() {
@@ -136,15 +151,18 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
 }
 
 extension ChildVC: UITableViewDelegate,UITableViewDataSource{
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return placeListData.count
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if let index = placeListTV.indexPathForSelectedRow {
             placeListTV.deselectRow(at: index, animated: true)
         }
     }
+    
     //placeDetailVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -171,15 +189,18 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(#function)
         guard let placeListCell = tableView.dequeueReusableCell(withIdentifier: PlaceListTVC.identifier, for: indexPath) as? PlaceListTVC else { return UITableViewCell() }
         
         var dataInfo: String = ""
         var subwayInfo: String = ""
-        let placeData = placeListData
-        guard let subway = placeData[indexPath.row].subway else {
+//        let placeData = placeListData
+        
+        guard let subway = placeListData[indexPath.row].subway else {
             return UITableViewCell()
         }
-        
+        print("@@@")
+        print(placeListData)
         print("subway : \(subway)\n")
         
         if subway.count != 0 {
@@ -188,15 +209,17 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
             print("subway count: \(subway.count)")
             for i in 0..<subway.count {
               
-                guard let name = subway[indexPath.row].subwayName else { return UITableViewCell() }
-                
-                if i == subway.count-1 {
-                    subwayInfo = subwayInfo + name
-                }
-                else {
-                    subwayInfo = subwayInfo + subway[i].subwayName! + "/"
-                    //                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName + "/"
-                }
+                guard let name = subway[i].subwayName else { return UITableViewCell() }
+
+                subwayInfo = subwayInfo + name
+
+//                if i == subway.count-1 {
+//                    subwayInfo = subwayInfo + name
+//                }
+//                else {
+//                    subwayInfo = subwayInfo + subway[i].subwayName! + "/"
+//                    //                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName + "/"
+//                }
             }
         }
         
@@ -225,16 +248,16 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
             placeListCell.placeTag[2].isHidden = true
         }
         else if tags.count == 1 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: "", pTag2: "", pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: tags[0], pTag2: "", pTag3: "")
             placeListCell.placeTag[1].isHidden = true
             placeListCell.placeTag[2].isHidden = true
         }
         else if tags.count == 2 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: "", pTag2: "", pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: tags[0], pTag2: tags[1], pTag3: "")
             placeListCell.placeTag[2].isHidden = true
         }
         else if tags.count > 2 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: "", pTag2: "", pTag3: "")
+            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: tags[0], pTag2: tags[1], pTag3: "...")
         }
         
         return placeListCell

@@ -2,20 +2,19 @@
 //  likeListTVC.swift
 //  placepic
 //
-//  Created by 이유진 on 2020/07/15.
+//  Created by 이유진 on 2020/07/17.
 //  Copyright © 2020 elesahich. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
 
 class likeListTVC: UITableViewCell {
     static let identifier: String = "likeListTVC"
 
-    @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var listName: UILabel!
-    @IBOutlet weak var listPart: UILabel!
-    @IBOutlet weak var listDate: UILabel!
+    @IBOutlet weak var ProfileImg: UIImageView!
+    @IBOutlet weak var Namelabel: UILabel!
+    @IBOutlet weak var Partlabel: UILabel!
+    @IBOutlet weak var Datelabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,12 +26,17 @@ class likeListTVC: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func setLikeList(lname: String, lpart:String, ldate:String, limg:String) {
-        listName.text = lname
-        profileImg.kf.setImage(with: URL(string: limg))
-        listPart.text = lpart
-        listDate.text = ldate
-    }
 
+    func setListInfo(likeImg:String, likeName: String, likePart: String, likeDate: Int) {
+        ProfileImg.kf.setImage(with: URL(string: likeImg))
+//        placeWriter.layer.cornerRadius = placeWriter.frame.height/2
+        ProfileImg.layer.cornerRadius = ProfileImg.frame.height/2
+        Namelabel.text = likeName
+        Partlabel.text = likePart
+        let date:Date = Date(timeIntervalSince1970: TimeInterval(likeDate))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        Datelabel.text = dateFormatter.string(from: date)
+        
+    }
 }
