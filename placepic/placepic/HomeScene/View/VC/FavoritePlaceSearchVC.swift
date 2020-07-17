@@ -44,7 +44,7 @@ extension FavoritePlaceSearchVC {
         nullPageTitle.font = .boldSystemFont(ofSize: 15)
         nullPageTitle.textColor = UIColor.blueGray30
         nullPageTitle.text = "등록하고 싶은 장소를 검색해보세요."
-    }
+    }	
     
     private func configureTableView() {
         tableView.delegate = self

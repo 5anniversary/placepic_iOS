@@ -45,6 +45,9 @@
                                         <state key="normal" title="키워드" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="keywordButtonAction:" destination="ejm-mK-5My" eventType="touchUpInside" id="Lx0-5U-tgd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFN-f1-eiB">
                                         <rect key="frame" x="182" y="14" width="87" height="30"/>
@@ -56,6 +59,9 @@
                                         <state key="normal" title="장소 정보" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="usefulInfoButtonAction:" destination="ejm-mK-5My" eventType="touchUpInside" id="rGE-Qf-I3d"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUP-8y-SUO">
                                         <rect key="frame" x="14" y="14" width="72" height="30"/>
@@ -67,6 +73,9 @@
                                         <state key="normal" title="주변역" image="downArrowIc">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nearstationButtonAction:" destination="ejm-mK-5My" eventType="touchUpInside" id="Llw-br-sG4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -635,7 +644,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upC-lM-eCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2938.4000000000001" y="-45.877061469265371"/>
+            <point key="canvasLocation" x="-2964" y="-46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cpw-UU-KFW">

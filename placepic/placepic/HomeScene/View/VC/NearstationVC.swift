@@ -129,7 +129,8 @@ extension NearstationVC {
             collectionView.reloadData()
         } else {
             NotificationCenter.default.post(name: .homeSendmodelNotification, object: nil, userInfo: ["model": collectionViewModel])
-        navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+//            navigationController?.popViewController(animated: true)
         }
     }
     

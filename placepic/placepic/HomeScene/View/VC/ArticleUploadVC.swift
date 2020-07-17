@@ -111,8 +111,7 @@ extension ArticleUploadVC {
             guard let keyword = $0.tagIdx else { return }
             forUploadKeyword.append(keyword)
         })
-        
-        
+                
         storageUsefulKeywordData.forEach({
             guard let useful = $0.tagIdx else { return }
             forUploadUsefulInfo.append(useful)
@@ -442,11 +441,11 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "NearstationVC") as? NearstationVC else {
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "subwayNavigation") else {
                 return
             }
-            navigationController?.pushViewController(vc, animated: true)
-            
+            present(vc, animated: true)
+
         } else if indexPath.section == 2 {
             keywordModal.showSettings("키워드", keywordData)
         } else if indexPath.section == 3 {

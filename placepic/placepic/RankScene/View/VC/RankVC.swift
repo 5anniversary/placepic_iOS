@@ -20,13 +20,13 @@ class RankVC: UIViewController {
         setDefaultRequest()
         setTableViewDelegate()
         setNavigationBar()
+        
     }
 }
 
 //MARK: - 통신
 extension RankVC {
     func setDefaultRequest() {
-        print(#function)
 
         RankServices.rankServices.getRankData { data in
             if let metaData = data {
@@ -42,7 +42,6 @@ extension RankVC {
 extension RankVC {
     
     func setNavigationBar() {
-        
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         
         navigationBar.isTranslucent = false

@@ -33,14 +33,14 @@
 		13B9DC5F24BD989C00D15591 /* GroupPartiTVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC5A24BD989C00D15591 /* GroupPartiTVC1.swift */; };
 		13B9DC6124BD98F400D15591 /* LoginInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6024BD98F400D15591 /* LoginInfomodel.swift */; };
 		13B9DC6324BD994E00D15591 /* SignupInfomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6224BD994E00D15591 /* SignupInfomodel.swift */; };
+		13B9DC6824BE230B00D15591 /* SignupSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6724BE230B00D15591 /* SignupSuccess.swift */; };
+		13B9DC6B24BE4C2D00D15591 /* Send2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6A24BE4C2D00D15591 /* Send2VC.swift */; };
+		13B9DC6D24BE4C5A00D15591 /* Send3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6C24BE4C5A00D15591 /* Send3VC.swift */; };
 		3D00CEB724C011A900BE7A2A /* RankTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00CEB624C011A900BE7A2A /* RankTVC.swift */; };
 		3D00CEB924C0125D00BE7A2A /* RankTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D00CEB824C0125D00BE7A2A /* RankTVC.xib */; };
 		3D00CEBB24C0189000BE7A2A /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00CEBA24C0189000BE7A2A /* RankModel.swift */; };
 		3D00CEBD24C01BEF00BE7A2A /* RankServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00CEBC24C01BEF00BE7A2A /* RankServices.swift */; };
 		3D00CEBF24C01C5200BE7A2A /* RankAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00CEBE24C01C5200BE7A2A /* RankAPI.swift */; };
-		13B9DC6824BE230B00D15591 /* SignupSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6724BE230B00D15591 /* SignupSuccess.swift */; };
-		13B9DC6B24BE4C2D00D15591 /* Send2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6A24BE4C2D00D15591 /* Send2VC.swift */; };
-		13B9DC6D24BE4C5A00D15591 /* Send3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DC6C24BE4C5A00D15591 /* Send3VC.swift */; };
 		3D06C28024BBA6C900A4F869 /* ClassifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06C27F24BBA6C900A4F869 /* ClassifyVC.swift */; };
 		3D06C28324BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06C28124BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.swift */; };
 		3D06C28424BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D06C28224BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib */; };
