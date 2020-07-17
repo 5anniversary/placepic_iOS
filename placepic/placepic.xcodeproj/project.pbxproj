@@ -132,6 +132,7 @@
 		AE34951524BE406D005FEF60 /* DetailViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34951424BE406D005FEF60 /* DetailViewService.swift */; };
 		AE6A0B3024C0C08E00D5DE00 /* bookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6A0B2F24C0C08E00D5DE00 /* bookmarkModel.swift */; };
 		AE6A0B3224C0C0F600D5DE00 /* bookmarkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6A0B3124C0C0F600D5DE00 /* bookmarkService.swift */; };
+		AEAD483424C1D5E2007428BE /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAD483324C1D5E2007428BE /* WebViewVC.swift */; };
 		AEEEE27624AC2E3500891C6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27424AC2E3500891C6E /* SearchVC.swift */; };
 		AEEEE27924AC59A200891C6E /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27824AC59A200891C6E /* ChildVC.swift */; };
 		AEEEE27B24ADEF9100891C6E /* PlaceListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */; };
@@ -267,6 +268,7 @@
 		AE34951424BE406D005FEF60 /* DetailViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewService.swift; sourceTree = "<group>"; };
 		AE6A0B2F24C0C08E00D5DE00 /* bookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarkModel.swift; sourceTree = "<group>"; };
 		AE6A0B3124C0C0F600D5DE00 /* bookmarkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarkService.swift; sourceTree = "<group>"; };
+		AEAD483324C1D5E2007428BE /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		AEEEE27424AC2E3500891C6E /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AEEEE27824AC59A200891C6E /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
 		AEEEE27A24ADEF9100891C6E /* PlaceListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListTVC.swift; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 				AE34147824BC51AE00425889 /* placeDetailVC.swift */,
 				AE15625224C11192007D2303 /* likeListVC.swift */,
 				AE15625424C111C2007D2303 /* likeListTVC.swift */,
+				AEAD483324C1D5E2007428BE /* WebViewVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1022,6 +1025,7 @@
 				AE34146B24B6224E00425889 /* adminService.swift in Sources */,
 				AE15625724C1177A007D2303 /* likeListModel.swift in Sources */,
 				3DCE5F7924B519D600BAF927 /* UsefulInformationCVC.swift in Sources */,
+				AEAD483424C1D5E2007428BE /* WebViewVC.swift in Sources */,
 				AE34951324BE3F70005FEF60 /* placeDetailModel.swift in Sources */,
 				AE34146724B4F66900425889 /* NetworkResult.swift in Sources */,
 				3DECB7A024A92B6C00D54DBF /* MypageVC.swift in Sources */,
@@ -1036,7 +1040,6 @@
 				13B9DC5C24BD989C00D15591 /* GroupPartiTVC.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
 				AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */,
-				3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */,
 				AE6A0B3224C0C0F600D5DE00 /* bookmarkService.swift in Sources */,
 				13B9DC0124BD963200D15591 /* APIConstants.swift in Sources */,
 				3DCE5F7B24B51B1D00BAF927 /* HomeReviewCVC.swift in Sources */,

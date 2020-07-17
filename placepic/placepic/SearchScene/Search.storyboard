@@ -466,6 +466,9 @@
                                                 <state key="normal" title="  더 많은 정보 보러가기" image="icMapPin">
                                                     <color key="titleColor" red="0.38823529411764707" green="0.38823529411764707" blue="0.38823529411764707" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="webButton:" destination="F5B-vE-VBo" eventType="touchUpInside" id="bXL-wL-BdJ"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HLM-Ei-UlW">
                                                 <rect key="frame" x="14" y="670.5" width="104" height="23"/>
