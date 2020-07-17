@@ -17,6 +17,9 @@ class GroupPartiTVC: UITableViewCell {
     @IBOutlet weak var label4: UILabel!//post
     @IBOutlet weak var label5: UILabel!
     
+    
+
+    
     static let identifier: String = "GroupPartiTVC"
     
     override func awakeFromNib() {

@@ -8,8 +8,6 @@
 
 import UIKit
 
-   var inputpart : String!
-   var inputnum : String!
 
 class GroupUpVC: UIViewController {
     @IBOutlet weak var belongLabel: UILabel!
@@ -18,25 +16,32 @@ class GroupUpVC: UIViewController {
     @IBOutlet weak var partTxtbox: UITextField!
     @IBOutlet var TextFields: [UITextField]!
     @IBOutlet weak var sendButton: UIButton!
+    
+    var inputpart : String!
+    var inputnum : String!
+    var groupinfo : Groupdata!
     @IBAction func sendActionButton(_ sender: Any) {
-        print(#function)
-        
         
         guard let inputpart = belongTxtbox.text else { return }
         guard let inputnum = partTxtbox.text else { return }
-       
+        
         let groupIdx2 = UserDefaults.standard.integer(forKey: "groupIdx")
         
         GroupUpService.shared.signup(part: inputpart, phoneNumber: inputnum, groupIdx: groupIdx2 ) { networkResult in
             switch networkResult {
                 
-            case .success(let token):
+            case .success(let groupinfo):
                 print("sadadasdasd")
                 let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SendVC") as! SendVC
+//                secondViewController.groupimage1 = groupinfo.groupName
+//                secondViewController.groupname1 = groupinfo.groupImage
                 self.navigationController?.pushViewController(secondViewController, animated: true)
                 
-                guard let token = token as? String else { return }
-                UserDefaults.standard.set(token, forKey: "token")
+                guard let groupinfo = groupinfo as? Groupdata else { return }
+                
+                
+                
+                
                 
                 
                 
