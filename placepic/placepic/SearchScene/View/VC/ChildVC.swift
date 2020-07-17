@@ -257,7 +257,7 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
             placeListCell.placeTag[2].isHidden = true
         }
         else if tags.count > 2 {
-            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: tags[0], pTag2: tags[1], pTag3: tags[2])
+            placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: tags[0], pTag2: tags[1], pTag3: "...")
         }
         
         return placeListCell

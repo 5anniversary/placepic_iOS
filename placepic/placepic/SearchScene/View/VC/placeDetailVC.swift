@@ -184,6 +184,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     
     override func viewWillAppear(_ animated: Bool) {
         setData()
+        setView()
         setNavigationBar()
     }
     
@@ -324,8 +325,8 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         }
     }
     private func setView(){
-//        detailViewHC.constant = self.detailTextView.contentSize.height
-        detailViewHC.constant = CGFloat(100)
+        detailViewHC.constant = self.detailTextView.contentSize.height
+//        detailViewHC.constant = CGFloat(100)
 
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         detailImg.isInfinite = true
