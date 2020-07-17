@@ -13,11 +13,11 @@ struct likeListModel: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: [likepeopleModel]
+    let data: [likeListInfo]
 }
 
 // MARK: - Datum
-struct likepeopleModel: Codable {
+struct likeListInfo: Codable {
     let userName: String
     let profileImageURL: String
     let likeCreatedAt: Int

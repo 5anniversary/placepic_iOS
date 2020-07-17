@@ -15,6 +15,6 @@ struct placeListAPI {
     static let deletebookmarkURL = GeneralAPI.baseURL + "/places/bookmark/"
     static let postlikeURL = GeneralAPI.baseURL + "/places/like"
     static let deletelikeURL = GeneralAPI.baseURL + "/places/like/"
+    static let likelistURL =  "http://172.30.1.56:3000/places/like/"
     
-    //    static let getRestaurant =
 }

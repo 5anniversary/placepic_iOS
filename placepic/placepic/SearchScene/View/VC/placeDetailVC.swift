@@ -39,6 +39,16 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "tolikeListVC" {
+            if let destination = segue.destination as? likeListVC {
+                destination.placeindex = self.selectIdx
+            }
+        }
+    }
+    
     @IBAction func likeButton(_ sender: Any) {
         
         guard var like = placeDetailData?.likeCount else { return }
@@ -164,10 +174,10 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
 //    }
 
     //
-    @IBAction func likeList(_ sender: Any) {
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
-        self.navigationController?.pushViewController(secondViewController, animated: true)
-    }
+//    @IBAction func likeList(_ sender: Any) {
+//        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LikelistVC") as! LikelistVC
+//        self.navigationController?.pushViewController(secondViewController, animated: true)
+//    }
     @IBOutlet weak var detailImg: FSPagerView!{
         didSet {
             self.detailImg.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
