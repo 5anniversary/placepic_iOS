@@ -10,7 +10,6 @@ import UIKit
 import NMapsMap
 import FSPagerView
 import Kingfisher
-import SafariServices
 
 class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
 
@@ -198,10 +197,8 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         setView()
         setNavigationBar()
         
-//        self.pageControl.setImage(UIImage(named: "circle1"), for: .selected)
-//        self.pageControl.setImage(UIImage(named: "circle2"), for: .normal)
-//
-        detailImg.isInfinite = false
+        self.pageControl.setImage(UIImage(named: "circle1"), for: .selected)
+        self.pageControl.setImage(UIImage(named: "circle2"), for: .normal)
     }
     
     private func setData(){
@@ -320,12 +317,12 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     private func getDetailData() {
-        guard let select = selectIdx else {return}
-        DetailViewService.shared.getPlaces(String(select)){ networkResult in
+        DetailViewService.shared.getPlaces(String(selectIdx)){ networkResult in
             switch networkResult {
             case .success(let products):
                 guard let places = products as? DetailModel else { return }
                 self.placeDetailData = places
+                self.viewWillAppear(true)
                 self.detailImg.reloadData()
                 self.viewWillAppear(true)
             case .requestErr(let message):
@@ -337,13 +334,15 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             case .pathErr: print("pathErr")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
+                
             }
         }
     }
-    
     private func setView(){
+        
         detailViewHC.constant = self.detailTextView.contentSize.height
 //        detailViewHC.constant = CGFloat(100)
+
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         detailImg.isInfinite = true
         buttonView.layer.cornerRadius = 4
@@ -352,9 +351,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         heartbutView.layer.borderWidth = 2
         heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
         
-        self.pageControl.setImage(UIImage(named: "circle1"), for: .selected)
-        self.pageControl.setImage(UIImage(named: "circle2"), for: .normal)
-        //
         //        bottomView.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
     }
     
@@ -423,11 +419,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             switch networkResult {
             case .success(let products):
                 print(self.selectIdx)
-                let alertViewController = UIAlertController(title: "작성한 글 삭제", message: "정말로 이 글을 삭제할까요?", preferredStyle: .alert)
-                let action = UIAlertAction(title: "삭제", style: .cancel, handler: nil)
-                alertViewController.addAction(action)
-                self.present(alertViewController, animated: true, completion: nil)
-//                self.dismiss(animated: true, completion: nil)
+                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "삭제 실패", message: message, preferredStyle: .alert)

@@ -81,7 +81,6 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 
                 self.placeListData = datum
                 self.placeListTV.reloadData()
-                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
 //
             }
             
@@ -200,8 +199,14 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         guard let subway = placeListData[indexPath.row].subway else {
             return UITableViewCell()
         }
+        print("@@@")
+        print(placeListData)
+        print("subway : \(subway)\n")
         
         if subway.count != 0 {
+            
+            print("indexPath.row: \(indexPath.row)")
+            print("subway count: \(subway.count)")
             for i in 0..<subway.count {
               
                 guard let name = subway[i].subwayName else { return UITableViewCell() }
