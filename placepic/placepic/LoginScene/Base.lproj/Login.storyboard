@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l34-1L-Dd3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H06-d0-dpg">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -784,14 +784,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvu-bd-ydz">
-                                <rect key="frame" x="14" y="471.5" width="347" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="BuQ-eR-ImY"/>
-                                    <constraint firstAttribute="width" constant="347" id="Idw-fX-DUT"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4G-0j-VmZ">
                                 <rect key="frame" x="166.5" y="352" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -810,15 +802,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="L8J-Dp-8bs" firstAttribute="trailing" secondItem="HJF-6g-fKw" secondAttribute="trailing" constant="142" id="8Ba-Yr-aij"/>
+                            <constraint firstItem="L8J-Dp-8bs" firstAttribute="bottom" secondItem="Icw-nB-kbt" secondAttribute="bottom" constant="80.5" id="Bca-Gq-r2e"/>
                             <constraint firstItem="PUy-SD-Jrf" firstAttribute="centerX" secondItem="ess-lA-0oZ" secondAttribute="centerX" id="EWI-5J-G4h"/>
                             <constraint firstItem="j4G-0j-VmZ" firstAttribute="top" secondItem="PUy-SD-Jrf" secondAttribute="bottom" constant="25" id="J3y-Of-cIq"/>
                             <constraint firstItem="HJF-6g-fKw" firstAttribute="top" secondItem="L8J-Dp-8bs" secondAttribute="top" constant="186" id="Wzg-nA-QSO"/>
-                            <constraint firstItem="Vvu-bd-ydz" firstAttribute="centerX" secondItem="ess-lA-0oZ" secondAttribute="centerX" id="eUH-lb-1N7"/>
                             <constraint firstItem="Icw-nB-kbt" firstAttribute="centerX" secondItem="ess-lA-0oZ" secondAttribute="centerX" id="faT-3P-MMm"/>
                             <constraint firstItem="HJF-6g-fKw" firstAttribute="leading" secondItem="L8J-Dp-8bs" secondAttribute="leading" constant="143" id="hww-gk-2GV"/>
                             <constraint firstItem="PUy-SD-Jrf" firstAttribute="top" secondItem="HJF-6g-fKw" secondAttribute="bottom" constant="30" id="iou-rh-rqe"/>
-                            <constraint firstItem="Icw-nB-kbt" firstAttribute="top" secondItem="Vvu-bd-ydz" secondAttribute="bottom" constant="15" id="jVW-oB-tHC"/>
-                            <constraint firstItem="Vvu-bd-ydz" firstAttribute="top" secondItem="j4G-0j-VmZ" secondAttribute="bottom" constant="99" id="jmU-iO-srj"/>
                             <constraint firstItem="j4G-0j-VmZ" firstAttribute="centerX" secondItem="ess-lA-0oZ" secondAttribute="centerX" id="spG-x3-eYf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L8J-Dp-8bs"/>
@@ -826,7 +816,6 @@
                     <connections>
                         <outlet property="Label2" destination="j4G-0j-VmZ" id="ESp-zm-l0i"/>
                         <outlet property="alertLabel" destination="PUy-SD-Jrf" id="hk3-Le-wQN"/>
-                        <outlet property="button1" destination="Vvu-bd-ydz" id="GUe-Um-PeB"/>
                         <outlet property="button2" destination="Icw-nB-kbt" id="zkh-yA-Kdp"/>
                         <outlet property="groupImageview" destination="HJF-6g-fKw" id="YIH-NM-ewf"/>
                     </connections>

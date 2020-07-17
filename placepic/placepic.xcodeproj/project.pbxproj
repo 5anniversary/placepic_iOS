@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA9324B2DF870013CACC /* GroupListTVC.swift */; };
+		13AACE9324C1B3EE000E89EC /* GroupSendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AACE9224C1B3EE000E89EC /* GroupSendService.swift */; };
 		13B9DC0124BD963200D15591 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFA24BD963200D15591 /* APIConstants.swift */; };
 		13B9DC0324BD963200D15591 /* groupListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFC24BD963200D15591 /* groupListData.swift */; };
 		13B9DC0424BD963200D15591 /* GroupListmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFD24BD963200D15591 /* GroupListmodel.swift */; };
@@ -123,6 +124,7 @@
 
 /* Begin PBXFileReference section */
 		1302CA9324B2DF870013CACC /* GroupListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListTVC.swift; sourceTree = "<group>"; };
+		13AACE9224C1B3EE000E89EC /* GroupSendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSendService.swift; sourceTree = "<group>"; };
 		13B9DBFA24BD963200D15591 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		13B9DBFC24BD963200D15591 /* groupListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupListData.swift; sourceTree = "<group>"; };
 		13B9DBFD24BD963200D15591 /* GroupListmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListmodel.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				13B9DC1924BD96D800D15591 /* LoginService.swift */,
 				13B9DC1324BD96D800D15591 /* SignupService.swift */,
 				13B9DC7024BFB73C00D15591 /* GroupWaitService.swift */,
+				13AACE9224C1B3EE000E89EC /* GroupSendService.swift */,
 			);
 			path = APIConstants;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				3DCE5F6B24B4EF7F00BAF927 /* StationModel.swift in Sources */,
 				13B9DC5C24BD989C00D15591 /* GroupPartiTVC.swift in Sources */,
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
+				13AACE9324C1B3EE000E89EC /* GroupSendService.swift in Sources */,
 				AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */,
 				3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */,
 				13B9DC0124BD963200D15591 /* APIConstants.swift in Sources */,

@@ -27,15 +27,17 @@ struct GroupUpService {
         let dataRequest = Alamofire.request(APIConstants.applygroupURL , method: .post, parameters: makeParameter(part, phoneNumber, groupIdx), encoding: JSONEncoding.default, headers: header)
         
         //데이터 통신 시작
+
         dataRequest.responseData { dataResponse in
             switch dataResponse.result {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else {return}
-                print("statuscode: \(statusCode)")
+
                 guard let data = dataResponse.result.value else {return}
                 
                 let networkResult = self.judge(by: statusCode,data)
                 completion(networkResult)
+              
     
             case .failure:
                 completion(.networkFail)
