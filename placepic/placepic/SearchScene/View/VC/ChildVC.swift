@@ -81,6 +81,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 
                 self.placeListData = datum
                 self.placeListTV.reloadData()
+                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
 //
             }
             
