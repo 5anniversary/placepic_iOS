@@ -26,7 +26,6 @@ class SigninVC: UIViewController {
             switch networkResult {
                 
             case .success(let token):
-                
                 guard let token = token as? String else { return }
 //                print("11231312312312312")
 //                print(token)
@@ -39,6 +38,7 @@ class SigninVC: UIViewController {
                 guard let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "nextNavi") else { return }
                 secondViewController.modalPresentationStyle = .fullScreen
                 self.present(secondViewController, animated: true)
+                
                 //
                 
 //                let GroupController = self.storyboard.instantiateViewControllerWithIdentifier("SecondViewController") as SecondViewController

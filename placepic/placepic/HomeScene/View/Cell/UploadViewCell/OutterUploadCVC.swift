@@ -145,10 +145,12 @@ extension OutterUploadPhotoCVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InnerUploadPhotoCVC", for: indexPath) as? InnerUploadPhotoCVC else {
             return UICollectionViewCell()
         }
-        
+        	
         if photoArray.count == 0 {
+            cell.itemBackgroundView.backgroundColor = UIColor.blueGray10
             return cell
         } else {
+            cell.itemBackgroundView.isHidden = true
             cell.imageView.image = photoArray[indexPath.item]
             return cell
         }

@@ -12,40 +12,38 @@ struct GroupUpService {
     
     static let shared = GroupUpService()
     
-//    let groupIdx2 = UserDefaults.standard.integer(forKey: "groupIdx")
     private func makeParameter(_ part: String, _ phonenumber: String, _ groupIdx: Int) -> Parameters{
-        
         return ["part": part,
                 "phoneNumber": phonenumber,
                 "groupIdx": groupIdx
         ]
     }//Request Body에 들어갈 parameter 생성
     
-    func signup(part: String, phoneNumber: String, groupIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-         guard let test = UserDefaults.standard.string(forKey: "token") else { return }
-        let header: HTTPHeaders = ["Content-Type": "application/json", "token":test] //Request Header 생성
-        let dataRequest = Alamofire.request(APIConstants.applygroupURL , method: .post, parameters: makeParameter(part, phoneNumber, groupIdx), encoding: JSONEncoding.default, headers: header)
-        
-        //데이터 통신 시작
+    func signup(part: String, phoneNumber: String, groupIdx: Int, completion: @escaping (NetworkResultforGroup<Any>) -> Void) {
+        guard let test = UserDefaults.standard.string(forKey: "token") else { return }
 
+        let header: HTTPHeaders = [
+            "Content-Type": "application/json",
+                                   "token": test] //Request Header 생성
+        let dataRequest = Alamofire.request(APIConstants.applygroupURL , method: .post, parameters: makeParameter(part, phoneNumber, groupIdx), encoding: JSONEncoding.default, headers: header)
+        //데이터 통신 시작
         dataRequest.responseData { dataResponse in
             switch dataResponse.result {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else {return}
-
                 guard let data = dataResponse.result.value else {return}
                 
                 let networkResult = self.judge(by: statusCode,data)
                 completion(networkResult)
-              
-    
+                
+                
             case .failure:
                 completion(.networkFail)
             }
         }
     }
     
-    private func judge(by statusCode: Int,_ data:Data) -> NetworkResult<Any> {
+    private func judge(by statusCode: Int,_ data:Data) -> NetworkResultforGroup<Any> {
         switch statusCode {
         case 200: return isSignup(by: data)
         case 400: return .requestErr(data)
@@ -55,20 +53,16 @@ struct GroupUpService {
         }
     }
     
-    private func isSignup(by data:Data) -> NetworkResult<Any> {
+    private func isSignup(by data: Data) -> NetworkResultforGroup<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(GroupApplyModel.self, from: data) else {return .pathErr}
-        
-        if decodedData.success
-            {
-                return .success(data)}
-        else
-            {
-           
-                return .requestErr(decodedData.message)}
+        print("decoded data : \(decodedData)")
+        guard let datadata = decodedData.data else {return .requestErr(decodedData.message)}
+        if decodedData.success {
+            return .success(datadata.groupName,datadata.groupImage)}
+        else {
+            return .requestErr(decodedData.message)}
     }
-    
-    
 }
 
 //

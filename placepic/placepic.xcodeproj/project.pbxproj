@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA9324B2DF870013CACC /* GroupListTVC.swift */; };
 		13AACE9324C1B3EE000E89EC /* GroupSendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AACE9224C1B3EE000E89EC /* GroupSendService.swift */; };
+		13B5AFC724C2261500819AEB /* NetworkResultforGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B5AFC624C2261500819AEB /* NetworkResultforGroup.swift */; };
 		13B9DC0124BD963200D15591 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFA24BD963200D15591 /* APIConstants.swift */; };
 		13B9DC0324BD963200D15591 /* groupListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFC24BD963200D15591 /* groupListData.swift */; };
 		13B9DC0424BD963200D15591 /* GroupListmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFD24BD963200D15591 /* GroupListmodel.swift */; };
@@ -49,6 +50,8 @@
 		3D19914424C1864500397216 /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D19914324C1864500397216 /* MypageModel.swift */; };
 		3D19914624C188D400397216 /* MypageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D19914524C188D400397216 /* MypageServices.swift */; };
 		3D19914824C1C31F00397216 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D19914724C1C31F00397216 /* Extensions+UIView.swift */; };
+		3D44396E24C243D30027BA8C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44396D24C243D30027BA8C /* SplashVC.swift */; };
+		3D44397024C24B050027BA8C /* pp_splash_final.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D44396F24C24B040027BA8C /* pp_splash_final.json */; };
 		3D50527924A9BCA800140BCA /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50527824A9BCA800140BCA /* Mypage.storyboard */; };
 		3D62560324AA2E9B0047AD70 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */; };
 		3D62560524AA33260047AD70 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D62560424AA33260047AD70 /* Home.storyboard */; };
@@ -145,6 +148,7 @@
 /* Begin PBXFileReference section */
 		1302CA9324B2DF870013CACC /* GroupListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListTVC.swift; sourceTree = "<group>"; };
 		13AACE9224C1B3EE000E89EC /* GroupSendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSendService.swift; sourceTree = "<group>"; };
+		13B5AFC624C2261500819AEB /* NetworkResultforGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResultforGroup.swift; sourceTree = "<group>"; };
 		13B9DBFA24BD963200D15591 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		13B9DBFC24BD963200D15591 /* groupListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupListData.swift; sourceTree = "<group>"; };
 		13B9DBFD24BD963200D15591 /* GroupListmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListmodel.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 		3D19914324C1864500397216 /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
 		3D19914524C188D400397216 /* MypageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageServices.swift; sourceTree = "<group>"; };
 		3D19914724C1C31F00397216 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		3D44396D24C243D30027BA8C /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		3D44396F24C24B040027BA8C /* pp_splash_final.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pp_splash_final.json; sourceTree = "<group>"; };
 		3D50527824A9BCA800140BCA /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		3D62560224AA2E9B0047AD70 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		3D62560424AA33260047AD70 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -315,6 +321,7 @@
 				13B9DC1324BD96D800D15591 /* SignupService.swift */,
 				13B9DC7024BFB73C00D15591 /* GroupWaitService.swift */,
 				13AACE9224C1B3EE000E89EC /* GroupSendService.swift */,
+				13B5AFC624C2261500819AEB /* NetworkResultforGroup.swift */,
 			);
 			path = APIConstants;
 			sourceTree = "<group>";
@@ -495,6 +502,7 @@
 		3DECB77224A9274100D54DBF /* placepic */ = {
 			isa = PBXGroup;
 			children = (
+				3D44396F24C24B040027BA8C /* pp_splash_final.json */,
 				3DECB7B724A92F3B00D54DBF /* Extension */,
 				3DECB78724A9274C00D54DBF /* Support */,
 				3DECB79B24A92B1A00D54DBF /* MypageScene */,
@@ -719,6 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				3DECB7A524A92B8A00D54DBF /* RankVC.swift */,
+				3D44396D24C243D30027BA8C /* SplashVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -912,6 +921,7 @@
 				3DECB77D24A9274200D54DBF /* Assets.xcassets in Resources */,
 				3D06C28424BBAB4A00A4F869 /* ClassifyFavoritePlaceTVC.xib in Resources */,
 				3D62560924AA49C30047AD70 /* Search.storyboard in Resources */,
+				3D44397024C24B050027BA8C /* pp_splash_final.json in Resources */,
 				3D62560D24AA4A050047AD70 /* Rank.storyboard in Resources */,
 				3DECB77B24A9274100D54DBF /* Login.storyboard in Resources */,
 				3D00CEB924C0125D00BE7A2A /* RankTVC.xib in Resources */,
@@ -1071,13 +1081,14 @@
 				3DCD865C24BAD336006783D2 /* UsefulImformModel.swift in Sources */,
 				13B9DC2C24BD96D800D15591 /* Emailmodel.swift in Sources */,
 				3DCE5F7F24B577D300BAF927 /* OutterUploadCVC.swift in Sources */,
+				3D44396E24C243D30027BA8C /* SplashVC.swift in Sources */,
 				3D19914624C188D400397216 /* MypageServices.swift in Sources */,
 				3D00CEBB24C0189000BE7A2A /* RankModel.swift in Sources */,
-				13B9DC2024BD96D800D15591 /* SignupData.swift in Sources */,
 				3D00CEBF24C01C5200BE7A2A /* RankAPI.swift in Sources */,
 				3D84896924B4116F00AE6A45 /* (null) in Sources */,
 				3DCE5F7724B5199600BAF927 /* HomeKeywordCVC.swift in Sources */,
 				3D6C163324B83BF20050979C /* Notification.swift in Sources */,
+				13B5AFC724C2261500819AEB /* NetworkResultforGroup.swift in Sources */,
 				3D6BAF8924AF9B5000F6339E /* KeywordCell.swift in Sources */,
 				AE34146E24B6251C00425889 /* adminUserModel.swift in Sources */,
 				3D7BF87B24BEC8D90031EE6D /* UploadServices.swift in Sources */,
