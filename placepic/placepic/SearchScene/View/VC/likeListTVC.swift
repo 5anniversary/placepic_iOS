@@ -29,6 +29,8 @@ class likeListTVC: UITableViewCell {
 
     func setListInfo(likeImg:String, likeName: String, likePart: String, likeDate: Int) {
         ProfileImg.kf.setImage(with: URL(string: likeImg))
+//        placeWriter.layer.cornerRadius = placeWriter.frame.height/2
+        ProfileImg.layer.cornerRadius = ProfileImg.frame.height/2
         Namelabel.text = likeName
         Partlabel.text = likePart
         let date:Date = Date(timeIntervalSince1970: TimeInterval(likeDate))

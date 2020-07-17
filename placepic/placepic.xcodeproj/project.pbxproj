@@ -107,6 +107,8 @@
 		AE15625524C111C2007D2303 /* likeListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15625424C111C2007D2303 /* likeListTVC.swift */; };
 		AE15625724C1177A007D2303 /* likeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15625624C1177A007D2303 /* likeListModel.swift */; };
 		AE15625924C118B8007D2303 /* likeListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15625824C118B8007D2303 /* likeListService.swift */; };
+		AE15625B24C13523007D2303 /* placeDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15625A24C13523007D2303 /* placeDeleteModel.swift */; };
+		AE15625D24C135C9007D2303 /* placeDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15625C24C135C9007D2303 /* placeDeleteService.swift */; };
 		AE34145824B3055F00425889 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145724B3055F00425889 /* AdminVC.swift */; };
 		AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145924B33A9600425889 /* PeopleDetailVC.swift */; };
 		AE34145C24B3578000425889 /* adminListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34145B24B3578000425889 /* adminListModel.swift */; };
@@ -234,6 +236,8 @@
 		AE15625424C111C2007D2303 /* likeListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeListTVC.swift; sourceTree = "<group>"; };
 		AE15625624C1177A007D2303 /* likeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeListModel.swift; sourceTree = "<group>"; };
 		AE15625824C118B8007D2303 /* likeListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeListService.swift; sourceTree = "<group>"; };
+		AE15625A24C13523007D2303 /* placeDeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeDeleteModel.swift; sourceTree = "<group>"; };
+		AE15625C24C135C9007D2303 /* placeDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeDeleteService.swift; sourceTree = "<group>"; };
 		AE34145724B3055F00425889 /* AdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
 		AE34145924B33A9600425889 /* PeopleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDetailVC.swift; sourceTree = "<group>"; };
 		AE34145B24B3578000425889 /* adminListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = adminListModel.swift; path = placepic/MypageScene/Model/adminListModel.swift; sourceTree = SOURCE_ROOT; };
@@ -436,9 +440,9 @@
 				3DECB7B724A92F3B00D54DBF /* Extension */,
 				3DECB78724A9274C00D54DBF /* Support */,
 				3DECB79B24A92B1A00D54DBF /* MypageScene */,
+				3DECB79524A92AF600D54DBF /* SearchScene */,
 				3DECB79924A92B1100D54DBF /* RankScene */,
 				3DECB79724A92B0400D54DBF /* WriteScene */,
-				3DECB79524A92AF600D54DBF /* SearchScene */,
 				3DECB79324A92A8300D54DBF /* HomeScene */,
 				3DECB79024A928B100D54DBF /* TabbarScene */,
 				3DECB78924A9274D00D54DBF /* LoginScene */,
@@ -770,6 +774,8 @@
 			children = (
 				AE34146224B4EFD100425889 /* placeListAPI.swift */,
 				AE15624E24C0DE97007D2303 /* LikeData.swift */,
+				AE15625A24C13523007D2303 /* placeDeleteModel.swift */,
+				AE15625C24C135C9007D2303 /* placeDeleteService.swift */,
 			);
 			path = SearchAPI;
 			sourceTree = "<group>";
@@ -915,6 +921,7 @@
 				13B9DC6324BD994E00D15591 /* SignupInfomodel.swift in Sources */,
 				3DAC651A24B6EFE400FBA399 /* (null) in Sources */,
 				AE34145A24B33A9600425889 /* PeopleDetailVC.swift in Sources */,
+				AE15625D24C135C9007D2303 /* placeDeleteService.swift in Sources */,
 				AE15625524C111C2007D2303 /* likeListTVC.swift in Sources */,
 				3DECB7C124A9311200D54DBF /* Enums+Fonts.swift in Sources */,
 				13B9DC2B24BD96D800D15591 /* GroupListService.swift in Sources */,
@@ -972,6 +979,7 @@
 				13B9DC4E24BD976B00D15591 /* SendVC.swift in Sources */,
 				3D6C163B24B87E830050979C /* ResponseResult.swift in Sources */,
 				13B9DC3D24BD976400D15591 /* SignupVC.swift in Sources */,
+				AE15625B24C13523007D2303 /* placeDeleteModel.swift in Sources */,
 				3DECB7C624A9311200D54DBF /* Extensions+UIColor.swift in Sources */,
 				AE34146B24B6224E00425889 /* adminService.swift in Sources */,
 				AE15625724C1177A007D2303 /* likeListModel.swift in Sources */,

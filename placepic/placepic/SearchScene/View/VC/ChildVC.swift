@@ -89,7 +89,6 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 self.present(alertViewController, animated: true, completion: nil)
             case .pathErr:
                 print("pathErr")
-                print("dkdkdkdkdk")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
                 

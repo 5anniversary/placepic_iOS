@@ -24,7 +24,6 @@ struct likeListService {
         dataRequest.responseData { dataResponse in
                 switch dataResponse.result {
                 case .success:
-                    print("***")
                     guard let statusCode = dataResponse.response?.statusCode else { return }
                     guard let value = dataResponse.result.value else { return }
                     let networkResult = self.judge(by: statusCode, value)

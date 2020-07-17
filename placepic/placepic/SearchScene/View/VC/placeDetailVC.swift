@@ -146,6 +146,8 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                 switch networkResult {
                 case .success:
                     print(self.selectIdx)
+
+                    self.dismiss(animated: true, completion: nil)
                 case .requestErr(let message):
                     guard let message = message as? String else { return }
                     let alertViewController = UIAlertController(title: "북마크 취소 실패", message: message, preferredStyle: .alert)
@@ -310,7 +312,10 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         if placeDetailData?.isLiked == true {
             likeButton.setImage(UIImage(named: "icSelectedHeart"), for: .normal)
             heartbutView.layer.borderColor = UIColor(red: 0.965, green: 0.361, blue: 0.424, alpha: 1).cgColor
-            
+        }
+        
+        if placeDetailData?.isBookmarked == true{
+            bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
         }
        
     }
@@ -413,7 +418,23 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     @objc private func deleteData() {
-        
+        placeDeleteService.shared.delete(placeIdx: selectIdx){ networkResult in
+            switch networkResult {
+            case .success(let products):
+                print(self.selectIdx)
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "삭제 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("pathErr")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+                
+            }
+        }
     }
   
     
