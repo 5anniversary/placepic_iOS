@@ -16,4 +16,10 @@ extension Notification.Name {
     static let homeModalUsefulNotification = Notification.Name("homeModalUsefulNotification")
     static let homeWriteTextViewisEditingNotification = Notification.Name("homeWriteTextViewisEditingNotification")
     static let homeSendPhotoNotification = Notification.Name("homeSendPhotoNotification")
+    static let searchKeywordNotification = Notification.Name("searchKeywordNotification")
+    static let searchUsefulNotification = Notification.Name("searchUsefulNotification")
+    static let searchSubwayNotification = Notification.Name("searchSubwayNotification")
+
+
+
 }

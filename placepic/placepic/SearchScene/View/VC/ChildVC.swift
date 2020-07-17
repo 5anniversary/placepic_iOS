@@ -4,8 +4,8 @@ import XLPagerTabStrip
 import Alamofire
 
 extension Notification.Name {
-    ///Delegate Closure Notification
-    
+    ///Delegate Closure KVO Notification
+    ///Map reduce Filter
     static let changeChildViewVC = Notification.Name("changechildviewVC")
 }
 
@@ -18,6 +18,12 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     var placeList: placeListClass?
     var placeListData: [placeData] = []
     
+    var keyword: [Int] = []
+    var useful: [Int] = []
+    
+    var subwayquery: String = ""
+    var keywordquery: String = "1"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,9 +31,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         placeListTV.dataSource = self
         setNavigationBar()
         getData()
-
-        //        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "placeDetailVC") as! placeDetailVC
-        //        self.navigationController?.pushViewController(secondViewController, animated: true)
+        addObserver()
         
     }
     
@@ -40,11 +44,11 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         super.viewWillDisappear(animated)
         
         NotificationCenter.default.post(name: .changeChildViewVC, object: nil, userInfo: ["childNumber": childNumber])
-//        getData()
-        
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keywordNotification), name: .homeModalKeywordNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(usefulNotification(_:)), name: .homeModalUsefulNotification, object: nil)
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -54,7 +58,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     func textFieldDidChange(sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
     }
-    func getData(){
+    func getData() {
         var urlString: String = ""
         if childNumber == "맛집" {
             urlString = "?categoryIdx=1"
@@ -72,63 +76,109 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
             urlString = "?categoryIdx=5"
         }
         
-        placeService.shared.getPlaces(urlString) { data in
+        placeService.shared.getPlaces(keywordquery, subwayquery) { data in
             if let metaData = data {
-                
+                print("123123")
                 let LargeData = metaData
                 guard let datum = LargeData.result else { return }
-//                print("datum: \(datum)\n")
-                
+                //                print("datum: \(datum)\n")
+                print(datum)
                 self.placeListData = datum
                 self.placeListTV.reloadData()
                 self.sumNum.text = "총 \(self.placeListData.count)개 결과"
-//
             }
-            
         }
-//                self.placeListTV.reloadData()
-//                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
-//            case .requestErr(let message):
-//                guard let message = message as? String else { return }
-//                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
-//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-//                alertViewController.addAction(action)
-//                self.present(alertViewController, animated: true, completion: nil)
-//            case .pathErr: print("pathErr")
-//            case .serverErr: print("serverErr")
-//            case .networkFail: print("networkFail")
-//
-//            }
-//        }
+        
+        //                self.placeListTV.reloadData()
+        //                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
+        //            case .requestErr(let message):
+        //                guard let message = message as? String else { return }
+        //                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+        //                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+        //                alertViewController.addAction(action)
+        //                self.present(alertViewController, animated: true, completion: nil)
+        //            case .pathErr: print("pathErr")
+        //            case .serverErr: print("serverErr")
+        //            case .networkFail: print("networkFail")
+        //
+        //            }
+        //        }
         
         
-//        placeService.shared.getPlaces(urlString){ networkResult in
-//            switch networkResult {
-//            case .success(let products):
-//
-//                print("success")
-//                guard let places = products as? placeListClass else { return }
-//                for i in 0..<places.result.count{
-//                    self.placeListData.append(places.result[i])
-//                }
-//                self.placeListTV.reloadData()
-//                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
-//            case .requestErr(let message):
-//
-//                print("requestErr")
-//
-//                guard let message = message as? String else { return }
-//                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
-//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-//                alertViewController.addAction(action)
-//                self.present(alertViewController, animated: true, completion: nil)
-//            case .pathErr: print("pathErr")
-//            case .serverErr: print("serverErr")
-//            case .networkFail: print("networkFail")
-//
-//            }
-//        }
+        //        placeService.shared.getPlaces(urlString){ networkResult in
+        //            switch networkResult {
+        //            case .success(let products):
+        //
+        //                print("success")
+        //                guard let places = products as? placeListClass else { return }
+        //                for i in 0..<places.result.count{
+        //                    self.placeListData.append(places.result[i])
+        //                }
+        //                self.placeListTV.reloadData()
+        //                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
+        //            case .requestErr(let message):
+        //
+        //                print("requestErr")
+        //
+        //                guard let message = message as? String else { return }
+        //                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
+        //                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+        //                alertViewController.addAction(action)
+        //                self.present(alertViewController, animated: true, completion: nil)
+        //            case .pathErr: print("pathErr")
+        //            case .serverErr: print("serverErr")
+        //            case .networkFail: print("networkFail")
+        //
+        //            }
+        //        }
+    }
+    
+    @objc private func keywordNotification(_ notification: NSNotification) {
+        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else { return }
+        keyword = injectedModel
+        /// `1. 버튼 색 변경`
+        /// `2. 라벨 변경`
+        /// `3. 쿼리스트링 Int >> `
+        if keyword.count != 0 {
+            NotificationCenter.default.post(name: .searchKeywordNotification, object: self, userInfo: ["searchKeyword":keyword])
+            
+            keyword.map({
+                print($0)
+            })
+            
+            placeService.shared.getPlaces(subwayquery, keywordquery) { data in
+                if let metaData = data {
+                    
+                    let LargeData = metaData
+                    guard let datum = LargeData.result else { return }
+                    //                print("datum: \(datum)\n")
+                    self.placeListData = datum
+                    self.placeListTV.reloadData()
+                    self.sumNum.text = "총 \(self.placeListData.count)개 결과"
+                }
+            }
+        }
+    }
+    
+    @objc private func usefulNotification(_ notification: NSNotification) {
+        guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else { return }
+        useful = injectedModel
         
+        if useful.count != 0 {
+            NotificationCenter.default.post(name: .searchUsefulNotification, object: self, userInfo: ["searchuseful":useful])
+            
+            placeService.shared.getPlaces(keywordquery, subwayquery) { data in
+                if let metaData = data {
+                    
+                    let LargeData = metaData
+                    guard let datum = LargeData.result else { return }
+                    //                print("datum: \(datum)\n")
+                    self.placeListData = datum
+                    self.placeListTV.reloadData()
+                    self.sumNum.text = "총 \(self.placeListData.count)개 결과"
+                }
+            }
+        }
     }
     private func setNavigationBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
@@ -152,7 +202,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
 }
 
 extension ChildVC: UITableViewDelegate,UITableViewDataSource{
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return placeListData.count
     }
@@ -195,7 +245,7 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         
         var dataInfo: String = ""
         var subwayInfo: String = ""
-//        let placeData = placeListData
+        //        let placeData = placeListData
         
         guard let subway = placeListData[indexPath.row].subway else {
             return UITableViewCell()
@@ -209,18 +259,18 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
             print("indexPath.row: \(indexPath.row)")
             print("subway count: \(subway.count)")
             for i in 0..<subway.count {
-              
+                
                 guard let name = subway[i].subwayName else { return UITableViewCell() }
-
+                
                 subwayInfo = subwayInfo + name
-
-//                if i == subway.count-1 {
-//                    subwayInfo = subwayInfo + name
-//                }
-//                else {
-//                    subwayInfo = subwayInfo + subway[i].subwayName! + "/"
-//                    //                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName + "/"
-//                }
+                
+                //                if i == subway.count-1 {
+                //                    subwayInfo = subwayInfo + name
+                //                }
+                //                else {
+                //                    subwayInfo = subwayInfo + subway[i].subwayName! + "/"
+                //                    //                subwayInfo = subwayInfo + placeListData[indexPath.row].subway[i].subwayName + "/"
+                //                }
             }
         }
         

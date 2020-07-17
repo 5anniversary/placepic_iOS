@@ -235,7 +235,20 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
         
         //**setTag
-        if placeDetailData?.keyword.count == 1{
+        for i in 0..<3{
+            placeTag[i].clipsToBounds = true
+            placeTag[i].layer.borderWidth = 2
+            placeTag[i].layer.borderColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
+            placeTag[i].backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+            placeTag[i].layer.cornerRadius = 4
+            placeTag[i].isEnabled = false
+        }
+        if placeDetailData?.keyword.count == 0{
+            placeTag[0].isHidden = true
+            placeTag[1].isHidden = true
+            placeTag[2].isHidden = true
+        }
+        else if placeDetailData?.keyword.count == 1{
             placeTag[0].text = placeDetailData?.keyword[0]
             placeTag[1].isHidden = true
             placeTag[2].isHidden = true
@@ -250,19 +263,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             placeTag[1].text = placeDetailData?.keyword[1]
             placeTag[2].text = placeDetailData?.keyword[2]
         }
-        else if placeDetailData?.keyword.count == 0{
-            placeTag[0].isHidden = true
-            placeTag[1].isHidden = true
-            placeTag[2].isHidden = true
-        }
-        for i in 0..<3{
-            placeTag[i].clipsToBounds = true
-            placeTag[i].layer.borderWidth = 2
-            placeTag[i].layer.borderColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
-            placeTag[i].backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
-            placeTag[i].layer.cornerRadius = 4
-            placeTag[i].isEnabled = false
-        }
+        
         scrapNum.text = "\(scrapcount)"
 
         if placeDetailData?.categoryIdx == 1{
@@ -347,10 +348,15 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             }
         }
     }
+    
+    @IBOutlet weak var webButton: UIButton!
+    
     private func setView(){
-        
+        webButton.layer.borderWidth = 1.5
+        webButton.layer.cornerRadius = 7
+        webButton.layer.borderColor = UIColor.gray50.cgColor
+//        webButton.layer.borderColor = CGColor.init(srgbRed: 173, green: 182, blue: 189, alpha: 0)
         detailViewHC.constant = self.detailTextView.contentSize.height
-//        detailViewHC.constant = CGFloat(100)
 
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         detailImg.isInfinite = false
