@@ -26,15 +26,14 @@ struct placeService {
         ]
         
         if keyword == "" && subway == "" {
-            Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
-                print(response.request)
+            Alamofire.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+                print("request:: \(response.request)")
                 switch response.result {
                 case .success:
                     guard let data = response.data else { return }
                     do {
                         let decoder = JSONDecoder()
                         let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
-                        print("object: \(object)")
                         if object.success {
                             completion(object.data)
                         } else {
@@ -48,21 +47,18 @@ struct placeService {
                     completion(nil)
                 }
             }
-        }
-        
-        if subway == "" {
+        } else if subway == "" {
             let keywordParam: Parameters = [
                 "tagIdx": keyword,
             ]
             Alamofire.request(url, method: .get, parameters: keywordParam, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
-                print(response.request)
+                print("request:: \(response.request)")
                 switch response.result {
                 case .success:
                     guard let data = response.data else { return }
                     do {
                         let decoder = JSONDecoder()
                         let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
-                        print("object: \(object)")
                         if object.success {
                             completion(object.data)
                         } else {
@@ -76,20 +72,18 @@ struct placeService {
                     completion(nil)
                 }
             }
-        }
-        if keyword == "" {
+        } else if keyword == "" {
             let subwayParam: Parameters = [
                 "subwayIdx": subway
             ]
             Alamofire.request(url, method: .get, parameters: subwayParam, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
-                print(response.request)
+                print("request:: \(response.request)")
                 switch response.result {
                 case .success:
                     guard let data = response.data else { return }
                     do {
                         let decoder = JSONDecoder()
                         let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
-                        print("object: \(object)")
                         if object.success {
                             completion(object.data)
                         } else {
@@ -103,17 +97,15 @@ struct placeService {
                     completion(nil)
                 }
             }
-        }
-        if keyword != "" && subway != "" {
+        } else if keyword != "" && subway != "" {
             Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
-                print(response.request)
+                print("request:: \(response.request)")
                 switch response.result {
                 case .success:
                     guard let data = response.data else { return }
                     do {
                         let decoder = JSONDecoder()
                         let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
-                        print("object: \(object)")
                         if object.success {
                             completion(object.data)
                         } else {

@@ -51,7 +51,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     }
     
     @IBAction func webButton(_ sender: Any) {
-        print(placeDetailData?.mobileNaverMapLink ?? "")
+//        print(placeDetailData?.mobileNaverMapLink ?? "")
 //        guard let urls = URL(string: placeDetailData!.mobileNaverMapLink), UIApplication.shared.canOpenURL(urls) else { return }
 //        print("url : \(urls)")
 //        UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -197,9 +197,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDetailData()
-        
-        
+        getDetailData()        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -324,7 +322,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         if placeDetailData?.isBookmarked == true{
             bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
         }
-        
     }
     
     private func getDetailData() {

@@ -22,7 +22,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     var useful: [Int] = []
     
     var subwayquery: String = ""
-    var keywordquery: String = "1"
+    var keywordquery: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,9 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
     func textFieldDidChange(sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
     }
+    
     func getData() {
+        
         var urlString: String = ""
         if childNumber == "맛집" {
             urlString = "?categoryIdx=1"
@@ -76,61 +78,17 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
             urlString = "?categoryIdx=5"
         }
         
+        print(#function)
         placeService.shared.getPlaces(keywordquery, subwayquery) { data in
             if let metaData = data {
-                print("123123")
                 let LargeData = metaData
                 guard let datum = LargeData.result else { return }
                 //                print("datum: \(datum)\n")
-                print(datum)
                 self.placeListData = datum
                 self.placeListTV.reloadData()
                 self.sumNum.text = "총 \(self.placeListData.count)개 결과"
             }
         }
-        
-        //                self.placeListTV.reloadData()
-        //                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
-        //            case .requestErr(let message):
-        //                guard let message = message as? String else { return }
-        //                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
-        //                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-        //                alertViewController.addAction(action)
-        //                self.present(alertViewController, animated: true, completion: nil)
-        //            case .pathErr: print("pathErr")
-        //            case .serverErr: print("serverErr")
-        //            case .networkFail: print("networkFail")
-        //
-        //            }
-        //        }
-        
-        
-        //        placeService.shared.getPlaces(urlString){ networkResult in
-        //            switch networkResult {
-        //            case .success(let products):
-        //
-        //                print("success")
-        //                guard let places = products as? placeListClass else { return }
-        //                for i in 0..<places.result.count{
-        //                    self.placeListData.append(places.result[i])
-        //                }
-        //                self.placeListTV.reloadData()
-        //                self.sumNum.text = "총 \(self.placeListData.count)개 결과"
-        //            case .requestErr(let message):
-        //
-        //                print("requestErr")
-        //
-        //                guard let message = message as? String else { return }
-        //                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
-        //                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-        //                alertViewController.addAction(action)
-        //                self.present(alertViewController, animated: true, completion: nil)
-        //            case .pathErr: print("pathErr")
-        //            case .serverErr: print("serverErr")
-        //            case .networkFail: print("networkFail")
-        //
-        //            }
-        //        }
     }
     
     @objc private func keywordNotification(_ notification: NSNotification) {
@@ -140,13 +98,20 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         /// `2. 라벨 변경`
         /// `3. 쿼리스트링 Int >> `
         if keyword.count != 0 {
-            NotificationCenter.default.post(name: .searchKeywordNotification, object: self, userInfo: ["searchKeyword":keyword])
+            NotificationCenter.default.post(name: .searchKeywordNotification, object: self, userInfo: ["searchKeyword": keyword])
             
-            keyword.map({
-                print($0)
-            })
+            var word = ""
             
-            placeService.shared.getPlaces(subwayquery, keywordquery) { data in
+            for i in 0..<keyword.count {
+                if i == keyword.count-1 {
+                    word = word + String(describing: keyword[i])
+                } else {
+                    word = word + String(describing: keyword[i]) + ","
+
+                }
+            }
+            print("keyword : \(word)")
+            placeService.shared.getPlaces(word, subwayquery) { data in
                 if let metaData = data {
                     
                     let LargeData = metaData
@@ -164,10 +129,20 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         guard let injectedModel = notification.userInfo?["indexPath.item"] as? [Int] else { return }
         useful = injectedModel
         
-        if useful.count != 0 {
-            NotificationCenter.default.post(name: .searchUsefulNotification, object: self, userInfo: ["searchuseful":useful])
+       if useful.count != 0 {
+            NotificationCenter.default.post(name: .searchKeywordNotification, object: self, userInfo: ["searchuseful": useful])
+            var word = ""
             
-            placeService.shared.getPlaces(keywordquery, subwayquery) { data in
+            for i in 0..<keyword.count {
+                if i == keyword.count {
+                    word = word + String(describing: keyword[i])
+                } else {
+                    word = word + String(describing: keyword[i]) + ","
+                }
+            }
+            print("keyword : \(word)")
+            
+            placeService.shared.getPlaces(word, subwayquery) { data in
                 if let metaData = data {
                     
                     let LargeData = metaData
@@ -251,17 +226,12 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
             return UITableViewCell()
         }
         print("@@@")
-        print(placeListData)
-        print("subway : \(subway)\n")
-        
+//        print(placeListData)
+//        print("subway : \(subway)\n")
+
         if subway.count != 0 {
-            
-            print("indexPath.row: \(indexPath.row)")
-            print("subway count: \(subway.count)")
             for i in 0..<subway.count {
-                
                 guard let name = subway[i].subwayName else { return UITableViewCell() }
-                
                 subwayInfo = subwayInfo + name
                 
                 //                if i == subway.count-1 {
@@ -290,7 +260,6 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         for i in 0..<placeListData[indexPath.row].tag!.count{
             tags.append((placeListData[indexPath.row].tag?[i].tagName)!)
         }
-        print(tags)
         
         if tags.count == 0 {
             placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: "", pTag2: "", pTag3: "")
@@ -310,10 +279,8 @@ extension ChildVC: UITableViewDelegate,UITableViewDataSource{
         else if tags.count > 2 {
             placeListCell.setPlaceInfo(pName: placeListData[indexPath.row].placeName!, pSubway: subwayInfo, pDate: dataInfo, pPhoto: (placeListData[indexPath.row].imageURL?[0])!, pWriter: (placeListData[indexPath.row].user?.profileURL)!, wName: (placeListData[indexPath.row].user?.userName)!, pTag1: tags[0], pTag2: tags[1], pTag3: "...")
         }
-        
         return placeListCell
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 125
