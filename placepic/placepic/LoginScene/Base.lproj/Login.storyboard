@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H06-d0-dpg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l34-1L-Dd3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -24,11 +24,8 @@
                                     <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uyl-ZE-dtZ"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placepicIc" translatesAutoresizingMaskIntoConstraints="NO" id="UAb-so-88Z">
-                                <rect key="frame" x="136" y="237" width="103" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29" id="bxC-DO-xCr"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placepicMainColorIc" translatesAutoresizingMaskIntoConstraints="NO" id="UAb-so-88Z">
+                                <rect key="frame" x="127.5" y="274" width="120" height="42"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiV-dG-1Bi">
                                 <rect key="frame" x="14" y="503" width="347" height="50"/>
@@ -43,13 +40,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FS5-yj-yB3" firstAttribute="top" secondItem="IiV-dG-1Bi" secondAttribute="bottom" constant="15" id="6ha-xY-Mgy"/>
-                            <constraint firstItem="UAb-so-88Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="T5N-AP-NUf"/>
+                            <constraint firstItem="UAb-so-88Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="RmM-x4-19K"/>
                             <constraint firstItem="FS5-yj-yB3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="UhO-vj-PXe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FS5-yj-yB3" secondAttribute="trailing" constant="14" id="W5E-GB-Aug"/>
                             <constraint firstItem="IiV-dG-1Bi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="Z1U-So-Mgd"/>
+                            <constraint firstItem="UAb-so-88Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fx7-2Y-AwO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IiV-dG-1Bi" secondAttribute="trailing" constant="14" id="p7l-F0-c0A"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UAb-so-88Z" secondAttribute="trailing" constant="136" id="q0c-ke-8fN"/>
-                            <constraint firstItem="IiV-dG-1Bi" firstAttribute="top" secondItem="UAb-so-88Z" secondAttribute="bottom" constant="224" id="sXN-3w-aAT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FS5-yj-yB3" secondAttribute="bottom" constant="49" id="t6H-YH-uhM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -121,6 +117,7 @@
                                             </constraints>
                                             <connections>
                                                 <action selector="buttonAction:" destination="Vkv-DE-dfR" eventType="touchUpInside" id="Mgr-Nh-4oU"/>
+                                                <action selector="grouptablewaitingbuttonAction:" destination="Vkv-DE-dfR" eventType="touchUpInside" id="fyL-rG-1Zs"/>
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteNextArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="TGW-dk-g1k">
@@ -248,10 +245,10 @@
                     <navigationItem key="navigationItem" id="guQ-df-DLz"/>
                     <connections>
                         <outlet property="GroupListTV" destination="0Pp-a4-mIE" id="d9c-LY-Cbu"/>
-                        <outlet property="GroupWaitingButton" destination="Dt0-gy-Gwa" id="bXZ-6i-qhZ"/>
+                        <outlet property="Grouptablewaitingbutton" destination="Dt0-gy-Gwa" id="cpN-gb-O4v"/>
                         <outlet property="backButton" destination="FGH-zu-jca" id="FnY-da-O7D"/>
                         <outlet property="backLabel" destination="Ta5-xP-Dfk" id="2vU-1H-Vg6"/>
-                        <outlet property="backWaitingbutton" destination="8MP-av-F3g" id="er7-hp-7kE"/>
+                        <outlet property="backWaitingbutton" destination="8MP-av-F3g" id="fEC-VH-1LB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHa-QF-GEi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -797,6 +794,9 @@
                                     <constraint firstAttribute="width" constant="347" id="vdz-Nh-sCK"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonAction:" destination="H06-d0-dpg" eventType="touchUpInside" id="FBo-w2-I5Q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -822,7 +822,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GYv-3B-1sO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4850" y="-906"/>
+            <point key="canvasLocation" x="3806" y="-906"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tK6-ez-J1g">
@@ -1319,7 +1319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Op-d0-8l8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4017" y="-906"/>
+            <point key="canvasLocation" x="3028" y="-906"/>
         </scene>
         <!--Send2VC-->
         <scene sceneID="RJ0-aI-LvY">
@@ -1449,7 +1449,7 @@
         <image name="doneIc" width="40" height="40"/>
         <image name="groupIc" width="40" height="40"/>
         <image name="nextArrowIc" width="24" height="24"/>
-        <image name="placepicIc" width="121" height="42"/>
+        <image name="placepicMainColorIc" width="120" height="42"/>
         <image name="whiteNextArrowIc" width="24" height="24"/>
     </resources>
 </document>

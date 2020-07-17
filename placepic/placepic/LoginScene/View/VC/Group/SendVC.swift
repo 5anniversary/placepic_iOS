@@ -10,11 +10,23 @@ import UIKit
 import Kingfisher
 
 class SendVC: UIViewController {
+    
+    var groupimage1 : String! = ""
+    var groupname1 : String! = ""
+    
+
+        
     @IBOutlet weak var groupImageview: UIImageView!
     @IBOutlet weak var alertLabel: UILabel!
     @IBOutlet weak var Label2: UILabel!
-    @IBOutlet weak var button1: UIButton!
+
     @IBOutlet weak var button2: UIButton!
+    @IBAction func buttonAction(_ sender: Any) {
+ 
+        navigationController?.popToRootViewController(animated: false)
+             
+        
+    }
     
    // var model: SubwayModel?
     override func viewWillAppear(_ animated: Bool) {
@@ -31,48 +43,55 @@ class SendVC: UIViewController {
         setalertlabel()
         setbutton()
         groupImageview.layer.cornerRadius = groupImageview.frame.height/2
+        setNavi()
+//        let groupimage1 = ""
+//        let groupname1 = ""
         
-        let url = URL(string: "https://firebasestorage.googleapis.com/v0/b/honggun-blog.appspot.com/o/%E1%84%91%E1%85%B5%E1%84%8F%E1%85%A1%E1%84%8E%E1%85%B2.png?alt=media&token=68c2ffff-81a5-4db9-a67e-b776242cea02")
+//        GroupUpVC.groupinfo.groupName
+//        GroupUpVC.groupinfo.groupImage
+        
+        
+        let url = URL(string: groupimage1)
         groupImageview.kf.setImage(with: url)
        
         // Do any additional setup after loading the view.
     }
     
 
-//    private func setNavi() { //타이틀이 가운데에 있는 네비
-//               guard let navigationBar = self.navigationController?.navigationBar else { return }
-//               
-//               navigationBar.isTranslucent = true
-//               navigationBar.backgroundColor = UIColor.clear
-//               navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//               navigationBar.shadowImage = UIImage()
-//               
-//               let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-//                                                                 style: .plain,
-//                                                                 target: self,
-//                                                                 action: #selector(dismissVC))
-//               
-//               navigationItem.leftBarButtonItem = leftButton
-//               navigationItem.title = "승인 대기중인 그룹"
-//           }
-//           
-//           @objc func dismissVC() {
-//               navigationController?.popViewController(animated: true)
-//               
-//               let transform = CGAffineTransform(translationX: 0, y: 100)
-//               self.tabBarController?.tabBar.isHidden = false
-//               tabBarController?.tabBar.transform = transform
-//               
-//               UIView.animate(withDuration: 0.5,
-//                              delay: 0,
-//                              usingSpringWithDamping: 1,
-//                              initialSpringVelocity: 1,
-//                              options: .curveEaseOut,
-//                              animations: {
-//                               self.tabBarController?.tabBar.transform = .identity
-//                               
-//               }, completion: nil)
-//           }
+    private func setNavi() { //타이틀이 가운데에 있는 네비
+               guard let navigationBar = self.navigationController?.navigationBar else { return }
+               
+               navigationBar.isTranslucent = true
+               navigationBar.backgroundColor = UIColor.clear
+               navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+               navigationBar.shadowImage = UIImage()
+               
+               let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(dismissVC))
+               
+               navigationItem.leftBarButtonItem = leftButton
+               navigationItem.title = "승인 대기중인 그룹"
+           }
+           
+           @objc func dismissVC() {
+               navigationController?.popViewController(animated: true)
+               
+               let transform = CGAffineTransform(translationX: 0, y: 100)
+               self.tabBarController?.tabBar.isHidden = false
+               tabBarController?.tabBar.transform = transform
+               
+               UIView.animate(withDuration: 0.5,
+                              delay: 0,
+                              usingSpringWithDamping: 1,
+                              initialSpringVelocity: 1,
+                              options: .curveEaseOut,
+                              animations: {
+                               self.tabBarController?.tabBar.transform = .identity
+                               
+               }, completion: nil)
+           }
     
 }
 
@@ -112,7 +131,7 @@ extension SendVC{
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 0.81
         alertLabel.textAlignment = .center
-        alertLabel.attributedText = NSMutableAttributedString(string: "SOPT 가입 신청이 \n완료되었습니다! :(", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        alertLabel.attributedText = NSMutableAttributedString(string: "\(String(describing: groupname1 ?? "")) 가입 신청이 \n완료되었습니다! :)", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
         Label2.frame = CGRect(x: 0, y: 0, width: 141, height: 34)
         Label2.backgroundColor = .white

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1302CA9424B2DF870013CACC /* GroupListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302CA9324B2DF870013CACC /* GroupListTVC.swift */; };
 		13AACE9324C1B3EE000E89EC /* GroupSendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AACE9224C1B3EE000E89EC /* GroupSendService.swift */; };
+		13B5AFC724C2261500819AEB /* NetworkResultforGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B5AFC624C2261500819AEB /* NetworkResultforGroup.swift */; };
 		13B9DC0124BD963200D15591 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFA24BD963200D15591 /* APIConstants.swift */; };
 		13B9DC0324BD963200D15591 /* groupListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFC24BD963200D15591 /* groupListData.swift */; };
 		13B9DC0424BD963200D15591 /* GroupListmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9DBFD24BD963200D15591 /* GroupListmodel.swift */; };
@@ -147,6 +148,7 @@
 /* Begin PBXFileReference section */
 		1302CA9324B2DF870013CACC /* GroupListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListTVC.swift; sourceTree = "<group>"; };
 		13AACE9224C1B3EE000E89EC /* GroupSendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSendService.swift; sourceTree = "<group>"; };
+		13B5AFC624C2261500819AEB /* NetworkResultforGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResultforGroup.swift; sourceTree = "<group>"; };
 		13B9DBFA24BD963200D15591 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		13B9DBFC24BD963200D15591 /* groupListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupListData.swift; sourceTree = "<group>"; };
 		13B9DBFD24BD963200D15591 /* GroupListmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListmodel.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				13B9DC1324BD96D800D15591 /* SignupService.swift */,
 				13B9DC7024BFB73C00D15591 /* GroupWaitService.swift */,
 				13AACE9224C1B3EE000E89EC /* GroupSendService.swift */,
+				13B5AFC624C2261500819AEB /* NetworkResultforGroup.swift */,
 			);
 			path = APIConstants;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 				3D84896924B4116F00AE6A45 /* (null) in Sources */,
 				3DCE5F7724B5199600BAF927 /* HomeKeywordCVC.swift in Sources */,
 				3D6C163324B83BF20050979C /* Notification.swift in Sources */,
+				13B5AFC724C2261500819AEB /* NetworkResultforGroup.swift in Sources */,
 				3D6BAF8924AF9B5000F6339E /* KeywordCell.swift in Sources */,
 				AE34146E24B6251C00425889 /* adminUserModel.swift in Sources */,
 				3D7BF87B24BEC8D90031EE6D /* UploadServices.swift in Sources */,

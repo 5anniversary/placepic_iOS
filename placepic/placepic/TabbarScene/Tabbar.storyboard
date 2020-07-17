@@ -59,7 +59,7 @@
         <!--Tabbar Controller-->
         <scene sceneID="LAU-0N-EAb">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TvZ-eJ-phw" customClass="TabbarController" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarController" automaticallyAdjustsScrollViewInsets="NO" id="TvZ-eJ-phw" customClass="TabbarController" customModule="placepic" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5FV-Ja-a5P">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

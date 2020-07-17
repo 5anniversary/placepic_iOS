@@ -38,6 +38,7 @@ class SigninVC: UIViewController {
                 guard let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "nextNavi") else { return }
                 secondViewController.modalPresentationStyle = .fullScreen
                 self.present(secondViewController, animated: true)
+                
                 //
                 
 //                let GroupController = self.storyboard.instantiateViewControllerWithIdentifier("SecondViewController") as SecondViewController
