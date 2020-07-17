@@ -81,7 +81,7 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                 print("datum: \(datum)\n")
 
                 self.placeListData = datum
-                self.placeListTV.reloadData()
+//                self.placeListTV.reloadData()
             }
         }
         

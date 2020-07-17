@@ -86,7 +86,7 @@ extension ArticleUploadVC {
     }
     
     private func alertaction() {
-        let alert = UIAlertController(title: "Your Title", message: "Your Message", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "작성 완료", message: "", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
             self.postAction()
         }
@@ -218,7 +218,7 @@ extension ArticleUploadVC {
                 }
             }
         })
-        print("storageUsefulKeywㄷordData: \(storageUsefulKeywordData)\n")
+        print("storageUsefulKeywordData: \(storageUsefulKeywordData)\n")
         collectionView.reloadData()
     }
     
@@ -290,7 +290,7 @@ extension ArticleUploadVC: UICollectionViewDelegateFlowLayout {
         case 3:
             return CGSize(width: width, height: returnUsefulInfoDynamicHeight())
         case 4:
-            let marginConstant: CGFloat = 100 // Keyboard 칠 공간이 없어욥
+            let marginConstant: CGFloat = 200 // Keyboard 칠 공간이 없어욥
             return CGSize(width: width, height: 452 + marginConstant)
         default:
             assert(false)
@@ -347,6 +347,8 @@ extension ArticleUploadVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        print(#function)
         switch indexPath.section {
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OutterUploadPhotoCVC", for: indexPath) as? OutterUploadPhotoCVC else {

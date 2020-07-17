@@ -13,18 +13,32 @@ class MypageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setNavigationBar()
+    }
+}
+
+extension MypageVC {
+
+    func setNavigationBar() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        
+        
+        
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "downArrowIc"),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(dismissVC))
+        
+        navigationItem.leftBarButtonItem = leftButton
+        navigationItem.title = "최애장소 등록하기"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func dismissVC() {
+        
     }
-    */
-
 }
