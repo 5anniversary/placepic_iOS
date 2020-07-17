@@ -265,7 +265,6 @@
 		13B9DC0724BD96A900D15591 /* APIConstants */ = {
 			isa = PBXGroup;
 			children = (
-				13B9DC1824BD96D800D15591 /* Emailmodel.swift */,
 				13B9DC0A24BD96D700D15591 /* EmailService.swift */,
 				13B9DC1724BD96D800D15591 /* GroupListService.swift */,
 				13B9DC0924BD96D700D15591 /* GroupPartiService.swift */,
@@ -273,7 +272,6 @@
 				13B9DC1924BD96D800D15591 /* LoginService.swift */,
 				13B9DC1324BD96D800D15591 /* SignupService.swift */,
 				13B9DC7024BFB73C00D15591 /* GroupWaitService.swift */,
-				13B9DC7424C0209000D15591 /* GroupApplyModel.swift */,
 			);
 			path = APIConstants;
 			sourceTree = "<group>";
@@ -474,6 +472,8 @@
 		3DECB78F24A927FF00D54DBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				13B9DC7424C0209000D15591 /* GroupApplyModel.swift */,
+				13B9DC1824BD96D800D15591 /* Emailmodel.swift */,
 				13B9DBFA24BD963200D15591 /* APIConstants.swift */,
 				13B9DBFC24BD963200D15591 /* groupListData.swift */,
 				13B9DBFD24BD963200D15591 /* GroupListmodel.swift */,

@@ -18,7 +18,8 @@ class GroupWaitTVC: UITableViewCell {
     @IBOutlet weak var label5: UILabel!
     
     
-    static let identifier: String = "GroupPartiTVC"
+    static let identifier: String = "GroupWaitTVC"
+    
     override func awakeFromNib() {
             super.awakeFromNib()
             labelStyle()
@@ -36,7 +37,6 @@ class GroupWaitTVC: UITableViewCell {
             
             print(#function)
             image1.kf.setImage(with: URL(string: profileImageName))
-            print(URL(string: profileImageName))
             label1.text = name
             label2.text = String(numofPeople)
             label4.text = String (numofPost)

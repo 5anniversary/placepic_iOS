@@ -8,6 +8,9 @@
 
 import UIKit
 
+   var inputpart : String!
+   var inputnum : String!
+
 class GroupUpVC: UIViewController {
     @IBOutlet weak var belongLabel: UILabel!
     @IBOutlet weak var belongTxtbox: UITextField!
@@ -20,9 +23,10 @@ class GroupUpVC: UIViewController {
         
         guard let inputpart = belongTxtbox.text else { return }
         guard let inputnum = partTxtbox.text else { return }
-        var groupindex = 5
+       
+        let groupIdx2 = UserDefaults.standard.integer(forKey: "groupIdx")
         
-        GroupUpService.shared.groupup(part: inputpart, phonenumber: inputnum, groupIdx: groupindex) { networkResult in
+        GroupUpService.shared.signup(part: inputpart, phoneNumber: inputnum, groupIdx: groupIdx2 ) { networkResult in
             switch networkResult {
                 
             case .success(let token):
@@ -40,15 +44,14 @@ class GroupUpVC: UIViewController {
                 //                guard let message = message as? String else { return }
                 //                let alertViewController = UIAlertController(title: "로그인 실패", message: message,
                 //                                                            preferredStyle: .alert)
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "그룹신청 실패", message: message,
+                                                            preferredStyle: .alert)
+                alertViewController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                self.present(alertViewController, animated: true)
                 
-                let alert = UIAlertController(title: "로그인에 실패하였습니다.", message: "입력하신 이메일과 비밀번호를 /n 확인 후 다시 확인해주세요.", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-                
-                
-                self.present(alert, animated: true)
-                
-                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+               
+        
                 //                alertViewController.addAction(action)
                 //                self.present(alertViewController, animated: true, completion: nil)
                 
@@ -75,6 +78,7 @@ class GroupUpVC: UIViewController {
         //            setButtonSuc()
         setNavigationBar()
         setNavi()
+        sendButton.isEnabled = false
         
     }
     
@@ -273,6 +277,7 @@ class GroupUpVC: UIViewController {
         {
             sendButton.layer.backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1).cgColor
             sendButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            sendButton.isEnabled = true
         }
     }
     

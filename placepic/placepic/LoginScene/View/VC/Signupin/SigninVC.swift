@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class SigninVC: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
@@ -25,12 +26,20 @@ class SigninVC: UIViewController {
             switch networkResult {
                 
             case .success(let token):
+                
                 guard let token = token as? String else { return }
+//                print("11231312312312312")
+//                print(token)
+                
                 UserDefaults.standard.set(token, forKey: "token")
                 
-                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "GroupListVC") as! GroupListVC
-                self.navigationController?.pushViewController(secondViewController, animated: true)
-                
+//                guard let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "GroupListVC") as? GroupListVC else { return }
+//                self.navigationController?.pushViewController(secondViewController, animated: true)
+                                
+                guard let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "nextNavi") else { return }
+                secondViewController.modalPresentationStyle = .fullScreen
+                self.present(secondViewController, animated: true)
+                //
                 
 //                let GroupController = self.storyboard.instantiateViewControllerWithIdentifier("SecondViewController") as SecondViewController
 //                self.navigationController.pushViewController(secondViewController, animated: true)
@@ -180,7 +189,7 @@ class SigninVC: UIViewController {
                                                           action: #selector(dismissVC))
         
         navigationItem.leftBarButtonItem = leftButton
-        navigationItem.title = "회원가입"
+        navigationItem.title = "로그인"
     }
     
     

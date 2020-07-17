@@ -11,13 +11,18 @@ import UIKit
 class GroupWaitVC: UIViewController {
     @IBOutlet weak var GroupWaitTV: UITableView!
     
+  //  let groupindex = groups[indexPath.row].groupIdx
+ 
+//    let waitinggroups = UserDefaults.standard.integer(forKey: "groupIdx")
+    
     private var dataInformations: [groupData] = []
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            getData()
             GroupWaitTV.delegate = self
             GroupWaitTV.dataSource = self
-            getData()
+
             setNavi()
             
     //
@@ -124,7 +129,7 @@ class GroupWaitVC: UIViewController {
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             print(indexPath.row)
             
-            guard let vc = storyboard?.instantiateViewController(identifier: "SendVC") as? SendVC else { return }
+//            guard let vc = storyboard?.instantiateViewController(identifier: "SendVC") as? SendVC else { return }
             
     //        vc.model =
             
@@ -137,8 +142,8 @@ class GroupWaitVC: UIViewController {
         //    cell.imageView.contentMode = UIViewContentMode.scaleAspectFit
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let TableViewCell = tableView.dequeueReusableCell(withIdentifier: "GroupPartiTVC", for:
-                indexPath) as? GroupPartiTVC else { return UITableViewCell() }
+            guard let TableViewCell = tableView.dequeueReusableCell(withIdentifier: "GroupWaitTVC", for:
+                indexPath) as? GroupWaitTVC else { return UITableViewCell() }
             
             //            TableViewCell.setDataInformation(profileImageName: myProfile[0].photo, name: myProfile[0].name, status: myProfile[0].status)
             
@@ -146,6 +151,7 @@ class GroupWaitVC: UIViewController {
             //            TableViewCell.underBar.alpha = 0
             
             //(profileImageName: String, name: String, numofPeople:String, numofPost:String)
+            print("..................................")
             print(dataInformations)
             TableViewCell.setDataInformation(profileImageName:dataInformations[indexPath.row].groupImage,
                                              name: dataInformations[indexPath.row].groupName,
@@ -184,11 +190,12 @@ class GroupWaitVC: UIViewController {
     extension GroupWaitVC {
         
         func getData(){
-            GroupPartiService.shared.grouplist { networkResult in
+            GroupWaitService.shared.grouplist { networkResult in
                 switch networkResult {
                     
                 case .success(let products):
                     print("안ㅇㅎㅎㅎㅎㅎㅎㅎ")
+                    
                     
                     guard let groups = products as? [groupData] else {return}
                     print("dslk")
@@ -196,13 +203,16 @@ class GroupWaitVC: UIViewController {
                         self.dataInformations.append(groups[i])
                         print ("dslk")
                     }
+//                    if (self.dataInformations.count == 0){
+//                        self.GroupWaitTV.alpha = 0}
+                    
                     self.GroupWaitTV.reloadData()
                     
-                    guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-                        "nextNavi") as? UITabBarController else { return }
-                    tabbarController.modalPresentationStyle = .fullScreen
-                    self.present(tabbarController, animated: true, completion: nil)
-                    
+//                    guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+//                        "nextNavi") as? UITabBarController else { return }
+//                    tabbarController.modalPresentationStyle = .fullScreen
+//                    self.present(tabbarController, animated: true, completion: nil)
+//
                     
                 case .requestErr(let message):
                     
