@@ -44,7 +44,7 @@ extension FavoritePlaceSearchVC {
         nullPageTitle.font = .boldSystemFont(ofSize: 15)
         nullPageTitle.textColor = UIColor.blueGray30
         nullPageTitle.text = "등록하고 싶은 장소를 검색해보세요."
-    }
+    }	
     
     private func configureTableView() {
         tableView.delegate = self
@@ -92,11 +92,12 @@ extension FavoritePlaceSearchVC {
         ///`@@@@ group Index @@@@` 받아서 확인
         
         guard let searchText = searchTextField.text else { return }
+      
         PlaceSearchServices.placeSearchServices.getplaceSearchList(1, searchText) { data in
-            
             if let metaData = data {
                 self.placeLargeData = metaData
                 guard let datum = self.placeLargeData?.result else { return }
+                print(datum)
                 self.placeSearchData = datum
                 self.nullPageView.transform = .identity
                 self.tableView.reloadData()
@@ -107,7 +108,7 @@ extension FavoritePlaceSearchVC {
                                options: .curveEaseOut,
                                animations: {
                                 
-                                self.nullPageView.transform = CGAffineTransform(translationX: 600, y: 0)
+                                self.nullPageView.transform = CGAffineTransform(translationX: 0, y: 600)
                 },completion: { (_) in
                     self.nullPageView.alpha = 0
                 })
@@ -127,6 +128,7 @@ extension FavoritePlaceSearchVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FindfavoritePlaceTVC") as? FindfavoritePlaceTVC else {
             return UITableViewCell()
         }
+        
         cell.model = placeSearchData[indexPath.row]
         return cell
     }
@@ -135,11 +137,13 @@ extension FavoritePlaceSearchVC: UITableViewDataSource {
 extension FavoritePlaceSearchVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard let label = placeSearchData[indexPath.row].placeName else { return }
         guard let vc = storyboard?.instantiateViewController(identifier: "ArticleUploadVC") as? ArticleUploadVC else {
             return }
         guard let text = classifyText else { return }
+        
+        print("\(placeSearchData[indexPath.row])\n")
+        vc.placeSearchData = placeSearchData[indexPath.row]
         vc.classifyBadge = text
         vc.articleTitle = label
                 
@@ -154,7 +158,7 @@ extension FavoritePlaceSearchVC: UITableViewDelegate {
 }
 
 extension FavoritePlaceSearchVC: UITextFieldDelegate {
-    
+  
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         return true

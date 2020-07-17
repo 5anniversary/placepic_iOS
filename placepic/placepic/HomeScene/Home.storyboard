@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H66-GX-wqp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H66-GX-wqp">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="L1H-cO-M2N">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassifyFavoritePlaceTVCIdentifier" id="L1H-cO-M2N">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L1H-cO-M2N" id="P3J-ox-q9d">
@@ -247,25 +247,16 @@
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy1" translatesAutoresizingMaskIntoConstraints="NO" id="K3D-hx-V1l">
                                                                         <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeM-yA-o6E">
-                                                                        <rect key="frame" x="63.5" y="8" width="26.5" height="12"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="SeM-yA-o6E" secondAttribute="trailing" constant="8" id="FXA-fg-pIs"/>
                                                                     <constraint firstAttribute="trailing" secondItem="K3D-hx-V1l" secondAttribute="trailing" id="QJh-0T-Auc"/>
                                                                     <constraint firstItem="K3D-hx-V1l" firstAttribute="top" secondItem="iBU-eh-grf" secondAttribute="top" id="RFi-KW-b50"/>
                                                                     <constraint firstAttribute="bottom" secondItem="K3D-hx-V1l" secondAttribute="bottom" id="Zjq-E3-Ret"/>
-                                                                    <constraint firstItem="SeM-yA-o6E" firstAttribute="top" secondItem="iBU-eh-grf" secondAttribute="top" constant="8" id="sU2-1d-Oeo"/>
                                                                     <constraint firstItem="K3D-hx-V1l" firstAttribute="leading" secondItem="iBU-eh-grf" secondAttribute="leading" id="tvx-Or-gZb"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="98" height="98"/>
                                                             <connections>
-                                                                <outlet property="checkmarkLabel" destination="SeM-yA-o6E" id="qgT-Yq-O9h"/>
                                                                 <outlet property="imageView" destination="K3D-hx-V1l" id="lI3-zc-ZXO"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -507,7 +498,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="452"/>
                                         <connections>
-                                            <outlet property="reviewTextfield" destination="Fmp-nL-Agq" id="xPI-by-LRn"/>
+                                            <outlet property="reviewTextView" destination="Fmp-nL-Agq" id="ljQ-Gf-mze"/>
                                             <outlet property="reviewTitleLabel" destination="L5s-fK-7nm" id="k91-PY-4si"/>
                                         </connections>
                                     </collectionViewCell>
@@ -578,7 +569,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-Ah-ukb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="106"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GSq-dL-5LU">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
@@ -629,7 +620,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C4m-sR-aF4">
-                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
+                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X3h-ft-V5y">
@@ -655,6 +646,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="znC-t5-6sE"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4ap-Gs-dbf"/>
                     <connections>
                         <outlet property="collectionView" destination="GSq-dL-5LU" id="nlf-Sj-GtU"/>
                         <outlet property="searchTextField" destination="8Ye-9t-6Zc" id="kqB-fI-LWC"/>
@@ -664,7 +656,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b6-xH-uNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262" y="142"/>
+            <point key="canvasLocation" x="1273" y="798"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iiK-ou-49s">
+            <objects>
+                <navigationController storyboardIdentifier="subwayNavigation" automaticallyAdjustsScrollViewInsets="NO" id="hzI-Pv-oee" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ybY-pP-UKX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="J1J-xd-NTT" kind="relationship" relationship="rootViewController" id="ywT-F7-WFF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TQm-VB-ici" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="799"/>
         </scene>
     </scenes>
     <resources>

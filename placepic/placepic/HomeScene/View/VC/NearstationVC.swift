@@ -49,6 +49,7 @@ extension NearstationVC {
         searchTextField.clipsToBounds = true
         searchTextField.setLeftPaddingPoints(30)
         searchTextField.placeholder = "가까운 지하철 역을 검색해보세요"
+        searchTextField.delegate = self
     }
     
     @objc private func textFieldDidChage(_ textField: UITextField) {
@@ -128,7 +129,8 @@ extension NearstationVC {
             collectionView.reloadData()
         } else {
             NotificationCenter.default.post(name: .homeSendmodelNotification, object: nil, userInfo: ["model": collectionViewModel])
-        navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+//            navigationController?.popViewController(animated: true)
         }
     }
     
@@ -233,5 +235,13 @@ extension NearstationVC: UITableViewDataSource {
             cell.model = searchTemporaryModel[indexPath.row]
             return cell
         }
+    }
+}
+
+extension NearstationVC: UITextFieldDelegate {
+  
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
+        return true
     }
 }

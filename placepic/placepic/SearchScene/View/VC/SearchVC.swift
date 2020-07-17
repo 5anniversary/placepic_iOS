@@ -9,27 +9,43 @@ import UIKit
 import XLPagerTabStrip
 
 class SearchVC: ButtonBarPagerTabStripViewController {
-
-    var dataset: placeData?
+    
+//    var dataset: placeData?
     @IBOutlet var buttons: [UIButton]!
     var frame: CGRect!
     var label: UILabel!
     
-//    @IBAction func nextBut(_ sender: Any) {
-//        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "PeopleListView")
-//        //vcName?.modalTransitionStyle = .coverVertical
-//        self.present(vcName!, animated: true, completion: nil)
-//    }
-
+    var keywordData: [KeywordData] = []
+    var usefulData: [UsefulInformData] = []
+    
+    lazy var keywordModal: KeywordLauncher = {
+        let launcher = KeywordLauncher()
+        launcher.searchVC = self
+        return launcher
+    }()
+    
     override func viewDidLoad() {
         configureButtonBar()
         super.viewDidLoad()
         setNavigationBar()
         setButtons()
         addObserver()
-//        set()
+        setDefaultRequest()
+        
     }
-    
+    @IBAction func nearstationButtonAction (_ sender: Any) {
+
+        let sb = UIStoryboard.init(name: "Home", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "subwayNavigation")
+        present(vc, animated: true)
+    }
+    @IBAction func keywordButtonAction(_ sender: Any) {
+        keywordModal.showSettings("키워드", keywordData)
+    }
+    @IBAction func usefulInfoButtonAction(_ sender: Any) {
+        keywordModal.showSettings("장소 정보", usefulData)
+    }
+        
     private func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(buttonHidden), name: .changeChildViewVC, object: nil)
     }
@@ -37,13 +53,10 @@ class SearchVC: ButtonBarPagerTabStripViewController {
     @objc func buttonHidden(_ notification: NSNotification) {
         guard let childNumber = notification.userInfo?["childNumber"] as? String else { return }
         print(childNumber)
-//        print(#function)
         
         if childNumber == "전체" {
-            for i in 0..<buttons.count {
-                buttons[1].isHidden = true
-                buttons[2].isHidden = true
-            }
+            buttons[1].isHidden = true
+            buttons[2].isHidden = true
         } else {
             buttons.forEach({
                 $0.isHidden = false
@@ -55,7 +68,7 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
             print(changeCurrentIndex)
-
+            
             oldCell?.label.textColor = UIColor(white: 1, alpha: 0.6)
             newCell?.label.textColor = UIColor.white
             print(progressPercentage)
@@ -74,7 +87,6 @@ class SearchVC: ButtonBarPagerTabStripViewController {
     }
     // MARK: - Configuration
     
-    
     private func hideTabBar() {
         frame = self.tabBarController?.tabBar.frame
         let height = frame.size.height
@@ -90,6 +102,7 @@ class SearchVC: ButtonBarPagerTabStripViewController {
             buttons[i].layer.cornerRadius = 4
         }
     }
+    
     func getWidth(text: String) -> CGFloat {
         let txtField = UITextField(frame: .zero)
         txtField.text = text
@@ -105,18 +118,6 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
         
-        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-                                                          style: .plain,
-                                                          target: self,
-                                                          action: #selector(showSideMenuBar))
-        
-        //        leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        let leftButton2: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrowIc"),
-                                                           style: .plain,
-                                                           target: self,
-                                                           action: #selector(showSideMenuBar))
-        
-        //        leftButton2.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0.1)
         let titleLabel = UILabel()
         titleLabel.text = "플레이스"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
@@ -125,35 +126,6 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         let leftItem = UIBarButtonItem(customView: titleLabel)
         navigationItem.leftBarButtonItem = leftItem
     }
-    
-    @objc private func showSideMenuBar() {
-        
-    }
-    
-//    func getData(){
-//        placeService.shared.getPlaces() { networkResult in
-//            switch networkResult {
-//            case .success(let products):
-//                print("~!@@#!@#")
-//                guard let places = products as? [placeData] else { return }
-//                for i in 0..<places.count{
-//                    self.placeList.append(places[i])
-////                    print(self.placeList[i])
-//                }
-//                thatTableView.reloadData()
-//            case .requestErr(let message):
-//                guard let message = message as? String else { return }
-//                let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
-//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-//                alertViewController.addAction(action)
-//                self.present(alertViewController, animated: true, completion: nil)
-//            case .pathErr: print("path")
-//            case .serverErr: print("serverErr")
-//            case .networkFail: print("networkFail")
-//
-//            }
-//        }
-//    }
     
     func configureButtonBar() {
         settings.style.buttonBarBackgroundColor = .white
@@ -200,12 +172,31 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         child5.childNumber = "스터디"
         
         let child6 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
-
+        
         child6.childNumber = "기타"
         
         return [child1, child2, child3, child4, child5, child6]
     }
 }
+
+//MARK: - 통신
+extension SearchVC {
+    
+    func setDefaultRequest() {
+        KeywordServices.keywordServices.getKeywordRequest { data in
+            if let metaData = data {
+                self.keywordData = metaData
+            }
+        }
+        UsefulInformServices.usefulInformServices.getKeywordRequest { data in
+            if let metaData = data {
+                self.usefulData = metaData
+            }
+        }
+    }
+}
+
+
 extension UIButton {
     func centerTextAndImage(spacing: CGFloat) {
         let insetAmount = spacing / 2

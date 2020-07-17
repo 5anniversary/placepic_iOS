@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvZ-eJ-phw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvZ-eJ-phw">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -14,7 +14,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLw-9i-9UK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="264"/>
+            <point key="canvasLocation" x="2944" y="203"/>
         </scene>
         <!--WriteVC-->
         <scene sceneID="ZZy-L0-DO7">
@@ -24,7 +24,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WV8-q0-erA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893" y="264"/>
+            <point key="canvasLocation" x="3984" y="203"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="6i5-SV-v27">
@@ -34,7 +34,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ng-3X-jXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="264"/>
+            <point key="canvasLocation" x="910" y="203"/>
         </scene>
         <!--RankVC-->
         <scene sceneID="yvk-b5-M0o">
@@ -44,17 +44,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWu-oi-Xnv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3984" y="264"/>
+            <point key="canvasLocation" x="1893" y="203"/>
         </scene>
-        <!--navi-->
+        <!--MypageVC-->
         <scene sceneID="eSN-NW-G4b">
             <objects>
-                <viewControllerPlaceholder storyboardName="Mypage" referencedIdentifier="navi" id="qe2-nW-Mt7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Mypage" referencedIdentifier="MypageVC" id="qe2-nW-Mt7" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="geA-i6-9jo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9D-OL-kAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4985" y="264"/>
+            <point key="canvasLocation" x="4985" y="203"/>
         </scene>
         <!--Tabbar Controller-->
         <scene sceneID="LAU-0N-EAb">
@@ -111,7 +111,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ryn-gi-ym6" kind="relationship" relationship="rootViewController" id="zSj-2t-KN2"/>
+                        <segue destination="GpV-fN-hZE" kind="relationship" relationship="rootViewController" id="GOg-kP-Ihb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgV-8H-S3M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,7 +149,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="GpV-fN-hZE" kind="relationship" relationship="rootViewController" id="cdp-wP-ORy"/>
+                        <segue destination="Ryn-gi-ym6" kind="relationship" relationship="rootViewController" id="sAs-t5-7YZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmY-O9-d7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -10,8 +10,9 @@ import UIKit
 
 class HomeReviewCVC: UICollectionViewCell {
     
-    @IBOutlet weak var reviewTextfield: UITextView!
+    @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var reviewTitleLabel: UILabel!
+    var editingflag: Bool = false // false: Empty
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -19,10 +20,36 @@ class HomeReviewCVC: UICollectionViewCell {
     }
     
     private func setReviewTextField() {
+        
         reviewTitleLabel.font = Font.boldFontSize15
         reviewTitleLabel.textColor = UIColor.gray90
 
-        reviewTextfield.layer.cornerRadius = 5
-        reviewTextfield.backgroundColor = UIColor.gray10
+        reviewTextView.delegate = self
+        reviewTextView.layer.cornerRadius = 5
+        reviewTextView.backgroundColor = UIColor.gray10
     }
 }
+
+extension HomeReviewCVC: UITextViewDelegate {
+        	
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        reviewTextView.resignFirstResponder()
+        return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        print(#function)
+        if reviewTextView.text.isEmpty == true {
+            editingflag = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                NotificationCenter.default.post(name: .homeWriteTextViewisEditingNotification, object: nil, userInfo: ["editingflag" : self.editingflag])
+            })
+        } else {
+            editingflag = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                NotificationCenter.default.post(name: .homeWriteTextViewisEditingNotification, object: nil, userInfo: ["editingflag" : self.editingflag])
+            })
+        }
+    }
+}
+

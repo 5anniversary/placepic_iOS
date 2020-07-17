@@ -14,9 +14,34 @@
                     <view key="view" contentMode="scaleToFill" id="I3w-hf-8aR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lbz-ba-uSn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RankTVCIdentifer" id="wOp-1B-NVu" customClass="RankTVC" customModule="placepic" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wOp-1B-NVu" id="3J9-6z-QP6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KD4-cJ-whj" firstAttribute="trailing" secondItem="lbz-ba-uSn" secondAttribute="trailing" id="9uo-Lh-qFf"/>
+                            <constraint firstItem="lbz-ba-uSn" firstAttribute="leading" secondItem="KD4-cJ-whj" secondAttribute="leading" id="VPb-gB-gco"/>
+                            <constraint firstItem="lbz-ba-uSn" firstAttribute="top" secondItem="KD4-cJ-whj" secondAttribute="top" id="blg-3N-rFb"/>
+                            <constraint firstItem="KD4-cJ-whj" firstAttribute="bottom" secondItem="lbz-ba-uSn" secondAttribute="bottom" id="orx-Ep-lJ0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KD4-cJ-whj"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="lbz-ba-uSn" id="syn-yJ-PnX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xX1-W7-Wwg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

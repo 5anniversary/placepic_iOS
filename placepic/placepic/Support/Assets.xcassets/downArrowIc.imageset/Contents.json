@@ -2,18 +2,18 @@
   "images" : [
     {
       "scale" : "1x",
-      "filename" : "downArrowIc.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "downArrowIc.png"
     },
     {
-      "filename" : "downArrowIc@2x.png",
       "idiom" : "universal",
+      "filename" : "downArrowIc@2x.png",
       "scale" : "2x"
     },
     {
       "scale" : "3x",
-      "filename" : "downArrowIc@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "downArrowIc@3x.png"
     }
   ],
   "info" : {

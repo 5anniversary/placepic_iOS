@@ -2,8 +2,8 @@
   "images" : [
     {
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "addGroupIc.png"
+      "filename" : "addGroupIc.png",
+      "idiom" : "universal"
     },
     {
       "filename" : "addGroupIc@2x.png",
@@ -11,9 +11,9 @@
       "idiom" : "universal"
     },
     {
-      "scale" : "3x",
+      "filename" : "addGroupIc@3x.png",
       "idiom" : "universal",
-      "filename" : "addGroupIc@3x.png"
+      "scale" : "3x"
     }
   ],
   "info" : {
