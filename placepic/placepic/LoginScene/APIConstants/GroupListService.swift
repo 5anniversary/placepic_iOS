@@ -14,7 +14,8 @@ struct GroupListService {
     
     func grouplist (completion: @escaping (NetworkResult<Any>) -> Void) {
     
-        let header: HTTPHeaders = ["Content-Type": "application/json", "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjg5LCJuYW1lIjoi7ZmN7KSA7Je9IiwiaWF0IjoxNTk0NjE4NDkzLCJleHAiOjE1OTcyMTA0OTMsImlzcyI6InBsYWNlcGljIn0.p78Y5CFlUYNN-YFf4K5CT_sIilmVqNkazUMcn0mu2eU"] //Request Header 생성
+        guard let test = UserDefaults.standard.string(forKey: "token") else { return }
+        let header: HTTPHeaders = ["Content-Type": "application/json", "token":test] //Request Header 생성
         
         let detaRequest = Alamofire.request(APIConstants.mygrouplistURL, method: .get, encoding: JSONEncoding.default, headers: header)
         detaRequest.responseData { dataResponse in
