@@ -31,10 +31,15 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         setButtons()
         addObserver()
         setDefaultRequest()
+        self.view.addActivityIndicator()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            self.view.removeActivityIndicator()
+        })
         
     }
     @IBAction func nearstationButtonAction (_ sender: Any) {
-
+        
         let sb = UIStoryboard.init(name: "Home", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "subwayNavigation")
         present(vc, animated: true)
