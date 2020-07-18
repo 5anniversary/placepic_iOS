@@ -167,7 +167,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
                 case .success:
                     print(self.selectIdx)
 
-                    self.dismiss(animated: true, completion: nil)
+//                    self.dismiss(animated: true, completion: nil)
                 case .requestErr(let message):
                     guard let message = message as? String else { return }
                     let alertViewController = UIAlertController(title: "북마크 취소 실패", message: message, preferredStyle: .alert)
