@@ -20,6 +20,7 @@ enum Font {
     static let fontSize19 = UIFont(name: "AppleSDGothicNeo-Regular", size: 19)
     static let fontSize20 = UIFont(name: "AppleSDGothicNeo-Regular", size: 20)
 
+    static let boldFontSize11 = UIFont(name: "AppleSDGothicNeo-Bold", size: 11)
     static let boldFontSize12 = UIFont(name: "AppleSDGothicNeo-Bold", size: 12)
     static let boldFontSize13 = UIFont(name: "AppleSDGothicNeo-Bold", size: 13)
     static let boldFontSize14 = UIFont(name: "AppleSDGothicNeo-Bold", size: 14)

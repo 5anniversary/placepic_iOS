@@ -21,6 +21,7 @@ struct placeService {
         ]
         
         let parameters: Parameters = [
+            "categoryIdx": "categoryIdx=1",
             "tagIdx": keyword,
             "subwayIdx": subway
         ]
@@ -49,6 +50,7 @@ struct placeService {
             }
         } else if subway == "" {
             let keywordParam: Parameters = [
+                "categoryIdx": "categoryIdx=1",
                 "tagIdx": keyword,
             ]
             Alamofire.request(url, method: .get, parameters: keywordParam, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
@@ -74,6 +76,7 @@ struct placeService {
             }
         } else if keyword == "" {
             let subwayParam: Parameters = [
+                "categoryIdx": "categoryIdx=1",
                 "subwayIdx": subway
             ]
             Alamofire.request(url, method: .get, parameters: subwayParam, encoding: URLEncoding.queryString, headers: header).responseJSON { response in

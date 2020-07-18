@@ -99,7 +99,6 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         /// `3. 쿼리스트링 Int >> `
         if keyword.count != 0 {
             NotificationCenter.default.post(name: .searchKeywordNotification, object: self, userInfo: ["searchKeyword": keyword])
-            
             var word = ""
             
             for i in 0..<keyword.count {
@@ -116,12 +115,24 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                     
                     let LargeData = metaData
                     guard let datum = LargeData.result else { return }
-                    //                print("datum: \(datum)\n")
+                    print("datum: \(datum.count)\n")
                     self.placeListData = datum
                     self.placeListTV.reloadData()
                     self.sumNum.text = "총 \(self.placeListData.count)개 결과"
                 }
             }
+        } else {
+            placeService.shared.getPlaces(keywordquery, subwayquery) { data in
+                 if let metaData = data {
+                     
+                     let LargeData = metaData
+                     guard let datum = LargeData.result else { return }
+                     print("datum: \(datum.count)\n")
+                     self.placeListData = datum
+                     self.placeListTV.reloadData()
+                     self.sumNum.text = "총 \(self.placeListData.count)개 결과"
+                 }
+             }
         }
     }
     
@@ -130,14 +141,14 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
         useful = injectedModel
         
        if useful.count != 0 {
-            NotificationCenter.default.post(name: .searchKeywordNotification, object: self, userInfo: ["searchuseful": useful])
+        NotificationCenter.default.post(name: .searchUsefulNotification, object: self, userInfo: ["searchuseful": useful])
             var word = ""
             
-            for i in 0..<keyword.count {
-                if i == keyword.count {
-                    word = word + String(describing: keyword[i])
+            for i in 0..<useful.count {
+                if i == useful.count-1 {
+                    word = word + String(describing: useful[i])
                 } else {
-                    word = word + String(describing: keyword[i]) + ","
+                    word = word + String(describing: useful[i]) + ","
                 }
             }
             print("keyword : \(word)")
@@ -153,6 +164,18 @@ class ChildVC: UIViewController, IndicatorInfoProvider {
                     self.sumNum.text = "총 \(self.placeListData.count)개 결과"
                 }
             }
+        } else {
+            placeService.shared.getPlaces(keywordquery, subwayquery) { data in
+                 if let metaData = data {
+                     
+                     let LargeData = metaData
+                     guard let datum = LargeData.result else { return }
+                     print("datum: \(datum.count)\n")
+                     self.placeListData = datum
+                     self.placeListTV.reloadData()
+                     self.sumNum.text = "총 \(self.placeListData.count)개 결과"
+                 }
+             }
         }
     }
     private func setNavigationBar() {

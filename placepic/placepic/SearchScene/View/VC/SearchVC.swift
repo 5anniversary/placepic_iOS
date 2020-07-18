@@ -10,7 +10,7 @@ import XLPagerTabStrip
 
 class SearchVC: ButtonBarPagerTabStripViewController {
     
-//    var dataset: placeData?
+    //    var dataset: placeData?
     @IBOutlet var buttons: [UIButton]!
     var frame: CGRect!
     var label: UILabel!
@@ -50,10 +50,9 @@ class SearchVC: ButtonBarPagerTabStripViewController {
     @IBAction func usefulInfoButtonAction(_ sender: Any) {
         keywordModal.showSettings("장소 정보", usefulData)
     }
-        
+    
     private func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(buttonHidden), name: .changeChildViewVC, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(configureKeywordButton(_:)), name: .searchKeywordNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(configureUsefulButton(_:)), name: .searchUsefulNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(configureSubwayButton(_:)), name: .searchSubwayNotification, object: nil)
@@ -62,23 +61,26 @@ class SearchVC: ButtonBarPagerTabStripViewController {
     @objc func configureKeywordButton(_ notification: NSNotification) {
         guard let injectedModel = notification.userInfo?["searchKeyword"] as? [Int] else { return }
         
-        buttons[1].setTitle(String(describing: injectedModel.count), for: .normal)
+        buttons[1].setTitle(String(describing: "키워드 \(injectedModel.count)개"), for: .normal)
         buttons[1].setTitleColor(UIColor.white, for: .normal)
         buttons[1].backgroundColor = UIColor.warmPink
-        buttons[1].titleLabel?.font = Font.boldFontSize13
+        buttons[1].titleLabel?.font = Font.boldFontSize11
         buttons[1].layer.borderColor = UIColor.warmPink.cgColor
         buttons[1].layer.borderWidth = 1
         buttons[1].setImage(UIImage(named: "whiteDownArrowIc"), for: .normal)
-        
     }
     
     @objc func configureUsefulButton(_ notification: NSNotification) {
+        print()
+        
+        print(#function)
         guard let injectedModel = notification.userInfo?["searchuseful"] as? [Int] else { return }
         
-        buttons[2].setTitle(String(describing: injectedModel.count), for: .normal)
+        buttons[2].setTitle(String(describing: "장소정보 \(injectedModel.count)개"), for: .normal)
+        buttons[2].frame = CGRect(x: 182, y: 14, width: 100, height: 30)
         buttons[2].setTitleColor(UIColor.white, for: .normal)
         buttons[2].backgroundColor = UIColor.warmPink
-        buttons[2].titleLabel?.font = Font.boldFontSize13
+        buttons[2].titleLabel?.font = Font.boldFontSize11
         buttons[2].layer.borderColor = UIColor.warmPink.cgColor
         buttons[2].layer.borderWidth = 1
         buttons[2].setImage(UIImage(named: "whiteDownArrowIc"), for: .normal)
@@ -93,14 +95,14 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         guard let childNumber = notification.userInfo?["childNumber"] as? String else { return }
         print(childNumber)
         
-        if childNumber == "전체" {
-            buttons[1].isHidden = true
-            buttons[2].isHidden = true
-        } else {
-            buttons.forEach({
-                $0.isHidden = false
-            })
-        }
+//        if childNumber == "전체" {
+//            buttons[1].isHidden = true
+//            buttons[2].isHidden = true
+//        } else {
+//            buttons.forEach({
+//                $0.isHidden = false
+//            })
+//        }
     }
     
     func set() {
