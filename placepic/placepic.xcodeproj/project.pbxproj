@@ -1067,6 +1067,7 @@
 				3DECB7C324A9311200D54DBF /* Extensions+String.swift in Sources */,
 				13AACE9324C1B3EE000E89EC /* GroupSendService.swift in Sources */,
 				AE0192E424BCE6190051ACE6 /* PlaceSearchModel.swift in Sources */,
+				3D6F83AD24BB0E0B00ACD85A /* ArticleWritingServices.swift in Sources */,
 				AE6A0B3224C0C0F600D5DE00 /* bookmarkService.swift in Sources */,
 				13B9DC0124BD963200D15591 /* APIConstants.swift in Sources */,
 				3DCE5F7B24B51B1D00BAF927 /* HomeReviewCVC.swift in Sources */,

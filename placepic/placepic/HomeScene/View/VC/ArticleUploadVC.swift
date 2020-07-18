@@ -192,6 +192,7 @@ extension ArticleUploadVC {
             return
         }
         
+        print("injectedModel : \(injectedModel)")
         keywordData.enumerated().forEach({
             guard let index = $1.tagIdx else { return }
             for i in 0..<injectedModel.count {
@@ -210,6 +211,7 @@ extension ArticleUploadVC {
             return
         }
 
+        print("injectedModel : \(injectedModel)")
         usefulKeywordData.enumerated().forEach({
             guard let index = $1.tagIdx else { return }
             for i in 0..<injectedModel.count {

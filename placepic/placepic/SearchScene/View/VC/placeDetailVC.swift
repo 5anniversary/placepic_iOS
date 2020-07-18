@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 import NMapsMap
 import FSPagerView
 import Kingfisher
@@ -49,6 +50,25 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         }
     }
     
+    @IBAction func webButton(_ sender: Any) {
+//        print(placeDetailData?.mobileNaverMapLink ?? "")
+//        guard let urls = URL(string: placeDetailData!.mobileNaverMapLink), UIApplication.shared.canOpenURL(urls) else { return }
+//        print("url : \(urls)")
+//        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        
+//        let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+//        let url = URL(string: encodedString)!
+        
+        guard let url = placeDetailData?.mobileNaverMapLink else { return }
+        let encodedString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        guard let urlString = URL(string: encodedString) else { return }
+
+        //        guard let url = urlString else { return }
+        let safariViewController = SFSafariViewController(url: urlString)
+        present(safariViewController, animated: true, completion: nil)
+
+
+    }
     @IBAction func likeButton(_ sender: Any) {
         
         guard var like = placeDetailData?.likeCount else { return }
@@ -167,7 +187,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         }
     }
     @IBOutlet var pageControl: FSPageControl!{
-        //홍보배너 밑에 띄울 페이지컨트롤
+        //페이지컨트롤
         didSet {
             self.pageControl.numberOfPages = imageNames.count //페이지 수
             self.pageControl.contentHorizontalAlignment = .center //중앙에 배치
@@ -177,15 +197,16 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDetailData()
-
-        
+        getDetailData()        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setData()
         setView()
         setNavigationBar()
+        
+        self.pageControl.setImage(UIImage(named: "circle1"), for: .selected)
+        self.pageControl.setImage(UIImage(named: "circle2"), for: .normal)
     }
     
     private func setData(){
@@ -212,7 +233,20 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         heartbutView.layer.borderColor = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1).cgColor
         
         //**setTag
-        if placeDetailData?.keyword.count == 1{
+        for i in 0..<3{
+            placeTag[i].clipsToBounds = true
+            placeTag[i].layer.borderWidth = 2
+            placeTag[i].layer.borderColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
+            placeTag[i].backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
+            placeTag[i].layer.cornerRadius = 4
+            placeTag[i].isEnabled = false
+        }
+        if placeDetailData?.keyword.count == 0{
+            placeTag[0].isHidden = true
+            placeTag[1].isHidden = true
+            placeTag[2].isHidden = true
+        }
+        else if placeDetailData?.keyword.count == 1{
             placeTag[0].text = placeDetailData?.keyword[0]
             placeTag[1].isHidden = true
             placeTag[2].isHidden = true
@@ -227,19 +261,7 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             placeTag[1].text = placeDetailData?.keyword[1]
             placeTag[2].text = placeDetailData?.keyword[2]
         }
-        else if placeDetailData?.keyword.count == 0{
-            placeTag[0].isHidden = true
-            placeTag[1].isHidden = true
-            placeTag[2].isHidden = true
-        }
-        for i in 0..<3{
-            placeTag[i].clipsToBounds = true
-            placeTag[i].layer.borderWidth = 2
-            placeTag[i].layer.borderColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1).cgColor
-            placeTag[i].backgroundColor = UIColor(red: 0.945, green: 0.957, blue: 0.961, alpha: 1)
-            placeTag[i].layer.cornerRadius = 4
-            placeTag[i].isEnabled = false
-        }
+        
         scrapNum.text = "\(scrapcount)"
 
         if placeDetailData?.categoryIdx == 1{
@@ -300,7 +322,6 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
         if placeDetailData?.isBookmarked == true{
             bookmarkButton.setImage(UIImage(named: "icSelectedBookmark"), for: .normal)
         }
-        
     }
     
     private func getDetailData() {
@@ -309,8 +330,8 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             case .success(let products):
                 guard let places = products as? DetailModel else { return }
                 self.placeDetailData = places
-                self.viewWillAppear(true)
                 self.detailImg.reloadData()
+                self.viewWillAppear(true)
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "조회 실패", message: message, preferredStyle: .alert)
@@ -324,12 +345,18 @@ class placeDetailVC: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate 
             }
         }
     }
+    
+    @IBOutlet weak var webButton: UIButton!
+    
     private func setView(){
+        webButton.layer.borderWidth = 1.5
+        webButton.layer.cornerRadius = 7
+        webButton.layer.borderColor = UIColor.gray50.cgColor
+//        webButton.layer.borderColor = CGColor.init(srgbRed: 173, green: 182, blue: 189, alpha: 0)
         detailViewHC.constant = self.detailTextView.contentSize.height
-//        detailViewHC.constant = CGFloat(100)
 
         profileImg.layer.cornerRadius = profileImg.frame.height/2
-        detailImg.isInfinite = true
+        detailImg.isInfinite = false
         buttonView.layer.cornerRadius = 4
         
         heartbutView.layer.cornerRadius = 4
