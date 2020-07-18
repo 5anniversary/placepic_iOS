@@ -31,10 +31,15 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         setButtons()
         addObserver()
         setDefaultRequest()
+        self.view.addActivityIndicator()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            self.view.removeActivityIndicator()
+        })
         
     }
     @IBAction func nearstationButtonAction (_ sender: Any) {
-
+        
         let sb = UIStoryboard.init(name: "Home", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "subwayNavigation")
         present(vc, animated: true)
@@ -48,7 +53,41 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         
     private func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(buttonHidden), name: .changeChildViewVC, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(configureKeywordButton(_:)), name: .searchKeywordNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(configureUsefulButton(_:)), name: .searchUsefulNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(configureSubwayButton(_:)), name: .searchSubwayNotification, object: nil)
     }
+    
+    @objc func configureKeywordButton(_ notification: NSNotification) {
+        guard let injectedModel = notification.userInfo?["searchKeyword"] as? [Int] else { return }
+        
+        buttons[1].setTitle(String(describing: injectedModel.count), for: .normal)
+        buttons[1].setTitleColor(UIColor.white, for: .normal)
+        buttons[1].backgroundColor = UIColor.warmPink
+        buttons[1].titleLabel?.font = Font.boldFontSize13
+        buttons[1].layer.borderColor = UIColor.warmPink.cgColor
+        buttons[1].layer.borderWidth = 1
+        buttons[1].setImage(UIImage(named: "whiteDownArrowIc"), for: .normal)
+        
+    }
+    
+    @objc func configureUsefulButton(_ notification: NSNotification) {
+        guard let injectedModel = notification.userInfo?["searchuseful"] as? [Int] else { return }
+        
+        buttons[2].setTitle(String(describing: injectedModel.count), for: .normal)
+        buttons[2].setTitleColor(UIColor.white, for: .normal)
+        buttons[2].backgroundColor = UIColor.warmPink
+        buttons[2].titleLabel?.font = Font.boldFontSize13
+        buttons[2].layer.borderColor = UIColor.warmPink.cgColor
+        buttons[2].layer.borderWidth = 1
+        buttons[2].setImage(UIImage(named: "whiteDownArrowIc"), for: .normal)
+    }
+    
+    @objc func configureSubwayButton(_ notification: NSNotification) {
+        
+    }
+    
     
     @objc func buttonHidden(_ notification: NSNotification) {
         guard let childNumber = notification.userInfo?["childNumber"] as? String else { return }
@@ -155,12 +194,10 @@ class SearchVC: ButtonBarPagerTabStripViewController {
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
         let child1 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
-        
         child1.childNumber = "전체"
         
         let child2 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child2.childNumber = "맛집"
-        
         
         let child3 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
         child3.childNumber = "술집"
@@ -172,7 +209,6 @@ class SearchVC: ButtonBarPagerTabStripViewController {
         child5.childNumber = "스터디"
         
         let child6 = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "ChildViewController") as! ChildVC
-        
         child6.childNumber = "기타"
         
         return [child1, child2, child3, child4, child5, child6]
@@ -181,7 +217,6 @@ class SearchVC: ButtonBarPagerTabStripViewController {
 
 //MARK: - 통신
 extension SearchVC {
-    
     func setDefaultRequest() {
         KeywordServices.keywordServices.getKeywordRequest { data in
             if let metaData = data {

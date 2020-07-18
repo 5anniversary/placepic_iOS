@@ -309,7 +309,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1070"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEa-DX-RUi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1070.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1094"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UB6-bg-mDO" customClass="FSPagerView" customModule="FSPagerView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
@@ -460,13 +460,6 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1H-6t-vba">
-                                                <rect key="frame" x="14" y="832.5" width="347" height="16.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                <state key="normal" title="  더 많은 정보 보러가기" image="icMapPin">
-                                                    <color key="titleColor" red="0.38823529411764707" green="0.38823529411764707" blue="0.38823529411764707" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HLM-Ei-UlW">
                                                 <rect key="frame" x="14" y="670.5" width="104" height="23"/>
                                                 <subviews>
@@ -548,7 +541,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2Z-Ze-qUb">
-                                                <rect key="frame" x="0.0" y="917.5" width="375" height="153"/>
+                                                <rect key="frame" x="0.0" y="941" width="375" height="153"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPlacepic" translatesAutoresizingMaskIntoConstraints="NO" id="ah7-vi-pfq">
                                                         <rect key="frame" x="157" y="121" width="61" height="17"/>
@@ -566,6 +559,19 @@
                                                     <constraint firstItem="ah7-vi-pfq" firstAttribute="leading" secondItem="u2Z-Ze-qUb" secondAttribute="leading" constant="157" id="wZl-Rp-wer"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1H-6t-vba">
+                                                <rect key="frame" x="14" y="832.5" width="347" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="seu-PT-zSo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <state key="normal" title="  더 많은 정보 보러가기" image="icMapPin">
+                                                    <color key="titleColor" red="0.38823529411764707" green="0.38823529411764707" blue="0.38823529411764707" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="webButton:" destination="F5B-vE-VBo" eventType="touchUpInside" id="OwT-fJ-SuZ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -629,16 +635,21 @@
                                             <constraint firstAttribute="trailing" secondItem="d1H-6t-vba" secondAttribute="trailing" constant="14" id="zxQ-1X-dTs"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1d3-mr-Hcr" customClass="FSPageControl" customModule="FSPagerView">
-                                        <rect key="frame" x="156" y="329" width="62" height="8"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1d3-mr-Hcr" customClass="FSPageControl" customModule="FSPagerView">
+                                        <rect key="frame" x="159" y="357" width="56" height="8"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="S4b-y3-SAh"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="IEa-DX-RUi" secondAttribute="bottom" id="1rQ-gm-Z1C"/>
                                     <constraint firstItem="IEa-DX-RUi" firstAttribute="leading" secondItem="jCU-1t-xE1" secondAttribute="leading" id="Buq-AJ-oSR"/>
+                                    <constraint firstAttribute="trailing" secondItem="1d3-mr-Hcr" secondAttribute="trailing" constant="160" id="Kkv-Yv-QxV"/>
+                                    <constraint firstItem="1d3-mr-Hcr" firstAttribute="top" secondItem="jCU-1t-xE1" secondAttribute="top" constant="357" id="TNu-L9-orV"/>
                                     <constraint firstAttribute="trailing" secondItem="IEa-DX-RUi" secondAttribute="trailing" id="ZBo-xP-2sD"/>
+                                    <constraint firstItem="1d3-mr-Hcr" firstAttribute="leading" secondItem="jCU-1t-xE1" secondAttribute="leading" constant="159" id="o5M-Jg-1Zg"/>
                                     <constraint firstItem="IEa-DX-RUi" firstAttribute="top" secondItem="jCU-1t-xE1" secondAttribute="top" id="yPV-c5-PZv"/>
                                 </constraints>
                             </scrollView>
@@ -677,6 +688,7 @@
                         <outlet property="scrapNum" destination="30p-o6-MQz" id="hMI-5I-aIn"/>
                         <outlet property="userName" destination="HPf-Lw-jfb" id="eM8-um-zT1"/>
                         <outlet property="userPart" destination="2mI-Jq-zrN" id="kzR-4E-mZT"/>
+                        <outlet property="webButton" destination="d1H-6t-vba" id="Koq-bu-1hA"/>
                         <outletCollection property="placeTag" destination="YYa-e7-LUw" collectionClass="NSMutableArray" id="y8X-Jc-XJ7"/>
                         <outletCollection property="placeTag" destination="hzh-Cq-tyb" collectionClass="NSMutableArray" id="GXg-mh-sLf"/>
                         <outletCollection property="placeTag" destination="z9J-gh-6Qx" collectionClass="NSMutableArray" id="lPM-be-Foy"/>
@@ -700,6 +712,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2SY-hn-Bdo">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 같이 가고싶어하는 사람이 없습니다! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLU-Pe-jyZ">
+                                                <rect key="frame" x="65" y="314" width="246" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.80784313725490198" green="0.83137254901960778" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noUserIc" translatesAutoresizingMaskIntoConstraints="NO" id="qVu-Ry-6ls">
+                                                <rect key="frame" x="171" y="267" width="33" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="3ym-dl-wmI"/>
+                                                    <constraint firstAttribute="width" constant="33" id="fmb-Co-Je3"/>
+                                                </constraints>
+                                            </imageView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gbJ-pV-rr6">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -763,7 +788,13 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="gbJ-pV-rr6" secondAttribute="bottom" id="9UJ-eH-IK3"/>
                                             <constraint firstItem="gbJ-pV-rr6" firstAttribute="leading" secondItem="2SY-hn-Bdo" secondAttribute="leading" id="IZZ-GT-otg"/>
+                                            <constraint firstItem="qVu-Ry-6ls" firstAttribute="leading" secondItem="2SY-hn-Bdo" secondAttribute="leading" constant="171" id="N6e-PD-5Ne"/>
                                             <constraint firstAttribute="trailing" secondItem="gbJ-pV-rr6" secondAttribute="trailing" id="SLz-Wn-hys"/>
+                                            <constraint firstItem="WLU-Pe-jyZ" firstAttribute="leading" secondItem="2SY-hn-Bdo" secondAttribute="leading" constant="65" id="Ufk-E5-a0e"/>
+                                            <constraint firstItem="qVu-Ry-6ls" firstAttribute="top" secondItem="2SY-hn-Bdo" secondAttribute="top" constant="267" id="YFg-El-536"/>
+                                            <constraint firstAttribute="trailing" secondItem="qVu-Ry-6ls" secondAttribute="trailing" constant="171" id="jvw-XO-omH"/>
+                                            <constraint firstAttribute="trailing" secondItem="WLU-Pe-jyZ" secondAttribute="trailing" constant="64" id="psI-G8-8qe"/>
+                                            <constraint firstItem="WLU-Pe-jyZ" firstAttribute="top" secondItem="qVu-Ry-6ls" secondAttribute="bottom" constant="14" id="rjP-dp-Tha"/>
                                             <constraint firstItem="gbJ-pV-rr6" firstAttribute="top" secondItem="2SY-hn-Bdo" secondAttribute="top" id="ymT-Xl-BXI"/>
                                         </constraints>
                                     </view>
@@ -794,7 +825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n4U-0F-wNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2199.1999999999998" y="-45.42728635682159"/>
+            <point key="canvasLocation" x="-2222" y="-46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cpw-UU-KFW">
@@ -823,5 +854,6 @@
         <image name="icUnselectedBookmark" width="28" height="28.5"/>
         <image name="icUnselectedHeart" width="28" height="28.5"/>
         <image name="nextArrowIc" width="24" height="24"/>
+        <image name="noUserIc" width="40" height="40"/>
     </resources>
 </document>

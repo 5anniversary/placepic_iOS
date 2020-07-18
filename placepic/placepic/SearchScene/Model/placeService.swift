@@ -12,34 +12,112 @@ import Alamofire
 struct placeService {
     static let shared = placeService()
     
-    func getPlaces(_ queryurl: String, completion: @escaping (placeListClass?)-> Void) {
+    func getPlaces(_ keyword: String, _ subway: String, completion: @escaping (placeListClass?)-> Void) {
         
-        let url = placeListAPI.getplacedURL + queryurl
+        let url = placeListAPI.getplacedURL
         let header: HTTPHeaders = [
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjMsIm5hbWUiOiLstZzsmIHtm4giLCJpYXQiOjE1OTM2OTkxODMsImV4cCI6MTU5NjI5MTE4MywiaXNzIjoicGxhY2VwaWMifQ.rmFbeBfviyEzbMlMM4b3bMMiRcNDDbiX8bQtwL_cuN0",
             "Content-Type": "application/json"
         ]
         
-        Alamofire.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: header).responseJSON { response in
-            
-            switch response.result {
-            case .success:
-                guard let data = response.data else { return }
-                do {
-                    let decoder = JSONDecoder()
-                    let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
-                    if object.success {
-                        completion(object.data)
-                        
-                    } else {
-                        completion(nil)
+        let parameters: Parameters = [
+            "tagIdx": keyword,
+            "subwayIdx": subway
+        ]
+        
+        if keyword == "" && subway == "" {
+            Alamofire.request(url, method: .get, parameters: .none, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+                print("request:: \(response.request)")
+                switch response.result {
+                case .success:
+                    guard let data = response.data else { return }
+                    do {
+                        let decoder = JSONDecoder()
+                        let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
+                        if object.success {
+                            completion(object.data)
+                        } else {
+                            completion(nil)
+                        }
+                    } catch (let err) {
+                        print(err.localizedDescription)
                     }
-                } catch (let err) {
-                    print(err.localizedDescription)
+                    
+                case .failure:
+                    completion(nil)
                 }
-                
-            case .failure:
-                completion(nil)
+            }
+        } else if subway == "" {
+            let keywordParam: Parameters = [
+                "tagIdx": keyword,
+            ]
+            Alamofire.request(url, method: .get, parameters: keywordParam, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
+                print("request:: \(response.request)")
+                switch response.result {
+                case .success:
+                    guard let data = response.data else { return }
+                    do {
+                        let decoder = JSONDecoder()
+                        let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
+                        if object.success {
+                            completion(object.data)
+                        } else {
+                            completion(nil)
+                        }
+                    } catch (let err) {
+                        print(err.localizedDescription)
+                    }
+                    
+                case .failure:
+                    completion(nil)
+                }
+            }
+        } else if keyword == "" {
+            let subwayParam: Parameters = [
+                "subwayIdx": subway
+            ]
+            Alamofire.request(url, method: .get, parameters: subwayParam, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
+                print("request:: \(response.request)")
+                switch response.result {
+                case .success:
+                    guard let data = response.data else { return }
+                    do {
+                        let decoder = JSONDecoder()
+                        let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
+                        if object.success {
+                            completion(object.data)
+                        } else {
+                            completion(nil)
+                        }
+                    } catch (let err) {
+                        print(err.localizedDescription)
+                    }
+                    
+                case .failure:
+                    completion(nil)
+                }
+            }
+        } else if keyword != "" && subway != "" {
+            Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
+                print("request:: \(response.request)")
+                switch response.result {
+                case .success:
+                    guard let data = response.data else { return }
+                    do {
+                        let decoder = JSONDecoder()
+                        let object = try decoder.decode(TempResponseResult<placeListClass>.self, from: data)
+                        if object.success {
+                            completion(object.data)
+                        } else {
+                            completion(nil)
+                        }
+                    } catch (let err) {
+                        print(err.localizedDescription)
+                    }
+                    
+                case .failure:
+                    completion(nil)
+                }
             }
         }
     }
