@@ -138,7 +138,6 @@ class KeywordLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
             guard let index: [IndexPath] = collectionView.indexPathsForSelectedItems else { return }
             var sendIndex: [Int] = []
 
-
             if useful.count != 0 {
                 for i in 0..<index.count {
                     sendIndex.append(useful[index[i][1]].tagIdx ?? 0)

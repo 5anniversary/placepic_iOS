@@ -84,7 +84,7 @@
         <scene sceneID="wY2-cf-Z4r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NJD-1x-113" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="장소" image="placeDisabled" selectedImage="placeSelected" id="RUO-VE-Vg6"/>
+                    <tabBarItem key="tabBarItem" title="장소" image="icUnselectedPlace" selectedImage="icSelectedPlace" id="RUO-VE-Vg6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TUj-DW-tAR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -177,12 +177,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icSelectedPlace" width="24" height="24"/>
+        <image name="icUnselectedPlace" width="24" height="24"/>
         <image name="mypageDisabled" width="25" height="25"/>
         <image name="mypageSelected" width="25" height="25"/>
         <image name="peopleDisabled" width="25" height="25"/>
         <image name="peopleSelected" width="25" height="25"/>
-        <image name="placeDisabled" width="25" height="25"/>
-        <image name="placeSelected" width="25" height="25"/>
         <image name="scrapDisabled" width="25" height="25"/>
         <image name="scrapSelected" width="25" height="25"/>
         <image name="uploadDisabled" width="25" height="25"/>

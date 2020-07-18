@@ -26,7 +26,6 @@ class SigninVC: UIViewController {
             switch networkResult {
                 
             case .success(let token):
-                
                 guard let token = token as? String else { return }
 //                print("11231312312312312")
 //                print(token)
